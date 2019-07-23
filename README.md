@@ -1,8 +1,9 @@
-# dotfiles
+# Dotfiles
 Valentin's dotfiles
 
-## usage
+## Usage
+```
 git clone https://github.com/89iuv/dotfiles.git .dotfiles
 cd .dotfiles
 ./install.sh
-
+```
