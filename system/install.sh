@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# vars
+user=`whoami`
+
 # dependencies
-sudo apt install -y git-all
 sudo apt install -y zsh
 
 
 # shell configure
-chsh -s `which zsh` `whoami`
+sudo chsh -s `which zsh` $user
 
