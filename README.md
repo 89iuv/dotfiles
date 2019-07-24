@@ -5,8 +5,7 @@ Valentin's dotfiles
 1. Run commands:
 ```
 git clone --recursive git@github.com:89iuv/dotfiles.git .dotfiles
-cd .dotfiles
-./install.sh
+./.dotfiles/install.sh
 ```
 
 2. Restart shell
