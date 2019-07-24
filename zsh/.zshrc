@@ -74,7 +74,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( zsh-autosuggestions )
+plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,3 +103,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# PowerLevel9k
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status background_jobs root_indicator history time date)
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\UE0BC'
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\U2215'
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\UE0BA'
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\U2215'
+
+
+# POWERLEVEL9K_MODE='nerdfont-complete'
+
+
