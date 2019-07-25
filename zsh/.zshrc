@@ -74,7 +74,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions)
+plugins=(zsh-autosuggestions history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,11 +117,19 @@ POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\U2215'
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\UE0BA'
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\U2215'
 
-
-# POWERLEVEL9K_MODE='nerdfont-complete'
-
 # ZSH Autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=true
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,underline'
+ZSH_AUTOSUGGEST_MANUAL_REBIND=true
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
+
+# ZSH History Substring Search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+#setopt HIST_IGNORE_ALL_DUPS
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='underline'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
+
 

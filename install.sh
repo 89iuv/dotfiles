@@ -16,4 +16,5 @@ ln -s git/.gitconfig ~/.gitconfig
 ln -s zsh/.zshrc ~/.zshrc
 ln -s zsh/powerlevel10k zsh/oh-my-zsh/custom/themes
 ln -s zsh/zsh-autosuggestions zsh/oh-my-zsh/custom/plugins
-
+ln -s zsh/zsh-autosuggestions zsh/oh-my-zsh/custom/plugins
+ln -s zsh/zsh-history-substring-search zsh/oh-my-zsh/custom/plugins
