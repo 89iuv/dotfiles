@@ -1,7 +1,7 @@
 # Dotfiles
 Valentin's dotfiles
 
-## Dependency
+## Distro
 Run on Ubuntu >= 18.04
 
 ## Usage
