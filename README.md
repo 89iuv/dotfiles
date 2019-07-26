@@ -1,8 +1,8 @@
 # Dotfiles
 Valentin's dotfiles
 
-## Info
-Tested on Ubuntu 19.04
+## Distro
+Run on Ubuntu >= 18.04
 
 ## Usage
 1. Run commands in home folder:
