@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 
 # PowerLevel9k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status background_jobs root_indicator history time date)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs root_indicator history time date)
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
