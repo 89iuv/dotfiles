@@ -12,7 +12,7 @@ zsh=`which zsh`
 sudo chsh -s $zsh $user
 
 # links
-ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
+ln -s $path/git/.gitconfig ~/.gitconfig
 
 ln -s $path/zsh/.zshrc ~/.zshrc
 ln -s $path/zsh/powerlevel10k zsh/oh-my-zsh/custom/themes
