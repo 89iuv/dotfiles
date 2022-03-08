@@ -24,4 +24,5 @@ ln -s $path/zsh/.zshrc ~/.zshrc
 ln -s $path/zsh/.p10k.zsh ~/.p10k.zsh
 
 ln -s $path/vim/.vimrc ~/.vimrc
+ln -s $path/tmux/.tmux.conf ~/.tmux.conf
 
