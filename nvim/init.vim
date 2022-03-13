@@ -1,7 +1,6 @@
 call plug#begin()
 
 " Theme
-Plug 'nanotech/jellybeans.vim'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Initialize plugin system
@@ -20,8 +19,12 @@ EOF
 colorscheme catppuccin
 
 " Usability
+set path+=**
 syntax on
-set number
+set number relativenumber
+
+" disable cursor change
+set guicursor=
 
 " enable 24bit colors
 set termguicolors
