@@ -22,6 +22,7 @@ colorscheme catppuccin
 set path+=**
 syntax on
 set number relativenumber
+set nowrap
 
 " disable cursor change
 set guicursor=
