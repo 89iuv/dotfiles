@@ -1,8 +1,5 @@
 call plug#begin()
 
-" Git
-Plug 'mhinz/vim-signify'
-
 " Theme
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
@@ -22,19 +19,14 @@ EOF
 colorscheme catppuccin
 
 " Usability
-set path+=**
 syntax on
-set number relativenumber
+set number 
+set relativenumber
 set nowrap
 
 " Netwr
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-" let g:netrw_winsize = 20
-" let g:netrw_browse_split = 4
-
-" Key bindings
-" nnoremap <M-1> :vs . <CR>
 
 " Enable 24bit colors
 set termguicolors
