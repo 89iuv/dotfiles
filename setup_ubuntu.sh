@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "install and configure ubuntu dependencies"
+
 # dependencies
 sudo add-apt-repository ppa:neovim-ppa/stable
 

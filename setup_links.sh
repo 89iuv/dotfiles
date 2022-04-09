@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "create links for config files"
+
 # vars
 path=`pwd`
 
