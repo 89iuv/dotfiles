@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# vars
+path=`pwd`
+
 # links
 ln -s $path/zsh/oh-my-zsh ~/.oh-my-zsh
 ln -s $path/zsh/powerlevel10k zsh/oh-my-zsh/custom/themes
