@@ -6,7 +6,7 @@ echo "install and configure ubuntu dependencies"
 sudo add-apt-repository ppa:neovim-ppa/stable
 
 sudo apt-get update
-sudo apt-get install -y zsh neovim
+sudo apt-get install -y zsh neovim ripgrep
 
 # vars
 user=`whoami`

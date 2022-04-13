@@ -43,6 +43,7 @@ M.ui = {
 
 M.plugins = {
   status = {
+    colorizer = true, 
     alpha = true -- dashboard
   },
   options = {
@@ -57,6 +58,21 @@ M.plugins = {
       },
       git = {
         enable = true
+      }
+    },
+    nvim_treesitter = {
+      ensure_installed = {
+        "bash",
+        "vim",
+        "lua",
+        "c",
+        "cpp",
+        "html",
+        "css",
+        "javascript",
+        "java",
+        "markdown",
+        "yaml"
       }
     },
     telescope = {
