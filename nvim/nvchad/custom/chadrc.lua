@@ -27,6 +27,7 @@ local function button(sc, txt, keybind)
 end
 
 -- Just an example, supposed to be placed in /lua/custom/
+local userPlugins = require "custom.plugins"
 
 local M = {}
 
@@ -96,8 +97,16 @@ M.plugins = {
       signs = {
         delete = { hl = "DiffDelete", text = "-", numhl = "GitSignsDeleteNr" }
       }
+    },
+    bufferline = {
+      options = {
+        close_command = function(bufnum)
+          require('bufdelete').bufdelete(bufnum, false)
+        end 
+      }
     }
-  }
+  },
+  install = userPlugins
 }
 
 return M
