@@ -1,6 +1,12 @@
 return {
-  {"famiu/bufdelete.nvim"},
-  {"Pocco81/AutoSave.nvim",
+  {
+    'williamboman/nvim-lsp-installer',
+  },
+  {
+    "famiu/bufdelete.nvim"
+  },
+  {
+    "Pocco81/AutoSave.nvim",
     config = function()
       local autosave = require "autosave"
 

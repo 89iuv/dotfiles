@@ -35,7 +35,7 @@ local M = {}
 -- example of changing theme:
 
 M.options = {
-   relativenumber = true,
+  relativenumber = true,
 }
 
 M.ui = {
@@ -44,13 +44,16 @@ M.ui = {
 
 M.plugins = {
   status = {
-    colorizer = true, 
+    colorizer = true,
     alpha = true -- dashboard
   },
   options = {
     statusline = {
       style = "block" -- default, round , slant , block , arrow
-    }
+    },
+    lspconfig = {
+      setup_lspconf = "custom.plugins.configs.lspconfig",
+    },
   },
   default_plugin_config_replace = {
     nvim_tree = {
@@ -102,7 +105,7 @@ M.plugins = {
       options = {
         close_command = function(bufnum)
           require('bufdelete').bufdelete(bufnum, false)
-        end 
+        end
       }
     }
   },
