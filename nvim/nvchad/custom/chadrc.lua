@@ -62,6 +62,16 @@ M.plugins = {
       },
       git = {
         enable = true
+      },
+      diagnostics = {
+        enable = true,
+        show_on_dirs = true,
+        icons = {
+          hint = "",
+          info = "",
+          warning = "",
+          error = "",
+        }
       }
     },
     nvim_treesitter = {
@@ -103,10 +113,14 @@ M.plugins = {
     },
     bufferline = {
       options = {
+        diagnostics = "nvim_lsp",
         close_command = function(bufnum)
           require('bufdelete').bufdelete(bufnum, false)
         end
       }
+    },
+    indent_blankline = {
+      show_first_indent_level = true
     }
   },
   install = userPlugins
