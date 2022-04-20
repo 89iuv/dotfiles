@@ -12,6 +12,7 @@ wk.register({
       name = "+explorer",
       t = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
       f = { "<cmd>NvimTreeFocus<cr>", "Focus" },
+      r = { "<cmd>NvimTreeRefresh<cr>", "Refersh" },
     },
     w = {
       name = "+window",
