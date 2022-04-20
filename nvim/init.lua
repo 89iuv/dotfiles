@@ -5,4 +5,3 @@ require"core.keymappings"
 -- plugin manager
 require"plugins.plugin-manager"
 
-

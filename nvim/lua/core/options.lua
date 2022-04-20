@@ -15,6 +15,7 @@ vim.opt.shiftwidth = 2
 vim.opt.undofile = true
 vim.diagnostic.config({
   signs = false,
+  update_in_insert = true,
   severity_sort = true,
 })
 

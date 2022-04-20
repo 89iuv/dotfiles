@@ -16,6 +16,7 @@ require('packer').startup({
     use {"lukas-reineke/indent-blankline.nvim"}
     use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {"terrortylor/nvim-comment"}
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use {'lewis6991/gitsigns.nvim'}
     use {'Pocco81/AutoSave.nvim'}
@@ -55,6 +56,7 @@ require"plugins.configs.lualine"
 require"plugins.configs.indent-blankline"
 require"plugins.configs.telescope"
 require"plugins.configs.nvim-treesitter"
+require"plugins.configs.nvim-comment"
 require"plugins.configs.nvim-lsp-installer"
 require"plugins.configs.gitsigns"
 require"plugins.configs.autosave"
