@@ -1,22 +1,8 @@
 -- global
-require"options"
-require"keymappings"
+require"core.options"
+require"core.keymappings"
 
 -- plugin manager
-require"plugins"
+require"plugins.plugin-manager"
 
--- themes config
-require"configs.catppuccin"
-
--- plugins configs
-require"configs.bufferline"
-require"configs.nvim-tree"
-require"configs.indent-blankline"
-require"configs.which-key"
-require"configs.nvim-treesitter"
-require"configs.nvim-lsp-installer"
-require"configs.telescope"
-require"configs.gitsigns"
-require"configs.lualine"
-require"configs.autosave"
 

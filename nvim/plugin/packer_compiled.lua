@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/vuveges/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
-  ["feline.nvim"] = {
-    loaded = true,
-    path = "/Users/vuveges/.local/share/nvim/site/pack/packer/start/feline.nvim",
-    url = "https://github.com/feline-nvim/feline.nvim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/vuveges/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
