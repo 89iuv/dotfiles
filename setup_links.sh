@@ -17,5 +17,5 @@ ln -s $path/zsh/.p10k.zsh ~/.p10k.zsh
 
 ln -s $path/tmux/.tmux.conf ~/.tmux.conf
 
-ln -s $path/nvim/nvchad/custom ~/.config/nvim/lua/custom
+ln -s $path/nvim ~/.config/nvim
 
