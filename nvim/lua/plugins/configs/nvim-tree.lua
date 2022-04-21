@@ -1,3 +1,5 @@
+local global_icons = require("global.icons").icons
+
 vim.g.nvim_tree_git_hl = 1
 
 require'nvim-tree'.setup {
@@ -15,10 +17,10 @@ require'nvim-tree'.setup {
     enable = true,
     show_on_dirs = true,
     icons = {
-      error = " ",
-      warning = " ",
-      hint = " ",
-      info = " "
+      hint = global_icons.hint,
+      info = global_icons.info,
+      warning = global_icons.warning,
+      error = global_icons.error,
     },
   },
   actions = {

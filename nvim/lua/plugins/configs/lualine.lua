@@ -1,4 +1,5 @@
 local lualine_catppuccin = require('lualine.themes.catppuccin')
+local global_icons = require("global.icons").icons
 
 local my_extension = {
   sections = {
@@ -19,7 +20,20 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {},
-    lualine_c = {{'filename', path = 1}, {'diff'}, {'diagnostics'}},
+    lualine_c = {
+      {'filename', path = 1},
+      {'diff'},
+      {
+        'diagnostics',
+        symbols = {
+          hint = global_icons.hint,
+          info = global_icons.info,
+          warn = global_icons.warning,
+          error = global_icons.error,
+        },
+        update_in_insert = false, -- Update diagnostics in insert mode.
+      }
+    },
     lualine_x = {'branch', 'progress'},
     lualine_y = {},
     lualine_z = {}

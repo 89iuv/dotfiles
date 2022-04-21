@@ -22,6 +22,16 @@ require('packer').startup({
     use {'Pocco81/AutoSave.nvim'}
     use {"folke/which-key.nvim"}
 
+    use {'hrsh7th/nvim-cmp'}
+    use {'hrsh7th/cmp-nvim-lsp'}
+    use {'hrsh7th/cmp-buffer'}
+    use {'hrsh7th/cmp-path'}
+
+    use {'L3MON4D3/LuaSnip'}
+    use {'saadparwaiz1/cmp_luasnip'}
+
+    use {'onsails/lspkind.nvim'}
+
     -- My themes here
     use {"catppuccin/nvim", as = "catppuccin"} -- nvim theme
 
@@ -61,6 +71,8 @@ require"plugins.configs.nvim-lsp-installer"
 require"plugins.configs.gitsigns"
 require"plugins.configs.autosave"
 require"plugins.configs.which-key"
+
+require"plugins.configs.nvim-cmp"
 
 -- Configure Themes
 require"plugins.configs.catppuccin"
