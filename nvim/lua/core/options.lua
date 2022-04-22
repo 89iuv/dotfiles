@@ -14,3 +14,5 @@ vim.opt.shiftwidth = 2
 
 vim.opt.undofile = true
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true

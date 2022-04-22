@@ -12,7 +12,7 @@ require("bufferline").setup{
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
     show_close_icon = false,
-    themable = false,
+    themable = true,
   },
 
 }

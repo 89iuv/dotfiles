@@ -1,5 +1,5 @@
 -- workaround for nvimtree vertsplit highlight 
-vim.api.nvim_win_set_option(0, "winhighlight", "WinSeparator:NvimTreeVertSplit")
+-- vim.api.nvim_win_set_option(0, "winhighlight", "WinSeparator:NvimTreeVertSplit")
 
 local catppuccin = require'catppuccin'
 local cp = require'catppuccin.api.colors'.get_colors() -- fetch colors with API
@@ -7,10 +7,11 @@ catppuccin.remap({
    StatusLineNC = { fg=cp.black0, bg=cp.black2, style="underline" },
 
    -- it is reversed with NvimTreeVertSplit beceasue of workaround
-   VertSplit = { fg = cp.black1, bg = cp.black1 },
+   -- VertSplit = { fg = cp.black1, bg = cp.black1 },
 
    -- it is reversed with VerSplit because of workaround
-   NvimTreeVertSplit = { fg = cp.black1, bg = cp.black2 },
+   -- NvimTreeVertSplit = { fg = cp.black1, bg = cp.black2 },
+   NvimTreeVertSplit = { fg = cp.black1, bg = cp.black1 },
    NvimTreeEndOfBuffer = { fg = cp.black1, bg = cp.black1 },
 })
 

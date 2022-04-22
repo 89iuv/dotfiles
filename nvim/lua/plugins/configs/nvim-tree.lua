@@ -3,7 +3,6 @@ local global_icons = require("global.icons").icons
 vim.g.nvim_tree_git_hl = 1
 
 require'nvim-tree'.setup {
-  hide_root_folder = true,
   hijack_cursor = true,
   renderer = {
     indent_markers = {
@@ -11,7 +10,11 @@ require'nvim-tree'.setup {
     }
   },
   update_focused_file = {
-    enable = true,
+    enable = false,
+  },
+  git = {
+      enable = true,
+      ignore = false,
   },
   diagnostics = {
     enable = true,
