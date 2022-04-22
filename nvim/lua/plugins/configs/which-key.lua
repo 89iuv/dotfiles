@@ -18,8 +18,8 @@ wk.register({
     w = {
       name = "window",
       q = {"<cmd>q<cr>", "Close"},
-      h = {"<cmd>sp<cr>", "Split Horizontal"},
-      v = {"<cmd>vs<cr>", "split Vertical"},
+      s = {"<cmd>sp<cr>", "Split Horizontal"},
+      v = {"<cmd>vs<cr>", "Split Vertical"},
     },
     b = {
       name = "buffer",
