@@ -1,2 +1,2 @@
 # ignore packer compile file
-./nvim/plugin/packer_compiled.lua
+nvim/plugin/packer_compiled.lua
