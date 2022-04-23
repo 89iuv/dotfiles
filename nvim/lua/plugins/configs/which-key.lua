@@ -34,8 +34,9 @@ wk.register({
       name = "lsp",
       h = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Information"},
       d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition"},
+      i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Go to Implementation"},
       s = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
-      i = {"<cmd>lua vim.diagnostic.open_float()<cr>", "Hover Issue"},
+      p = {"<cmd>lua vim.diagnostic.open_float()<cr>", "Hover Problem"},
     },
     g = {
       name = "git",
