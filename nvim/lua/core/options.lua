@@ -2,7 +2,7 @@ vim.opt.termguicolors = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn="yes:1"
+vim.opt.signcolumn="auto:2"
 
 vim.opt.wrap = false
 

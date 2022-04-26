@@ -20,6 +20,10 @@ wk.register({
       q = {"<cmd>q<cr>", "Close"},
       s = {"<cmd>sp<cr>", "Split Horizontal"},
       v = {"<cmd>vs<cr>", "Split Vertical"},
+      h = {"<cmd>:vertical resize -5<cr>", "Decrease Vertical Size"},
+      l = {"<cmd>:vertical resize +5<cr>", "Increase Vertical Size"},
+      k = {"<cmd>:resize +5<cr>", "Increase Horizontal Size"},
+      j = {"<cmd>:resize -5<cr>", "Decrease Horizontal Size"},
     },
     b = {
       name = "buffer",
@@ -33,10 +37,15 @@ wk.register({
     l = {
       name = "lsp",
       h = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Information"},
+      a = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration"},
       d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition"},
       i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Go to Implementation"},
       s = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
-      p = {"<cmd>lua vim.diagnostic.open_float()<cr>", "Hover Problem"},
+      r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+      e = {"<cmd>lua vim.lsp.buf.references()<cr>", "References"},
+      v = {"<cmd>lua vim.diagnostic.open_float(0, { scope = 'line', border = 'single' })<cr>", "Preview Problem"},
+      n = {"<cmd>lua vim.diagnostic.goto_next({ float =  { border = 'single' }})<cr>", "Go to Next Problem"},
+      p = {"<cmd>lua vim.diagnostic.goto_prev({ float =  { border = 'single' }})<cr>", "Go to Previous Problem"},
     },
     g = {
       name = "git",
@@ -52,6 +61,7 @@ wk.register({
     n = {
       name = "nvim",
       q = {"<cmd>qa<cr>", "Close"},
+      f = {"<cmd>qa!<cr>", "Close Force"},
     },
   },
 
