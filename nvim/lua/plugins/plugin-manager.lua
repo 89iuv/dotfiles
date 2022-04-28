@@ -14,7 +14,7 @@ require('packer').startup({
     use {'famiu/bufdelete.nvim'}
     use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
     use {"lukas-reineke/indent-blankline.nvim"}
-    use {'nvim-telescope/telescope.nvim', tag ="nvim-0.6", requires = { {'nvim-lua/plenary.nvim'} }}
+    use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {"terrortylor/nvim-comment"}
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}

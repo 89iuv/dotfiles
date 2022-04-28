@@ -1,12 +1,6 @@
 local lualine_catppuccin = require('lualine.themes.catppuccin')
 local global_icons = require("global.icons").icons
 
-local my_extension = {
-  sections = {
-  },
-  filetypes = {'NvimTree'}
-}
-
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -15,7 +9,7 @@ require('lualine').setup {
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = false,
-    globalstatus = false,
+    globalstatus = true,
   },
   sections = {
     lualine_a = {'mode'},
@@ -41,13 +35,11 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {},
+    lualine_c = {"filename"},
     lualine_x = {},
-    lualine_y = {},
+    lualine_y = {"progress"},
     lualine_z = {}
   },
   tabline = {},
-  extensions = {
-    my_extension
-  }
+  extensions = {}
 }

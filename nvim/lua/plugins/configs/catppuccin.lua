@@ -1,17 +1,19 @@
 -- workaround for nvimtree vertsplit highlight 
 -- vim.api.nvim_win_set_option(0, "winhighlight", "WinSeparator:NvimTreeVertSplit")
+-- vim.api.nvim_win_set_option(0, "winhighlight", "WinSeparator:VertSplit")
 
 local catppuccin = require'catppuccin'
 local cp = require'catppuccin.api.colors'.get_colors() -- fetch colors with API
 catppuccin.remap({
-   StatusLineNC = { fg=cp.black0, bg=cp.black2, style="underline" },
+   -- StatusLineNC = { fg=cp.black0, bg=cp.black2, style="underline" },
 
    -- it is reversed with NvimTreeVertSplit beceasue of workaround
+   -- WinSeparator = { fg = cp.black2, bg = cp.black2 },
    -- VertSplit = { fg = cp.black1, bg = cp.black1 },
 
    -- it is reversed with VerSplit because of workaround
    -- NvimTreeVertSplit = { fg = cp.black1, bg = cp.black2 },
-   NvimTreeVertSplit = { fg = cp.black1, bg = cp.black1 },
+   -- NvimTreeVertSplit = { fg = cp.black1, bg = cp.black1 },
    NvimTreeEndOfBuffer = { fg = cp.black1, bg = cp.black1 },
 })
 
@@ -59,7 +61,7 @@ catppuccin.setup({
       show_root = false,
       transparent_panel = false,
     },
-    which_key = false,
+    which_key = true,
     indent_blankline = {
       enabled = true,
       colored_indent_levels = false,
@@ -69,7 +71,7 @@ catppuccin.setup({
     vim_sneak = false,
     fern = false,
     barbar = false,
-    bufferline = true,
+    bufferline = false,
     markdown = true,
     lightspeed = false,
     ts_rainbow = false,

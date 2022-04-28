@@ -61,7 +61,12 @@ wk.register({
     n = {
       name = "nvim",
       q = {"<cmd>qa<cr>", "Close"},
-      f = {"<cmd>qa!<cr>", "Close Force"},
+      x = {"<cmd>qa!<cr>", "Force Close"},
+      s = {"<cmd>% source<cr>", "Source Buffer"},
+    },
+    p = {
+      name = "Packer",
+      s = {"<cmd>:PackerSync<cr>", "Sync"},
     },
   },
 
