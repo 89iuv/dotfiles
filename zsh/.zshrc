@@ -89,6 +89,12 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 setopt HIST_IGNORE_ALL_DUPS
 
+# zsh-autosuggestions configuration 
+# bindkey '^ ' autosuggest-accept
+
+# update path
+export PATH=$PATH:$HOME/Programs/nvim/bin
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -120,6 +126,3 @@ setopt HIST_IGNORE_ALL_DUPS
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
-
-# Update path
-export PATH=$PATH:$HOME/Programs/nvim/bin
