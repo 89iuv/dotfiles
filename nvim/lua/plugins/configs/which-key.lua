@@ -1,5 +1,11 @@
 local wk = require("which-key")
 
+wk.setup {
+  window = {
+    border = "single", -- none, single, double, shadow
+  }
+}
+
 wk.register({
   ["<leader>"] = {
     f = {
@@ -33,6 +39,7 @@ wk.register({
       p = {"<cmd>BufferLineMovePrev<cr>", "Move Buffer to Previous"},
       r = {"<cmd>BufferLineCloseRight<cr>", "Close Buffers to the Right"},
       l = {"<cmd>BufferLineCloseLeft<cr>", "Close Buffers to the Left"},
+      o = {"<cmd>exe 'BufferLineCloseLeft' | exe 'BufferLineCloseRight'<cr>", "Close Other Buffers"},
     },
     l = {
       name = "lsp",
