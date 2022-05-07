@@ -71,7 +71,6 @@ require"plugins.configs.nvim-lsp-installer"
 require"plugins.configs.gitsigns"
 require"plugins.configs.autosave"
 require"plugins.configs.which-key"
-
 require"plugins.configs.nvim-cmp"
 
 -- Configure Themes
