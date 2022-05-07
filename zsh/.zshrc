@@ -81,19 +81,22 @@ plugins=(zsh-autosuggestions zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
 
+# User configuration
 # zsh-history-substring-search configuration
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-setopt HIST_IGNORE_ALL_DUPS
-
 # zsh-autosuggestions configuration 
-# bindkey '^ ' autosuggest-accept
+bindkey '^ ' autosuggest-accept
+bindkey '' autosuggest-clear
+setopt HIST_IGNORE_ALL_DUPS
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
 
 # update path
 export PATH=$PATH:$HOME/Programs/nvim/bin
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

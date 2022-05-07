@@ -28,7 +28,21 @@ require('lualine').setup {
         update_in_insert = false, -- Update diagnostics in insert mode.
       }
     },
-    lualine_x = {'branch', 'progress'},
+    lualine_x = {
+      'progress',
+      'location',
+      {
+        'fileformat',
+        icons_enabled = true,
+        symbols = {
+          unix = 'LF',
+          dos = 'CRLF',
+          mac = 'CR',
+        },
+      },
+      'encoding',
+      'branch'
+    },
     lualine_y = {},
     lualine_z = {}
   },
@@ -37,7 +51,7 @@ require('lualine').setup {
     lualine_b = {},
     lualine_c = {"filename"},
     lualine_x = {},
-    lualine_y = {"progress"},
+    lualine_y = {},
     lualine_z = {}
   },
   tabline = {},
