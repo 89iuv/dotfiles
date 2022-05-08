@@ -14,6 +14,7 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 
 vim.opt.undofile = true
+vim.opt.swapfile = false
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
