@@ -14,6 +14,7 @@ require('packer').startup({
     use {'famiu/bufdelete.nvim'}
     use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
     use {"lukas-reineke/indent-blankline.nvim"}
+    use {"windwp/nvim-autopairs"}
     use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {"terrortylor/nvim-comment"}
@@ -64,6 +65,7 @@ require"plugins.configs.nvim-tree"
 require"plugins.configs.bufferline"
 require"plugins.configs.lualine"
 require"plugins.configs.indent-blankline"
+require"plugins.configs.nvim-autopairs"
 require"plugins.configs.telescope"
 require"plugins.configs.nvim-treesitter"
 require"plugins.configs.nvim-comment"
