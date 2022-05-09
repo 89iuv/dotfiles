@@ -60,7 +60,7 @@ vim.cmd([[
   augroup end 
 ]])
 
--- Configur Plugins
+-- Configure Plugins
 require"plugins.configs.nvim-tree"
 require"plugins.configs.bufferline"
 require"plugins.configs.lualine"

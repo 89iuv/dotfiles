@@ -74,6 +74,8 @@ wk.register({
     p = {
       name = "Packer",
       s = {"<cmd>:PackerSync<cr>", "Sync"},
+      i = {"<cmd>:PackerStatus<cr>", "Info"},
+      c = {"<cmd>:PackerClean<cr>", "Clean"},
     },
   },
 
