@@ -12,7 +12,7 @@
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
 [submodule "terminal/iterm"]
 	path = terminal/iterm
-	url = git@github.com:catppuccin/iterm.git
+	url = https://github.com/catppuccin/iterm.git
 [submodule "terminal/windows-terminal"]
 	path = terminal/windows-terminal
-	url = git@github.com:catppuccin/windows-terminal.git
+	url = https://github.com/catppuccin/windows-terminal.git
