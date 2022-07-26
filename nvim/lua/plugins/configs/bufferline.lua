@@ -3,16 +3,16 @@ require("bufferline").setup{
     close_command = function(bufnum)
       require('bufdelete').bufdelete(bufnum, true)
     end,
-    -- offsets = {
-    --   {
-    --     filetype = "NvimTree",
-    --     padding = 1
-    --   }
-    -- },
+    offsets = {
+      {
+        filetype = "NvimTree",
+        padding = 0
+      }
+    },
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
     show_close_icon = false,
-    -- themable = true,
+    themable = true,
     always_show_bufferline = false,
   },
 

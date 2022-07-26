@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour = "macchiato"
+vim.g.catppuccin_flavour = "mocha"
 
 local catppuccin = require'catppuccin'
 -- local cp = require'catppuccin.api.colors'.get_colors() -- fetch colors with API
