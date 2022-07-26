@@ -1,6 +1,6 @@
 local global_icons = require("global.icons").icons
 
-vim.g.nvim_tree_git_hl = 1
+-- vim.g.nvim_tree_git_hl = 1
 
 require'nvim-tree'.setup {
   hijack_cursor = true,
