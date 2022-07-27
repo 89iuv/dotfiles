@@ -6,7 +6,7 @@ echo "install and configure ubuntu dependencies"
 sudo add-apt-repository ppa:neovim-ppa/stable
 
 sudo apt-get update
-sudo apt-get install -y zsh neovim ripgrep build-essential npm unzip neofetch
+sudo apt-get install -y wget curl zsh neovim ripgrep build-essential npm unzip neofetch
 
 # vars
 user=`whoami`
