@@ -1,6 +1,9 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "lua", "bash" },
+  ensure_installed = { 'lua', 'bash', 'markdown'},
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = false,
 
   highlight = {
     -- `false` will disable the whole extension
@@ -13,3 +16,15 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+local wk = require("which-key")
+wk.register({
+  ["<leader>"] = {
+    t = {
+      name = "Treesitter",
+      i = {"<cmd>TSInstallInfo<cr>", "Info"},
+      u = {"<cmd>TSUpdate<cr>", "Update"},
+      t = {"<cmd>TSToggle highlight<cr>", "Toggle Highlight"},
+    },
+  }
+})

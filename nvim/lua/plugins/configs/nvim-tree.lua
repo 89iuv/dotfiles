@@ -1,16 +1,19 @@
 local global_icons = require("global.icons").icons
+local nvim_tree = require("nvim-tree")
+local which_key = require("which-key")
 
--- vim.g.nvim_tree_git_hl = 1
-
-require'nvim-tree'.setup {
+nvim_tree.setup {
   hijack_cursor = true,
   renderer = {
+    full_name = true,
     indent_markers = {
       enable = true,
+    },
+    icons = {
+      show = {
+        folder_arrow = false,
+      },
     }
-  },
-  update_focused_file = {
-    enable = false,
   },
   git = {
       enable = true,
@@ -26,11 +29,16 @@ require'nvim-tree'.setup {
       error = global_icons.error,
     },
   },
-  actions = {
-    open_file = {
-      window_picker = {
-        enable = false,
-      }
+}
+
+which_key.register({
+  ["<leader>"] = {
+    e = {
+      name = "Explorer",
+      t = { "<cmd>NvimTreeToggle<cr>", "Toggle File Explorere" },
+      f = { "<cmd>NvimTreeFocus<cr>", "Focus File Explorere" },
+      r = { "<cmd>NvimTreeRefresh<cr>", "Refersh File Explorere" },
+      m = { "<cmd>NvimTreeFindFile<cr>", "Move to Current Buffer" },
     }
   }
-}
+})

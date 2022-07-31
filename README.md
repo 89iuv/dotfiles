@@ -1,7 +1,7 @@
 # Dotfiles
 
 ## Distro
-Run on Ubuntu >= 20.04
+Tested on Ubuntu 22.04 running on Windows 11 wls
 
 ## Install
 1. Run commands in home folder:

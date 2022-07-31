@@ -9,40 +9,18 @@ cmp.setup({
   },
   formatting = {
     format = lspkind.cmp_format({
-       mode = 'symbol_text',
-       menu = ({
-          nvim_lsp = "[LSP]",
-          luasnip = "[LuaSnip]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-       })
+      mode = 'symbol_text',
+      menu = ({
+        nvim_lsp = "[Lsp]",
+        luasnip = "[Snip]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })
     }),
   },
   window = {
-    completion = {
-      border = {
-        {"┌", "FloatBorder"},
-        {"─", "FloatBorder"},
-        {"┐", "FloatBorder"},
-        {"│", "FloatBorder"},
-        {"┘", "FloatBorder"},
-        {"─", "FloatBorder"},
-        {"└", "FloatBorder"},
-        {"│", "FloatBorder"},
-      }
-    },
-    documentation = {
-      border = {
-        {"┌", "FloatBorder"},
-        {"─", "FloatBorder"},
-        {"┐", "FloatBorder"},
-        {"│", "FloatBorder"},
-        {"┘", "FloatBorder"},
-        {"─", "FloatBorder"},
-        {"└", "FloatBorder"},
-        {"│", "FloatBorder"},
-      }
-    }
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -58,3 +36,4 @@ cmp.setup({
     { name = 'path'},
   })
 })
+

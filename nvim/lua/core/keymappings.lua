@@ -7,7 +7,6 @@ local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -24,7 +23,6 @@ keymap("i", "<C-l>", "<Right>", opts)
 -- Buffer navigation
 keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", opts)
-
 
 -- Visual --
 -- Stay in indent mode

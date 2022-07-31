@@ -90,14 +90,6 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
 setopt HIST_IGNORE_ALL_DUPS
 
-# zsh-autosuggestions configuration 
-bindkey '^ ' autosuggest-accept
-bindkey '' autosuggest-clear
-
-# update path
-export PATH=$PATH:$HOME/Programs/nvim/bin
-
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
