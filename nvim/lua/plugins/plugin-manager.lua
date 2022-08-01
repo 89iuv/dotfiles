@@ -8,38 +8,46 @@ vim.cmd([[
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({'git',  'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   vim.cmd [[packadd packer.nvim]]
+end
+
+function load_plugin_config(name)
+  local status, _ = pcall(require, 'plugins.configs.'..name)
+  if (not status) then
+    print("WARN: Unable to load plugin "..name..".")
+    return
+  end
 end
 
 return require('packer').startup({
   function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
-    use { 'folke/which-key.nvim', config = [[require'plugins.configs.which-key']] }
+    use { 'folke/which-key.nvim', config = [[load_plugin_config'which-key']] }
 
     -- Themes
-    use { 'catppuccin/nvim', as = 'catppuccin', config = [[require'plugins.configs.catppuccin']] }
+    use { 'catppuccin/nvim', as = 'catppuccin', config = [[load_plugin_config'catppuccin']] }
 
     -- Components
     use { 'famiu/bufdelete.nvim' }
-    use { 'akinsho/bufferline.nvim', tag = '*', requires = {'kyazdani42/nvim-web-devicons'}, config = [[require'plugins.configs.bufferline']] }
-    use { 'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}, config = [[require'plugins.configs.nvim-tree']] }
-    use { 'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'}, config = [[require'plugins.configs.lualine']] }
-    use { 'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}, config = [[require'plugins.configs.telescope']] }
+    use { 'akinsho/bufferline.nvim', tag = '*', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config('bufferline')]] }
+    use { 'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'nvim-tree']] }
+    use { 'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'lualine']] }
+    use { 'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}, config = [[load_plugin_config'telescope']] }
 
     -- Code
-    use { 'nvim-treesitter/nvim-treesitter', run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[require'plugins.configs.nvim-treesitter']] }
-    use { 'lukas-reineke/indent-blankline.nvim', config = [[require'plugins.configs.indent-blankline']] }
-    use { 'windwp/nvim-autopairs', config = [[require'plugins.configs.nvim-autopairs']] }
-    use { 'terrortylor/nvim-comment', config = [[require'plugins.configs.nvim-comment']] }
+    use { 'nvim-treesitter/nvim-treesitter', run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[load_plugin_config'nvim-treesitter']] }
+    use { 'lukas-reineke/indent-blankline.nvim', config = [[load_plugin_config'indent-blankline']] }
+    use { 'windwp/nvim-autopairs', config = [[load_plugin_config'nvim-autopairs']] }
+    use { 'terrortylor/nvim-comment', config = [[load_plugin_config'nvim-comment']] }
 
     -- Snippet
-    use { 'L3MON4D3/LuaSnip', config = [[require('luasnip.loaders.from_vscode').lazy_load()]] }
+    use { 'L3MON4D3/LuaSnip', config = [[load_plugin_config'luasnip']] }
     use { 'rafamadriz/friendly-snippets' }
 
     -- Autocomplete
-    use { 'hrsh7th/nvim-cmp', config = [[require'plugins.configs.nvim-cmp']] }
+    use { 'hrsh7th/nvim-cmp', config = [[load_plugin_config'nvim-cmp']] }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/cmp-nvim-lsp' }
@@ -48,14 +56,14 @@ return require('packer').startup({
 
     -- LSP
     use { 'neovim/nvim-lspconfig' }
-    use { 'williamboman/mason.nvim', config = [[require'plugins.configs.mason']] }
-    use { 'williamboman/mason-lspconfig.nvim', config = [[require'plugins.configs.mason-lspconfig']] }
+    use { 'williamboman/mason.nvim', config = [[load_plugin_config'mason']] }
+    use { 'williamboman/mason-lspconfig.nvim', config = [[load_plugin_config'mason-lspconfig']] }
 
     -- Git
-    use { 'lewis6991/gitsigns.nvim', config = [[require'plugins.configs.gitsigns']] }
+    use { 'lewis6991/gitsigns.nvim', config = [[load_plugin_config'gitsigns']] }
 
     -- Usability
-    use { 'Pocco81/auto-save.nvim', config = [[require'plugins.configs.auto-save']] }
+    use { 'Pocco81/auto-save.nvim', config = [[load_plugin_config'auto-save']] }
 
 
     -- Automatically set up your configuration after cloning packer.nvim
