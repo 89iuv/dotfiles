@@ -1,22 +1,22 @@
-  local bufferline = require("bufferline")
+local bufferline = require("bufferline")
 
-  bufferline.setup({
-    options = {
-      close_command = function(bufnum)
-        require('bufdelete').bufdelete(bufnum, true)
-      end,
-      offsets = {
-        {
-          filetype = "NvimTree",
-        }
-      },
-      diagnostics = "nvim_lsp",
-      diagnostics_update_in_insert = false,
-      show_close_icon = false,
-      themable = true,
-      always_show_bufferline = false,
-    }
-  })
+bufferline.setup({
+  options = {
+    close_command = function(bufnum)
+      require('bufdelete').bufdelete(bufnum, true)
+    end,
+    offsets = {
+      {
+        filetype = "NvimTree",
+      }
+    },
+    diagnostics = "nvim_lsp",
+    diagnostics_update_in_insert = false,
+    show_close_icon = false,
+    themable = true,
+    always_show_bufferline = false,
+  }
+})
 
 local wk = require("which-key")
 wk.register({
