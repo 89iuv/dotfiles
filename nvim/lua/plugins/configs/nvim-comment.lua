@@ -1,5 +1,5 @@
 require('nvim_comment').setup({
-    create_mappings = false
+  create_mappings = false
 })
 
 local wk = require("which-key")
