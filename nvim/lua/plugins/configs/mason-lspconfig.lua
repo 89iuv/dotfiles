@@ -65,12 +65,11 @@ wk.register({
     l = {
       name = "Lsp",
       h = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Information"},
-      a = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration"},
       d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition"},
       i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Go to Implementation"},
       s = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
       r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
-      e = {"<cmd>lua vim.lsp.buf.references()<cr>", "References"},
+      u = {"<cmd>lua vim.lsp.buf.references()<cr>", "Find Usages"},
       v = {"<cmd>lua vim.diagnostic.open_float(0, { scope = 'line', border = 'single' })<cr>", "Preview Problem"},
       n = {"<cmd>lua vim.diagnostic.goto_next({ float =  { border = 'single' }})<cr>", "Go to Next Problem"},
       p = {"<cmd>lua vim.diagnostic.goto_prev({ float =  { border = 'single' }})<cr>", "Go to Previous Problem"},
