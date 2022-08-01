@@ -1,7 +1,7 @@
 -- global config
 vim.diagnostic.config({
   signs = true,
-  update_in_insert = true,
+  update_in_insert = false,
   severity_sort = true,
 })
 
