@@ -8,6 +8,7 @@ bufferline.setup({
     offsets = {
       {
         filetype = "NvimTree",
+        padding = 0,
       }
     },
     diagnostics = "nvim_lsp",

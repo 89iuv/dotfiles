@@ -13,9 +13,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 function load_plugin_config(name)
-  local status, _ = pcall(require, 'plugins.configs.'..name)
+  local status, err = pcall(require, 'plugins.configs.'..name)
   if (not status) then
     print("WARN: Unable to load plugin "..name..".")
+    print(err)
     return
   end
 end
@@ -33,7 +34,7 @@ return require('packer').startup({
     use { 'famiu/bufdelete.nvim' }
     use { 'akinsho/bufferline.nvim', tag = '*', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config('bufferline')]] }
     use { 'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'nvim-tree']] }
-    use { 'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'lualine']] }
+    use { 'feline-nvim/feline.nvim', config = [[load_plugin_config'feline']]}
     use { 'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}, config = [[load_plugin_config'telescope']] }
 
     -- Code
