@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "install and configure ubuntu dependencies"
+echo "install ubuntu dependencies"
 
 # dependencies
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
@@ -9,6 +9,8 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install -y wget curl zsh neovim ripgrep build-essential nodejs unzip tar gzip neofetch fd-find
 
+echo "change shell from bash to zsh"
+
 # vars
 user=`whoami`
 zsh=`which zsh`
@@ -16,8 +18,7 @@ zsh=`which zsh`
 # shell configure
 sudo chsh -s $zsh $user
 
-
-echo "create links for config files"
+echo "create links for application config"
 
 # vars
 path=`pwd`
