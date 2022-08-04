@@ -83,12 +83,19 @@ source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
+
 # zsh-history-substring-search configuration
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
 setopt HIST_IGNORE_ALL_DUPS
+
+# default terminal editor
+export EDITOR='nvim'
+
+# keybindings
+bindkey '^f' edit-command-line
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
