@@ -1,4 +1,4 @@
-local global_icons = require("global.icons").icons
+local global_icons = require("core.globals").icons
 local nvim_tree = require("nvim-tree")
 local which_key = require("which-key")
 
