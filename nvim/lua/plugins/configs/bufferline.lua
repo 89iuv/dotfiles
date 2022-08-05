@@ -12,7 +12,7 @@ bufferline.setup({
       }
     },
     diagnostics = "nvim_lsp",
-    diagnostics_update_in_insert = false,
+    diagnostics_update_in_insert = true,
     show_close_icon = false,
     themable = true,
     always_show_bufferline = false,
@@ -25,7 +25,6 @@ wk.register({
     b = {
       name = "Buffer",
       q = {"<cmd>Bdelete<cr>", "Close"},
-      f = {"<cmd>Telescope buffers<cr>", "Find Buffer"},
       n = {"<cmd>BufferLineMoveNext<cr>", "Move Buffer to Next"},
       p = {"<cmd>BufferLineMovePrev<cr>", "Move Buffer to Previous"},
       r = {"<cmd>BufferLineCloseRight<cr>", "Close Buffers to the Right"},
