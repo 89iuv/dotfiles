@@ -7,7 +7,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo add-apt-repository ppa:neovim-ppa/stable
 
 sudo apt-get update
-sudo apt-get install -y wget curl zsh neovim ripgrep build-essential nodejs unzip tar gzip neofetch fd-find
+sudo apt-get install -y wget curl zsh neovim ripgrep build-essential nodejs unzip tar gzip neofetch fd-find tree
 
 echo "change shell from bash to zsh"
 
