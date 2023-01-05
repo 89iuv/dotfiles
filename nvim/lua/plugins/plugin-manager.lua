@@ -32,7 +32,7 @@ return require('packer').startup({
 
     -- Components
     use { 'famiu/bufdelete.nvim' }
-    use { 'akinsho/bufferline.nvim', tag = '*', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config('bufferline')]] }
+    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = {'kyazdani42/nvim-web-devicons'}, after = "catppuccin", config = [[load_plugin_config('bufferline')]] }
     use { 'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'nvim-tree']] }
     use { 'feline-nvim/feline.nvim', config = [[load_plugin_config'feline']]}
     use { 'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}, config = [[load_plugin_config'telescope']] }

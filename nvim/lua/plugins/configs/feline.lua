@@ -12,8 +12,3 @@ ctp_feline.setup({
 require("feline").setup({
 	components = ctp_feline.get(),
 })
-
-local colors = require("catppuccin.palettes").get_palette() -- fetch colors from palette
-require("catppuccin.lib.highlighter").syntax({
-  StatusLine = {bg = colors.surface0}
-})
