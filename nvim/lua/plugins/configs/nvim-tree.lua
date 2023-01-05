@@ -1,9 +1,10 @@
-local global_icons = require("core.globals").icons
+local global_icons = require("core.ui-globals").icons
 local nvim_tree = require("nvim-tree")
 local which_key = require("which-key")
 
 nvim_tree.setup {
   hijack_cursor = true,
+  remove_keymaps = { "H", "J", "K", "L" }, -- conflicts with window resize
   renderer = {
     full_name = true,
     indent_markers = {
@@ -39,6 +40,7 @@ which_key.register({
       f = { "<cmd>NvimTreeFocus<cr>", "Focus File Explorere" },
       r = { "<cmd>NvimTreeRefresh<cr>", "Refersh File Explorere" },
       m = { "<cmd>NvimTreeFindFile<cr>", "Move to Current Buffer" },
+      h = { "<cmd>vert help nvim-tree<cr>", "Open Documentation" },
     }
   }
 })

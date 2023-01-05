@@ -8,15 +8,16 @@ wk.setup {
 
 wk.register({
   ["<leader>"] = {
+    k = {
+      name = "Key",
+      h = {"<cmd>vert help which-key.txt<cr>", "Open Documentation"},
+    },
     w = {
       name = "Window",
       q = {"<cmd>q<cr>", "Close"},
+      o = {"<cmd>only<cr>", "Close Other Windows"},
       s = {"<cmd>sp<cr>", "Split Horizontal"},
       v = {"<cmd>vs<cr>", "Split Vertical"},
-      H = {"<cmd>:vertical resize -5<cr>", "Decrease Vertical Size"},
-      L = {"<cmd>:vertical resize +5<cr>", "Increase Vertical Size"},
-      K = {"<cmd>:resize +5<cr>", "Increase Horizontal Size"},
-      J = {"<cmd>:resize -5<cr>", "Decrease Horizontal Size"},
     },
     n = {
       name = "Neovim",
@@ -33,5 +34,11 @@ wk.register({
       d = {"<cmd>:PackerClean<cr>", "Clean"},
       c = {"<cmd>:PackerCompile<cr>", "Compile"},
     },
+    s = {
+      name = "Search",
+      h = {"<cmd>:nohlsearch<cr>", "No highlight search"},
+      i = {"<cmd>:set ignorecase<cr>", "Ignore Case"},
+      I = {"<cmd>:set noignorecase<cr>", "No Ignore Case"},
+    }
   }
 })

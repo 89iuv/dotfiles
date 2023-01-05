@@ -47,7 +47,7 @@ vim.diagnostic.handlers.signs = {
 }
 
 -- set diagnostics icons
-local global_icons = require("core.globals").icons
+local global_icons = require("core.ui-globals").icons
 local signs = {
   Error = global_icons.error,
   Warn = global_icons.warning,

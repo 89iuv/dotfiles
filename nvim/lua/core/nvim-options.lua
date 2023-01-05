@@ -1,6 +1,3 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 vim.opt.termguicolors = true
 
 vim.opt.number = true
@@ -26,3 +23,5 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.laststatus = 3
+
+vim.opt.ignorecase = true
