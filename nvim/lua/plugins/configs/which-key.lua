@@ -8,7 +8,7 @@ wk.setup {
   }
 }
 
-local colors = require("catppuccin.palettes").get_palette "mocha"
+local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin.lib.highlighter").syntax({
   WhichKeyFloat = { bg = colors.mantle },
   WhichKeyBorder = { fg = colors.surface0, bg = colors.mantle },

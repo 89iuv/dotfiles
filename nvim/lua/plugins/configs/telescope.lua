@@ -5,7 +5,7 @@ require('telescope').setup{
   }
 }
 
-local colors = require("catppuccin.palettes").get_palette "mocha"
+local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin.lib.highlighter").syntax({
   TelescopePromptNormal = { bg = colors.mantle },
   TelescopePromptBorder = { fg = colors.surface0, bg = colors.mantle },
