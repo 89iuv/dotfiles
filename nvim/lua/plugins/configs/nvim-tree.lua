@@ -3,6 +3,7 @@ local nvim_tree = require("nvim-tree")
 local which_key = require("which-key")
 
 nvim_tree.setup {
+  disable_netrw = true,
   hijack_cursor = true,
   remove_keymaps = { "H", "J", "K", "L" }, -- conflicts with window resize
   renderer = {
@@ -17,8 +18,18 @@ nvim_tree.setup {
     }
   },
   git = {
-      enable = true,
-      ignore = false,
+    enable = true,
+    ignore = false,
+  },
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = true,
+        picker = function ()
+          return vim.fn.win_getid(vim.fn.winnr("#"))
+        end
+      },
+    },
   },
   diagnostics = {
     enable = true,
@@ -29,8 +40,15 @@ nvim_tree.setup {
       warning = global_icons.warning,
       error = global_icons.error,
     },
-  },
+  }
 }
+
+local colors = require("catppuccin.palettes").get_palette "mocha"
+require("catppuccin.lib.highlighter").syntax({
+  NvimTreeWinSeparator = { fg = colors.mantle, bg = colors.mantle },
+  NvimTreeEndOfBuffer = { fg = colors.mantle, bg = colors.mantle },
+  NvimTreeNormal = { fg = colors.text, bg = colors.mantle },
+})
 
 which_key.register({
   ["<leader>"] = {

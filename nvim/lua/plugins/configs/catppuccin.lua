@@ -6,7 +6,7 @@ catppuccin.setup({
   dim_inactive = {
     enabled = false,
     shade = "dark",
-    percentage = 0.50,
+    percentage = 0.20,
   },
   integrations = {
     which_key = true,

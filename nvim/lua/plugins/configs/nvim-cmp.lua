@@ -25,8 +25,14 @@ cmp.setup({
     }),
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    documentation = {
+      border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+      winhighlight = 'Normal:TelescopeResultsNormal,FloatBorder:TelescopeResultsBorder',
+    },
+    completion = {
+      border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+      winhighlight = 'Normal:TelescopeResultsNormal,FloatBorder:TelescopeResultsBorder',
+    }
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -62,4 +68,3 @@ cmp.setup({
     { name = 'path'},
   })
 })
-
