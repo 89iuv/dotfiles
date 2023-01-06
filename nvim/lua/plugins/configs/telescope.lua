@@ -7,9 +7,9 @@ require('telescope').setup{
 
 local colors = require("catppuccin.palettes").get_palette "mocha"
 require("catppuccin.lib.highlighter").syntax({
-  TelescopePromptNormal = { bg = colors.base },
-  TelescopePromptBorder = { fg = colors.surface0, bg = colors.base },
-  TelescopePromptTitle = { fg = colors.text, bg = colors.base },
+  TelescopePromptNormal = { bg = colors.mantle },
+  TelescopePromptBorder = { fg = colors.surface0, bg = colors.mantle },
+  TelescopePromptTitle = { fg = colors.text, bg = colors.mantle },
 
   TelescopeResultsNormal = { bg = colors.mantle },
   TelescopeResultsBorder = { fg = colors.surface0, bg = colors.mantle },
