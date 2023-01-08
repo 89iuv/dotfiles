@@ -25,23 +25,23 @@ return require('packer').startup({
   function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
-    use { 'folke/which-key.nvim', config = [[load_plugin_config'which-key']] }
 
     -- Themes
     use { 'catppuccin/nvim', as = 'catppuccin', config = [[load_plugin_config'catppuccin']] }
 
     -- Components
+    use { 'folke/which-key.nvim', after = "catppuccin", config = [[load_plugin_config'which-key']] }
     use { 'famiu/bufdelete.nvim' }
-    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = {'kyazdani42/nvim-web-devicons'}, after = "catppuccin", config = [[load_plugin_config('bufferline')]] }
-    use { 'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'nvim-tree']] }
-    use { 'feline-nvim/feline.nvim', config = [[load_plugin_config'feline']]}
-    use { 'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}, config = [[load_plugin_config'telescope']] }
+    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = {'kyazdani42/nvim-web-devicons'}, after = { "catppuccin", "which-key.nvim" }, config = [[load_plugin_config('bufferline')]] }
+    use { 'kyazdani42/nvim-tree.lua', after = { "catppuccin", "which-key.nvim" }, requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'nvim-tree']] }
+    use { 'feline-nvim/feline.nvim', after = "catppuccin", config = [[load_plugin_config'feline']]}
+    use { 'nvim-telescope/telescope.nvim', after = { "catppuccin", "which-key.nvim" }, equires = {'nvim-lua/plenary.nvim'}, config = [[load_plugin_config'telescope']] }
 
     -- Code
-    use { 'nvim-treesitter/nvim-treesitter', run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[load_plugin_config'nvim-treesitter']] }
+    use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim", run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[load_plugin_config'nvim-treesitter']] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[load_plugin_config'indent-blankline']] }
     use { 'windwp/nvim-autopairs', config = [[load_plugin_config'nvim-autopairs']] }
-    use { 'terrortylor/nvim-comment', config = [[load_plugin_config'nvim-comment']] }
+    use { 'terrortylor/nvim-comment', after = "which-key.nvim", config = [[load_plugin_config'nvim-comment']] }
 
     -- Snippet
     use { 'L3MON4D3/LuaSnip', config = [[load_plugin_config'luasnip']] }
@@ -57,11 +57,11 @@ return require('packer').startup({
 
     -- LSP
     use { 'neovim/nvim-lspconfig' }
-    use { 'williamboman/mason.nvim', config = [[load_plugin_config'mason']] }
-    use { 'williamboman/mason-lspconfig.nvim', config = [[load_plugin_config'mason-lspconfig']] }
+    use { 'williamboman/mason.nvim', after = "which-key.nvim", config = [[load_plugin_config'mason']] }
+    use { 'williamboman/mason-lspconfig.nvim', after = "mason.nvim", config = [[load_plugin_config'mason-lspconfig']] }
 
     -- Git
-    use { 'lewis6991/gitsigns.nvim', config = [[load_plugin_config'gitsigns']] }
+    use { 'lewis6991/gitsigns.nvim', after = "which-key.nvim", config = [[load_plugin_config'gitsigns']] }
 
     -- Usability
     use { 'Pocco81/auto-save.nvim', config = [[load_plugin_config'auto-save']] }

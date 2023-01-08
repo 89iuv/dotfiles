@@ -1,23 +1,23 @@
 local bufferline = require("bufferline")
 bufferline.setup({
-  -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+  highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
     close_command = function(bufnum)
       require('bufdelete').bufdelete(bufnum, true)
-    end,
+   end,
     offsets = {
       {
         filetype = "NvimTree",
         -- text = "File Explorer",
         -- text_align = "left",
         separator = false,
-        padding = 1
+        -- padding = 1
       }
     },
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = true,
     show_close_icon = false,
-    always_show_bufferline = false,
+    always_show_bufferline = true,
   }
 })
 

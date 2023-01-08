@@ -7,7 +7,8 @@ vim.opt.signcolumn = "auto:2"
 vim.opt.cursorline = true
 vim.opt.wrap = false
 
-vim.opt.mouse = "a"
+-- vim.opt.mouse = "a"
+vim.opt.mouse = ""
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -23,7 +24,7 @@ vim.opt.swapfile = false
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.cmdheight = 1
 
 vim.opt.ignorecase = true

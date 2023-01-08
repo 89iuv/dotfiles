@@ -45,9 +45,9 @@ nvim_tree.setup {
 
 local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin.lib.highlighter").syntax({
-  NvimTreeWinSeparator = { fg = colors.mantle, bg = colors.mantle },
-  NvimTreeEndOfBuffer = { fg = colors.mantle, bg = colors.mantle },
-  NvimTreeNormal = { fg = colors.text, bg = colors.mantle },
+  -- NvimTreeWinSeparator = { fg = colors.mantle, bg = colors.mantle },
+  -- NvimTreeEndOfBuffer = { fg = colors.mantle, bg = colors.mantle },
+  -- NvimTreeNormal = { fg = colors.text, bg = colors.mantle },
 })
 
 which_key.register({

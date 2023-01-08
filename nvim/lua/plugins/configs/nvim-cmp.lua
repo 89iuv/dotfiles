@@ -27,11 +27,11 @@ cmp.setup({
   window = {
     documentation = {
       border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
-      winhighlight = 'Normal:TelescopeResultsNormal,FloatBorder:TelescopeResultsBorder',
+      winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
     },
     completion = {
       border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
-      winhighlight = 'Normal:TelescopeResultsNormal,FloatBorder:TelescopeResultsBorder',
+      winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine',
     }
   },
   mapping = cmp.mapping.preset.insert({
