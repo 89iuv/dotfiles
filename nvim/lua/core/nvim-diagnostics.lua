@@ -49,10 +49,10 @@ vim.diagnostic.handlers.signs = {
 -- set diagnostics icons
 local global_icons = require("core.ui-globals").icons
 local signs = {
-  Error = global_icons.error,
-  Warn = global_icons.warning,
-  Hint = global_icons.hint,
-  Info = global_icons.info
+  Error = global_icons.error.icon,
+  Warn = global_icons.warning.icon,
+  Hint = global_icons.hint.icon,
+  Info = global_icons.info.icon
 }
 
 for type, icon in pairs(signs) do

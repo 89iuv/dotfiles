@@ -1,10 +1,18 @@
 local M = {}
 
 M.icons = {
-  hint = "",
-  info = "",
-  warning = "",
-  error = "",
+  hint = {
+    icon = "",
+  },
+  info = {
+    icon = "",
+  },
+  warning = {
+    icon = "",
+  },
+  error = {
+    icon = "",
+  },
 }
 
 return M

@@ -39,7 +39,7 @@ return require('packer').startup({
 
     -- Code
     use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim", run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[load_plugin_config'nvim-treesitter']] }
-    use { 'lukas-reineke/indent-blankline.nvim', config = [[load_plugin_config'indent-blankline']] }
+    use { 'lukas-reineke/indent-blankline.nvim', after = "catppuccin", config = [[load_plugin_config'indent-blankline']] }
     use { 'windwp/nvim-autopairs', config = [[load_plugin_config'nvim-autopairs']] }
     use { 'terrortylor/nvim-comment', after = "which-key.nvim", config = [[load_plugin_config'nvim-comment']] }
 
