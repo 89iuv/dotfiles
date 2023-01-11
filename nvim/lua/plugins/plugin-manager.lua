@@ -39,7 +39,7 @@ return require('packer').startup({
       requires = { 'kyazdani42/nvim-web-devicons' }, config = [[load_plugin_config'nvim-tree']] }
     use { 'feline-nvim/feline.nvim', after = "catppuccin", config = [[load_plugin_config'feline']] }
     use { 'nvim-telescope/telescope.nvim', after = { "catppuccin", "which-key.nvim" },
-      equires = { 'nvim-lua/plenary.nvim' }, config = [[load_plugin_config'telescope']] }
+      requires = { 'nvim-lua/plenary.nvim' }, config = [[load_plugin_config'telescope']] }
 
     -- Code
     use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim",
