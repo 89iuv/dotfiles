@@ -32,7 +32,7 @@ local separator = {
 local function any_git_changes()
   local gst = vim.b.gitsigns_status_dict -- git stats
   if gst then
-    if gst["added"] and gst["added"] > 0
+   if gst["added"] and gst["added"] > 0
       or gst["removed"] and gst["removed"] > 0
       or gst["changed"] and gst["changed"] > 0
       then
@@ -208,6 +208,14 @@ local function is_disabled(dis)
     local filetype = vim.bo.filetype
     local bufname = vim.api.nvim_buf_get_name(0)
 
+    -- workaround for floating windows
+    if buftype == "nofile"
+      and filetype == ""
+      and bufname == ""
+      then
+        return true
+    end
+
     return find_pattern_match(dis.filetype, filetype)
         or find_pattern_match(dis.buftype, buftype)
         or find_pattern_match(dis.bufname, bufname)
@@ -259,7 +267,7 @@ require('feline').winbar.setup({
 
 vim.o.winbar = nil
 
-vim.api.nvim_create_autocmd({"CursorMoved", "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
   pattern = "*",
   callback = function()
     if is_disabled(disabled) then
