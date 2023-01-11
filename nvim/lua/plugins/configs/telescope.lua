@@ -1,4 +1,4 @@
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     path_display = { "truncate" },
     borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }

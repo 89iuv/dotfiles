@@ -6,16 +6,17 @@ vim.cmd([[
 ]])
 
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git',  'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
   vim.cmd [[packadd packer.nvim]]
 end
 
 function load_plugin_config(name)
-  local status, err = pcall(require, 'plugins.configs.'..name)
+  local status, err = pcall(require, 'plugins.configs.' .. name)
   if (not status) then
-    print("WARN: Unable to load plugin "..name..".")
+    print("WARN: Unable to load plugin " .. name .. ".")
     print(err)
     return
   end
@@ -32,13 +33,18 @@ return require('packer').startup({
     -- Components
     use { 'folke/which-key.nvim', after = "catppuccin", config = [[load_plugin_config'which-key']] }
     use { 'famiu/bufdelete.nvim' }
-    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = {'kyazdani42/nvim-web-devicons'}, after = { "catppuccin", "which-key.nvim" }, config = [[load_plugin_config('bufferline')]] }
-    use { 'kyazdani42/nvim-tree.lua', after = { "catppuccin", "which-key.nvim" }, requires = {'kyazdani42/nvim-web-devicons'}, config = [[load_plugin_config'nvim-tree']] }
-    use { 'feline-nvim/feline.nvim', after = "catppuccin", config = [[load_plugin_config'feline']]}
-    use { 'nvim-telescope/telescope.nvim', after = { "catppuccin", "which-key.nvim" }, equires = {'nvim-lua/plenary.nvim'}, config = [[load_plugin_config'telescope']] }
+    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = { 'kyazdani42/nvim-web-devicons' },
+      after = { "catppuccin", "which-key.nvim" }, config = [[load_plugin_config('bufferline')]] }
+    use { 'kyazdani42/nvim-tree.lua', after = { "catppuccin", "which-key.nvim" },
+      requires = { 'kyazdani42/nvim-web-devicons' }, config = [[load_plugin_config'nvim-tree']] }
+    use { 'feline-nvim/feline.nvim', after = "catppuccin", config = [[load_plugin_config'feline']] }
+    use { 'nvim-telescope/telescope.nvim', after = { "catppuccin", "which-key.nvim" },
+      equires = { 'nvim-lua/plenary.nvim' }, config = [[load_plugin_config'telescope']] }
 
     -- Code
-    use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim", run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[load_plugin_config'nvim-treesitter']] }
+    use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim",
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+      config = [[load_plugin_config'nvim-treesitter']] }
     use { 'lukas-reineke/indent-blankline.nvim', after = "catppuccin", config = [[load_plugin_config'indent-blankline']] }
     use { 'windwp/nvim-autopairs', config = [[load_plugin_config'nvim-autopairs']] }
     use { 'terrortylor/nvim-comment', after = "which-key.nvim", config = [[load_plugin_config'nvim-comment']] }
@@ -59,6 +65,7 @@ return require('packer').startup({
     use { 'neovim/nvim-lspconfig' }
     use { 'williamboman/mason.nvim', after = "which-key.nvim", config = [[load_plugin_config'mason']] }
     use { 'williamboman/mason-lspconfig.nvim', after = "mason.nvim", config = [[load_plugin_config'mason-lspconfig']] }
+    use { 'folke/neodev.nvim' }
 
     -- Git
     use { 'lewis6991/gitsigns.nvim', after = "which-key.nvim", config = [[load_plugin_config'gitsigns']] }

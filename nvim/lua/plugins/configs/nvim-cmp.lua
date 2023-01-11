@@ -1,6 +1,6 @@
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local lspkind = require('lspkind')
-local luasnip = require'luasnip'
+local luasnip = require 'luasnip'
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -26,11 +26,11 @@ cmp.setup({
   },
   window = {
     documentation = {
-      border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+      border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
       winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
     },
     completion = {
-      border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+      border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
       winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine',
     }
   },
@@ -62,9 +62,9 @@ cmp.setup({
     end, { "i", "s" }),
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp'},
-    { name = 'luasnip'}, -- For luasnip users.
-    { name = 'buffer'},
-    { name = 'path'},
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' }, -- For luasnip users.
+    { name = 'buffer' },
+    { name = 'path' },
   })
 })

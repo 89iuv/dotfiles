@@ -25,7 +25,7 @@ nvim_tree.setup {
     open_file = {
       window_picker = {
         enable = true,
-        picker = function ()
+        picker = function()
           return vim.fn.win_getid(vim.fn.winnr("#"))
         end
       },

@@ -31,6 +31,12 @@ local handlers = {
 }
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
 require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
@@ -47,13 +53,15 @@ require("mason-lspconfig").setup_handlers {
     require("lspconfig").sumneko_lua.setup {
       handlers = handlers,
       capabilities = capabilities,
+
       settings = {
         Lua = {
-          diagnostics = {
-            globals = { "vim" }
+          workspace = {
+            checkThirdParty = false
           }
         }
       }
+
     }
   end,
 }

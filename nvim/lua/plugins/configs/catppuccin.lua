@@ -1,4 +1,4 @@
-local catppuccin = require'catppuccin'
+local catppuccin = require 'catppuccin'
 catppuccin.setup({
   flavour = "mocha",
   -- flavour = "macchiato",
@@ -23,4 +23,3 @@ require("catppuccin.lib.highlighter").syntax({
   -- NormalFloat = { bg = colors.surface0 },
   -- FloatBorder = { fg = colors.surface0, bg = colors.surface0 },
 })
-

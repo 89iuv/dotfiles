@@ -9,8 +9,8 @@ wk.register({
   ["<leader>"] = {
     m = {
       name = "Mason",
-      o = {"<cmd>Mason<cr>", "Open Mason Window"},
-      h = {"<cmd>vert help mason.nvim<cr>", "Open Documentation"},
+      o = { "<cmd>Mason<cr>", "Open Mason Window" },
+      h = { "<cmd>vert help mason.nvim<cr>", "Open Documentation" },
     },
   },
 })
