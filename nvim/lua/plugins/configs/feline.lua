@@ -143,13 +143,18 @@ table.insert(components.active[2], {
 table.insert(components.active[2], {
   provider = separator.left,
   hl = { fg = colors.surface1, bg = colors.surface0 },
+  enabled = require('feline.providers.git').git_info_exists
+})
+table.insert(components.active[2], {
+  provider = " ",
+  hl = { fg = colors.surface0, bg = colors.surface1 },
   enabled = any_git_changes
 })
 table.insert(components.active[2], {
   provider = 'git_diff_added',
   hl = { fg = colors.green, bg = colors.surface1 },
   right_sep = { str = ' ', hl = { fg = colors.surface1, bg = colors.surface1 } },
-  icon = " + "
+  icon = "+ "
 })
 table.insert(components.active[2], {
   provider = 'git_diff_changed',
