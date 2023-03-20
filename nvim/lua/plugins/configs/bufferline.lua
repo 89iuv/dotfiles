@@ -10,7 +10,7 @@ bufferline.setup({
     offsets = {
       {
         filetype = "NvimTree",
-        text = "File Explorer",
+        -- text = "File Explorer",
         text_align = "left",
         separator = false,
         -- padding = 1
@@ -56,5 +56,6 @@ require("catppuccin.lib.highlighter").syntax({
   BufferLineInfoSelected = { fg = colors.text },
   BufferLineHintSelected = { fg = colors.text },
 
-  BufferLineIndicatorSelected = { fg = colors.blue }
+  BufferLineIndicatorSelected = { fg = colors.yellow },
+  BufferLineFill = { fg = colors.mantle, bg = colors.crust }
 })

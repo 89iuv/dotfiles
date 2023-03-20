@@ -9,7 +9,7 @@ nvim_tree.setup {
   renderer = {
     full_name = true,
     indent_markers = {
-      enable = true,
+      enable = false,
     },
     icons = {
       show = {

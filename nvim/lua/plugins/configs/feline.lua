@@ -25,7 +25,8 @@ local mode_colors = {
 
 local separator = {
   right = "",
-  left = ""
+  -- left = ""
+  left = "▐"
 }
 
 -- helpers
