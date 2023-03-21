@@ -6,6 +6,9 @@ nvim_tree.setup {
   disable_netrw = true,
   hijack_cursor = true,
   remove_keymaps = { "H", "J", "K", "L" }, -- conflicts with window resize
+  view = {
+    width = {},
+  },
   renderer = {
     full_name = true,
     indent_markers = {

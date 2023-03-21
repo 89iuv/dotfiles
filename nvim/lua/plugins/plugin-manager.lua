@@ -93,7 +93,7 @@ return require('packer').startup({
       },
       open_fn = function()
         return require('packer.util').float({
-          border = "single",
+          border = "none",
           style = "" -- use default style in order to show cursor line on floating window
         })
       end

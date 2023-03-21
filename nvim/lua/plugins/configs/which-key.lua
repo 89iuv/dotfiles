@@ -2,7 +2,7 @@ local wk = require("which-key")
 
 wk.setup {
   window = {
-    border = "single", -- none, single, double, shadow
+    border = "none", -- none, single, double, shadow
     margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
   }
@@ -12,7 +12,7 @@ local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin.lib.highlighter").syntax({
   -- WhichKeyFloat = { bg = colors.surface0 },
   -- WhichKeyBorder = { fg = colors.surface0, bg = colors.surface0 },
-  WhichKeyFloat = { bg = colors.mantle },
+  -- WhichKeyFloat = { bg = colors.surface1 },
 })
 
 wk.register({
