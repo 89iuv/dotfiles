@@ -17,14 +17,14 @@ keymap("i", "<C-k>", "<Up>", opts)
 keymap("i", "<C-l>", "<Right>", opts)
 
 -- Resize windows with shift + hjkl
-keymap("n", "<S-h>", ":vertical resize -1<cr>", opts)
-keymap("n", "<S-j>", ":resize -1<cr>", opts)
-keymap("n", "<S-k>", ":resize +1<cr>", opts)
-keymap("n", "<S-l>", ":vertical resize +1<cr>", opts)
+keymap("n", "<S-h>", ":vertical resize -2<cr>", opts)
+keymap("n", "<S-j>", ":resize -2<cr>", opts)
+keymap("n", "<S-k>", ":resize +2<cr>", opts)
+keymap("n", "<S-l>", ":vertical resize +2<cr>", opts)
 
 -- Buffer navigation
-keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<C-p>", ":BufferLineCyclePrev<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode

@@ -33,18 +33,13 @@ return require('packer').startup({
     -- Components
     use { 'folke/which-key.nvim', after = "catppuccin", config = [[load_plugin_config'which-key']] }
     use { 'famiu/bufdelete.nvim' }
-    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = { 'kyazdani42/nvim-web-devicons' },
-      after = { "catppuccin", "which-key.nvim" }, config = [[load_plugin_config('bufferline')]] }
-    use { 'kyazdani42/nvim-tree.lua', after = { "catppuccin", "which-key.nvim" },
-      requires = { 'kyazdani42/nvim-web-devicons' }, config = [[load_plugin_config'nvim-tree']] }
+    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = { 'kyazdani42/nvim-web-devicons' }, after = { "catppuccin", "which-key.nvim" }, config = [[load_plugin_config('bufferline')]] }
+    use { 'kyazdani42/nvim-tree.lua', after = { "catppuccin", "which-key.nvim" }, requires = { 'kyazdani42/nvim-web-devicons' }, config = [[load_plugin_config'nvim-tree']] }
     use { 'feline-nvim/feline.nvim', after = "catppuccin", config = [[load_plugin_config'feline']] }
-    use { 'nvim-telescope/telescope.nvim', after = { "catppuccin", "which-key.nvim" },
-      requires = { 'nvim-lua/plenary.nvim' }, config = [[load_plugin_config'telescope']] }
+    use { 'nvim-telescope/telescope.nvim', after = { "catppuccin", "which-key.nvim" }, requires = { 'nvim-lua/plenary.nvim' }, config = [[load_plugin_config'telescope']] }
 
     -- Code
-    use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim",
-      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-      config = [[load_plugin_config'nvim-treesitter']] }
+    use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim", run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[load_plugin_config'nvim-treesitter']] }
     use { 'lukas-reineke/indent-blankline.nvim', after = "catppuccin", config = [[load_plugin_config'indent-blankline']] }
     use { 'windwp/nvim-autopairs', config = [[load_plugin_config'nvim-autopairs']] }
     use { 'terrortylor/nvim-comment', after = "which-key.nvim", config = [[load_plugin_config'nvim-comment']] }
