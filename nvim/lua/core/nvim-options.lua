@@ -7,8 +7,8 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.cursorline = true
 vim.opt.wrap = false
 
--- vim.opt.mouse = "a"
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
+-- vim.opt.mouse = ""
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
