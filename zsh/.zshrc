@@ -114,6 +114,9 @@ export EDITOR='nvim'
 # keybindings
 bindkey '^f' edit-command-line
 
+# workaround for Unknown locale, assuming C
+export LANG=en_US.UTF-8
+
 # warkaround for ls colors
 # setup for bsd ls
 export LSCOLORS='ExGxFxdaCxDaDahbadacec'
