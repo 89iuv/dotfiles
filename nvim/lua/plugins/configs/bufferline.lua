@@ -26,7 +26,6 @@ bufferline.setup({
       if level == "hint" then icon = global_icons.hint.icon end
       return "" .. icon .. "" -- .. diagnostics_dict[level]
     end,
-    show_close_icon = false,
     always_show_bufferline = true,
   }
 })
@@ -57,5 +56,5 @@ require("catppuccin.lib.highlighter").syntax({
   BufferLineHintSelected = { fg = colors.text },
 
   BufferLineIndicatorSelected = { fg = colors.yellow },
-  BufferLineFill = { fg = colors.mantle, bg = colors.crust }
+  BufferLineFill = { fg = colors.mantle, bg = colors.mantle }
 })

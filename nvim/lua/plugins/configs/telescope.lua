@@ -7,8 +7,15 @@ require('telescope').setup {
 }
 
 
-local base1 = "#2D3145"
-local base2 = "#32364A"
+-- mocha
+local base1 = "#282839"
+local base2 = "#2D2D3F"
+
+-- macchiato
+-- local base1 = "#2D3145"
+-- local base2 = "#32364A"
+
+
 local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin.lib.highlighter").syntax({
   TelescopePromptNormal = { fg = colors.text, bg = base1 },
