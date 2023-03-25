@@ -18,17 +18,12 @@ catppuccin.setup({
 
 vim.cmd.colorscheme "catppuccin"
 
--- mocha
-local base1 = "#282839"
-
--- macchiato
--- local base1 = "#2D3145"
 
 local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin.lib.highlighter").syntax({
   -- MsgArea = { bg = colors.mantle },
-  NormalFloat = { bg = base1 },
-  CursorLine = { bg = colors.surface0 },
+  -- NormalFloat = { bg = base1 },
+  -- CursorLine = { bg = colors.surface0 },
   -- PmenuSel = { fg = colors.mantle, bg = colors.blue },
   -- FloatBorder = { fg = colors.surface0, bg = colors.surface0 },
 })

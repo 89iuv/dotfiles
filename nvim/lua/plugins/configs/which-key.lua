@@ -2,9 +2,9 @@ local wk = require("which-key")
 
 wk.setup {
   window = {
-    border = "none", -- none, single, double, shadow
-    margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    border = "single", -- none, single, double, shadow
+    -- margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
+    -- padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
   }
 }
 
