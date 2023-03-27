@@ -8,7 +8,6 @@ vim.opt.cursorline = true
 vim.opt.wrap = false
 
 vim.opt.mouse = "a"
--- vim.opt.mouse = ""
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2

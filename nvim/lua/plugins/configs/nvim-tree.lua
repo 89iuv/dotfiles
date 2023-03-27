@@ -1,18 +1,16 @@
-local global_icons = require("core.ui-globals").icons
-local nvim_tree = require("nvim-tree")
-local which_key = require("which-key")
+-- diable netrw plugin for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
+local nvim_tree = require("nvim-tree")
 nvim_tree.setup {
-  disable_netrw = true,
   hijack_cursor = true,
-  remove_keymaps = { "H", "J", "K", "L" }, -- conflicts with window resize
   view = {
-    width = {},
+    width = {}, -- make window resize automatically 
   },
   renderer = {
-    full_name = true,
     indent_markers = {
-      enable = false,
+      enable = true,
     },
     icons = {
       show = {
@@ -20,32 +18,13 @@ nvim_tree.setup {
       },
     }
   },
-  git = {
-    enable = true,
-    ignore = false,
-  },
-  actions = {
-    open_file = {
-      window_picker = {
-        enable = true,
-        picker = function()
-          return vim.fn.win_getid(vim.fn.winnr("#"))
-        end
-      },
-    },
-  },
   diagnostics = {
     enable = true,
     show_on_dirs = true,
   }
 }
 
-local colors = require("catppuccin.palettes").get_palette()
-require("catppuccin.lib.highlighter").syntax({
-  -- NvimTreeWinSeparator = { fg = colors.mantle, bg = colors.mantle },
-  NvimTreeEndOfBuffer = { fg = colors.mantle, bg = colors.mantle },
-})
-
+local which_key = require("which-key")
 which_key.register({
   ["<leader>"] = {
     e = {

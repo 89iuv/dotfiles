@@ -26,12 +26,12 @@ cmp.setup({
   },
   window = {
     documentation = {
-      border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-      winhighlight = 'FloatBorder:FloatBorder',
+      border = "single",
+      -- winhighlight = 'FloatBorder:FloatBorder',
     },
     completion = {
-      border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-      winhighlight = 'FloatBorder:FloatBorder',
+      border = "single",
+      -- winhighlight = 'FloatBorder:FloatBorder',
     }
   },
   mapping = cmp.mapping.preset.insert({
