@@ -9,14 +9,14 @@ nvim_tree.setup {
     width = {}, -- make window resize automatically 
   },
   renderer = {
-    indent_markers = {
-      enable = true,
-    },
     icons = {
       show = {
         folder_arrow = false,
       },
     }
+  },
+  git = {
+    ignore = false,
   },
   diagnostics = {
     enable = true,

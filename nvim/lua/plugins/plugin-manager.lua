@@ -58,9 +58,9 @@ return require('packer').startup({
 
     -- LSP
     use { 'neovim/nvim-lspconfig' }
+    use { 'folke/neodev.nvim', config = [[load_plugin_config'neodev']] }
     use { 'williamboman/mason.nvim', after = "which-key.nvim", config = [[load_plugin_config'mason']] }
-    use { 'williamboman/mason-lspconfig.nvim', after = "mason.nvim", config = [[load_plugin_config'mason-lspconfig']] }
-    use { 'folke/neodev.nvim' }
+    use { 'williamboman/mason-lspconfig.nvim', after = {"mason.nvim", "neodev.nvim"}, config = [[load_plugin_config'mason-lspconfig']] }
 
     -- Git
     use { 'lewis6991/gitsigns.nvim', after = "which-key.nvim", config = [[load_plugin_config'gitsigns']] }
