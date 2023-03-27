@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dependencies
-brew install neofetch htop wget node nvim ripgrep tmux lua
+brew install neofetch htop wget node nvim ripgrep tmux lua tree
 
 # vars
 path=`pwd`
