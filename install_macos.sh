@@ -3,6 +3,9 @@
 # dependencies
 brew install neofetch htop wget node nvim ripgrep tmux lua tree
 
+# tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/tpm
+
 # vars
 path=`pwd`
 
