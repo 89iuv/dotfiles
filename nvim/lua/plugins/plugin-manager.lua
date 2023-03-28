@@ -37,6 +37,7 @@ return require('packer').startup({
     use { 'kyazdani42/nvim-tree.lua', after = { "catppuccin", "which-key.nvim" }, requires = { 'kyazdani42/nvim-web-devicons' }, config = [[load_plugin_config'nvim-tree']] }
     use { 'feline-nvim/feline.nvim', after = "catppuccin", config = [[load_plugin_config'feline']] }
     use { 'nvim-telescope/telescope.nvim', after = { "catppuccin", "which-key.nvim" }, requires = { 'nvim-lua/plenary.nvim' }, config = [[load_plugin_config'telescope']] }
+    use { 'echasnovski/mini.nvim', branch = 'stable', config = [[load_plugin_config'mini']] }
 
     -- Code
     use { 'nvim-treesitter/nvim-treesitter', after = "which-key.nvim", run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, config = [[load_plugin_config'nvim-treesitter']] }
