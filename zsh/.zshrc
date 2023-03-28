@@ -120,6 +120,11 @@ export EDITOR='nvim'
 # keybindings
 bindkey '^f' edit-command-line
 
+# alias exa
+alias ls="exa -lg --icons"
+alias la="exa -lag --icons"
+alias lg="exa -lag --icons --git"
+
 # workaround for Unknown locale, assuming C
 export LANG=en_US.UTF-8
 

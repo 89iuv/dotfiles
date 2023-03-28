@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dependencies
-brew install neofetch htop wget node nvim ripgrep tmux lua tree fzf fd
+brew install neofetch htop wget node nvim ripgrep tmux lua tree fzf fd exa
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
