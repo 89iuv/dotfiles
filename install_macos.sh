@@ -4,10 +4,10 @@
 brew install neofetch htop wget node nvim ripgrep tmux lua tree fzf fd
 
 # tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # fzf
-/opt/homebrew/opt/fzf/install
+$(brew --prefix)/opt/fzf/install
 
 # vars
 path=`pwd`
