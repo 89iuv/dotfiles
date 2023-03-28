@@ -1,10 +1,13 @@
 #!/bin/bash
 
 # dependencies
-brew install neofetch htop wget node nvim ripgrep tmux lua tree
+brew install neofetch htop wget node nvim ripgrep tmux lua tree fzf fd
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/tpm
+
+# fzf
+/opt/homebrew/opt/fzf/install
 
 # vars
 path=`pwd`
