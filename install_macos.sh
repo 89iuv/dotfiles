@@ -19,6 +19,7 @@ ln -s $path/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
 ln -s $path/zsh/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins
 ln -s $path/zsh/.zshrc ~/.zshrc
 ln -s $path/zsh/.p10k.zsh ~/.p10k.zsh
+ln -s $path/zsh/.fzf.zsh ~/.fzf.zsh
 
 ln -s $path/tmux/.tmux.conf ~/.tmux.conf
 
