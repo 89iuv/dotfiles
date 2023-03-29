@@ -121,9 +121,8 @@ export EDITOR='nvim'
 bindkey '^f' edit-command-line
 
 # alias exa
-alias ls="exa --icons"
-alias la="exa -lag --icons"
-alias lg="exa -lag --icons --git"
+alias ls="exa -s Name --group-directories-first"
+alias la="exa -lag -s Name --group-directories-first --time-style long-iso --icons"
 
 # workaround for Unknown locale, assuming C
 export LANG=en_US.UTF-8
