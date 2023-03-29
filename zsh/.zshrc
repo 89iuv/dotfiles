@@ -122,7 +122,9 @@ bindkey '^f' edit-command-line
 
 # alias exa
 alias ls="exa -s Name --group-directories-first"
+alias lt="exa -T -s Name --group-directories-first"
 alias la="exa -lag -s Name --group-directories-first --time-style long-iso --icons"
+alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --icons --git"
 
 # workaround for Unknown locale, assuming C
 export LANG=en_US.UTF-8
