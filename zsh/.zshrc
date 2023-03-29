@@ -121,7 +121,7 @@ export EDITOR='nvim'
 bindkey '^f' edit-command-line
 
 # alias exa
-alias ls="exa -lg --icons"
+alias ls="exa --icons"
 alias la="exa -lag --icons"
 alias lg="exa -lag --icons --git"
 
