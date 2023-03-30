@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dependencies
-brew install neofetch htop wget node nvim ripgrep tmux lua tree fzf fd exa
+brew install neofetch htop wget node nvim ripgrep tmux lua fzf fd exa
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -19,7 +19,6 @@ ln -s $path/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
 ln -s $path/zsh/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins
 ln -s $path/zsh/.zshrc ~/.zshrc
 ln -s $path/zsh/.p10k.zsh ~/.p10k.zsh
-ln -s $path/zsh/.fzf.zsh ~/.fzf.zsh
 
 ln -s $path/tmux/.tmux.conf ~/.tmux.conf
 
