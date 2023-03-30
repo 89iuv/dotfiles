@@ -120,11 +120,19 @@ export EDITOR='nvim'
 # keybindings
 bindkey '^f' edit-command-line
 
-# alias exa
-alias ls="exa -s Name --group-directories-first"
-alias lt="exa -T -s Name --group-directories-first"
-alias la="exa -lag -s Name --group-directories-first --time-style long-iso --icons"
-alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --icons --git"
+# fzf
+alias fzf="fzf --ansi"
+
+# exa
+alias ls="exa -s Name --group-directories-first --color=always"
+alias lt="exa -T -s Name --group-directories-first --color=always"
+alias la="exa -lag -s Name --group-directories-first --time-style long-iso --icons --color=always"
+alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --icons --git --color=always"
+
+# bat 
+export BAT_THEME="Catppuccin-mocha"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+alias cat="bat --color=always"
 
 # workaround for Unknown locale, assuming C
 export LANG=en_US.UTF-8
