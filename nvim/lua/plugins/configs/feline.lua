@@ -24,7 +24,7 @@ local mode_colors = {
 }
 
 local separator = {
-  right = "",
+  right = "▐",
   left = "▐"
 }
 

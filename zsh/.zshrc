@@ -132,7 +132,10 @@ alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --ico
 # bat 
 export BAT_THEME="Catppuccin-mocha"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-alias cat="bat --color=always"
+alias cat="bat -p --paging=never --color=always"
+
+# less
+alias less="less -R"
 
 # workaround for Unknown locale, assuming C
 export LANG=en_US.UTF-8
