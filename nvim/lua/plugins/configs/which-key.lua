@@ -6,6 +6,11 @@ wk.setup {
   }
 }
 
+require("catppuccin.lib.highlighter").syntax({
+  WhichKey = { link = "NormalFloat"},
+  WhichKeyBorder = { link = "FloatBorder"}
+})
+
 wk.register({
   ["<leader>"] = {
     k = {

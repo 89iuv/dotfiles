@@ -1,14 +1,13 @@
 require('telescope').setup {
   defaults = {
+    border = true,
     borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
   }
 }
 
-local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin.lib.highlighter").syntax({
-  -- TelescopePromptNormal = { bg = colors.mantle },
-  -- TelescopeResultsNormal = { bg = colors.mantle },
-  -- TelescopePreviewNormal = { bg = colors.mantle },
+  TelescopeNormal = { link = "NormalFloat"},
+  TelescopeBorder = { link = "FloatBorder"},
 })
 
 local wk = require("which-key")

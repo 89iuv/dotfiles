@@ -27,11 +27,11 @@ cmp.setup({
   window = {
     documentation = {
       border = "single",
-      -- winhighlight = 'FloatBorder:FloatBorder',
+      winhighlight = 'FloatBorder:FloatBorder',
     },
     completion = {
       border = "single",
-      -- winhighlight = 'FloatBorder:FloatBorder',
+      winhighlight = 'FloatBorder:FloatBorder',
     }
   },
   mapping = cmp.mapping.preset.insert({
