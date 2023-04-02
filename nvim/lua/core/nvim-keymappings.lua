@@ -22,10 +22,10 @@ keymap("i", "<C-k>", "<Up>", opts)
 keymap("i", "<C-l>", "<Right>", opts)
 
 -- Resize windows with
- keymap("n", "<C-S-Left>", ":vertical resize -1<cr>", opts)
- keymap("n", "<C-S-Down>", ":resize -1<cr>", opts)
- keymap("n", "<C-S-Up>", ":resize +1<cr>", opts)
- keymap("n", "<C-S-Right>", ":vertical resize +1<cr>", opts)
+keymap("n", "<C-S-Left>", ":vertical resize -1<cr>", opts)
+keymap("n", "<C-S-Down>", ":resize -1<cr>", opts)
+keymap("n", "<C-S-Up>", ":resize +1<cr>", opts)
+keymap("n", "<C-S-Right>", ":vertical resize +1<cr>", opts)
 
 -- Buffer navigation
 keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)
