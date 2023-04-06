@@ -36,6 +36,7 @@ wk.register {
 			x = { "<cmd>qa!<cr>", "Force Close" },
 			s = { "<cmd>source %<cr>", "Source Buffer" },
 			c = { "<cmd>checkhealth<cr>", "Check Health" },
+			e = { "<cmd>bufdo set list!<cr>", "Toggle Space and EOL chars" },
 		},
 		p = {
 			name = "Packer",
