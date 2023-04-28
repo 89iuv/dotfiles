@@ -126,8 +126,8 @@ alias fzf="fzf --ansi"
 # exa
 alias ls="exa -s Name --group-directories-first --color=always"
 alias lt="exa -T -s Name --group-directories-first --color=always"
-alias la="exa -lag -s Name --group-directories-first --time-style long-iso --icons --color=always"
-alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --icons --git --color=always"
+alias la="exa -lag -s Name --group-directories-first --time-style long-iso --color=always"
+alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --git --color=always"
 
 # bat 
 export BAT_THEME="Catppuccin-mocha"
