@@ -83,6 +83,10 @@ source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
+
+# zsh history file settings
+setopt HIST_IGNORE_ALL_DUPS
+
 # zsh-history-substring-search configuration
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
