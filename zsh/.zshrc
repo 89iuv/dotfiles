@@ -122,8 +122,9 @@ alias fzf="fzf --ansi"
 
 # exa
 alias ls="exa -s Name --group-directories-first --color=always"
+alias la="exa -s Name --group-directories-first --color=always -a"
 alias lt="exa -T -s Name --group-directories-first --color=always"
-alias la="exa -lag -s Name --group-directories-first --time-style long-iso --color=always"
+alias ll="exa -lag -s Name --group-directories-first --time-style long-iso --color=always"
 alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --git --color=always"
 
 # bat 
