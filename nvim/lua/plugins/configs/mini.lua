@@ -1,1 +1,0 @@
-require("mini.animate").setup()

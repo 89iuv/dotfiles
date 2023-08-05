@@ -21,8 +21,8 @@ ln -s $dotfiles_path/tmux/.tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # nvim
-mkdir -p ~/.config
-ln -s $dotfiles_path/nvim ~/.config/nvim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+ln -s $dotfiles_path/nvchad/custom ~/.config/nvim/lua
 
 # fzf
 $(brew --prefix)/opt/fzf/install
