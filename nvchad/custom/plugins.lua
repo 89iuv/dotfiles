@@ -47,6 +47,14 @@ local plugins = {
     end,
   },
 
+  {
+    "Pocco81/auto-save.nvim",
+    config = function()
+      require("auto-save").setup({enable = true})
+    end,
+    lazy = false
+  }
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

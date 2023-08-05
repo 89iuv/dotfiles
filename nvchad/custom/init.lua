@@ -5,3 +5,9 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+
+vim.opt.undofile = true
+vim.opt.swapfile = false
+
+vim.opt.ignorecase = true
+
