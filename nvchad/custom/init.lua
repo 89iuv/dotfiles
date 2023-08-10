@@ -10,4 +10,4 @@ vim.opt.undofile = true
 vim.opt.swapfile = false
 
 vim.opt.ignorecase = true
-
+vim.opt.wrap = false
