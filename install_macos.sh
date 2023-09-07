@@ -10,7 +10,14 @@ dotfiles_path=`pwd`
 # oh-my-zsh
 ln -s $dotfiles_path/zsh/oh-my-zsh ~/.oh-my-zsh
 ln -s $dotfiles_path/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
+ln -s $dotfiles_path/zsh/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins
 ln -s $dotfiles_path/zsh/.zshrc ~/.zshrc
+
+# fast-syntax-highlighting
+ln -s $dotfiles_path/zsh/fast-syntax-highlighting ~/.oh-my-zsh/custom/plugins
+mkdir -p ~/.config/fsh/
+ln -s $dotfiles_path/zsh/zsh-fsh/*.ini ~/.config/fsh
+# run after source: fast-theme XDG:catppuccin-mocha
 
 # powerlevel10k
 ln -s $dotfiles_path/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes

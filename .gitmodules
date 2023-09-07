@@ -10,3 +10,12 @@
 [submodule "zsh/bat"]
 	path = zsh/bat
 	url = https://github.com/catppuccin/bat.git
+[submodule "zsh/fast-syntax-highlighting"]
+	path = zsh/fast-syntax-highlighting
+	url = git@github.com:zdharma-continuum/fast-syntax-highlighting.git
+[submodule "zsh/zsh-history-substring-search"]
+	path = zsh/zsh-history-substring-search
+	url = git@github.com:zsh-users/zsh-history-substring-search.git
+[submodule "zsh/zsh-fsh"]
+	path = zsh/zsh-fsh
+	url = git@github.com:catppuccin/zsh-fsh.git
