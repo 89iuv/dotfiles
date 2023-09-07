@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-history-substring-search)
-plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,13 +92,13 @@ setopt HIST_IGNORE_ALL_DUPS
 # source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # zsh-history-substring-search
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=none,fg=none'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=none,fg=none'
+# bindkey "$terminfo[kcuu1]" history-substring-search-up
+# bindkey "$terminfo[kcud1]" history-substring-search-down
+# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=none,fg=none'
+# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=none,fg=none'
 # HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black'
 # HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
+# HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
