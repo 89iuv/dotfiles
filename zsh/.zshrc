@@ -77,8 +77,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(zsh-autosuggestions fast-syntax-highlighting zsh-history-substring-search)
-plugins=(zsh-autosuggestions)
+# plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-history-substring-search)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,13 +88,16 @@ source $ZSH/oh-my-zsh.sh
 # zsh history file settings
 setopt HIST_IGNORE_ALL_DUPS
 
-# zsh-history-substring-search configuration
-# bindkey "$terminfo[kcuu1]" history-substring-search-up
-# bindkey "$terminfo[kcud1]" history-substring-search-down
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=none,fg=none'
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=none,fg=none'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
+# zsh-syntax-highlighting
+# source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
+# zsh-history-substring-search
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=none,fg=none'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=none,fg=none'
+# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black'
+# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
 
 # zsh-autosuggestions
@@ -150,9 +153,9 @@ alias less="less -R"
 
 # workaround for Unknown locale, assuming C
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # warkaround for ls colors
-
 # setup for bsd ls
 export LSCOLORS='ExGxFxdaCxDaDahbadacec'
 

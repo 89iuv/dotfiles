@@ -19,3 +19,9 @@
 [submodule "zsh/zsh-fsh"]
 	path = zsh/zsh-fsh
 	url = git@github.com:catppuccin/zsh-fsh.git
+[submodule "zsh/zsh-syntax-highlighting"]
+	path = zsh/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/zsh-sh"]
+	path = zsh/zsh-sh
+	url = git@github.com:catppuccin/zsh-syntax-highlighting.git

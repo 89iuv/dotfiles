@@ -19,6 +19,11 @@ mkdir -p ~/.config/fsh/
 ln -s $dotfiles_path/zsh/zsh-fsh/themes/*.ini ~/.config/fsh
 # run after source: fast-theme XDG:catppuccin-mocha
 
+# zsh-syntax-highlighting
+ln -s $dotfiles_path/zsh/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins
+mkdir -p ~/.zsh
+ln -s $dotfiles_path/zsh/zsh-sh/themes/*.zsh ~/.zsh
+
 # powerlevel10k
 ln -s $dotfiles_path/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes
 ln -s $dotfiles_path/zsh/.p10k.zsh ~/.p10k.zsh
