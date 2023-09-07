@@ -77,7 +77,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions fast-syntax-highlighting zsh-history-substring-search )
+# plugins=(zsh-autosuggestions fast-syntax-highlighting zsh-history-substring-search )
+plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,7 +99,7 @@ HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_MANUAL_REBIND=true
+# ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
