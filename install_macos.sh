@@ -16,7 +16,7 @@ ln -s $dotfiles_path/zsh/.zshrc ~/.zshrc
 # fast-syntax-highlighting
 ln -s $dotfiles_path/zsh/fast-syntax-highlighting ~/.oh-my-zsh/custom/plugins
 mkdir -p ~/.config/fsh/
-ln -s $dotfiles_path/zsh/zsh-fsh/*.ini ~/.config/fsh
+ln -s $dotfiles_path/zsh/zsh-fsh/themes/*.ini ~/.config/fsh
 # run after source: fast-theme XDG:catppuccin-mocha
 
 # powerlevel10k
