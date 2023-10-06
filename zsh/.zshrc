@@ -78,7 +78,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-history-substring-search)
-plugins=(zsh-autosuggestions)
+
+# if you want to disable the zsh-autosuggestions plugin set DISABLE_ZSH_SUGGESTIONS=true as an environment variable
+if [[ $DISABLE_ZSH_SUGGESTIONS ]]
+then
+  plugins=()
+else
+  plugins=(zsh-autosuggestions)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
