@@ -111,6 +111,11 @@ setopt HIST_IGNORE_ALL_DUPS
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 
+# zsh-autosuggestions keybindings
+bindkey '^ ' autosuggest-fetch
+bindkey '^x' autosuggest-toggle
+bindkey '^e' autosuggest-clear
+
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
 pasteinit() {
