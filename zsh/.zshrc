@@ -77,15 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-history-substring-search)
-
-# if you want to disable the zsh-autosuggestions plugin set DISABLE_ZSH_SUGGESTIONS=true as an environment variable
-if [[ $DISABLE_ZSH_SUGGESTIONS ]]
-then
-  plugins=()
-else
-  plugins=(zsh-autosuggestions)
-fi
+plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,21 +87,8 @@ source $ZSH/oh-my-zsh.sh
 # zsh history file settings
 setopt HIST_IGNORE_ALL_DUPS
 
-# zsh-syntax-highlighting
-# source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-
-# zsh-history-substring-search
-# bindkey "$terminfo[kcuu1]" history-substring-search-up
-# bindkey "$terminfo[kcud1]" history-substring-search-down
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=none,fg=none'
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=none,fg=none'
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black'
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
-# HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
-
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 
 # zsh-autosuggestions keybindings
 bindkey '^ ' autosuggest-fetch
@@ -133,12 +112,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 
-# fzf catppuccin theme
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
 # default terminal editor
 export EDITOR='nvim'
 
@@ -150,14 +123,14 @@ alias fzf="fzf --ansi"
 
 # exa
 alias ls="exa -s Name --group-directories-first --color=always"
-alias la="exa -s Name --group-directories-first --color=always -a"
+alias la="exa -s -a Name --group-directories-first --color=always"
 alias lt="exa -T -s Name --group-directories-first --color=always"
 alias ll="exa -lag -s Name --group-directories-first --time-style long-iso --color=always"
 alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --git --color=always"
 
 # bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-alias cat="bat -p --paging=never --color=always"
+alias cat="bat --theme=base16 --style=numbers,changes --paging=never --color=always"
 
 # less
 alias less="less -R"
