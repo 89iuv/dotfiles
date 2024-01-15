@@ -13,8 +13,10 @@ PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
 # configure
 # oh-my-zsh
 ln -s $dotfiles_path/zsh/oh-my-zsh ~/.oh-my-zsh
-ln -s $dotfiles_path/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
 ln -s $dotfiles_path/zsh/.zshrc ~/.zshrc
+
+# zsh-autosuggestions
+ln -s $dotfiles_path/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
 
 # powerlevel10k
 ln -s $dotfiles_path/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes
