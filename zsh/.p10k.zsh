@@ -59,14 +59,14 @@
     # nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
     # nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
     # nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
-    # node_version          # node.js version
-    # go_version            # go version (https://golang.org)
-    # rust_version          # rustc version (https://www.rust-lang.org)
-    # dotnet_version        # .NET version (https://dotnet.microsoft.com)
-    # php_version           # php version (https://www.php.net/)
-    # laravel_version       # laravel php framework version (https://laravel.com/)
-    # java_version          # java version (https://www.java.com/)
-    # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
+    # node_version            # node.js version
+    # go_version              # go version (https://golang.org)
+    # rust_version            # rustc version (https://www.rust-lang.org)
+    # dotnet_version          # .NET version (https://dotnet.microsoft.com)
+    # php_version             # php version (https://www.php.net/)
+    # laravel_version         # laravel php framework version (https://laravel.com/)
+    # java_version            # java version (https://www.java.com/)
+    # package                 # name@version from package.json (https://docs.npmjs.com/files/package.json)
     # rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
     # rvm                     # ruby version from rvm (https://rvm.io)
     # fvm                     # flutter version management (https://github.com/leoafarias/fvm)
@@ -79,7 +79,7 @@
     # haskell_stack           # haskell version from stack (https://haskellstack.org/)
     # kubecontext             # current kubernetes context (https://kubernetes.io/)
     # terraform               # terraform workspace (https://www.terraform.io)
-    # terraform_version     # terraform version (https://www.terraform.io)
+    # terraform_version       # terraform version (https://www.terraform.io)
     # aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     # aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
     # azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
@@ -96,25 +96,25 @@
     # midnight_commander      # midnight commander shell (https://midnight-commander.org/)
     # nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     # chezmoi_shell           # chezmoi shell (https://www.chezmoi.io/)
-    # vpn_ip                # virtual private network indicator
-    # load                  # CPU load
-    # disk_usage            # disk usage
-    # ram                   # free RAM
-    # swap                  # used swap
+    # vpn_ip                  # virtual private network indicator
+    # load                    # CPU load
+    # disk_usage              # disk usage
+    # ram                     # free RAM
+    # swap                    # used swap
     # todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     # timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     # taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     # per_directory_history   # Oh My Zsh per-directory-history local/global indicator
-    # cpu_arch              # CPU architecture
-    # time                  # current time
+    # cpu_arch                # CPU architecture
+    # time                    # current time
     # =========================[ Line #2 ]=========================
-    newline                 # \n
-    # ip                    # ip address and bandwidth usage for a specified network interface
-    # public_ip             # public IP address
-    # proxy                 # system-wide http/https/ftp proxy
-    # battery               # internal battery
-    # wifi                  # wifi speed
-    # example               # example user-defined segment (see prompt_example function below)
+    newline                   # \n
+    # ip                      # ip address and bandwidth usage for a specified network interface
+    # public_ip               # public IP address
+    # proxy                   # system-wide http/https/ftp proxy
+    # battery                 # internal battery
+    # wifi                    # wifi speed
+    # example                 # example user-defined segment (see prompt_example function below)
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
