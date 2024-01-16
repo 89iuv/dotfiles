@@ -90,10 +90,13 @@ setopt HIST_IGNORE_ALL_DUPS
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+
+zle -N autosuggest-execute-enable
+
 # zsh-autosuggestions keybindings
+bindkey '' autosuggest-execute
 bindkey '^ ' autosuggest-fetch
-bindkey '^x' autosuggest-toggle
-bindkey '\e' autosuggest-clear
+bindkey '' autosuggest-clear
 
 # zsh reduce esc key delay
 # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
@@ -115,6 +118,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
 # default terminal editor
 export EDITOR='nvim'
