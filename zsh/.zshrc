@@ -93,7 +93,11 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # zsh-autosuggestions keybindings
 bindkey '^ ' autosuggest-fetch
 bindkey '^x' autosuggest-toggle
-bindkey '^e' autosuggest-clear
+bindkey '\e' autosuggest-clear
+
+# zsh reduce esc key delay
+# https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+KEYTIMEOUT=1
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
