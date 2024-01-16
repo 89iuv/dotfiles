@@ -396,10 +396,10 @@
 
     if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
       local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
-      # If local branch name is at most 32 characters long, show it in full.
-      # Otherwise show the first 12 … the last 12.
+      # If local branch name is at most 64 characters long, show it in full.
+      # Otherwise show the first 24 … the last 24.
       # Tip: To always show local branch name in full without truncation, delete the next line.
-      # (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
+      (( $#branch > 64 )) && branch[25,-25]="…"  # <-- this line
       res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
     fi
 
