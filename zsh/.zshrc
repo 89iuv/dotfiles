@@ -88,15 +88,26 @@ source $ZSH/oh-my-zsh.sh
 setopt HIST_IGNORE_ALL_DUPS
 
 # zsh-autosuggestions
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0,bg=7"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# zsh-autosuggestions backspace
+autosuggest-backspace() {
+  if [ -n "$POSTDISPLAY" ]; then
+    zle autosuggest-clear
+  else
+    zle backward-delete-char
+  fi
+}
 
-zle -N autosuggest-execute-enable
+zle -N autosuggest-backspace
+ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(autosuggest-backspace)
 
 # zsh-autosuggestions keybindings
 bindkey '' autosuggest-execute
 bindkey '^ ' autosuggest-fetch
 bindkey '' autosuggest-clear
+bindkey '^?' autosuggest-backspace
 
 # zsh reduce esc key delay
 # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
