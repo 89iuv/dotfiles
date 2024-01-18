@@ -150,7 +150,7 @@ alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --git
 
 # bat
 export BAT_THEME="base16"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat --theme=\"Monokai Extended Origin\" -l man -p'"
 alias cat="bat --style=numbers,changes --paging=never --color=always"
 
 # less
