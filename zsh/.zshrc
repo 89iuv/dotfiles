@@ -138,6 +138,7 @@ export EDITOR='nvim'
 bindkey '^f' edit-command-line
 
 # fzf
+export FZF_DEFAULT_OPTS='--color=16'
 alias fzf="fzf --ansi"
 
 # exa
@@ -148,8 +149,9 @@ alias ll="exa -lag -s Name --group-directories-first --time-style long-iso --col
 alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --git --color=always"
 
 # bat
+export BAT_THEME="base16"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-alias cat="bat --theme=base16 --style=numbers,changes --paging=never --color=always"
+alias cat="bat --style=numbers,changes --paging=never --color=always"
 
 # less
 alias less="less -R"
@@ -197,9 +199,6 @@ export PATH=$HOME/.local/bin:$PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
