@@ -91,6 +91,25 @@ setopt HIST_IGNORE_ALL_DUPS
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0,bg=7"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# zsh-autosuggestions slef-insert 
+self-insert() {
+  if [[ "$CURSOR" -ne "$#BUFFER" ]]; then
+    if (( ${+_ZSH_AUTOSUGGEST_DISABLED} )); then
+    else
+      zle autosuggest-disable
+	  fi
+
+  else
+    if (( ${+_ZSH_AUTOSUGGEST_DISABLED} )); then
+		  _zsh_autosuggest_enable
+	  fi
+  fi
+
+  zle .self-insert
+}
+
+zle -N self-insert 
+
 # zsh-autosuggestions left arrow
 autosuggest-left-arrow() {
   if [ -n "$POSTDISPLAY" ]; then
