@@ -88,58 +88,8 @@ source $ZSH/oh-my-zsh.sh
 setopt HIST_IGNORE_ALL_DUPS
 
 # zsh-autosuggestions
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0,bg=7"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# zsh-autosuggestions slef-insert 
-self-insert() {
-  if [[ "$CURSOR" -ne "$#BUFFER" ]]; then
-    if (( ${+_ZSH_AUTOSUGGEST_DISABLED} )); then
-    else
-      zle autosuggest-disable
-	  fi
-
-  else
-    if (( ${+_ZSH_AUTOSUGGEST_DISABLED} )); then
-		  _zsh_autosuggest_enable
-	  fi
-  fi
-
-  zle .self-insert
-}
-
-zle -N self-insert 
-
-# zsh-autosuggestions left arrow
-autosuggest-left-arrow() {
-  if [ -n "$POSTDISPLAY" ]; then
-    BUFFER=$BUFFER$POSTDISPLAY
-    zle autosuggest-clear
-    zle backward-char
-  else
-    zle backward-char
-  fi
-}
-
-zle -N autosuggest-left-arrow
-ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(autosuggest-left-arrow)
-bindkey '^[OD' autosuggest-left-arrow
-
-# zsh-autosuggestions backspace
-autosuggest-backspace() {
-  if [ -n "$POSTDISPLAY" ]; then
-    zle autosuggest-clear
-  else
-    zle backward-delete-char
-  fi
-}
-
-zle -N autosuggest-backspace
-ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(autosuggest-backspace)
-bindkey '^?' autosuggest-backspace
-
-# zsh-autosuggestions keybindings
-bindkey '' autosuggest-execute
 bindkey '^ ' autosuggest-fetch
 bindkey '' autosuggest-clear
 
