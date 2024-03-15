@@ -140,10 +140,6 @@ alias cat="bat --style=numbers,changes --paging=never --color=always"
 # less
 alias less="less -R"
 
-# workaround for Unknown locale, assuming C
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 # warkaround for ls colors
 # setup for bsd ls
 export LSCOLORS='ExGxFxdaCxDaDahbadacec'
