@@ -125,12 +125,12 @@ bindkey '^f' edit-command-line
 export FZF_DEFAULT_OPTS='--color=16'
 alias fzf="fzf --ansi"
 
-# exa
-alias ls="exa -s Name --group-directories-first --color=always"
-alias la="exa -s -a Name --group-directories-first --color=always"
-alias lt="exa -T -s Name --group-directories-first --color=always"
-alias ll="exa -lag -s Name --group-directories-first --time-style long-iso --color=always"
-alias lg="exa -lag -s Name --group-directories-first --time-style long-iso --git --color=always"
+# eza
+alias ls="eza -s Name --group-directories-first --color=always"
+alias la="eza -s -a Name --group-directories-first --color=always"
+alias lt="eza -T -s Name --group-directories-first --color=always"
+alias ll="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --color=always"
+alias lg="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --git --color=always"
 
 # bat
 export BAT_THEME="base16"

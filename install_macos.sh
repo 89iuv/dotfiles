@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dependencies
-brew install neofetch onefetch btop dust wget node nvim ripgrep tmux lua fzf fd exa bat
+brew install neofetch onefetch btop dust wget node nvim ripgrep tmux lua fzf fd eza bat
 
 # vars
 dotfiles_path=`pwd`
