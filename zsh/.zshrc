@@ -142,22 +142,22 @@ alias less="less -R"
 
 # gh copilot
 copilot_shell_suggest() {
-  gh copilot suggest -t shell "$@"
+  gh copilot suggest -t shell "$*"
 }
 alias '??'='copilot_shell_suggest'
 
 copilot_git_suggest() {
-  gh copilot suggest -t git "$@"
+  gh copilot suggest -t git "$*"
 }
 alias 'git?'='copilot_git_suggest'
 
 copilot_gh_suggest() {
-  gh copilot suggest -t gh "$@"
+  gh copilot suggest -t gh "$*"
 }
 alias 'gh?'='copilot_gh_suggest'
 
 copilot_explain() {
-  gh copilot explain "$@"
+  gh copilot explain "$*"
 }
 alias 'help?'='copilot_explain'
 
