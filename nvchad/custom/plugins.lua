@@ -56,19 +56,6 @@ local plugins = {
   },
 
   {
-    'echasnovski/mini.nvim',
-    lazy = false
-  },
-
-  {
-    'echasnovski/mini.animate',
-    config = function()
-      require("mini.animate").setup()
-    end,
-    lazy = false
-  },
-
-  {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     opts = overrides.copilot,
