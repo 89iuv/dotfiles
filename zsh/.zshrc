@@ -156,6 +156,11 @@ copilot_gh_suggest() {
 }
 alias 'gh?'='copilot_gh_suggest'
 
+copilot_explain() {
+  gh copilot explain "$@"
+}
+alias 'help?'='copilot_explain'
+
 # warkaround for ls colors
 # setup for bsd ls
 export LSCOLORS='ExGxFxdaCxDaDahbadacec'
