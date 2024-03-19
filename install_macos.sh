@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dependencies
-brew install neofetch onefetch btop dust wget npm node nvim ripgrep tmux lua fzf fd eza bat
+brew install neofetch onefetch btop dust wget nvim ripgrep tmux lua fzf fd eza bat
 
 # vars
 dotfiles_path=`pwd`
@@ -9,6 +9,8 @@ dotfiles_path=`pwd`
 # node
 # https://github.com/nvm-sh/nvm
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash'
+nvm install node
+nvm alias default node
 
 # configure
 # oh-my-zsh
