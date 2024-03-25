@@ -3,10 +3,6 @@
 # dependencies
 brew install neofetch onefetch btop dust wget nvim ripgrep tmux lua fzf fd eza bat
 
-# nvchad
-git clone git@github.com:89iuv/starter.git ~/.config/nvim && nvim
-# run :MasonInstallAll
-
 # node
 # https://github.com/nvm-sh/nvm
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash'
@@ -31,6 +27,9 @@ ln -s "$dotfiles_path"/zsh/.p10k.zsh ~/.p10k.zsh
 # tmux
 ln -s "$dotfiles_path"/tmux/.tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# nvim
+ln -s "$dotfiles_path"/nvim ~/.config/nvim
 
 # fzf
 "$(brew --prefix)/opt/fzf/install"
