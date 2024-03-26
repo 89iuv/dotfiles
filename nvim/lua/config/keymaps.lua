@@ -29,3 +29,11 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Navigation
+vim.keymap.set('n', '<M-}>', '<C-i>')
+vim.keymap.set('n', '<M-{>', '<C-o>')
+
+vim.keymap.set('n', '<M-]>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Go to next Buffer' })
+vim.keymap.set('n', '<M-[>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Go to previous Buffer' })
+vim.keymap.set('n', '<leader>x', '<cmd>BufDel<CR>', { desc = 'E[X]it Buffer' })

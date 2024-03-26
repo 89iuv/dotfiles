@@ -34,6 +34,32 @@ return {
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+
+    {
+      'zbirenbaum/copilot.lua',
+      event = 'InsertEnter',
+      opts = {
+        -- Possible configurable fields can be found on:
+        -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+        suggestion = {
+          enabled = false,
+        },
+        panel = {
+          enabled = true,
+          auto_refresh = true,
+          layout = {
+            position = 'right', -- | top | left | right
+            ratio = 0.4,
+          },
+        },
+      },
+    },
+    {
+      'zbirenbaum/copilot-cmp',
+      config = function()
+        require('copilot_cmp').setup()
+      end,
+    },
   },
   config = function()
     -- See `:help cmp`
@@ -96,9 +122,28 @@ return {
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
+        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+      },
+      sorting = {
+        priority_weight = 2,
+        comparators = {
+          require('copilot_cmp.comparators').prioritize,
+
+          -- Below is the default comparitor list and order for nvim-cmp
+          require('cmp').config.compare.offset,
+          -- require("cmp").config.compare.scopes, --this is commented in nvim-cmp too
+          require('cmp').config.compare.exact,
+          require('cmp').config.compare.score,
+          require('cmp').config.compare.recently_used,
+          require('cmp').config.compare.locality,
+          require('cmp').config.compare.kind,
+          require('cmp').config.compare.sort_text,
+          require('cmp').config.compare.length,
+          require('cmp').config.compare.order,
+        },
       },
     }
   end,

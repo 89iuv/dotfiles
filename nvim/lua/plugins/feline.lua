@@ -5,9 +5,6 @@ return {
     local ctp_feline = require 'catppuccin.groups.integrations.feline'
 
     ctp_feline.setup {
-      assets = {
-        right_separator = ' ',
-      },
       sett = {
         bkg = clrs.surface0,
       },

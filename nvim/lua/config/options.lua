@@ -73,4 +73,9 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+-- status bar set width to full scree
 vim.opt.laststatus = 3
+
+-- disable word wrap
+vim.opt.wrap = false

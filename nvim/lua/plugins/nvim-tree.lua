@@ -1,15 +1,26 @@
 return {
-	"nvim-tree/nvim-tree.lua",
-	version = "*",
-	lazy = false,
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
-	config = function()
-		require("nvim-tree").setup({})
+  'nvim-tree/nvim-tree.lua',
+  version = '*',
+  lazy = false,
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'folke/which-key.nvim',
+  },
+  config = function()
+    require('nvim-tree').setup {
+      hijack_cursor = true,
+      update_focused_file = {
+        enable = true,
+      },
+      view = {
+        adaptive_size = true,
+      },
+    }
 
-		local map = vim.keymap.set
-		map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvimtree Toggle window" })
-		map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Nvimtree Focus window" })
-	end,
+    require('which-key').register {
+      ['<leader>n'] = { name = '[N]vimtree', _ = 'which_key_ignore' },
+    }
+    vim.keymap.set('n', '<leader>nt', '<cmd>NvimTreeToggle<CR>', { desc = '[N]vimtree [T]oggle window' })
+    vim.keymap.set('n', '<leader>nf', '<cmd>NvimTreeFocus<CR>', { desc = '[N]vimtree [F]ocus window' })
+  end,
 }
