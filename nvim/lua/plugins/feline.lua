@@ -1,17 +1,6 @@
 return {
   'freddiehaddad/feline.nvim',
   config = function()
-    local overwrite_theme = function()
-      local clrs = require('catppuccin.palettes').get_palette()
-      local ctp_feline = require 'catppuccin.groups.integrations.feline'
-      ctp_feline.setup {
-        sett = {
-          bkg = clrs.surface0,
-        },
-      }
-      return ctp_feline.get()
-    end
-
     local force_inactive = {
       filetypes = {
         '^help$',
@@ -23,7 +12,7 @@ return {
     }
 
     require('feline').setup {
-      components = overwrite_theme(),
+      components = require('catppuccin.groups.integrations.feline').get(),
       force_inactive = force_inactive,
     }
 
@@ -34,7 +23,7 @@ return {
         package.loaded['catppuccin.groups.integrations.feline'] = nil
 
         require('feline').setup {
-          components = overwrite_theme(),
+          components = require('catppuccin.groups.integrations.feline').get(),
           force_inactive = force_inactive,
         }
       end,
