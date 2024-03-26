@@ -1,6 +1,5 @@
 local M = {}
 
--- todo: add lsp servers config
 M.lsp_config = {
   servers = {
     -- lua
