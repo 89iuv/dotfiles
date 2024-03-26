@@ -14,6 +14,8 @@ return {
             filetype = 'NvimTree',
           },
         },
+        diagnostics = 'nvim_lsp',
+        diagnostics_update_in_insert = true,
       },
       highlights = require('catppuccin.groups.integrations.bufferline').get(),
     }

@@ -1,6 +1,7 @@
 return {
   'lewis6991/gitsigns.nvim',
   opts = {
+    sign_priority = 1,
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
 
