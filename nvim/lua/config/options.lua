@@ -4,6 +4,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- set termguicolors
+vim.g.termguicolors = true
+
 -- disable netrw needed for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -60,8 +63,8 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -83,6 +86,9 @@ vim.opt.laststatus = 3
 
 -- disable word wrap
 vim.opt.wrap = false
+
+-- Limit the completion height
+vim.opt.pumheight = 10
 
 -- Diagnostics config
 vim.diagnostic.config {

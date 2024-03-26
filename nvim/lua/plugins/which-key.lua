@@ -2,7 +2,9 @@ return {
   'folke/which-key.nvim',
   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
   config = function() -- This is the function that runs, AFTER loading
-    require('which-key').setup()
+    require('which-key').setup {
+      window = { border = 'single' },
+    }
 
     -- TODO: move this to the plugin itself
     -- Document existing key chains

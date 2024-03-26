@@ -16,6 +16,30 @@ return {
       view = {
         adaptive_size = true,
       },
+      renderer = {
+        indent_markers = {
+          enable = true,
+          inline_arrows = true,
+          icons = {
+            corner = '│',
+            edge = '│',
+            item = '│',
+            bottom = '─',
+            none = '│',
+          },
+        },
+        icons = {
+          show = {
+            folder_arrow = false,
+          },
+          glyphs = {
+            folder = {
+              arrow_closed = '',
+              arrow_open = '',
+            },
+          },
+        },
+      },
       diagnostics = {
         enable = true,
         show_on_dirs = true,

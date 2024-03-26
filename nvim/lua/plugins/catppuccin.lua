@@ -40,6 +40,8 @@ return {
       custom_highlights = function(colors)
         return {
           NvimTreeEndOfBuffer = { fg = colors.mantle, bg = colors.mantle },
+          NvimTreeIndentMarker = { fg = colors.surface0 },
+          TelescopeNormal = { link = 'NormalFloat' },
         }
       end,
       integrations = {
@@ -52,6 +54,12 @@ return {
           enabled = true,
           indentscope_color = '',
         },
+        indent_blankline = {
+          enabled = true,
+          scope_color = 'surface1',
+        },
+        mason = true,
+        which_key = true,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
       },
     }

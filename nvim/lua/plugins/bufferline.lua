@@ -17,7 +17,13 @@ return {
         diagnostics = 'nvim_lsp',
         diagnostics_update_in_insert = true,
       },
-      highlights = require('catppuccin.groups.integrations.bufferline').get(),
+      highlights = require('catppuccin.groups.integrations.bufferline').get {
+        custom = {
+          all = {
+            indicator_selected = { fg = '#b4befe' },
+          },
+        },
+      },
     }
   end,
 }

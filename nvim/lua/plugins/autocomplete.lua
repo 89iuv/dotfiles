@@ -4,6 +4,7 @@ return {
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
     {
+      'onsails/lspkind.nvim',
       'L3MON4D3/LuaSnip',
       build = (function()
         -- Build Step is needed for regex support in snippets.
@@ -65,14 +66,56 @@ return {
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    local lspkind = require 'lspkind'
     luasnip.config.setup {}
 
     cmp.setup {
+
+      view = {
+        entries = { name = 'custom', selection_order = 'near_cursor' },
+      },
+
+      experimental = {
+        ghost_text = false, -- this feature conflict with copilot.vim's preview.
+      },
+
+      window = {
+        completion = {
+          border = 'rounded',
+          winhighlight = 'Normal:NormalFloat',
+        },
+        documentation = {
+          border = 'rounded',
+          winhighlight = 'Normal:NormalFloat',
+        },
+      },
+
+      ---@diagnostic disable-next-line: missing-fields
+      formatting = {
+        format = lspkind.cmp_format {
+          mode = 'symbol_text',
+          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          -- can also be a function to dynamically calculate max width such as
+          -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+          ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+          symbol_map = { Copilot = '' },
+          menu = {
+            copilot = '[Copilot]',
+            nvim_lsp = '[NvimLSP]',
+            luasnip = '[LuaSnip]',
+            buffer = '[Buffer]',
+            path = '[Path]',
+          },
+        },
+      },
+
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
+
       completion = { completeopt = 'menu,menuone,noinsert' },
 
       -- For an understanding of why these mappings were
@@ -121,16 +164,19 @@ return {
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
+
       sources = {
-        { name = 'copilot' },
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
+        { name = 'copilot', max_item_count = 4, priority = 50 },
+        { name = 'nvim_lsp', max_item_count = 16, priority = 100 },
+        { name = 'luasnip', max_item_count = 4, priority = 40 },
+        { name = 'buffer', max_item_count = 8, priority = 30 },
+        { name = 'path', max_item_count = 4, priority = 20 },
       },
+
       sorting = {
         priority_weight = 2,
         comparators = {
-          require('copilot_cmp.comparators').prioritize,
+          -- require('copilot_cmp.comparators').prioritize,
 
           -- Below is the default comparitor list and order for nvim-cmp
           require('cmp').config.compare.offset,
