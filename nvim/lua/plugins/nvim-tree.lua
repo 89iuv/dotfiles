@@ -29,6 +29,13 @@ return {
       filters = {
         git_ignored = false,
       },
+      actions = {
+        open_file = {
+          window_picker = {
+            enable = false,
+          },
+        },
+      },
     }
 
     require('which-key').register {
