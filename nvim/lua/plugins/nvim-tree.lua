@@ -8,6 +8,7 @@ return {
   },
   config = function()
     require('nvim-tree').setup {
+      disable_netrw = true,
       hijack_cursor = true,
       update_focused_file = {
         enable = true,
@@ -22,5 +23,6 @@ return {
     }
     vim.keymap.set('n', '<leader>nt', '<cmd>NvimTreeToggle<CR>', { desc = '[N]vimtree [T]oggle window' })
     vim.keymap.set('n', '<leader>nf', '<cmd>NvimTreeFocus<CR>', { desc = '[N]vimtree [F]ocus window' })
+    vim.keymap.set('n', '<leader>nr', '<cmd>NvimTreeRefresh<CR>', { desc = '[N]vimtree [R]efresh window' })
   end,
 }
