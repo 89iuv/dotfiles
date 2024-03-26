@@ -20,12 +20,8 @@ return {
     end
 
     local force_inactive = {
-      filetypes = {
-        '^help$',
-      },
-      buftypes = {
-        '^terminal$',
-      },
+      filetypes = {},
+      buftypes = {},
       bufnames = {},
     }
 
