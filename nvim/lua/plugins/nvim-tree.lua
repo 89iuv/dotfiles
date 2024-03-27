@@ -14,7 +14,8 @@ return {
         enable = true,
       },
       view = {
-        adaptive_size = true,
+        width = 35,
+        -- adaptive_size = true,
       },
       renderer = {
         indent_markers = {

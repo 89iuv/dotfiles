@@ -14,10 +14,12 @@ return {
         offsets = {
           {
             filetype = 'NvimTree',
+            separator = true,
           },
         },
         diagnostics = 'nvim_lsp',
         diagnostics_update_in_insert = true,
+        separator_style = { '|', '|' },
       },
       highlights = require('catppuccin.groups.integrations.bufferline').get {
         custom = {
