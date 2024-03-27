@@ -35,6 +35,8 @@ M.treesitter = {
   ensure_installed = {
     -- generic
     'markdown',
+    'markdown_inline',
+    'regex',
 
     -- vim
     'vim',

@@ -174,17 +174,17 @@ return {
       },
 
       sources = {
-        { name = 'nvim_lsp', max_item_count = 16, priority = 100 },
+        { name = 'nvim_lsp', priority = 100 },
         { name = 'copilot', max_item_count = 4, priority = 50 },
-        { name = 'luasnip', max_item_count = 4, priority = 40 },
-        { name = 'buffer', max_item_count = 8, priority = 30 },
-        { name = 'path', max_item_count = 4, priority = 20 },
+        { name = 'luasnip', max_item_count = 8, priority = 40 },
+        { name = 'buffer', priority = 30 },
+        { name = 'path', priority = 20 },
       },
 
       sorting = {
         priority_weight = 2,
         comparators = {
-          -- require('copilot_cmp.comparators').prioritize,
+          require('copilot_cmp.comparators').prioritize,
 
           -- Below is the default comparitor list and order for nvim-cmp
           require('cmp').config.compare.offset,
