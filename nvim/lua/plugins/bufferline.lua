@@ -6,6 +6,8 @@ return {
     'ojroques/nvim-bufdel',
   },
   config = function()
+    local mocha = require('catppuccin.palettes').get_palette 'mocha'
+
     require('bufferline').setup {
       options = {
         themable = true,
@@ -20,7 +22,12 @@ return {
       highlights = require('catppuccin.groups.integrations.bufferline').get {
         custom = {
           all = {
-            indicator_selected = { fg = '#b4befe' },
+            indicator_selected = { fg = mocha.lavender },
+
+            buffer_selected = { fg = mocha.lavender, style = {} }, -- current
+
+            modified = { fg = mocha.lavender },
+            modified_selected = { fg = mocha.lavender },
           },
         },
       },

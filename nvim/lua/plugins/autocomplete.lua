@@ -19,12 +19,12 @@ return {
         -- `friendly-snippets` contains a variety of premade snippets.
         --    See the README about individual language/framework/plugin snippets:
         --    https://github.com/rafamadriz/friendly-snippets
-        -- {
-        --   'rafamadriz/friendly-snippets',
-        --   config = function()
-        --     require('luasnip.loaders.from_vscode').lazy_load()
-        --   end,
-        -- },
+        {
+          'rafamadriz/friendly-snippets',
+          config = function()
+            require('luasnip.loaders.from_vscode').lazy_load()
+          end,
+        },
       },
     },
 
@@ -66,11 +66,9 @@ return {
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    local lspkind = require 'lspkind'
     luasnip.config.setup {}
 
     cmp.setup {
-
       view = {
         entries = { name = 'custom', selection_order = 'near_cursor' },
       },
@@ -92,22 +90,32 @@ return {
 
       ---@diagnostic disable-next-line: missing-fields
       formatting = {
-        format = lspkind.cmp_format {
-          mode = 'symbol_text',
-          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-          -- can also be a function to dynamically calculate max width such as
-          -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
-          ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-          show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-          symbol_map = { Copilot = '' },
-          menu = {
-            copilot = '[Copilot]',
-            nvim_lsp = '[NvimLSP]',
-            luasnip = '[LuaSnip]',
-            buffer = '[Buffer]',
-            path = '[Path]',
-          },
-        },
+        fields = { 'kind', 'abbr', 'menu' },
+        format = function(entry, vim_item)
+          local kind = require('lspkind').cmp_format {
+            mode = 'symbol_text',
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            -- can also be a function to dynamically calculate max width such as
+            -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+            symbol_map = { Copilot = '' },
+            menu = {
+              copilot = 'Copilot',
+              nvim_lsp = 'NvimLSP',
+              luasnip = 'LuaSnip',
+              buffer = 'Buffer',
+              path = 'Path',
+            },
+          }(entry, vim_item)
+
+          local strings = vim.split(kind.kind, '%s', { trimempty = true })
+          kind.kind = ' ' .. (strings[1] or '') .. ' '
+          -- kind.menu = '    ' .. kind.menu .. ' - ' .. (strings[2] or '') .. ''
+          kind.menu = '    [' .. kind.menu .. ']'
+
+          return kind
+        end,
       },
 
       snippet = {
@@ -166,8 +174,8 @@ return {
       },
 
       sources = {
-        { name = 'copilot', max_item_count = 4, priority = 50 },
         { name = 'nvim_lsp', max_item_count = 16, priority = 100 },
+        { name = 'copilot', max_item_count = 4, priority = 50 },
         { name = 'luasnip', max_item_count = 4, priority = 40 },
         { name = 'buffer', max_item_count = 8, priority = 30 },
         { name = 'path', max_item_count = 4, priority = 20 },

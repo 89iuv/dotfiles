@@ -39,8 +39,13 @@ return {
       color_overrides = {},
       custom_highlights = function(colors)
         return {
+          FloatBorder = { fg = colors.surface2 },
+
           NvimTreeEndOfBuffer = { fg = colors.mantle, bg = colors.mantle },
           NvimTreeIndentMarker = { fg = colors.surface0 },
+
+          CmpItemMenu = { fg = colors.overlay2 },
+
           TelescopeNormal = { link = 'NormalFloat' },
         }
       end,
