@@ -14,6 +14,13 @@ return {
             hint = '',
           },
         },
+        view = {
+          lsp = {
+            progress = false,
+            name = true,
+            exclude_lsp_names = { 'copilot' },
+          },
+        },
       }
 
       return ctp_feline.get()
