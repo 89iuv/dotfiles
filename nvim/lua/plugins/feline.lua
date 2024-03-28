@@ -3,7 +3,7 @@ local get_feline_statusline = function()
   local lsp = require 'feline.providers.lsp'
 
   local assets = {
-    left_separator = '',
+    left_separator = '█',
     right_separator = '',
     mode_icon = '',
     dir = '󰉖',
