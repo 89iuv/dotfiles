@@ -14,7 +14,7 @@ return {
         offsets = {
           {
             filetype = 'NvimTree',
-            separator = true,
+            separator = false,
           },
         },
         diagnostics = 'nvim_lsp',
@@ -24,7 +24,7 @@ return {
       highlights = require('catppuccin.groups.integrations.bufferline').get {
         custom = {
           all = {
-            indicator_selected = { fg = mocha.lavender },
+            indicator_selected = { fg = mocha.lavender, style = {} },
 
             buffer_selected = { fg = mocha.lavender, style = {} }, -- current
 
