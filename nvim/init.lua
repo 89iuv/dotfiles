@@ -17,6 +17,7 @@ require('lazy').setup {
   },
   ui = {
     border = 'rounded',
+    backdrop = 100,
   },
   change_detection = {
     notify = false,
