@@ -39,6 +39,7 @@ return {
         custom = {
           all = {
             indicator_selected = { fg = mocha.lavender, style = {} },
+            indicator_visible = { fg = mocha.mantle, bg = mocha.mantle },
 
             buffer_selected = { fg = mocha.lavender, style = {} }, -- current
 
