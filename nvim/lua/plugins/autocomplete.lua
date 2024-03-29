@@ -184,12 +184,12 @@ return {
       sorting = {
         priority_weight = 2,
         comparators = {
+          require('cmp').config.compare.exact,
           require('copilot_cmp.comparators').prioritize,
 
           -- Below is the default comparitor list and order for nvim-cmp
           require('cmp').config.compare.offset,
           -- require("cmp").config.compare.scopes, --this is commented in nvim-cmp too
-          require('cmp').config.compare.exact,
           require('cmp').config.compare.score,
           require('cmp').config.compare.recently_used,
           require('cmp').config.compare.locality,
