@@ -277,10 +277,12 @@ return {
       buftypes = {},
       bufnames = {},
     }
+
     require('feline').setup {
       components = get_feline_statusline(),
       force_inactive = force_inactive,
     }
+
     vim.api.nvim_create_autocmd('ColorScheme', {
       pattern = '*',
       callback = function()
