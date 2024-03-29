@@ -22,7 +22,6 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Disable spell check in terminal
 vim.api.nvim_create_autocmd('TermOpen', {
-  once = true,
   callback = function()
     vim.o.spell = false
   end,
