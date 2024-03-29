@@ -90,6 +90,9 @@ vim.opt.wrap = false
 -- Limit the completion height
 vim.opt.pumheight = 10
 
+-- Enable spell check
+vim.opt.spell = true
+
 -- Diagnostics config
 vim.diagnostic.config {
   virtual_text = {
