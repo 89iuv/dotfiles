@@ -46,7 +46,7 @@ return {
           enabled = false,
         },
         panel = {
-          enabled = true,
+          enabled = false,
           auto_refresh = true,
           layout = {
             position = 'right', -- | top | left | right
@@ -67,6 +67,14 @@ return {
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
+
+    local has_words_before = function()
+      if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
+        return false
+      end
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match '^%s*$' == nil
+    end
 
     cmp.setup {
       view = {
@@ -144,6 +152,44 @@ return {
         --  This will auto-import if your LSP supports it.
         --  This will expand snippets if the LSP sent a snippet.
         ['<C-y>'] = cmp.mapping.confirm { select = true },
+
+        ['<CR>'] = cmp.mapping {
+          i = function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+            else
+              fallback()
+            end
+          end,
+          s = cmp.mapping.confirm { select = true },
+          c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
+        },
+
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() and has_words_before() then
+            local entry = cmp.get_selected_entry()
+            if not entry then
+              cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+            end
+            cmp.confirm()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
 
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display

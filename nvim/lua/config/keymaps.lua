@@ -36,3 +36,9 @@ vim.keymap.set('n', ';', ':')
 -- Navigation
 vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next [B]uffer' })
 vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous [B]uffer' })
+
+vim.keymap.set('n', '<M-}>', '<C-i>')
+vim.keymap.set('n', '<M-{>', '<C-o>')
+
+vim.keymap.set('n', '<M-]>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next [B]uffer' })
+vim.keymap.set('n', '<M-[>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous [B]uffer' })
