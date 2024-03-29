@@ -3,13 +3,27 @@ return {
   version = '*',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    'ojroques/nvim-bufdel',
+    { 'echasnovski/mini.nvim', version = false },
+    {
+      'echasnovski/mini.bufremove',
+      version = false,
+      config = function()
+        require('mini.bufremove').setup()
+
+        vim.keymap.set('n', '<leader>x', function()
+          require('mini.bufremove').delete(0, true)
+        end, { desc = 'Remove buffer' })
+      end,
+    },
   },
   config = function()
     local mocha = require('catppuccin.palettes').get_palette 'mocha'
 
     require('bufferline').setup {
       options = {
+        close_command = function()
+          require('mini.bufremove').delete(0, true)
+        end,
         themable = true,
         offsets = {
           {

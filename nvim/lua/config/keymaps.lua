@@ -39,4 +39,3 @@ vim.keymap.set('n', '<M-{>', '<C-o>')
 
 vim.keymap.set('n', '<M-]>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '<M-[>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous Buffer' })
-vim.keymap.set('n', '<leader>x', '<cmd>BufDel<CR>', { desc = 'E[X]it Buffer' })
