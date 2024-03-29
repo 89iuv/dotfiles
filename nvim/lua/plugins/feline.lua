@@ -31,14 +31,12 @@ local get_feline_statusline = function()
     ['t'] = { 'TERMINAL', C.green },
     ['v'] = { 'VISUAL', C.flamingo },
     ['V'] = { 'V-LINE', C.flamingo },
-    ---@diagnostic disable-next-line: duplicate-index
-    [''] = { 'V-BLOCK', C.flamingo },
+    [''] = { 'V-BLOCK', C.flamingo },
     ['R'] = { 'REPLACE', C.maroon },
     ['Rv'] = { 'V-REPLACE', C.maroon },
     ['s'] = { 'SELECT', C.maroon },
     ['S'] = { 'S-LINE', C.maroon },
-    ---@diagnostic disable-next-line: duplicate-index
-    [''] = { 'S-BLOCK', C.maroon },
+    [''] = { 'S-BLOCK', C.maroon },
     ['c'] = { 'COMMAND', C.peach },
     ['cv'] = { 'COMMAND', C.peach },
     ['ce'] = { 'COMMAND', C.peach },

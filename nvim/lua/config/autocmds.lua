@@ -19,3 +19,11 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.formatoptions:remove { 'r', 'o' }
   end,
 })
+
+-- Disable spell check in terminal
+vim.api.nvim_create_autocmd('TermOpen', {
+  once = true,
+  callback = function()
+    vim.o.spell = false
+  end,
+})
