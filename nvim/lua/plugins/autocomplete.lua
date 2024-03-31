@@ -53,6 +53,7 @@ return {
             ratio = 0.4,
           },
         },
+        fix_pairs = true,
       },
     },
     {
@@ -153,44 +154,6 @@ return {
         --  This will expand snippets if the LSP sent a snippet.
         ['<C-y>'] = cmp.mapping.confirm { select = true },
 
-        ['<CR>'] = cmp.mapping {
-          i = function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
-            else
-              fallback()
-            end
-          end,
-          s = cmp.mapping.confirm { select = true },
-          c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
-        },
-
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() and has_words_before() then
-            local entry = cmp.get_selected_entry()
-            if not entry then
-              cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-            end
-            cmp.confirm()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
         --  completions whenever it has completion options available.
@@ -217,6 +180,45 @@ return {
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+
+        ['<CR>'] = cmp.mapping {
+          i = function(fallback)
+            -- if cmp.visible() and cmp.get_active_entry() then
+            if cmp.visible() then
+              cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+            else
+              fallback()
+            end
+          end,
+          s = cmp.mapping.confirm { select = true },
+          c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Select, select = true },
+        },
+
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() and has_words_before() then
+            local entry = cmp.get_selected_entry()
+            if not entry then
+              cmp.select_next_item { behavior = cmp.SelectBehavior.Replace }
+            end
+            cmp.confirm()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
       },
 
       sources = {

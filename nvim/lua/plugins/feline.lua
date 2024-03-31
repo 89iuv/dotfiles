@@ -1,19 +1,22 @@
-local get_feline_statusline = function()
+local get_feline_statusline = function(opts)
   local C = require('catppuccin.palettes').get_palette()
   local lsp = require 'feline.providers.lsp'
 
-  local assets = {
+  local config = {
     left_separator = '█',
     right_separator = '',
     mode_icon = '',
     dir = '󰉖',
     file = '󰈙',
     lsp = {
-      server = '󰅡',
-      error = ' ',
-      warning = '',
-      info = ' ',
-      hint = '',
+      icons = {
+        server = '󰅡',
+        error = ' ',
+        warning = '',
+        info = ' ',
+        hint = '',
+      },
+      exclude = { 'copilot' },
     },
     git = {
       branch = '',
@@ -22,6 +25,9 @@ local get_feline_statusline = function()
       removed = '',
     },
   }
+
+  ---@diagnostic disable-next-line: redefined-local
+  local config = vim.tbl_deep_extend('force', config, opts)
 
   local mode_colors = {
     ['n'] = { 'NORMAL', C.lavender },
@@ -47,6 +53,15 @@ local get_feline_statusline = function()
   }
 
   -- helpers
+  local is_value_in_array = function(value, array)
+    for _, v in ipairs(array) do
+      if v == value then
+        return true
+      end
+    end
+    return false
+  end
+
   local create_highlight = function(fg, bg)
     return {
       fg = fg,
@@ -72,7 +87,7 @@ local get_feline_statusline = function()
   local components_left = {}
 
   table.insert(components_left, {
-    provider = ' ' .. assets.mode_icon,
+    provider = ' ' .. config.mode_icon,
     hl = function()
       return {
         fg = C.mantle,
@@ -95,7 +110,7 @@ local get_feline_statusline = function()
   })
 
   table.insert(components_left, {
-    provider = assets.right_separator,
+    provider = config.right_separator,
     hl = function()
       return {
         fg = mode_colors[vim.fn.mode()][2],
@@ -105,7 +120,7 @@ local get_feline_statusline = function()
   })
 
   table.insert(components_left, {
-    provider = assets.right_separator,
+    provider = config.right_separator,
     hl = create_highlight(C.overlay1, C.surface0),
   })
 
@@ -114,17 +129,17 @@ local get_feline_statusline = function()
       local filename = vim.fn.expand '%:t'
       local extension = vim.fn.expand '%:e'
       local present, icons = pcall(require, 'nvim-web-devicons')
-      local icon = present and icons.get_icon(filename, extension) or assets.file
+      local icon = present and icons.get_icon(filename, extension) or config.file
       return ' ' .. icon .. ' ' .. filename .. ' '
     end,
     hl = create_highlight(C.text, C.surface0),
-    right_sep = create_separator(C.surface0, C.crust, assets.right_separator),
+    right_sep = create_separator(C.surface0, C.crust, config.right_separator),
   })
 
   table.insert(components_left, {
     provider = 'git_branch',
     hl = create_highlight(C.subtext1, C.crust),
-    icon = assets.git.branch .. ' ',
+    icon = config.git.branch .. ' ',
     left_sep = create_separator(C.crust, C.crust, ' '),
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
@@ -132,21 +147,21 @@ local get_feline_statusline = function()
   table.insert(components_left, {
     provider = 'git_diff_added',
     hl = create_highlight(C.green, C.crust),
-    icon = create_icon(C.green, C.crust, assets.git.added .. ' '),
+    icon = create_icon(C.green, C.crust, config.git.added .. ' '),
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
   table.insert(components_left, {
     provider = 'git_diff_changed',
     hl = create_highlight(C.yellow, C.crust),
-    icon = create_icon(C.yellow, C.crust, assets.git.changed .. ' '),
+    icon = create_icon(C.yellow, C.crust, config.git.changed .. ' '),
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
   table.insert(components_left, {
     provider = 'git_diff_removed',
     hl = create_highlight(C.red, C.crust),
-    icon = create_icon(C.red, C.crust, assets.git.removed .. ' '),
+    icon = create_icon(C.red, C.crust, config.git.removed .. ' '),
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
@@ -166,7 +181,7 @@ local get_feline_statusline = function()
       return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
     end,
     hl = create_highlight(C.teal, C.crust),
-    icon = assets.lsp.hint .. ' ',
+    icon = config.lsp.icons.hint .. ' ',
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
@@ -176,7 +191,7 @@ local get_feline_statusline = function()
       return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
     end,
     hl = create_highlight(C.blue, C.crust),
-    icon = assets.lsp.info .. ' ',
+    icon = config.lsp.icons.info .. ' ',
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
@@ -186,7 +201,7 @@ local get_feline_statusline = function()
       return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
     end,
     hl = create_highlight(C.yellow, C.crust),
-    icon = assets.lsp.warning .. ' ',
+    icon = config.lsp.icons.warning .. ' ',
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
@@ -196,7 +211,7 @@ local get_feline_statusline = function()
       return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
     end,
     hl = create_highlight(C.red, C.crust),
-    icon = assets.lsp.error .. ' ',
+    icon = config.lsp.icons.error .. ' ',
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
@@ -207,13 +222,13 @@ local get_feline_statusline = function()
       local index = 0
       local lsp_names = ''
       for _, lsp_config in ipairs(active_clients) do
-        if 'copilot' == lsp_config.name then
+        if is_value_in_array(lsp_config.name, config.lsp.exclude) then
           goto continue
         end
 
         index = index + 1
         if index == 1 then
-          lsp_names = assets.lsp.server .. ' ' .. lsp_config.name
+          lsp_names = config.lsp.icons.server .. ' ' .. lsp_config.name
         else
           lsp_names = lsp_names .. '|' .. lsp_config.name
         end
@@ -234,8 +249,8 @@ local get_feline_statusline = function()
       return ' ' .. dir_name .. ' '
     end,
     hl = create_highlight(C.text, C.surface0),
-    icon = create_icon(C.surface0, C.maroon, assets.dir .. ' '),
-    left_sep = create_separator(C.maroon, C.crust, assets.left_separator),
+    icon = create_icon(C.surface0, C.maroon, config.dir .. ' '),
+    left_sep = create_separator(C.maroon, C.crust, config.left_separator),
   })
 
   table.insert(components_right, {
@@ -252,8 +267,8 @@ local get_feline_statusline = function()
       return ' ' .. result .. '%% '
     end,
     hl = create_highlight(C.text, C.surface0),
-    icon = create_icon(C.surface0, C.green, assets.file .. ' '),
-    left_sep = create_separator(C.green, C.surface0, assets.left_separator),
+    icon = create_icon(C.surface0, C.green, config.file .. ' '),
+    left_sep = create_separator(C.green, C.surface0, config.left_separator),
   })
 
   local M = {
@@ -276,8 +291,14 @@ return {
       bufnames = {},
     }
 
+    local opts = {
+      lsp = {
+        exclude = { 'copilot' },
+      },
+    }
+
     require('feline').setup {
-      components = get_feline_statusline(),
+      components = get_feline_statusline(opts),
       force_inactive = force_inactive,
     }
 
@@ -288,7 +309,7 @@ return {
         package.loaded['catppuccin.groups.integrations.feline'] = nil
 
         require('feline').setup {
-          components = get_feline_statusline(),
+          components = get_feline_statusline(opts),
           force_inactive = force_inactive,
         }
       end,
