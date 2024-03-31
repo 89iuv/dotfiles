@@ -35,33 +35,6 @@ return {
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-
-    {
-      'zbirenbaum/copilot.lua',
-      event = 'InsertEnter',
-      opts = {
-        -- Possible configurable fields can be found on:
-        -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
-        suggestion = {
-          enabled = false,
-        },
-        panel = {
-          enabled = false,
-          auto_refresh = true,
-          layout = {
-            position = 'right', -- | top | left | right
-            ratio = 0.4,
-          },
-        },
-        fix_pairs = true,
-      },
-    },
-    {
-      'zbirenbaum/copilot-cmp',
-      config = function()
-        require('copilot_cmp').setup()
-      end,
-    },
   },
   config = function()
     -- See `:help cmp`
@@ -107,10 +80,7 @@ return {
             -- can also be a function to dynamically calculate max width such as
             -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-            show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-            symbol_map = { Copilot = '' },
             menu = {
-              copilot = 'Copilot',
               nvim_lsp = 'NvimLSP',
               luasnip = 'LuaSnip',
               buffer = 'Buffer',
@@ -133,7 +103,10 @@ return {
         end,
       },
 
-      completion = { completeopt = 'menu,menuone,noinsert' },
+      completion = {
+        completeopt = 'menu,menuone,noinsert',
+        -- autocomplete = false,
+      },
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -183,69 +156,42 @@ return {
 
         ['<CR>'] = cmp.mapping {
           i = function(fallback)
-            -- if cmp.visible() and cmp.get_active_entry() then
-            if cmp.visible() then
+            if cmp.visible() and cmp.get_active_entry() then
               cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
             else
               fallback()
             end
           end,
           s = cmp.mapping.confirm { select = true },
-          c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Select, select = true },
+          c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
         },
 
-        ['<Tab>'] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function()
           if cmp.visible() and has_words_before() then
             local entry = cmp.get_selected_entry()
             if not entry then
-              cmp.select_next_item { behavior = cmp.SelectBehavior.Replace }
+              cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
             end
             cmp.confirm()
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
-          else
-            fallback()
           end
         end, { 'i', 's' }),
 
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
+        ['<S-Tab>'] = cmp.mapping(function()
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
             luasnip.jump(-1)
-          else
-            fallback()
           end
         end, { 'i', 's' }),
       },
 
       sources = {
         { name = 'nvim_lsp', priority = 100 },
-        { name = 'copilot', max_item_count = 4, priority = 50 },
-        { name = 'luasnip', max_item_count = 8, priority = 40 },
-        { name = 'buffer', priority = 30 },
-        { name = 'path', priority = 20 },
-      },
-
-      sorting = {
-        priority_weight = 2,
-        comparators = {
-          require('cmp').config.compare.exact,
-          require('copilot_cmp.comparators').prioritize,
-
-          -- Below is the default comparitor list and order for nvim-cmp
-          require('cmp').config.compare.offset,
-          -- require("cmp").config.compare.scopes, --this is commented in nvim-cmp too
-          require('cmp').config.compare.score,
-          require('cmp').config.compare.recently_used,
-          require('cmp').config.compare.locality,
-          require('cmp').config.compare.kind,
-          require('cmp').config.compare.sort_text,
-          require('cmp').config.compare.length,
-          require('cmp').config.compare.order,
-        },
+        { name = 'luasnip', priority = 30 },
+        { name = 'buffer', priority = 20 },
+        { name = 'path', priority = 10 },
       },
     }
   end,

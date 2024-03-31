@@ -11,12 +11,13 @@ local get_feline_statusline = function(opts)
     lsp = {
       icons = {
         server = '󰅡',
-        error = ' ',
+        error = '',
         warning = '',
         info = ' ',
         hint = '',
       },
       exclude = { 'copilot' },
+      update_in_insert = false,
     },
     git = {
       branch = '',
@@ -53,6 +54,12 @@ local get_feline_statusline = function(opts)
   }
 
   -- helpers
+
+  local function is_insert() -- insert or replace
+    local mode = vim.api.nvim_get_mode().mode
+    return mode == 'i' or mode == 'ic' or mode == 'ix' or mode == 'R' or mode == 'Rc' or mode == 'Rx'
+  end
+
   local is_value_in_array = function(value, array)
     for _, v in ipairs(array) do
       if v == value then
@@ -178,7 +185,14 @@ local get_feline_statusline = function(opts)
   table.insert(components_right, {
     provider = 'diagnostic_hints',
     enabled = function()
-      return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
+      local is_lsp_enable = lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
+      if config.lsp.update_in_insert then
+        return is_lsp_enable
+      end
+      if is_insert() then
+        return false
+      end
+      return is_lsp_enable
     end,
     hl = create_highlight(C.teal, C.crust),
     icon = config.lsp.icons.hint .. ' ',
@@ -188,7 +202,14 @@ local get_feline_statusline = function(opts)
   table.insert(components_right, {
     provider = 'diagnostic_info',
     enabled = function()
-      return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
+      local is_lsp_enable = lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
+      if config.lsp.update_in_insert then
+        return is_lsp_enable
+      end
+      if is_insert() then
+        return false
+      end
+      return is_lsp_enable
     end,
     hl = create_highlight(C.blue, C.crust),
     icon = config.lsp.icons.info .. ' ',
@@ -198,7 +219,14 @@ local get_feline_statusline = function(opts)
   table.insert(components_right, {
     provider = 'diagnostic_warnings',
     enabled = function()
-      return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
+      local is_lsp_enable = lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
+      if config.lsp.update_in_insert then
+        return is_lsp_enable
+      end
+      if is_insert() then
+        return false
+      end
+      return is_lsp_enable
     end,
     hl = create_highlight(C.yellow, C.crust),
     icon = config.lsp.icons.warning .. ' ',
@@ -208,7 +236,14 @@ local get_feline_statusline = function(opts)
   table.insert(components_right, {
     provider = 'diagnostic_errors',
     enabled = function()
-      return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
+      local is_lsp_enable = lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
+      if config.lsp.update_in_insert then
+        return is_lsp_enable
+      end
+      if is_insert() then
+        return false
+      end
+      return is_lsp_enable
     end,
     hl = create_highlight(C.red, C.crust),
     icon = config.lsp.icons.error .. ' ',
@@ -294,6 +329,7 @@ return {
     local opts = {
       lsp = {
         exclude = { 'copilot' },
+        update_in_insert = true,
       },
     }
 

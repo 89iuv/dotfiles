@@ -40,8 +40,8 @@ vim.keymap.set('n', '<leader>Q', '<cmd>wqa!<cr>', { desc = '[Q]uit neovim force'
 vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next [B]uffer' })
 vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous [B]uffer' })
 
-vim.keymap.set('n', '<M-}>', '<C-i>')
-vim.keymap.set('n', '<M-{>', '<C-o>')
-
-vim.keymap.set('n', '<M-]>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next [B]uffer' })
-vim.keymap.set('n', '<M-[>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous [B]uffer' })
+-- vim.keymap.set('n', '<M-}>', '<C-i>')
+-- vim.keymap.set('n', '<M-{>', '<C-o>')
+--
+-- vim.keymap.set('n', '<M-]>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next [B]uffer' })
+-- vim.keymap.set('n', '<M-[>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous [B]uffer' })

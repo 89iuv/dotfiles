@@ -48,6 +48,8 @@ return {
           CmpItemMenu = { fg = colors.overlay2 },
 
           TelescopeNormal = { link = 'NormalFloat' },
+
+          CopilotSuggestion = { fg = colors.subtext0 },
         }
       end,
       integrations = {
