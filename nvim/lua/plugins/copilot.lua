@@ -1,11 +1,12 @@
 return {
   'github/copilot.vim',
   config = function()
+    -- disable copilot suggestions
     vim.g.copilot_filetypes = {
-      ['*'] = false,
+      -- ['*'] = false,
     }
 
-    vim.keymap.set('i', '<M-Enter>', 'copilot#Accept("")', {
+    vim.keymap.set('i', '<Right>', 'copilot#Accept("")', {
       expr = true,
       replace_keycodes = false,
     })

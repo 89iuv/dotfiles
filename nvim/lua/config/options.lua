@@ -98,7 +98,7 @@ vim.diagnostic.config {
   virtual_text = {
     prefix = '●', -- Could be '●', '▎', 'x'
   },
-  update_in_insert = true,
+  update_in_insert = false,
   severity_sort = true,
   float = { border = 'rounded' },
 }
