@@ -6,7 +6,7 @@ return {
       -- ['*'] = false,
     }
 
-    vim.keymap.set('i', '<Right>', 'copilot#Accept("")', {
+    vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<Right>")', {
       expr = true,
       replace_keycodes = false,
     })

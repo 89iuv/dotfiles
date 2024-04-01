@@ -1,7 +1,13 @@
 #!/bin/bash
 
 # dependencies
-brew install neofetch onefetch btop dust wget nvim ripgrep tmux lua fzf fd eza bat
+brew install neofetch onefetch btop dust wget nvim ripgrep tmux fzf fd eza bat
+
+# lua
+brew install lua
+
+# java
+brew install java gradle
 
 # node
 # https://github.com/nvm-sh/nvm
