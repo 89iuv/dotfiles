@@ -5,7 +5,7 @@ return {
       ['*'] = false,
     }
 
-    vim.keymap.set('i', '<C-J>', 'copilot#Accept("")', {
+    vim.keymap.set('i', '<M-Enter>', 'copilot#Accept("")', {
       expr = true,
       replace_keycodes = false,
     })
