@@ -14,12 +14,17 @@ return {
         enable = true,
       },
       view = {
-        width = 35,
-        -- adaptive_size = true,
+        -- width = 40,
+        width = {
+          min = 30,
+          max = 90,
+          padding = 4,
+        },
+        preserve_window_proportions = true,
       },
       renderer = {
         indent_markers = {
-          enable = true,
+          enable = false,
           inline_arrows = true,
           icons = {
             corner = '│',
@@ -31,7 +36,7 @@ return {
         },
         icons = {
           show = {
-            folder_arrow = false,
+            folder_arrow = true,
           },
           glyphs = {
             folder = {

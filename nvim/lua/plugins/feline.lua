@@ -254,6 +254,10 @@ local get_feline_statusline = function(opts)
     provider = function()
       local active_clients = vim.lsp.get_active_clients { bufnr = 0 }
 
+      table.sort(active_clients, function(a, b)
+        return a.name < b.name
+      end)
+
       local index = 0
       local lsp_names = ''
       for _, lsp_config in ipairs(active_clients) do

@@ -1,7 +1,12 @@
+-- TODO: rename this file to developer.lua
+
 local M = {}
 
 M.lsp_config = {
   servers = {
+    -- generic
+    lemminx = {},
+
     -- lua
     lua_ls = {
       settings = {
@@ -17,17 +22,26 @@ M.lsp_config = {
 
     -- shell
     bashls = {},
+
+    -- java
+    jdtls = {},
   },
 }
 
 M.mason = {
   ensure_installed = {
+    -- generic
+    'lemminx',
+
     -- lua
     'stylua',
 
     -- shell
     'shfmt',
     'shellcheck',
+
+    -- java
+    'jdtls',
   },
 }
 
@@ -37,6 +51,7 @@ M.treesitter = {
     'markdown',
     'markdown_inline',
     'regex',
+    'xml',
 
     -- vim
     'vim',
@@ -47,6 +62,10 @@ M.treesitter = {
 
     -- shell
     'bash',
+    'tmux',
+
+    -- java
+    'java',
   },
 }
 

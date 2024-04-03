@@ -13,7 +13,7 @@ return {
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/neodev.nvim', opts = {} },
+      { 'folke/neodev.nvim' },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -152,6 +152,8 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, require('core.coding').mason.ensure_installed)
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+      require('neodev').setup {}
 
       require('mason-lspconfig').setup {
         handlers = {

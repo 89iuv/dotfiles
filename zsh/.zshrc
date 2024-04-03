@@ -159,7 +159,7 @@ alias 'gh?'='copilot_gh_suggest'
 copilot_explain() {
   gh copilot explain "$*"
 }
-alias 'help?'='copilot_explain'
+alias 'h?'='copilot_explain'
 
 # warkaround for ls colors
 # setup for bsd ls
@@ -174,8 +174,9 @@ export LS_COLORS='ow=1;34:'$LS_COLORS
 # setup for zsh tab complete colors
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# add .local/bin to path
+# Extend the PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/opt/homebrew/opt/kafka/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

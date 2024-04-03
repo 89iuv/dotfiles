@@ -43,11 +43,13 @@ return {
           FloatBorder = { fg = colors.lavender },
 
           NvimTreeEndOfBuffer = { fg = colors.mantle },
-          NvimTreeIndentMarker = { fg = colors.surface0 },
+          -- NvimTreeIndentMarker = { fg = colors.surface0 },
 
           CmpItemMenu = { fg = colors.overlay2 },
 
           TelescopeNormal = { link = 'NormalFloat' },
+
+          MiniIndentscopeSymbol = { fg = colors.surface1 },
 
           CopilotSuggestion = { fg = colors.subtext0 },
         }

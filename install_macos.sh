@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# dependencies
-brew install neofetch onefetch btop dust wget nvim ripgrep tmux fzf fd eza bat
+# generic
+brew install neofetch btop dust ripgrep fd eza bat wget onefetch
 
 # lua
 brew install lua
 
 # java
-brew install java gradle
+brew install java maven kafka
 
 # node
 # https://github.com/nvm-sh/nvm
@@ -31,11 +31,14 @@ ln -s "$dotfiles_path"/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes
 ln -s "$dotfiles_path"/zsh/.p10k.zsh ~/.p10k.zsh
 
 # tmux
+brew install tmux
 ln -s "$dotfiles_path"/tmux/.tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # nvim
+brew install nvim
 ln -s "$dotfiles_path"/nvim ~/.config/nvim
 
 # fzf
+brew install fzf
 "$(brew --prefix)/opt/fzf/install"

@@ -12,7 +12,7 @@ return {
 
         vim.keymap.set('n', '<leader>x', function()
           require('mini.bufremove').delete(0, true)
-        end, { desc = 'Remove buffer' })
+        end, { desc = 'E[X]it buffer' })
       end,
     },
   },
@@ -49,5 +49,12 @@ return {
         },
       },
     }
+
+    require('which-key').register {
+      ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
+    }
+    vim.keymap.set('n', '<leader>bo', '<cmd>BufferLineCloseOthers<CR>', { desc = '[B]uffer Close [O]thers' })
+    vim.keymap.set('n', '<leader>bn', '<cmd>BufferLineMoveNext<CR>', { desc = '[B]uffer Move [N]ext' })
+    vim.keymap.set('n', '<leader>bp', '<cmd>BufferLineMovePrev<CR>', { desc = '[B]uffer Move [P]revious' })
   end,
 }
