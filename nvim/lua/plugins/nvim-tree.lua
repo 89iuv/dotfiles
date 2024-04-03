@@ -18,7 +18,7 @@ return {
         width = {
           min = 30,
           max = 90,
-          padding = 4,
+          padding = 2,
         },
         preserve_window_proportions = true,
       },
