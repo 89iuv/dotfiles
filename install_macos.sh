@@ -9,6 +9,10 @@ brew install lua
 # java
 brew install java maven kafka
 
+# jenv
+# https://www.jenv.be
+brew install jenv
+
 # node
 # https://github.com/nvm-sh/nvm
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash'

@@ -14,6 +14,7 @@ return {
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
       { 'folke/neodev.nvim' },
+      { 'mfussenegger/nvim-jdtls' },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -158,6 +159,11 @@ return {
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
+            local exclude_lsp_config = require('core.coding').lsp_config.exclude_lsp_config
+            if vim.tbl_contains(exclude_lsp_config, server_name) then
+              return
+            end
+
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
@@ -167,6 +173,9 @@ return {
           end,
         },
       }
+
+      -- ui configuration
+      require('lspconfig.ui.windows').default_options.border = 'rounded'
     end,
   },
 }

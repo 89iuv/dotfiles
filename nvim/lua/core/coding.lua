@@ -4,7 +4,7 @@ local M = {}
 
 M.lsp_config = {
   servers = {
-    -- generic
+    -- xml
     lemminx = {},
 
     -- lua
@@ -26,22 +26,17 @@ M.lsp_config = {
     -- java
     jdtls = {},
   },
+  exclude_lsp_config = { 'jdtls' },
 }
 
 M.mason = {
   ensure_installed = {
-    -- generic
-    'lemminx',
-
     -- lua
     'stylua',
 
     -- shell
     'shfmt',
     'shellcheck',
-
-    -- java
-    'jdtls',
   },
 }
 
