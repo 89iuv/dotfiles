@@ -51,7 +51,7 @@ return {
 
           MiniIndentscopeSymbol = { fg = colors.surface1 },
 
-          CopilotSuggestion = { fg = colors.subtext0 },
+          CopilotSuggestion = { fg = colors.overlay2 },
         }
       end,
       integrations = {

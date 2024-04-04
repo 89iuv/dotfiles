@@ -23,6 +23,9 @@ return {
         preserve_window_proportions = true,
       },
       renderer = {
+        root_folder_label = function(path)
+          return vim.fn.fnamemodify(path, ':t')
+        end,
         indent_markers = {
           enable = false,
           inline_arrows = true,
