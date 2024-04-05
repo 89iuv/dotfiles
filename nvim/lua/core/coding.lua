@@ -26,7 +26,9 @@ M.lsp_config = {
     -- java
     jdtls = {},
   },
-  exclude_lsp_config = { 'jdtls' },
+  exclude_lsp_config = {
+    'jdtls', -- configuration is done via nvim-jdtls
+  },
 }
 
 M.mason = {
