@@ -27,7 +27,6 @@ return {
     end,
   },
 
-  { 'echasnovski/mini.nvim', version = false },
   { 'echasnovski/mini.pairs', version = false, opts = {} },
   {
     'echasnovski/mini.indentscope',
@@ -62,4 +61,5 @@ return {
       })
     end,
   },
+  { 'echasnovski/mini.starter', version = false, opts = {} },
 }
