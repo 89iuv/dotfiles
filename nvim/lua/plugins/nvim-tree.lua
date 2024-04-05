@@ -9,18 +9,12 @@ return {
   config = function()
     require('nvim-tree').setup {
       disable_netrw = true,
-      hijack_cursor = true,
+      hijack_cursor = false,
       update_focused_file = {
         enable = true,
       },
       view = {
-        -- width = 40,
-        width = {
-          min = 30,
-          max = 90,
-          padding = 2,
-        },
-        preserve_window_proportions = true,
+        width = 40,
       },
       renderer = {
         root_folder_label = function(path)
@@ -64,6 +58,7 @@ return {
       },
       actions = {
         open_file = {
+          resize_window = false,
           window_picker = {
             enable = false,
           },
