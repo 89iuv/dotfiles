@@ -175,7 +175,7 @@ alias lg="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:
 # bat
 export BAT_THEME="base16"
 export MANPAGER="sh -c 'col -bx | bat --theme=\"Monokai Extended Origin\" -l man -p'"
-alias cat="bat --style=numbers,changes --paging=never --color=always"
+alias cat="bat --style=plain --paging=never --color=always"
 
 # less
 alias less="less -R"
