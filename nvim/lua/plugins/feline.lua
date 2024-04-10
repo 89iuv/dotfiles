@@ -13,7 +13,7 @@ local get_feline_statusline = function(opts)
         server = '󰅡',
         error = '',
         warning = '',
-        info = ' ',
+        info = '',
         hint = '',
       },
       exclude = { 'copilot' },
