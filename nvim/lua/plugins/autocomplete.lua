@@ -156,21 +156,22 @@ return {
 
         ['<CR>'] = cmp.mapping {
           i = function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+            -- if cmp.visible() and cmp.get_active_entry() then
+            if cmp.visible() then
+              cmp.confirm { behavior = cmp.SelectBehavior.Select, select = false }
             else
               fallback()
             end
           end,
           s = cmp.mapping.confirm { select = true },
-          c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
+          c = cmp.mapping.confirm { behavior = cmp.SelectBehavior.Select, select = true },
         },
 
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() and has_words_before() then
             local entry = cmp.get_selected_entry()
             if not entry then
-              cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+              cmp.select_next_item { behavior = cmp.ConfirmBehavior.Replace }
             end
             cmp.confirm()
           elseif luasnip.expand_or_jumpable() then
