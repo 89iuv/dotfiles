@@ -178,7 +178,7 @@ export MANPAGER="sh -c 'col -bx | bat --theme=\"Monokai Extended Origin\" -l man
 alias cat="bat --style=plain --paging=never --color=always"
 
 # less
-alias less="less -R"
+alias less="less -iR"
 
 # gh copilot
 copilot_shell_suggest() {
