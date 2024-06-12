@@ -91,7 +91,9 @@ vim.opt.wrap = false
 vim.opt.pumheight = 10
 
 -- Enable spell check
-vim.opt.spell = true
+-- enable it on the fly with `:set spell`
+-- disable it on the fly with `:set nospell`
+vim.opt.spell = false
 
 -- Diagnostics config
 vim.diagnostic.config {
