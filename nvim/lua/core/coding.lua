@@ -43,6 +43,9 @@ M.mason = {
     -- shell
     'shfmt',
     'shellcheck',
+
+    -- python,
+    'black',
   },
 }
 
@@ -80,6 +83,9 @@ M.conform = {
 
     -- shell
     sh = { 'shfmt', 'shellcheck' },
+
+    -- python
+    python = { 'black' },
   },
 }
 return M
