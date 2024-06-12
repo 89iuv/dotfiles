@@ -9,6 +9,7 @@ return {
     vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<Right>")', {
       expr = true,
       replace_keycodes = false,
+      silent = true, -- disable echo in command line
     })
 
     vim.g.copilot_no_tab_map = true

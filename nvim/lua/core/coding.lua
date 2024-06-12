@@ -25,6 +25,9 @@ M.lsp_config = {
 
     -- java
     jdtls = {},
+
+    -- python
+    pyright = {},
   },
   exclude_lsp_config = {
     'jdtls', -- configuration is done via nvim-jdtls
@@ -32,6 +35,7 @@ M.lsp_config = {
 }
 
 M.mason = {
+  -- install other mason pachages which are not lsp servers
   ensure_installed = {
     -- lua
     'stylua',
@@ -63,6 +67,9 @@ M.treesitter = {
 
     -- java
     'java',
+
+    -- python
+    'python',
   },
 }
 
