@@ -332,7 +332,7 @@ return {
 
     local opts = {
       lsp = {
-        exclude = { 'copilot' },
+        exclude = { 'GitHub Copilot' },
         update_in_insert = true,
       },
     }
