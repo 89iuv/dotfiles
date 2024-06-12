@@ -252,7 +252,7 @@ local get_feline_statusline = function(opts)
 
   table.insert(components_right, {
     provider = function()
-      local active_clients = vim.lsp.get_active_clients { bufnr = 0 }
+      local active_clients = vim.lsp.get_clients { bufnr = 0 }
 
       table.sort(active_clients, function(a, b)
         return a.name < b.name
