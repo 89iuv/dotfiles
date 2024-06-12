@@ -16,7 +16,7 @@ local get_feline_statusline = function(opts)
         info = '',
         hint = '',
       },
-      exclude = { 'copilot' },
+      exclude = {},
       update_in_insert = false,
     },
     git = {
