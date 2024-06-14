@@ -140,14 +140,14 @@ local get_feline_statusline = function(opts)
       return ' ' .. icon .. ' ' .. filename .. ' '
     end,
     hl = create_highlight(C.text, C.surface0),
-    right_sep = create_separator(C.surface0, C.crust, config.right_separator),
+    right_sep = create_separator(C.surface0, C.crust, config.right_separator .. ' '),
   })
 
   table.insert(components_left, {
     provider = 'git_branch',
+    truncate_hide = true,
     hl = create_highlight(C.subtext1, C.crust),
     icon = config.git.branch .. ' ',
-    left_sep = create_separator(C.crust, C.crust, ' '),
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
 
@@ -277,7 +277,7 @@ local get_feline_statusline = function(opts)
 
       return lsp_names
     end,
-
+    truncate_hide = true,
     hl = create_highlight(C.subtext1, C.crust),
     right_sep = create_separator(C.crust, C.crust, ' '),
   })
@@ -287,6 +287,7 @@ local get_feline_statusline = function(opts)
       local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
       return ' ' .. dir_name .. ' '
     end,
+    truncate_hide = true,
     hl = create_highlight(C.text, C.surface0),
     icon = create_icon(C.surface0, C.maroon, config.dir .. ' '),
     left_sep = create_separator(C.maroon, C.crust, config.left_separator),
