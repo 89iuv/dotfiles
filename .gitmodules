@@ -7,3 +7,9 @@
 [submodule "zsh/zsh-autosuggestions"]
 	path = zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "terminal/windows-terminal"]
+	path = terminal/windows-terminal
+	url = https://github.com/catppuccin/windows-terminal.git
+[submodule "terminal/iterm"]
+	path = terminal/iterm
+	url = https://github.com/catppuccin/iterm
