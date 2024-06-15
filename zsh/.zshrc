@@ -189,17 +189,17 @@ alias '??'='copilot_shell_suggest'
 copilot_git_suggest() {
   gh copilot suggest -t git "$*"
 }
-alias 'git?'='copilot_git_suggest'
+alias '?git'='copilot_git_suggest'
 
 copilot_gh_suggest() {
   gh copilot suggest -t gh "$*"
 }
-alias 'gh?'='copilot_gh_suggest'
+alias '?gh'='copilot_gh_suggest'
 
 copilot_explain() {
   gh copilot explain "$*"
 }
-alias 'h?'='copilot_explain'
+alias '?h'='copilot_explain'
 
 # fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
