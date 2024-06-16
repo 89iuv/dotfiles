@@ -32,8 +32,3 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- close nvim
 vim.keymap.set('n', '<leader>Q', '<cmd>wqa!<cr>', { desc = 'Write and [Q]uit all buffers force' })
-
--- Buffer Navigation
-vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next [B]uffer' })
-vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous [B]uffer' })
-vim.keymap.set('n', '<leader>X', '<cmd>bdelete!<CR>', { desc = 'E[X]it buffer and window force' })
