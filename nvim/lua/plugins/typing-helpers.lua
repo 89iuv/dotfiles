@@ -62,5 +62,4 @@ return {
     end,
   },
   { 'echasnovski/mini.starter', version = false, opts = {} },
-  { 'echasnovski/mini.animate', version = false, opts = {} },
 }
