@@ -5,9 +5,37 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'folke/which-key.nvim',
+    'nvim-telescope/telescope.nvim',
   },
   config = function()
+    local function my_on_attach(bufnr)
+      local api = require 'nvim-tree.api'
+      local builtin = require 'telescope.builtin'
+
+      local function opts(desc)
+        return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+
+      local function search_by_grep_in_current_node()
+        local node = api.tree.get_node_under_cursor()
+        builtin.live_grep { cwd = node.absolute_path }
+      end
+
+      local function search_files_in_current_node()
+        local node = api.tree.get_node_under_cursor()
+        builtin.find_files { cwd = node.absolute_path }
+      end
+
+      -- default mappings
+      api.config.mappings.default_on_attach(bufnr)
+
+      -- on_attach
+      vim.keymap.set('n', '<leader>sg', search_by_grep_in_current_node, opts 'Search by Grep in current node')
+      vim.keymap.set('n', '<leader>sf', search_files_in_current_node, opts 'Search Files in current node')
+    end
+
     require('nvim-tree').setup {
+      on_attach = my_on_attach,
       disable_netrw = true,
       hijack_cursor = false,
       update_focused_file = {
