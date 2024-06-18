@@ -4,7 +4,7 @@ return {
     'folke/which-key.nvim',
   },
   config = function()
-    vim.g.disable_autoformat = true
+    vim.g.disable_autoformat = false
 
     vim.api.nvim_create_user_command('FormatDisable', function(args)
       if args.bang then
