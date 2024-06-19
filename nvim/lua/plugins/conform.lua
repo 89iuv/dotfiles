@@ -8,19 +8,22 @@ return {
 
     vim.api.nvim_create_user_command('FormatDisable', function()
       vim.g.disable_autoformat = true
+      vim.notify('AutoFormat: ' .. (vim.g.disable_autoformat and 'Disabled' or 'Enabled'))
     end, {
-      desc = 'Disable autoformat-on-save',
+      desc = 'Disable AutoFormat',
     })
 
     vim.api.nvim_create_user_command('FormatEnable', function()
       vim.g.disable_autoformat = false
+      vim.notify('AutoFormat: ' .. (vim.g.disable_autoformat and 'Disabled' or 'Enabled'))
     end, {
-      desc = 'Enable autoformat-on-save',
+      desc = 'Enable AutoFormat',
     })
 
     vim.api.nvim_create_user_command('FormatToggle', function()
       vim.g.disable_autoformat = not vim.g.disable_autoformat
-    end, { desc = 'Toggle autoformat-on-save' })
+      vim.notify('AutoFormat: ' .. (vim.g.disable_autoformat and 'Disabled' or 'Enabled'))
+    end, { desc = 'Toggle AutoFormat' })
 
     require('conform').setup {
       notify_on_error = false,
