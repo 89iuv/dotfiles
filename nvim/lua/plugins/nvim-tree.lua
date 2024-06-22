@@ -18,12 +18,16 @@ return {
 
       local function search_by_grep_in_current_node()
         local node = api.tree.get_node_under_cursor()
-        builtin.live_grep { cwd = node.absolute_path }
+        local path = node.absolute_path:match '.*[/|\\]'
+        vim.notify('Searching by Grep in ' .. path)
+        builtin.live_grep { cwd = path }
       end
 
       local function search_files_in_current_node()
         local node = api.tree.get_node_under_cursor()
-        builtin.find_files { cwd = node.absolute_path }
+        local path = node.absolute_path:match '.*[/|\\]'
+        vim.notify('Searching Files in ' .. path)
+        builtin.find_files { cwd = path }
       end
 
       -- default mappings
