@@ -2,7 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   opts = {
-    ensure_installed = require('core.coding').treesitter.ensure_installed,
+    ensure_installed = require('config.languages').treesitter.ensure_installed,
     -- Autoinstall languages that are not installed
     auto_install = true,
     highlight = {

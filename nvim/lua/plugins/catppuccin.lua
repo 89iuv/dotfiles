@@ -64,6 +64,7 @@ return {
           enabled = true,
           indentscope_color = '',
         },
+        noice = false,
         indent_blankline = {
           enabled = true,
           scope_color = 'surface1',

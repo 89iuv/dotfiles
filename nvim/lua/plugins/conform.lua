@@ -42,7 +42,7 @@ return {
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
-      formatters_by_ft = require('core.coding').conform.formatters_by_ft,
+      formatters_by_ft = require('config.languages').conform.formatters_by_ft,
     }
 
     require('which-key').register {

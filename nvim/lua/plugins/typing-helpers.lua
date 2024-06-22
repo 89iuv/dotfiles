@@ -28,6 +28,7 @@ return {
   },
 
   { 'echasnovski/mini.pairs', version = false, opts = {} },
+
   {
     'echasnovski/mini.indentscope',
     version = false,
@@ -61,5 +62,6 @@ return {
       })
     end,
   },
+
   { 'echasnovski/mini.starter', version = false, opts = {} },
 }

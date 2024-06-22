@@ -21,6 +21,7 @@ return {
       ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
     }
 
+    -- TODO: add vim.notify to view the current state
     local toggle = function(option)
       return function()
         vim.o[option] = not vim.o[option]

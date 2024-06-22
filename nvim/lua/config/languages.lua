@@ -1,5 +1,3 @@
--- TODO: rename this file to developer.lua
-
 local M = {}
 
 M.lsp_config = {
