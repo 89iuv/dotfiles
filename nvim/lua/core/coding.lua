@@ -27,7 +27,11 @@ M.lsp_config = {
     jdtls = {},
 
     -- python
-    pyright = {},
+    pyright = {
+      callback = function()
+        vim.keymap.set('n', '<leader>co', '<cmd>PyrightOrganizeImports<CR>', { desc = 'LSP: ' .. '[C]ode [O]rganize Imports' })
+      end,
+    },
   },
   exclude_lsp_config = {
     'jdtls', -- configuration is done via nvim-jdtls
