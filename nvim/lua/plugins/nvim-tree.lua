@@ -16,26 +16,26 @@ return {
         return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
       end
 
-      local function search_by_grep_in_current_node()
+      local function search_in_current_node(telescope_builtin, message)
         local node = api.tree.get_node_under_cursor()
-        local path = node.absolute_path:match '.*[/|\\]'
-        vim.notify('Searching by Grep in ' .. path)
-        builtin.live_grep { cwd = path }
-      end
-
-      local function search_files_in_current_node()
-        local node = api.tree.get_node_under_cursor()
-        local path = node.absolute_path:match '.*[/|\\]'
-        vim.notify('Searching Files in ' .. path)
-        builtin.find_files { cwd = path }
+        local path = node.absolute_path
+        if vim.fn.isdirectory(path) == 0 then
+          path = vim.fs.dirname(path)
+        end
+        vim.notify(message .. ' ' .. path)
+        telescope_builtin { cwd = path }
       end
 
       -- default mappings
       api.config.mappings.default_on_attach(bufnr)
 
       -- on_attach
-      vim.keymap.set('n', '<leader>sg', search_by_grep_in_current_node, opts 'Search by Grep in current node')
-      vim.keymap.set('n', '<leader>sf', search_files_in_current_node, opts 'Search Files in current node')
+      vim.keymap.set('n', '<leader>sg', function()
+        search_in_current_node(builtin.live_grep, 'Searching by Grep in:')
+      end, opts 'Search by Grep in current node')
+      vim.keymap.set('n', '<leader>sf', function()
+        search_in_current_node(builtin.find_files, 'Searching Files in:')
+      end, opts 'Search Files in current node')
     end
 
     require('nvim-tree').setup {

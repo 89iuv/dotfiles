@@ -27,6 +27,7 @@ M.lsp_config = {
     -- python
     pyright = {
       callback = function()
+        -- Add keymap for organizing imports on lsp attach
         vim.api.nvim_create_autocmd('LspAttach', {
           callback = function(args)
             if vim.lsp.get_client_by_id(args.data.client_id).name == 'pyright' then
