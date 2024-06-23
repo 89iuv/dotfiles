@@ -102,6 +102,7 @@ return {
       ['<leader>n'] = { name = '[N]vimtree', _ = 'which_key_ignore' },
     }
 
+    -- toggle wrapper in order to deal with quickfix window
     local nvim_tree_toogle = function()
       local filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
       -- if current buffer is quickfix then move to previous buffer before toggling nvim-tree
@@ -115,10 +116,11 @@ return {
         ]]
       end
 
-      -- if any buffer is of type qp the close it
       local is_quickfix = false
       for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        if vim.api.nvim_get_option_value('filetype', { buf = buf }) == 'qf' then
+        local is_buffer_type_qf = vim.api.nvim_get_option_value('filetype', { buf = buf }) == 'qf'
+        local is_buffer_hidden = vim.fn.getbufinfo(buf)[1].hidden == 1
+        if is_buffer_type_qf and not is_buffer_hidden then
           is_quickfix = true
           break
         end
