@@ -52,9 +52,6 @@ return {
       ['<leader>bc'] = { name = '[B]uffer [C]lose', _ = 'which_key_ignore' },
     }
 
-    vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next [B]uffer' })
-    vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous [B]uffer' })
-
     vim.keymap.set('n', '<leader>x', function()
       require('mini.bufremove').delete(0, true)
     end, { desc = 'E[X]it buffer' })

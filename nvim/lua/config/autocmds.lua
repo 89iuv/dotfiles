@@ -26,3 +26,13 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.o.spell = false
   end,
 })
+
+-- Move QuickFix window to the bottom
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    vim.cmd [[
+      wincmd J | setl nobuflisted
+    ]]
+  end,
+})

@@ -101,8 +101,37 @@ return {
     require('which-key').register {
       ['<leader>n'] = { name = '[N]vimtree', _ = 'which_key_ignore' },
     }
-    vim.keymap.set('n', '<leader>nt', '<cmd>NvimTreeToggle<CR>', { desc = '[N]vimtree [T]oggle window' })
-    vim.keymap.set('n', '<leader>nf', '<cmd>NvimTreeFocus<CR>', { desc = '[N]vimtree [F]ocus window' })
+
+    local nvim_tree_toogle = function()
+      local filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+      -- if current buffer is quickfix then move to previous buffer before toggling nvim-tree
+      if filetype == 'qf' then
+        vim.cmd [[
+          wincmd p | NvimTreeToggle
+        ]]
+      else
+        vim.cmd [[
+          NvimTreeToggle
+        ]]
+      end
+
+      -- if any buffer is of type qp the close it
+      local is_quickfix = false
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_get_option_value('filetype', { buf = buf }) == 'qf' then
+          is_quickfix = true
+          break
+        end
+      end
+
+      if is_quickfix then
+        vim.cmd [[
+          cclose | copen | wincmd p
+        ]]
+      end
+    end
+
+    vim.keymap.set('n', '<leader>nt', nvim_tree_toogle, { desc = '[N]vimtree [T]oggle window' })
     vim.keymap.set('n', '<leader>nr', '<cmd>NvimTreeRefresh<CR>', { desc = '[N]vimtree [R]efresh window' })
     vim.keymap.set('n', '<leader>nm', '<cmd>NvimTreeFindFile<CR>', { desc = '[N]vimtree [M]ove to file' })
   end,

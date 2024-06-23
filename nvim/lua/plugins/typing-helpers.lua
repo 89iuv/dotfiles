@@ -1,10 +1,7 @@
 return {
   { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
 
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-  },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -26,8 +23,6 @@ return {
       }
     end,
   },
-
-  { 'echasnovski/mini.pairs', version = false, opts = {} },
 
   {
     'echasnovski/mini.indentscope',
@@ -63,5 +58,7 @@ return {
     end,
   },
 
+  { 'echasnovski/mini.pairs', version = false, opts = {} },
+  { 'echasnovski/mini.bracketed', version = false, opts = {} },
   { 'echasnovski/mini.starter', version = false, opts = {} },
 }
