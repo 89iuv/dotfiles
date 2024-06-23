@@ -27,7 +27,13 @@ M.lsp_config = {
     -- python
     pyright = {
       callback = function()
-        vim.keymap.set('n', '<leader>co', '<cmd>PyrightOrganizeImports<CR>', { desc = 'LSP: ' .. '[C]ode [O]rganize Imports' })
+        vim.api.nvim_create_autocmd('LspAttach', {
+          callback = function(args)
+            if vim.lsp.get_client_by_id(args.data.client_id).name == 'pyright' then
+              vim.keymap.set('n', '<leader>co', '<cmd>PyrightOrganizeImports<CR>', { desc = 'LSP: ' .. '[C]ode [O]rganize Python Imports' })
+            end
+          end,
+        })
       end,
     },
   },
