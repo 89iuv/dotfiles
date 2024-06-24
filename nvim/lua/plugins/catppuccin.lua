@@ -59,12 +59,12 @@ return {
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
-        notify = false,
+        notify = true,
         mini = {
           enabled = true,
           indentscope_color = '',
         },
-        noice = false,
+        noice = true,
         indent_blankline = {
           enabled = true,
           scope_color = 'surface1',

@@ -135,6 +135,6 @@ return {
 
     vim.keymap.set('n', '<leader>nt', nvim_tree_toogle, { desc = '[N]vimtree [T]oggle window' })
     vim.keymap.set('n', '<leader>nr', '<cmd>NvimTreeRefresh<CR>', { desc = '[N]vimtree [R]efresh window' })
-    vim.keymap.set('n', '<leader>nm', '<cmd>NvimTreeFindFile<CR>', { desc = '[N]vimtree [M]ove to file' })
+    vim.keymap.set('n', '<leader>nl', '<cmd>NvimTreeFindFile<CR>', { desc = '[N]vimtree [L]ocate file' })
   end,
 }
