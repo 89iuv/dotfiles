@@ -86,7 +86,11 @@ return {
         },
       },
       filters = {
+        enable = false,
         git_ignored = false,
+        dotfiles = true,
+        -- exclude pyton cache directory, use U to toggle it
+        custom = { '__pycache__' },
       },
       actions = {
         open_file = {
@@ -136,5 +140,8 @@ return {
     vim.keymap.set('n', '<leader>nt', nvim_tree_toogle, { desc = '[N]vimtree [T]oggle window' })
     vim.keymap.set('n', '<leader>nr', '<cmd>NvimTreeRefresh<CR>', { desc = '[N]vimtree [R]efresh window' })
     vim.keymap.set('n', '<leader>nl', '<cmd>NvimTreeFindFile<CR>', { desc = '[N]vimtree [L]ocate file' })
+    vim.keymap.set('n', '<leader>nh', function()
+      require('nvim-tree.api').tree.toggle_enable_filters()
+    end, { desc = '[N]vimtree toggle [H]idden files' })
   end,
 }
