@@ -40,6 +40,7 @@ return {
             buffer_selected = { fg = mocha.lavender, style = {} }, -- current
 
             modified = { fg = mocha.lavender },
+            modified_visible = { fg = mocha.lavender },
             modified_selected = { fg = mocha.lavender },
           },
         },
