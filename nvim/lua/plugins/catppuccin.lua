@@ -49,9 +49,9 @@ return {
 
           TelescopeNormal = { link = 'NormalFloat' },
 
-          MiniIndentscopeSymbol = { fg = colors.surface1 },
+          MiniIndentscopeSymbol = { fg = colors.surface2 },
 
-          CopilotSuggestion = { fg = colors.overlay2 },
+          CopilotSuggestion = { fg = colors.surface2 },
         }
       end,
       integrations = {
