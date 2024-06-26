@@ -9,6 +9,14 @@ brew install lua
 # java
 brew install java maven kafka
 
+# python
+brew install python pipx
+
+# python poetry
+pipx install poetry
+mkdir "$ZSH_CUSTOM/plugins/poetry"
+poetry completions zsh >"$ZSH_CUSTOM/plugins/poetry/_poetry"
+
 # jenv
 # https://www.jenv.be
 brew install jenv
