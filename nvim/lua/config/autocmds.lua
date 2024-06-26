@@ -36,3 +36,16 @@ vim.api.nvim_create_autocmd('FileType', {
     ]]
   end,
 })
+
+-- Hide diagnostics when entering insert mode
+vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
+  callback = function()
+    vim.diagnostic.hide(nil, 0)
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
+  callback = function()
+    vim.diagnostic.show(nil, 0)
+  end,
+})

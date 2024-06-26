@@ -143,6 +143,7 @@ return {
       --
       --  You can press `g?` for help in this menu.
       require('mason').setup {
+        PATH = 'append',
         ui = {
           border = 'rounded',
         },
