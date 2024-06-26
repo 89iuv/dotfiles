@@ -180,6 +180,9 @@ alias cat="bat --style=plain --paging=never --color=always"
 # less
 alias less="less -iR"
 
+# python poetry
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+
 # gh copilot
 copilot_shell_suggest() {
   gh copilot suggest -t shell "$*"
