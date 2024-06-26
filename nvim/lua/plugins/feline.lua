@@ -10,6 +10,7 @@ local get_feline_statusline = function(opts)
     file = '󰈙',
     lsp = {
       icons = {
+        linter = '󰛿',
         server = '󰅡',
         error = '',
         warning = '',
@@ -17,6 +18,7 @@ local get_feline_statusline = function(opts)
         hint = '',
       },
       exclude = {},
+      server_to_name_map = {},
       update_in_insert = false,
     },
     git = {
@@ -265,17 +267,32 @@ local get_feline_statusline = function(opts)
           goto continue
         end
 
+        local lsp_name = config.lsp.server_to_name_map[lsp_config.name] == nil and lsp_config.name or config.lsp.server_to_name_map[lsp_config.name]
+
         index = index + 1
         if index == 1 then
-          lsp_names = config.lsp.icons.server .. ' ' .. lsp_config.name
+          lsp_names = config.lsp.icons.server .. ' ' .. lsp_name
         else
-          lsp_names = lsp_names .. '|' .. lsp_config.name
+          lsp_names = lsp_names .. ', ' .. lsp_name
         end
 
         ::continue::
       end
 
       return lsp_names
+    end,
+    truncate_hide = true,
+    hl = create_highlight(C.subtext1, C.crust),
+    right_sep = create_separator(C.crust, C.crust, ' '),
+  })
+
+  table.insert(components_right, {
+    provider = function()
+      local linters = require('lint').linters_by_ft[vim.bo.filetype] or {}
+      if #linters == 0 then
+        return ''
+      end
+      return config.lsp.icons.linter .. ' ' .. table.concat(linters, ', ')
     end,
     truncate_hide = true,
     hl = create_highlight(C.subtext1, C.crust),
@@ -333,7 +350,10 @@ return {
 
     local opts = {
       lsp = {
-        exclude = { 'GitHub Copilot' },
+        -- exclude = { 'GitHub Copilot' },
+        server_to_name_map = {
+          ['GitHub Copilot'] = 'copilot',
+        },
         update_in_insert = true,
       },
     }

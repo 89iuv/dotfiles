@@ -1,6 +1,14 @@
 return {
   { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
 
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+  },
+
   { 'numToStr/Comment.nvim', opts = {} },
 
   {
@@ -58,7 +66,7 @@ return {
     end,
   },
 
-  { 'echasnovski/mini.pairs', version = false, opts = {} },
+  -- helper keymaps to move forward and backward using [key ]key
   { 'echasnovski/mini.bracketed', version = false, opts = {} },
   { 'echasnovski/mini.starter', version = false, opts = {} },
 }
