@@ -162,19 +162,22 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # fzf
-export FZF_DEFAULT_OPTS='--color=16'
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 alias fzf="fzf --ansi"
 
 # eza
 alias ls="eza -s Name --group-directories-first --color=always"
-alias la="eza -s -a Name --group-directories-first --color=always"
+alias la="eza -a -s Name --group-directories-first --color=always"
 alias lt="eza -T -s Name --group-directories-first --color=always"
 alias ll="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --color=always"
-alias lg="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --git --color=always"
+alias lg="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --git --color=always --icons=always"
 
 # bat
-export BAT_THEME="base16"
-export MANPAGER="sh -c 'col -bx | bat --theme=\"Monokai Extended Origin\" -l man -p'"
+export BAT_THEME="Catppuccin Mocha"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 alias cat="bat --style=plain --paging=never --color=always"
 
 # less

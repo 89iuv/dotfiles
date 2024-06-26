@@ -54,3 +54,21 @@ ln -s "$dotfiles_path"/nvim ~/.config/nvim
 # fzf
 brew install fzf
 "$(brew --prefix)/opt/fzf/install"
+
+# bat
+brew install bat
+mkdir -p "$(bat --config-dir)/themes"
+ln -s "$dotfiles_path"/zsh/bat/themes/*.tmTheme ~/.config/bat/themes
+bat cache --build
+
+# delta
+brew install git-delta
+git config --global --add include.path "$dotfiles_path"/zsh/delta/catppuccin.gitconfig
+git config --global delta.features catppuccin-mocha
+git config --global delta.side-by-side true
+git config --global delta.true-color always
+git config --global delta.hunk-header-style omit
+
+# btop
+brew install btop
+ln -s /Users/valiuv/.dotfiles/zsh/btop/themes/catppuccin_* ~/.config/btop/themes
