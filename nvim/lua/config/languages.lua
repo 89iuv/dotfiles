@@ -100,7 +100,7 @@ M.conform = {
   },
 }
 
-M.nvimlint = {
+M.nvim_lint = {
   formatters_by_ft = {
     -- python
     python = { 'mypy', 'pylint' },
