@@ -10,6 +10,7 @@ local get_feline_statusline = function(opts)
     file = '󰈙',
     lsp = {
       icons = {
+        formatter = '󰛿',
         linter = '󰸥',
         server = '󰅡',
         error = '',
@@ -273,7 +274,7 @@ local get_feline_statusline = function(opts)
         if index == 1 then
           lsp_names = config.lsp.icons.server .. ' ' .. lsp_name
         else
-          lsp_names = lsp_names .. ', ' .. lsp_name
+          lsp_names = lsp_names .. ' ' .. config.lsp.icons.server .. ' ' .. lsp_name
         end
 
         ::continue::
@@ -292,7 +293,32 @@ local get_feline_statusline = function(opts)
       if #linters == 0 then
         return ''
       end
-      return config.lsp.icons.linter .. ' ' .. table.concat(linters, ', ')
+      table.sort(linters)
+      return config.lsp.icons.linter .. ' ' .. table.concat(linters, ' ' .. config.lsp.icons.linter .. ' ')
+    end,
+    truncate_hide = true,
+    hl = create_highlight(C.subtext1, C.crust),
+    right_sep = create_separator(C.crust, C.crust, ' '),
+  })
+
+  table.insert(components_right, {
+    provider = function()
+      if vim.g.disable_autoformat then
+        return ''
+      end
+
+      local formaters = require('conform').list_formatters(0)
+      if #formaters == 0 then
+        return ''
+      end
+
+      local formaters_table = {}
+      for _, formatter in ipairs(formaters) do
+        table.insert(formaters_table, formatter.name)
+      end
+
+      table.sort(formaters_table)
+      return config.lsp.icons.formatter .. ' ' .. table.concat(formaters_table, ' ' .. config.lsp.icons.linter .. ' ')
     end,
     truncate_hide = true,
     hl = create_highlight(C.subtext1, C.crust),
@@ -341,6 +367,10 @@ end
 
 return {
   'freddiehaddad/feline.nvim',
+  dependencies = {
+    'mfussenegger/nvim-lint',
+    'stevearc/conform.nvim',
+  },
   config = function()
     local force_inactive = {
       filetypes = {},
