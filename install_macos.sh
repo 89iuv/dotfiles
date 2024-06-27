@@ -38,6 +38,9 @@ ln -s "$dotfiles_path"/zsh/.zshrc ~/.zshrc
 # zsh-autosuggestions
 ln -s "$dotfiles_path"/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
 
+# zsh-history-substring-search
+ln -s "$dotfiles_path"/zsh/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins
+
 # powerlevel10k
 ln -s "$dotfiles_path"/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes
 ln -s "$dotfiles_path"/zsh/.p10k.zsh ~/.p10k.zsh

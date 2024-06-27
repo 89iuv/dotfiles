@@ -22,3 +22,6 @@
 [submodule "zsh/btop"]
 	path = zsh/btop
 	url = https://github.com/catppuccin/btop.git
+[submodule "zsh/zsh-history-substring-search"]
+	path = zsh/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git

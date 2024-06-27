@@ -77,12 +77,19 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(poetry zsh-autosuggestions)
+plugins=(poetry zsh-history-substring-search zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
+
+# zsh-history-substring-search
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=fg=black,bg=green
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=fg=black,bg=red
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # zsh history file settings
 setopt HIST_IGNORE_ALL_DUPS
