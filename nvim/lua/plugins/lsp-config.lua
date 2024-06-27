@@ -135,7 +135,7 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-      local servers = require('config.languages').lsp_config.servers
+      local servers = require('global.languages').lsp_config.servers
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
@@ -152,7 +152,7 @@ return {
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, require('config.languages').mason.ensure_installed)
+      vim.list_extend(ensure_installed, require('global.languages').mason.ensure_installed)
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('neodev').setup {}
@@ -160,7 +160,7 @@ return {
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
-            local exclude_lsp_config = require('config.languages').lsp_config.exclude_lsp_config
+            local exclude_lsp_config = require('global.languages').lsp_config.exclude_lsp_config
             if vim.tbl_contains(exclude_lsp_config, server_name) then
               return
             end

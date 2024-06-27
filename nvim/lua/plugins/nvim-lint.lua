@@ -2,7 +2,7 @@ return {
   'mfussenegger/nvim-lint',
   event = 'BufEnter',
   config = function()
-    local linters = require('config.languages').nvim_lint
+    local linters = require('global.languages').nvim_lint
     require('lint').linters_by_ft = linters.formatters_by_ft
 
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost' }, {

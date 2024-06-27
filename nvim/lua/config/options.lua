@@ -47,7 +47,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'auto:1-2'
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -94,65 +94,3 @@ vim.opt.pumheight = 10
 -- enable it on the fly with `:set spell`
 -- disable it on the fly with `:set nospell`
 vim.opt.spell = false
-
--- Diagnostics config
-vim.diagnostic.config {
-  virtual_text = {
-    prefix = '●', -- Could be '●', '▎', 'x'
-  },
-  update_in_insert = false,
-  severity_sort = true,
-  float = {
-    border = 'rounded',
-    source = true,
-  },
-}
-
--- Diagnostics highlight sign column
-for _, diag in ipairs { 'Error', 'Warn', 'Info', 'Hint' } do
-  vim.fn.sign_define('DiagnosticSign' .. diag, {
-    text = '',
-    texthl = 'DiagnosticSign' .. diag,
-    linehl = '',
-    numhl = 'DiagnosticSign' .. diag,
-  })
-end
-
--- -- Diagnostics change the sign simbol in the gutter
--- local signs = { Error = ' ', Warn = ' ', Hint = '', Info = ' ' }
--- for type, icon in pairs(signs) do
---   local hl = 'DiagnosticSign' .. type
---   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
--- end
-
--- -- Diagnostics show only one sign
--- -- https://neovim.io/doc/user/diagnostic.html#diagnostic-handlers
--- -- Create a custom namespace. This will aggregate signs from all other
--- -- namespaces and only show the one with the highest severity on a
--- -- given line
--- local ns = vim.api.nvim_create_namespace 'my_namespace'
--- -- Get a reference to the original signs handler
--- local orig_signs_handler = vim.diagnostic.handlers.signs
--- -- Override the built-in signs handler
--- vim.diagnostic.handlers.signs = {
---   show = function(_, bufnr, _, opts)
---     -- Get all diagnostics from the whole buffer rather than just the
---     -- diagnostics passed to the handler
---     local diagnostics = vim.diagnostic.get(bufnr)
---     -- Find the "worst" diagnostic per line
---     local max_severity_per_line = {}
---     for _, d in pairs(diagnostics) do
---       local m = max_severity_per_line[d.lnum]
---       if not m or d.severity < m.severity then
---         max_severity_per_line[d.lnum] = d
---       end
---     end
---     -- Pass the filtered diagnostics (with our custom namespace) to
---     -- the original handler
---     local filtered_diagnostics = vim.tbl_values(max_severity_per_line)
---     orig_signs_handler.show(ns, bufnr, filtered_diagnostics, opts)
---   end,
---   hide = function(_, bufnr)
---     orig_signs_handler.hide(ns, bufnr)
---   end,
--- }

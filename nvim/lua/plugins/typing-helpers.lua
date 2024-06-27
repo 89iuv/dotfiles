@@ -57,6 +57,7 @@ return {
           'better_term',
           'toggleterm',
           'lazyterm',
+          'noice',
         },
         callback = function()
           ---@diagnostic disable-next-line: inject-field
