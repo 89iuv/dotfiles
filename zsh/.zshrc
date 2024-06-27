@@ -85,8 +85,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # zsh-history-substring-search
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=fg=black,bg=green
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=fg=black,bg=red
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=fg=black,bg=red
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=fg=black,bg=white
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
