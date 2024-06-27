@@ -179,7 +179,7 @@ alias fzf="fzf --ansi"
 alias ls="eza -s Name --group-directories-first --color=always"
 alias la="eza -a -s Name --group-directories-first --color=always"
 alias lt="eza -T -s Name --group-directories-first --color=always"
-alias ll="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --color=always"
+alias ll="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --color=always --icons=always"
 alias lg="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --git --color=always --icons=always"
 
 # bat
