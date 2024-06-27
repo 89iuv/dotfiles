@@ -10,6 +10,7 @@ return {
         local ns = require('lint').get_namespace(linter_name)
         vim.diagnostic.config({
           virtual_text = false,
+          signs = false,
         }, ns)
       end
     end
