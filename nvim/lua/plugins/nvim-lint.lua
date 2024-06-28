@@ -11,6 +11,7 @@ return {
         vim.diagnostic.config({
           virtual_text = false,
           signs = false,
+          severity_sort = { reverse = true },
         }, ns)
       end
     end
