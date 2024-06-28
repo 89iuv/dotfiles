@@ -67,7 +67,26 @@ return {
     end,
   },
 
+  {
+    'MaximilianLloyd/ascii.nvim',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+  },
+
   -- helper keymaps to move forward and backward using [key ]key
   { 'echasnovski/mini.bracketed', version = false, opts = {} },
-  { 'echasnovski/mini.starter', version = false, opts = {} },
+  {
+    'echasnovski/mini.starter',
+    dependencies = {
+      'MaximilianLloyd/ascii.nvim',
+    },
+    version = false,
+    config = function()
+      local header = require('ascii').art.text.neovim.ansi_shadow
+      require('mini.starter').setup {
+        header = table.concat(header, '\n'),
+      }
+    end,
+  },
 }
