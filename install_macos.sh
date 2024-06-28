@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # generic
-brew install neofetch btop tree dust ripgrep fd eza bat wget onefetch
+brew install neofetch btop tree dust ripgrep fd eza zoxide bat wget onefetch
 
 # lua
 brew install lua

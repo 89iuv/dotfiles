@@ -182,6 +182,11 @@ alias lt="eza -T -s Name --group-directories-first --color=always"
 alias ll="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --color=always --icons=always"
 alias lg="eza -lag -s Name --group-directories-first --time-style '+%Y-%m-%d %H:%M:%S' --git --color=always --icons=always"
 
+# zoxide
+eval "$(zoxide init zsh)"
+alias cd="z"
+alias cdi="zi"
+
 # bat
 export BAT_THEME="Catppuccin Mocha"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
