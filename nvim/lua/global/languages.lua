@@ -54,11 +54,7 @@ M.mason = {
     'shellcheck',
 
     -- python,
-    'black',
-    'isort',
-    'pylint',
-    'flake8',
-    'mypy',
+    -- use packages from venv if found
   },
 }
 
@@ -98,6 +94,7 @@ M.conform = {
     sh = { 'shfmt', 'shellcheck' },
 
     -- python
+    -- use formatters from venv if found
     python = { 'black', 'isort' },
   },
 }
@@ -105,6 +102,7 @@ M.conform = {
 M.nvim_lint = {
   formatters_by_ft = {
     -- python
+    -- use linters from venv if found
     python = { 'flake8', 'mypy', 'pylint' },
   },
 }

@@ -25,6 +25,19 @@ return {
       vim.notify('AutoFormat: ' .. (vim.g.disable_autoformat and 'Disabled' or 'Enabled'))
     end, { desc = 'Toggle AutoFormat' })
 
+    local global_formatters = require('global.languages').conform
+
+    local available_formatters = {}
+    for filetype, formatters in pairs(global_formatters.formatters_by_ft) do
+      available_formatters[filetype] = {}
+      for _, formatter in ipairs(formatters) do
+        local out = vim.fn.system('which' .. ' ' .. formatter)
+        if not string.find(out, 'not found') then
+          table.insert(available_formatters[filetype], formatter)
+        end
+      end
+    end
+
     require('conform').setup {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -42,7 +55,7 @@ return {
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
-      formatters_by_ft = require('global.languages').conform.formatters_by_ft,
+      formatters_by_ft = available_formatters,
     }
 
     require('which-key').register {

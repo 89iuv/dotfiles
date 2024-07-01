@@ -318,7 +318,7 @@ local get_feline_statusline = function(opts)
       end
 
       table.sort(formaters_table)
-      return config.lsp.icons.formatter .. ' ' .. table.concat(formaters_table, ' ' .. config.lsp.icons.linter .. ' ')
+      return config.lsp.icons.formatter .. ' ' .. table.concat(formaters_table, ' ' .. config.lsp.icons.formatter .. ' ')
     end,
     truncate_hide = true,
     hl = create_highlight(C.subtext1, C.crust),
