@@ -55,6 +55,7 @@ M.mason = {
 
     -- python,
     'black',
+    'isort',
     'pylint',
     'flake8',
     'mypy',
@@ -97,14 +98,14 @@ M.conform = {
     sh = { 'shfmt', 'shellcheck' },
 
     -- python
-    python = { 'black' },
+    python = { 'black', 'isort' },
   },
 }
 
 M.nvim_lint = {
   formatters_by_ft = {
     -- python
-    python = { 'mypy', 'pylint', 'flake8' },
+    python = { 'flake8', 'mypy', 'pylint' },
   },
 }
 return M
