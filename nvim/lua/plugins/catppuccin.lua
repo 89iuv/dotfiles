@@ -43,6 +43,13 @@ return {
           FloatBorder = { fg = colors.lavender },
           NvimTreeEndOfBuffer = { fg = colors.mantle },
           -- NvimTreeIndentMarker = { fg = colors.surface0 },
+
+          -- remove italics from diagnostics
+          NvimTreeDiagnosticErrorIcon = { fg = colors.red },
+          NvimTreeDiagnosticWarnIcon = { fg = colors.yellow },
+          NvimTreeDiagnosticInfoIcon = { fg = colors.blue },
+          NvimTreeDiagnosticHintIcon = { fg = colors.teal },
+
           TelescopeNormal = { link = 'NormalFloat' },
           CmpItemMenu = { fg = colors.overlay2 },
           CopilotSuggestion = { fg = colors.surface2 },

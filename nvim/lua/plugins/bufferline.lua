@@ -34,10 +34,10 @@ return {
       highlights = require('catppuccin.groups.integrations.bufferline').get {
         custom = {
           all = {
-            indicator_selected = { fg = mocha.lavender, style = {} },
+            indicator_selected = { fg = mocha.lavender },
             indicator_visible = { fg = mocha.mantle, bg = mocha.mantle },
 
-            buffer_selected = { fg = mocha.lavender, style = {} }, -- current
+            buffer_selected = { fg = mocha.lavender }, -- current
 
             modified = { fg = mocha.lavender },
             modified_visible = { fg = mocha.lavender },

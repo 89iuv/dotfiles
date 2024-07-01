@@ -28,7 +28,6 @@ return {
 
       -- default mappings
       api.config.mappings.default_on_attach(bufnr)
-
       -- on_attach
       vim.keymap.set('n', '<leader>sg', function()
         search_in_current_node(builtin.live_grep, 'Searching by Grep in:')
@@ -37,6 +36,14 @@ return {
         search_in_current_node(builtin.find_files, 'Searching Files in:')
       end, opts 'Search Files in current node')
     end
+    -- disable status column for nvim-tree
+    vim.api.nvim_create_autocmd('BufEnter', {
+      callback = function()
+        if vim.bo.filetype == 'NvimTree' then
+          vim.wo.statuscolumn = ''
+        end
+      end,
+    })
 
     require('nvim-tree').setup {
       on_attach = my_on_attach,
