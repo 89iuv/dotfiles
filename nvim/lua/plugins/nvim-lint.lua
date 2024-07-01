@@ -1,5 +1,8 @@
 return {
   'mfussenegger/nvim-lint',
+  dependencies = {
+    'neovim/nvim-lspconfig',
+  },
   event = 'BufEnter',
   config = function()
     local global_linters = require('global.languages').nvim_lint

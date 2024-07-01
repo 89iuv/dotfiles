@@ -2,7 +2,9 @@ return {
   'stevearc/conform.nvim',
   dependencies = {
     'folke/which-key.nvim',
+    'neovim/nvim-lspconfig',
   },
+  event = 'BufRead',
   config = function()
     vim.g.disable_autoformat = false
 
@@ -25,17 +27,21 @@ return {
       vim.notify('AutoFormat: ' .. (vim.g.disable_autoformat and 'Disabled' or 'Enabled'))
     end, { desc = 'Toggle AutoFormat' })
 
-    local global_formatters = require('global.languages').conform
+    local load_global_formaters = function()
+      local global_formatters = require('global.languages').conform
 
-    local available_formatters = {}
-    for filetype, formatters in pairs(global_formatters.formatters_by_ft) do
-      available_formatters[filetype] = {}
-      for _, formatter in ipairs(formatters) do
-        local out = vim.fn.system('which' .. ' ' .. formatter)
-        if not string.find(out, 'not found') then
-          table.insert(available_formatters[filetype], formatter)
+      local available_formatters = {}
+      for filetype, formatters in pairs(global_formatters.formatters_by_ft) do
+        available_formatters[filetype] = {}
+        for _, formatter in ipairs(formatters) do
+          local out = vim.fn.system('which' .. ' ' .. formatter)
+          if not string.find(out, 'not found') then
+            table.insert(available_formatters[filetype], formatter)
+          end
         end
       end
+
+      return available_formatters
     end
 
     require('conform').setup {
@@ -55,7 +61,7 @@ return {
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
-      formatters_by_ft = available_formatters,
+      formatters_by_ft = load_global_formaters(),
     }
 
     require('which-key').register {
