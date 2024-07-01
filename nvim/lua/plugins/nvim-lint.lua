@@ -5,7 +5,7 @@ return {
     local linters = require('global.languages').nvim_lint
     require('lint').linters_by_ft = linters.formatters_by_ft
 
-    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost' }, {
+    vim.api.nvim_create_autocmd({ 'BufRead', 'BufWritePost' }, {
       callback = function()
         -- try_lint without arguments runs the linters defined in `linters_by_ft`
         -- for the current filetype
