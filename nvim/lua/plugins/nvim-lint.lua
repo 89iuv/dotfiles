@@ -37,7 +37,6 @@ return {
 
         for _, linter in ipairs(linters) do
           local ns = nvim_lint.get_namespace(linter)
-          vim.print(linter .. ' ' .. ns)
           vim.diagnostic.reset(ns, 0)
         end
       end,
