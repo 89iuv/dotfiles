@@ -20,11 +20,26 @@ return {
 
     require('lint').linters_by_ft = available_linters
 
+    -- Run linters on save
     vim.api.nvim_create_autocmd({ 'BufRead', 'BufWritePost' }, {
       callback = function()
         -- try_lint without arguments runs the linters defined in `linters_by_ft`
         -- for the current filetype
         require('lint').try_lint()
+      end,
+    })
+
+    -- Reset diagnostics when changing text
+    vim.api.nvim_create_autocmd({ 'TextChanged', 'TextChangedI' }, {
+      callback = function()
+        local nvim_lint = require 'lint'
+        local linters = nvim_lint.linters_by_ft[vim.bo.filetype] or {}
+
+        for _, linter in ipairs(linters) do
+          local ns = nvim_lint.get_namespace(linter)
+          vim.print(linter .. ' ' .. ns)
+          vim.diagnostic.reset(ns, 0)
+        end
       end,
     })
   end,

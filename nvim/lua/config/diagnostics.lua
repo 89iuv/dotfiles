@@ -1,14 +1,18 @@
 -- Diagnostics config
 vim.diagnostic.config {
-  virtual_text = {
-    prefix = '●', -- Could be '●', '▎', 'x'
-    source = true,
-  },
+  virtual_text = false,
+  -- virtual_text = {
+  --   prefix = '●', -- Could be '●', '▎', 'x'
+  --   source = true,
+  -- },
   update_in_insert = false,
   severity_sort = true,
   float = {
     border = 'rounded',
     source = true,
+  },
+  underline = {
+    severity = vim.diagnostic.severity.ERROR,
   },
 }
 
