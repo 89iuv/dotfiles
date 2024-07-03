@@ -18,7 +18,7 @@ return {
     require('bufferline').setup {
       options = {
         close_command = function(bufNum)
-          require('mini.bufremove').delete(bufNum, true)
+          require('mini.bufremove').delete(bufNum, false)
         end,
         themable = true,
         offsets = {
