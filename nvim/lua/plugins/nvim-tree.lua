@@ -22,16 +22,22 @@ return {
         if vim.fn.isdirectory(path) == 0 then
           path = vim.fs.dirname(path)
         end
+
         vim.notify(message .. ' ' .. path)
+        vim.cmd [[
+          wincmd p
+        ]]
         telescope_builtin { cwd = path }
       end
 
       -- default mappings
       api.config.mappings.default_on_attach(bufnr)
+
       -- on_attach
       vim.keymap.set('n', '<leader>sg', function()
         search_in_current_node(builtin.live_grep, 'Searching by Grep in:')
       end, opts 'Search by Grep in current node')
+
       vim.keymap.set('n', '<leader>sf', function()
         search_in_current_node(builtin.find_files, 'Searching Files in:')
       end, opts 'Search Files in current node')
@@ -48,12 +54,12 @@ return {
     require('nvim-tree').setup {
       on_attach = my_on_attach,
       disable_netrw = true,
-      hijack_cursor = true,
+      hijack_cursor = false, -- hijacking the cursor prevents scrolling to the right to reveal the full name of the file
       update_focused_file = {
         enable = false,
       },
       view = {
-        width = 40,
+        width = '25%',
       },
       renderer = {
         root_folder_label = function(path)

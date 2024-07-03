@@ -116,6 +116,11 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
           end
+
+          -- Enable inlay hints for the current buffer
+          if client and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true)
+          end
         end,
       })
 

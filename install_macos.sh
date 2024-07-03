@@ -67,6 +67,7 @@ bat cache --build
 # delta
 brew install git-delta
 git config --global --add include.path "$dotfiles_path"/zsh/delta/catppuccin.gitconfig
+git config --global core.pager delta
 git config --global delta.features catppuccin-mocha
 git config --global delta.side-by-side true
 git config --global delta.true-color always
