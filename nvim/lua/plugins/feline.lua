@@ -307,14 +307,9 @@ local get_feline_statusline = function(opts)
         return ''
       end
 
-      local formaters = require('conform').list_formatters(0)
-      if #formaters == 0 then
+      local formaters_table = require('conform').list_formatters_for_buffer(0)
+      if #formaters_table == 0 then
         return ''
-      end
-
-      local formaters_table = {}
-      for _, formatter in ipairs(formaters) do
-        table.insert(formaters_table, formatter.name)
       end
 
       table.sort(formaters_table)
