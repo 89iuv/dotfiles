@@ -60,7 +60,7 @@ return {
       },
       view = {
         width = {
-          min = 30,
+          min = 35,
           max = 80,
           padding = 2,
         },
