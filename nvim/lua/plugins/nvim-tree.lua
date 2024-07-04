@@ -59,7 +59,11 @@ return {
         enable = false,
       },
       view = {
-        width = '25%',
+        width = {
+          min = 30,
+          max = 80,
+          padding = 2,
+        },
       },
       renderer = {
         root_folder_label = function(path)
