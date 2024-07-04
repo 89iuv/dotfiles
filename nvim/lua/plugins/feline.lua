@@ -97,7 +97,7 @@ local get_feline_statusline = function(opts)
   local components_left = {}
 
   table.insert(components_left, {
-    provider = ' ' .. config.mode_icon,
+    provider = ' ' .. config.mode_icon .. ' ',
     hl = function()
       return {
         fg = C.mantle,
@@ -108,7 +108,7 @@ local get_feline_statusline = function(opts)
 
   table.insert(components_left, {
     provider = function()
-      return ' ' .. mode_colors[vim.fn.mode()][1] .. ' '
+      return mode_colors[vim.fn.mode()][1] .. ' '
     end,
     hl = function()
       return {
