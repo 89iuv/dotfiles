@@ -154,6 +154,12 @@ return {
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 
+        -- Select the [n]ext item
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+
+        -- Select the [p]revious item
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+
         ['<CR>'] = cmp.mapping {
           i = function(fallback)
             -- if cmp.visible() and cmp.get_active_entry() then
