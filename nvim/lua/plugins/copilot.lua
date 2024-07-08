@@ -2,27 +2,24 @@ return {
   'github/copilot.vim',
   config = function()
     -- variables
-    vim.g.disable_copilot = false
+    vim.g.disable_copilot = true
 
-    -- disable copilot suggestions
+    -- set accepted copilot filetypes
     vim.g.copilot_filetypes = {
       ['*'] = vim.g.disable_copilot,
     }
 
+    -- remap copilot accept
     vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<Right>")', {
       expr = true,
       replace_keycodes = false,
       silent = true, -- disable echo in command line
     })
-
-    vim.keymap.set('i', '<C-\\>', 'copilot#Suggest()', {
-      expr = true,
-      replace_keycodes = false,
-      silent = true, -- disable echo in command line
-    })
-
     vim.g.copilot_no_tab_map = true
     vim.keymap.set('i', '<Tab>', '<Tab>')
+
+    -- remap copilot accept line
+    vim.keymap.set('i', '<M-Right>', '<Plug>(copilot-accept-line)')
 
     vim.api.nvim_create_user_command('ToggleCopilot', function()
       vim.g.disable_copilot = not vim.g.disable_copilot
