@@ -3,7 +3,6 @@ return {
   version = '*',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    { 'echasnovski/mini.nvim', version = false },
     {
       'echasnovski/mini.bufremove',
       version = false,
