@@ -155,10 +155,10 @@ return {
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 
         -- Select the [n]ext item
-        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
 
         -- Select the [p]revious item
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
 
         ['<CR>'] = cmp.mapping {
           i = function(fallback)
