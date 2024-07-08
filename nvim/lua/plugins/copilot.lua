@@ -9,7 +9,7 @@ return {
       ['*'] = vim.g.disable_copilot,
     }
 
-    -- remap copilot accept
+    -- remap copilot keys
     vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<Right>")', {
       expr = true,
       replace_keycodes = false,
@@ -18,7 +18,9 @@ return {
     vim.g.copilot_no_tab_map = true
     vim.keymap.set('i', '<Tab>', '<Tab>')
 
-    -- remap copilot accept line
+    vim.keymap.set('i', '<Left>', '<Plug>(copilot-dismiss)')
+    vim.keymap.set('i', '<Down>', '<Plug>(copilot-previous)')
+    vim.keymap.set('i', '<Up>', '<Plug>(copilot-next)')
     vim.keymap.set('i', '<M-Right>', '<Plug>(copilot-accept-line)')
 
     vim.api.nvim_create_user_command('ToggleCopilot', function()
