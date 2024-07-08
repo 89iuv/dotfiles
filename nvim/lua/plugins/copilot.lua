@@ -1,9 +1,12 @@
 return {
   'github/copilot.vim',
   config = function()
+    -- variables
+    vim.g.disable_copilot = false
+
     -- disable copilot suggestions
     vim.g.copilot_filetypes = {
-      -- ['*'] = false,
+      ['*'] = vim.g.disable_copilot,
     }
 
     vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<Right>")', {
@@ -12,10 +15,14 @@ return {
       silent = true, -- disable echo in command line
     })
 
+    vim.keymap.set('i', '<C-\\>', 'copilot#Suggest()', {
+      expr = true,
+      replace_keycodes = false,
+      silent = true, -- disable echo in command line
+    })
+
     vim.g.copilot_no_tab_map = true
     vim.keymap.set('i', '<Tab>', '<Tab>')
-
-    vim.g.disable_copilot = false
 
     vim.api.nvim_create_user_command('ToggleCopilot', function()
       vim.g.disable_copilot = not vim.g.disable_copilot
