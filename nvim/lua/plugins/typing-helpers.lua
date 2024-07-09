@@ -45,6 +45,10 @@ return {
           animation = require('mini.indentscope').gen_animation.none(),
         },
         symbol = '│',
+        options = {
+          border = 'top',
+          try_as_border = true,
+        },
       }
 
       vim.api.nvim_create_autocmd('FileType', {
