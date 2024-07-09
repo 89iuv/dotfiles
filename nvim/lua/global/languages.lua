@@ -17,6 +17,7 @@ M.lsp_config = {
           hint = {
             enable = true,
             arrayIndex = 'Disable',
+            semicolon = 'Disable',
           },
         },
       },
