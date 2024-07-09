@@ -41,7 +41,9 @@ M.lsp_config = {
         })
       end,
     },
+    ['robotframework-lsp'] = {},
   },
+
   exclude_lsp_config = {
     'jdtls', -- configuration is done via nvim-jdtls
   },
