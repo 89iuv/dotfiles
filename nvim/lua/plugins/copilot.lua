@@ -2,11 +2,11 @@ return {
   'github/copilot.vim',
   config = function()
     -- variables
-    vim.g.disable_copilot = true
+    vim.g.disable_copilot = false
 
     -- set accepted copilot filetypes
     vim.g.copilot_filetypes = {
-      ['*'] = vim.g.disable_copilot,
+      ['*'] = not vim.g.disable_copilot,
     }
 
     -- remap copilot keys
@@ -25,10 +25,10 @@ return {
 
     vim.api.nvim_create_user_command('ToggleCopilot', function()
       vim.g.disable_copilot = not vim.g.disable_copilot
-      if not vim.g.disable_copilot then
-        vim.cmd 'Copilot enable'
-      else
+      if vim.g.disable_copilot then
         vim.cmd 'Copilot disable'
+      else
+        vim.cmd 'Copilot enable'
       end
       vim.notify('Copilot: ' .. (vim.g.disable_copilot and 'Disabled' or 'Enabled'))
     end, {
