@@ -33,8 +33,8 @@ return {
       end, { expr = true, desc = 'Previous [H]unk' })
 
       -- Actions
-      require('which-key').register {
-        ['<leader>h'] = { name = '[H]unk', _ = 'which_key_ignore' },
+      require('which-key').add {
+        { '<leader>h', group = '[H]unk' },
       }
 
       map('n', '<leader>hr', gs.reset_hunk, { desc = '[H]unk [R]eset' })

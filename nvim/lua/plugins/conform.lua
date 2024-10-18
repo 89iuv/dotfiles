@@ -64,8 +64,8 @@ return {
       formatters_by_ft = load_global_formaters(),
     }
 
-    require('which-key').register {
-      ['<leader>f'] = { name = '[F]ormat', _ = 'which_key_ignore' },
+    require('which-key').add {
+      { '<leader>f', group = '[F]ormat' },
     }
     vim.keymap.set('n', '<leader>tf', '<ESC><cmd>FormatToggle<CR>', { desc = '[T]oggle Auto [F]format on Save' })
     vim.keymap.set('n', '<leader>ff', '<ESC><cmd>lua require("conform").format { lsp_fallback = true } <CR>', { desc = '[F]ormat [F]ile' })

@@ -27,7 +27,6 @@ return {
           },
         },
         diagnostics = 'nvim_lsp',
-        diagnostics_update_in_insert = true,
         separator_style = { '|', '|' },
       },
       highlights = require('catppuccin.groups.integrations.bufferline').get {
@@ -46,10 +45,10 @@ return {
       },
     }
 
-    require('which-key').register {
-      ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
-      ['<leader>bm'] = { name = '[B]uffer [M]ove', _ = 'which_key_ignore' },
-      ['<leader>bc'] = { name = '[B]uffer [C]lose', _ = 'which_key_ignore' },
+    require('which-key').add {
+      { '<leader>b', group = '[B]uffer' },
+      { '<leader>bm', group = '[B]uffer [M]ove' },
+      { '<leader>bc', group = '[B]uffer [C]lose' },
     }
 
     vim.keymap.set('n', '<leader>x', function()

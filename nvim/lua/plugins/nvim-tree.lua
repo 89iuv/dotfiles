@@ -119,8 +119,8 @@ return {
       },
     }
 
-    require('which-key').register {
-      ['<leader>n'] = { name = '[N]vimtree', _ = 'which_key_ignore' },
+    require('which-key').add {
+      { '<leader>n', group = '[N]vimtree' },
     }
 
     -- toggle wrapper in order to deal with quickfix window
