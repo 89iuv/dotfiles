@@ -150,32 +150,29 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# eza
-alias ls="eza -g -s Name --group-directories-first --color=always --time-style '+%Y-%m-%d %H:%M:%S'"
-alias l="ls -la"
-alias la="ls -la -a"
-alias ll="ls -l"
+# less
+alias less="less -iR"
 
 # zoxide
 eval "$(zoxide init zsh)"
 alias cd="z"
 alias cdi="zi"
 
-# bat
-export BAT_THEME="base16"
-alias cat="bat --style=plain --paging=never --color=always"
-
-# less
-alias less="less -iR"
+# eza
+alias ls="eza -g -s Name --group-directories-first --color=always --time-style '+%Y-%m-%d %H:%M:%S'"
+alias l="ls -la"
+alias la="ls -la -a"
+alias ll="ls -l"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias fzf="fzf --ansi"
 
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# bat
+export BAT_THEME="base16"
+alias cat="bat --style=plain --paging=never --color=always"
 
-# copilot
+# github: copilot
 copilot_shell_suggest() {
   gh copilot suggest -t shell "$*"
 }
@@ -196,15 +193,17 @@ copilot_explain() {
 }
 alias '?h'='copilot_explain'
 
-# poetry
+# java: jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# python: poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
-# nvm
+# node: nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
