@@ -159,7 +159,7 @@ alias cd="z"
 alias cdi="zi"
 
 # eza
-alias ls="eza -g -s Name --group-directories-first --color=always --time-style '+%Y-%m-%d %H:%M:%S'"
+alias ls="eza -g -s Name --group-directories-first --color=always --time-style long-iso"
 alias l="ls -la"
 alias la="ls -la -a"
 alias ll="ls -l"
