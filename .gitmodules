@@ -7,22 +7,3 @@
 [submodule "zsh/zsh-autosuggestions"]
 	path = zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "terminal/windows-terminal"]
-	path = terminal/windows-terminal
-	url = https://github.com/catppuccin/windows-terminal.git
-[submodule "terminal/iterm"]
-	path = terminal/iterm
-	url = https://github.com/catppuccin/iterm
-[submodule "zsh/bat"]
-	path = zsh/bat
-	url = https://github.com/catppuccin/bat.git
-[submodule "zsh/delta"]
-	path = zsh/delta
-	url = https://github.com/catppuccin/delta.git
-[submodule "zsh/btop"]
-	path = zsh/btop
-	url = https://github.com/catppuccin/btop.git
-[submodule "zsh/zsh-history-substring-search"]
-	path = zsh/zsh-history-substring-search
-	url = https://github.com/zsh-users/zsh-history-substring-search.git
-	update = none
