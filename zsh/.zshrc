@@ -81,7 +81,6 @@ plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-
 # User configuration
 
 # zsh-autosuggestions
@@ -136,7 +135,7 @@ export PATH=$HOME/.local/bin:$PATH
 # fi
 
 # default terminal editor
-if ! type nvim > /dev/null
+if type nvim > /dev/null
 then
   export EDITOR='nvim'
 fi
