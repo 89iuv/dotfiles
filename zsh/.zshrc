@@ -136,7 +136,10 @@ export PATH=$HOME/.local/bin:$PATH
 # fi
 
 # default terminal editor
-export EDITOR='nvim'
+if ! type nvim > /dev/null
+then
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -154,56 +157,75 @@ export EDITOR='nvim'
 alias less="less -iR"
 
 # zoxide
-eval "$(zoxide init zsh)"
-alias cd="z"
-alias cdi="zi"
+if type zoxide > /dev/null
+then
+  eval "$(zoxide init zsh)"
+  alias cd="z"
+  alias cdi="zi"
+fi
 
 # eza
-alias ls="eza -g -s Name --group-directories-first --color=always --time-style long-iso"
-alias l="ls -la"
-alias la="ls -la -a"
-alias ll="ls -l"
+if type eza > /dev/null
+then
+  alias ls="eza -g -s Name --group-directories-first --time-style long-iso"
+  alias l="ls -la"
+  alias la="ls -la -a"
+  alias ll="ls -l"
+fi
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias fzf="fzf --ansi"
+if type fzf > /dev/null
+then
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  alias fzf="fzf --ansi"
+fi
 
 # bat
-export BAT_THEME="base16"
-alias cat="bat --style=plain --paging=never --color=always"
+if type bat > /dev/null
+then
+  export BAT_THEME="base16"
+  alias cat="bat --style=plain --paging=never"
+fi
 
 # github: copilot
-copilot_shell_suggest() {
-  gh copilot suggest -t shell "$*"
-}
-alias '??'='copilot_shell_suggest'
-
-copilot_git_suggest() {
-  gh copilot suggest -t git "$*"
-}
-alias '?git'='copilot_git_suggest'
-
-copilot_gh_suggest() {
-  gh copilot suggest -t gh "$*"
-}
-alias '?gh'='copilot_gh_suggest'
-
-copilot_explain() {
-  gh copilot explain "$*"
-}
-alias '?h'='copilot_explain'
+if type gh > /dev/null
+then
+  eval "$(gh copilot alias -- zsh)"
+  alias '??'='ghcs -t shell'
+  alias '?git'='ghcs -t git'
+  alias '?gh'='ghcs -t gh'
+  alias '?h'='ghce'
+fi
 
 # java: jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if type jenv > /dev/null
+then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
+# python: pyenv
+if type pyenv > /dev/null
+then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
 
 # python: poetry
-export POETRY_VIRTUALENVS_IN_PROJECT=true
+if type poetry > /dev/null
+then
+  export POETRY_VIRTUALENVS_IN_PROJECT=true
+fi
 
 # node: nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if type nvm > /dev/null
+then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

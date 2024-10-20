@@ -17,7 +17,7 @@ brew install java maven
 brew install jenv
 
 # python
-brew install python pipx
+brew install python pipx pyenv
 
 # python: poetry
 pipx install poetry
