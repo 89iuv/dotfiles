@@ -58,5 +58,6 @@ ln -s "$dotfiles_path"/nvim ~/.config/nvim
 brew install git-delta
 git config --global core.pager delta
 git config --global delta.syntax-theme base16
-git config --global delta.side-by-side true
+git config --global delta.side-by-side false
+git config --global delta.line-numbers true
 git config --global delta.hunk-header-style omit

@@ -7,6 +7,7 @@ return {
       return {
         FloatBorder = { fg = colors.lavender },
         TelescopeNormal = { link = "NormalFloat" },
+        MiniIndentscopeSymbol = { fg = colors.surface2 },
       }
     end,
   },
