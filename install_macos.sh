@@ -53,3 +53,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # nvim
 brew install nvim
 ln -s "$dotfiles_path"/nvim ~/.config/nvim
+
+# delta
+brew install git-delta
+git config --global core.pager delta
+git config --global delta.syntax-theme base16
+git config --global delta.side-by-side true
+git config --global delta.hunk-header-style omit
