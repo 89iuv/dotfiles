@@ -85,3 +85,12 @@ git config --global diff.colorMoved default
 brew install lazygit
 mkdir -p ~/.config/lazygit
 ln -s "$dotfiles_path"/git/lazygit/config.yml ~/.config/lazygit/config.yml
+
+# Other Fixes and Workarounds
+# Fix for tmux adding double entries in PATH
+# One thing I see people do is to change /etc/zprofile, adding one line to empty PATH:
+# if [ -x /usr/libexec/path_helper ]; then
+#     PATH=""  #empty the PATH
+#     eval `/usr/libexec/path_helper -s`
+# fi
+# fix macos path: https://jdhao.github.io/2023/06/12/macos_path_changed_inside_tmux/
