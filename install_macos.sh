@@ -68,5 +68,5 @@ git config --global diff.colorMoved default
 
 # lazygit
 brew install lazygit
-# Note
-# use documentation to integrate lazygit with delta
+mkdir -p ~/.config/lazygit
+ln -s "$dotfiles_path"/git/lazygit/config.yml ~/.config/lazygit/config.yml

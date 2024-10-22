@@ -185,6 +185,12 @@ then
   alias cat="bat --style=plain --paging=never --theme=base16"
 fi
 
+# lazygit
+if type lazygit > /dev/null
+then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
 # github: copilot
 if type gh > /dev/null
 then
