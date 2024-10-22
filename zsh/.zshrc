@@ -188,6 +188,8 @@ fi
 # lazygit
 if type lazygit > /dev/null
 then
+  # this is a fix for not showing the correct colors using delta
+  export COLORTERM=truecolor
   export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
