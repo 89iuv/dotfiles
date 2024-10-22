@@ -57,7 +57,16 @@ ln -s "$dotfiles_path"/nvim ~/.config/nvim
 # delta
 brew install git-delta
 git config --global core.pager delta
+git config --global delta.true-color always
 git config --global delta.syntax-theme base16
 git config --global delta.side-by-side false
 git config --global delta.line-numbers true
 git config --global delta.hunk-header-style omit
+git config --global interactive.diffFilter delta --color-only
+git config --global merge.conflictstyle diff3
+git config --global diff.colorMoved default
+
+# lazygit
+brew install lazygit
+# Note
+# use documentation to integrate lazygit with delta
