@@ -190,7 +190,7 @@ fi
 if type bat > /dev/null
 then
   export BAT_THEME="Catppuccin Macchiato"
-  alias cat="bat --style=plain --paging=never --theme=base16"
+  alias cat="bat --style=plain --paging=never"
 fi
 
 # lazygit
