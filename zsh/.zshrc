@@ -122,7 +122,10 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # PATH
-export PATH=$HOME/.local/bin:$PATH
+if [[ -z $NVIM ]]
+  then
+    export PATH=$HOME/.local/bin:$PATH
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -212,14 +215,14 @@ then
 fi
 
 # java: jenv
-if type jenv > /dev/null
+if [[ -z $NVIM ]] && type jenv > /dev/null
 then
   export PATH="$HOME/.jenv/bin:$PATH"
   eval "$(jenv init -)"
 fi
 
 # python: pyenv
-if type pyenv > /dev/null
+if [[ -z $NVIM ]] && type pyenv > /dev/null
 then
   export PYENV_ROOT="$HOME/.pyenv"
   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
