@@ -1,10 +1,26 @@
 #!/bin/bash
 
+# vars
+dotfiles_path=$(pwd)
+
 # generic
 brew install neofetch
 brew install wget
-brew install zoxide eza fzf bat
+brew install zoxide eza fz
 brew install ripgrep fd
+
+# bat
+brew install bat
+mkdir -p "$(bat --config-dir)/themes"
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+bat cache --build
+
+# btop
+brew install btop
+ln -s "$dotfiles_path"/btop/themes/*.theme ~/.config/btop/themes/
 
 # lua
 brew install lua
@@ -30,9 +46,6 @@ PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
 nvm install node
 nvm alias default node
 
-# vars
-dotfiles_path=$(pwd)
-
 # configure
 # oh-my-zsh
 ln -s "$dotfiles_path"/zsh/oh-my-zsh ~/.oh-my-zsh
@@ -57,8 +70,10 @@ ln -s "$dotfiles_path"/nvim ~/.config/nvim
 # delta
 brew install git-delta
 git config --global core.pager delta
+git config --global include.path ~/.dotfiles/git/delta/catppuccin.gitconfig
+git config --global delta.features catppuccin-macchiato
 git config --global delta.true-color always
-git config --global delta.syntax-theme base16
+git config --global delta.syntax-theme "Catppuccin Macchiato"
 git config --global delta.side-by-side false
 git config --global delta.line-numbers true
 git config --global delta.hunk-header-style omit

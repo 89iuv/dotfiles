@@ -175,6 +175,13 @@ fi
 # fzf
 if type fzf > /dev/null
 then
+  # fzf theme: Catppuccin Macchiato
+  export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--color=selected-bg:#494d64 \
+--multi"
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   alias fzf="fzf --ansi"
 fi
@@ -182,6 +189,7 @@ fi
 # bat
 if type bat > /dev/null
 then
+  export BAT_THEME="Catppuccin Macchiato"
   alias cat="bat --style=plain --paging=never --theme=base16"
 fi
 

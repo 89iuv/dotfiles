@@ -7,3 +7,9 @@
 [submodule "zsh/zsh-autosuggestions"]
 	path = zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "git/delta"]
+	path = git/delta
+	url = https://github.com/catppuccin/delta.git
+[submodule "btop"]
+	path = btop
+	url = https://github.com/catppuccin/btop.git
