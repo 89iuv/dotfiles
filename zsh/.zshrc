@@ -106,6 +106,9 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
+# enable vi mode
+bindkey -v
+
 # keybindings
 bindkey '^f' edit-command-line
 
