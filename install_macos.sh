@@ -33,7 +33,11 @@ brew install java maven
 brew install jenv
 
 # python
-brew install python pipx pyenv
+brew install python pipx
+
+# python pyenv
+brew install pyenv
+ln -s ~/.pyenv/bin/pyenv ~/.local/bin/
 
 # python: poetry
 pipx install poetry
@@ -69,17 +73,25 @@ ln -s "$dotfiles_path"/nvim ~/.config/nvim
 
 # delta
 brew install git-delta
+
 git config --global core.pager delta
-git config --global include.path ~/.dotfiles/git/delta/catppuccin.gitconfig
-git config --global delta.features catppuccin-macchiato
+
 git config --global delta.true-color always
 git config --global delta.syntax-theme "Catppuccin Macchiato"
 git config --global delta.side-by-side false
 git config --global delta.line-numbers true
 git config --global delta.hunk-header-style omit
+git config --global delta.features catppuccin-macchiato
+
 git config --global interactive.diffFilter "delta --color-only"
+
 git config --global merge.conflictstyle diff3
+
 git config --global diff.colorMoved default
+
+git config --global include.path ~/.dotfiles/git/delta/catppuccin.gitconfig
+
+git config --global diffs "-c delta.side-by-side=true diff"
 
 # lazygit
 brew install lazygit
