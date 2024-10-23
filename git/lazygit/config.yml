@@ -1,7 +1,7 @@
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never -s
+    pager: delta --dark --paging=never
 
 gui:
   # Use the mocha catppuccin theme
