@@ -236,7 +236,7 @@ then
 fi
 
 # node: nvm
-if type nvm > /dev/null
+if [[ -z $NVIM ]] && type nvm > /dev/null
 then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -245,4 +245,9 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Warkaround to fix duplicate entries in PATH
+path_elements=$(echo "$PATH" | tr ':' '\n')
+unique_elements=$(echo "$path_elements" | awk '!seen[$0]++' | tr '\n' ':')
+export PATH=${unique_elements%:}
 
