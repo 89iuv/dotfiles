@@ -14,7 +14,7 @@ return {
     opts.highlights = require("catppuccin.groups.integrations.bufferline").get({
       custom = {
         all = {
-          indicator_selected = { fg = colors.lavender },
+          indicator_selected = { fg = colors.mauve },
           indicator_visible = { fg = colors.mantle, bg = colors.mantle },
 
           buffer_selected = { fg = colors.lavender, bg = colors.overlay_0 }, -- current
