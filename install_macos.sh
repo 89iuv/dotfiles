@@ -62,6 +62,11 @@ ln -s "$dotfiles_path"/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
 ln -s "$dotfiles_path"/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes
 ln -s "$dotfiles_path"/zsh/.p10k.zsh ~/.p10k.zsh
 
+# starship
+curl -sS https://starship.rs/install.sh | sh
+mkdir -p ~/.config/starship/
+ln -s "$dotfiles_path"/zsh/starship/starship.toml ~/.config/starship/
+
 # tmux
 brew install tmux
 ln -s "$dotfiles_path"/tmux/.tmux.conf ~/.tmux.conf
@@ -75,7 +80,7 @@ ln -s "$dotfiles_path"/nvim ~/.config/nvim
 brew install git-delta
 
 git config --global core.pager delta
-
+git config --global delta.navigate true
 git config --global delta.true-color always
 git config --global delta.syntax-theme "Catppuccin Macchiato"
 git config --global delta.side-by-side false
