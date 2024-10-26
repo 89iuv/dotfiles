@@ -22,6 +22,7 @@ disabled = true
 [directory]
 style = "bold blue"
 truncate_to_repo = false
+truncation_length = 4
 truncation_symbol = ".../"
 read_only = "󰌾 "
 
