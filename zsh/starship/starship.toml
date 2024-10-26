@@ -55,7 +55,7 @@ format = "took [󰔛 $duration]($style) "
 disabled = false
 time_format = "%H:%M"
 format = "at [󱑎 $time]($style)"
-style = "bold sapphire"
+style = "bold blue"
 
 [lua]
 symbol = "󰢱 "
