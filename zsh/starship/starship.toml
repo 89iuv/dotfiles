@@ -9,7 +9,8 @@ $git_status\
 $lua\
 $python\
 $cmd_duration\
-$time
+$time\
+$line_break\
 $character\
 """
 
@@ -17,7 +18,7 @@ add_newline = false
 palette = "catppuccin_macchiato"
 
 [line_break]
-disabled = true
+disabled = false
 
 [directory]
 style = "bold blue"
@@ -56,7 +57,7 @@ format = "took [󰔛 $duration]($style) "
 disabled = false
 time_format = "%H:%M"
 format = "at [󰅐 $time]($style)"
-style = "bold blue"
+style = "bold lavender"
 
 [lua]
 symbol = "󰢱 "
