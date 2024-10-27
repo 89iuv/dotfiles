@@ -195,6 +195,8 @@ if type bat > /dev/null
 then
   export BAT_THEME="Catppuccin Macchiato"
   alias cat="bat --style=plain --paging=never"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANROFFOPT="-c"
 fi
 
 # lazygit
