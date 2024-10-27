@@ -28,7 +28,7 @@ read_only = "󰌾 "
 
 [git_branch]
 style = "bold green"
-symbol = " "
+symbol = "󰘬 "
 
 [git_status]
 style = "bold lavender"
@@ -55,7 +55,7 @@ format = "took [󰔛 $duration]($style) "
 [time]
 disabled = false
 time_format = "%H:%M"
-format = "at [󱑎 $time]($style)"
+format = "at [󰅐 $time]($style)"
 style = "bold blue"
 
 [lua]
