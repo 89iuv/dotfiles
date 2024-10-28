@@ -92,7 +92,7 @@ git config --global interactive.diffFilter "delta --color-only"
 git config --global merge.conflictstyle diff3
 git config --global diff.colorMoved default
 git config --global include.path ~/.dotfiles/git/delta/catppuccin.gitconfig
-git config --global diffs "-c delta.side-by-side=true diff"
+git config --global alias.diffs "-c delta.side-by-side=true diff"
 
 # lazygit
 brew install lazygit
