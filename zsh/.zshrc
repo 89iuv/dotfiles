@@ -253,7 +253,7 @@ fi
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # starship
-if [[ -z $NVIM ]] && type starship > /dev/null
+if type starship > /dev/null
 then
   export STARSHIP_CONFIG=~/.config/starship/starship.toml
   eval "$(starship init zsh)"

@@ -15,8 +15,7 @@ $python\
 $docker_context\
 $sudo\
 $cmd_duration\
-$time\
-$line_break\
+$time
 $character\
 """
 
