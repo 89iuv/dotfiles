@@ -263,6 +263,9 @@ then
   alias clear="precmd() { precmd() { echo } } && clear"
 fi
 
+# Load system specify environtment variables
+[ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
+
 # Warkaround to fix duplicate entries in PATH
 path_elements=$(echo "$PATH" | tr ':' '\n')
 unique_elements=$(echo "$path_elements" | awk '!seen[$0]++' | tr '\n' ':')
