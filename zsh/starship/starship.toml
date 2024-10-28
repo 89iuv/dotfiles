@@ -2,12 +2,18 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """\
+$username\
+$hostname\
 $directory\
+$git_state\
 $git_branch\
 $git_status\
+$package\
  $fill \
 $lua\
 $python\
+$docker_context\
+$sudo\
 $cmd_duration\
 $time\
 $line_break\
@@ -16,6 +22,13 @@ $character\
 
 add_newline = false
 palette = "catppuccin_macchiato"
+
+[username]
+style_user = "lavender bold"
+
+[hostname]
+style = "mauve bold"
+disabled = false
 
 [line_break]
 disabled = false
@@ -47,11 +60,20 @@ ahead = "⇡${count} "
 diverged = "⇡${ahead_count}⇣${behind_count} "
 behind = "⇣${count} "
 
+[package]
+symbol = "󰏓 "
+style = "flamingo bold"
+
 [fill]
 style = "overlay0"
 
 [cmd_duration]
 format = "took [󰔛 $duration]($style) "
+
+[sudo]
+disabled = false
+style = "bold red"
+symbol = "󰔙 root "
 
 [time]
 disabled = false
@@ -64,6 +86,9 @@ symbol = "󰢱 "
 
 [python]
 symbol = "󰌠 "
+
+[docker_context]
+symbol = "󰡨 "
 
 [character]
 success_symbol = "[(green)❯](green)"
