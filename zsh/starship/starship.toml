@@ -29,9 +29,6 @@ style_user = "lavender bold"
 style = "mauve bold"
 disabled = false
 
-[line_break]
-disabled = false
-
 [directory]
 style = "bold blue"
 truncate_to_repo = false

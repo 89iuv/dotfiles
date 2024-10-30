@@ -7,3 +7,9 @@ vim.keymap.set("i", "<C-h>", "<Left>", { noremap = false, silent = true })
 vim.keymap.set("i", "<C-j>", "<Down>", { noremap = false, silent = true })
 vim.keymap.set("i", "<C-k>", "<Up>", { noremap = false, silent = true })
 vim.keymap.set("i", "<C-l>", "<Right>", { noremap = false, silent = true })
+
+-- remap resize to be +5
+vim.keymap.set("n", "<C-w>+", "<cmd>resize +5<cr>", { noremap = false, desc = "Increase height" })
+vim.keymap.set("n", "<C-w>-", "<cmd>resize -5<cr>", { noremap = false, desc = "Decrease height" })
+vim.keymap.set("n", "<C-w>>", "<cmd>vertical resize +5<cr>", { noremap = false, desc = "Increase width" })
+vim.keymap.set("n", "<C-w><", "<cmd>vertical resize -5<cr>", { noremap = false, desc = "Decrease width" })
