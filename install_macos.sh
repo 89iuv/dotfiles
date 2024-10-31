@@ -85,7 +85,8 @@ git config --global delta.true-color always
 git config --global delta.syntax-theme "Catppuccin Macchiato"
 git config --global delta.side-by-side false
 git config --global delta.line-numbers true
-git config --global delta.file-decoration-style ul
+git config --global delta.file-decoration-style "blue ul"
+git config --global delta.file-style blue
 git config --global delta.hunk-header-style omit
 git config --global delta.features catppuccin-macchiato
 git config --global interactive.diffFilter "delta --color-only"

@@ -51,7 +51,7 @@ staged = "[+$count](bold green) "
 untracked = "[?$count](bold mauve) "
 
 ahead = "⇡${count} "
-diverged = "⇡${ahead_count}⇣${behind_count} "
+diverged = "⇡${ahead_count} ⇣${behind_count} "
 behind = "⇣${count} "
 
 [cmd_duration]
