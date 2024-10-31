@@ -59,7 +59,7 @@ format = "took [󰔛 $duration]($style) "
 
 [sudo]
 disabled = false
-style = "bold red"
+style = "bold maroon"
 symbol = "󰔙 root "
 
 [java]
