@@ -5,22 +5,20 @@ format = """\
 $username\
 $hostname\
 $directory\
-$git_state\
 $git_branch\
+$git_state\
 $git_status\
-$package\
- $fill \
+$java\
 $lua\
 $python\
-$docker_context\
 $sudo\
 $cmd_duration\
-$time
+$line_break\
 $character\
 """
 
-add_newline = false
 palette = "catppuccin_macchiato"
+add_newline = false
 
 [username]
 style_user = "lavender bold"
@@ -56,13 +54,6 @@ ahead = "⇡${count} "
 diverged = "⇡${ahead_count}⇣${behind_count} "
 behind = "⇣${count} "
 
-[package]
-symbol = "󰏓 "
-style = "flamingo bold"
-
-[fill]
-style = "overlay0"
-
 [cmd_duration]
 format = "took [󰔛 $duration]($style) "
 
@@ -71,11 +62,9 @@ disabled = false
 style = "bold red"
 symbol = "󰔙 root "
 
-[time]
-disabled = false
-time_format = "%H:%M"
-format = "at [󰅐 $time]($style)"
-style = "bold lavender"
+[java]
+symbol = "󰬷 "
+style = "red"
 
 [lua]
 symbol = "󰢱 "
@@ -83,13 +72,10 @@ symbol = "󰢱 "
 [python]
 symbol = "󰌠 "
 
-[docker_context]
-symbol = "󰡨 "
-
 [character]
-success_symbol = "[(green)❯](green)"
-error_symbol = "[(red)❯](red)"
-vimcmd_symbol = "[❮](subtext1)"      # For use with zsh-vi-mode
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](subtext1)" # For use with zsh-vi-mode
 
 # Palette definitions
 [palettes.catppuccin_latte]
