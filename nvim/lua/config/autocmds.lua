@@ -9,3 +9,21 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:remove({ "r", "o" })
   end,
 })
+
+-- Move QuickFix window to the bottom
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = "qf",
+  callback = function()
+    vim.cmd("wincmd J")
+  end,
+})
+
+-- Disable mini indentscope for unsuported buffers
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "neotest-summary",
+  },
+  callback = function()
+    vim.b.miniindentscope_disable = true
+  end,
+})
