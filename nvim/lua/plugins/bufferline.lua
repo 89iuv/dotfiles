@@ -8,8 +8,16 @@ return {
     opts.options.offsets = {
       {
         filetype = "neo-tree",
+        text = "Neo-tree",
+        highlight = "Directory",
+        text_align = "left",
+        separator = true,
       },
     }
+    opts.options.indicator = {
+      icon = "▎",
+    }
+    opts.options.separator_style = { "▏", "▕" }
     opts.options.themable = true
     opts.highlights = require("catppuccin.groups.integrations.bufferline").get({
       custom = {
@@ -18,10 +26,18 @@ return {
           indicator_visible = { fg = colors.mantle, bg = colors.mantle },
 
           buffer_selected = { fg = colors.lavender, bg = colors.overlay_0 }, -- current
+          buffer_visible = { fg = colors.lavender, style = { "bold", "italic" } },
 
-          modified = { fg = colors.lavender },
-          modified_visible = { fg = colors.lavender },
-          modified_selected = { fg = colors.lavender },
+          offset_separator = { fg = colors.crust, bg = colors.base },
+
+          modified = { fg = colors.peach },
+          modified_visible = { fg = colors.peach },
+          modified_selected = { fg = colors.peach },
+
+          trunc_marker = {
+            fg = colors.overlay_0,
+            bg = colors.mantle,
+          },
         },
       },
     })

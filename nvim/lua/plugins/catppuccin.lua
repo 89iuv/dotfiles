@@ -9,7 +9,7 @@ return {
         FloatBorder = { fg = colors.lavender },
 
         -- neotree
-        NeoTreeWinSeparator = { fg = colors.mantle },
+        NeoTreeWinSeparator = { fg = colors.crust, bg = colors.base },
 
         -- telescope
         TelescopeNormal = { link = "NormalFloat" },
