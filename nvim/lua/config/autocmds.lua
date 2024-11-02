@@ -27,3 +27,19 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b.miniindentscope_disable = true
   end,
 })
+
+-- disable word highlight when entering visual mode
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*:v",
+  callback = function()
+    require("illuminate").pause()
+  end,
+})
+
+-- enable word highlight when entering visual mode
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "v:*",
+  callback = function()
+    require("illuminate").resume()
+  end,
+})
