@@ -7,9 +7,10 @@ return {
       return {
         -- nvim
         FloatBorder = { fg = colors.lavender },
+        WinSeparator = { fg = colors.crust },
 
         -- neotree
-        NeoTreeWinSeparator = { fg = colors.crust, bg = colors.base },
+        NeoTreeWinSeparator = { link = "WinSeparator" },
 
         -- telescope
         TelescopeNormal = { link = "NormalFloat" },

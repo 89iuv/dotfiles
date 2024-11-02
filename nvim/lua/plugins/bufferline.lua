@@ -28,7 +28,7 @@ return {
           buffer_selected = { fg = colors.lavender, bg = colors.overlay_0 }, -- current
           buffer_visible = { fg = colors.lavender, style = { "bold", "italic" } },
 
-          offset_separator = { fg = colors.crust, bg = colors.base },
+          offset_separator = { link = "WinSeparator" },
 
           modified = { fg = colors.peach },
           modified_visible = { fg = colors.peach },
