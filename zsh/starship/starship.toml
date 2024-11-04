@@ -24,8 +24,9 @@ add_newline = false
 style_user = "lavender bold"
 
 [hostname]
-style = "mauve bold"
 disabled = false
+style = "mauve bold"
+ssh_symbol = "󰖟 "
 
 [directory]
 style = "bold blue"
