@@ -4,7 +4,7 @@
 dotfiles_path=$(pwd)
 
 # generic
-brew install neofetch
+brew install fastfetch
 brew install wget
 brew install zoxide eza fz
 brew install ripgrep fd
