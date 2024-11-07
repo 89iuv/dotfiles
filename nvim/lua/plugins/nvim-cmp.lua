@@ -44,14 +44,6 @@ return {
           end, { "i", "s" }),
         })
       )
-      opts.window = {
-        completion = cmp.config.window.bordered({
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
-        }),
-        documentation = cmp.config.window.bordered({
-          winhighlight = "FloatBorder:FloatBorder",
-        }),
-      }
       opts.experimental.ghost_text = false
     end,
   },

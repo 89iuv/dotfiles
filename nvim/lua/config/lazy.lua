@@ -34,6 +34,7 @@ require("lazy").setup({
   },
   ui = {
     border = "rounded",
+    backdrop = 100,
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
