@@ -26,7 +26,7 @@ return {
           indicator_visible = { fg = colors.mantle, bg = colors.mantle },
 
           buffer_selected = { fg = colors.lavender, bg = colors.overlay_0 }, -- current
-          buffer_visible = { fg = colors.lavender, style = { "bold", "italic" } },
+          buffer_visible = { fg = colors.subtext0, style = { "bold", "italic" } },
 
           offset_separator = { link = "WinSeparator" },
 
