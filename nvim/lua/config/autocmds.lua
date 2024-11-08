@@ -10,6 +10,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Disable line numbers in terminal buffers
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+  end,
+})
+
 -- Move QuickFix window to the bottom
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf",
