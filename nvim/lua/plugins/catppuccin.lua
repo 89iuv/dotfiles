@@ -6,14 +6,14 @@ return {
     custom_highlights = function(colors)
       return {
         -- nvim
-        FloatBorder = { fg = colors.lavender },
-        WinSeparator = { fg = colors.crust },
+        NormalFloat = { fg = colors.text, bg = colors.mantle },
+        FloatBorder = { fg = colors.lavender, bg = colors.base },
+        FloatTitle = { link = "FloatBorder" },
+
+        WinSeparator = { fg = colors.crust, bg = colors.base },
 
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
-
-        -- telescope
-        TelescopeNormal = { link = "NormalFloat" },
 
         -- mini
         MiniIndentscopeSymbol = { fg = colors.surface2 },

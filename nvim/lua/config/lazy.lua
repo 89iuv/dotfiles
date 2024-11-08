@@ -14,6 +14,20 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- use ESC to close the lazy window
+-- https://github.com/folke/lazy.nvim/issues/1308
+local user_grp = vim.api.nvim_create_augroup("LazyUserGroup", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lazy",
+  desc = "Quit lazy with <Esc>",
+  callback = function()
+    vim.keymap.set("n", "<Esc>", function()
+      vim.api.nvim_win_close(0, false)
+    end, { buffer = true, nowait = true })
+  end,
+  group = user_grp,
+})
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
