@@ -44,7 +44,7 @@ style = "bold lavender"
 format = "([$all_status$ahead_behind]($style))"
 
 conflicted = "[=$count](bold pink) "
-stashed = "[\\$$count](bold overlay0) "
+stashed = "[\\$$count](bold subtext0) "
 deleted = "[✘$count](bold red) "
 renamed = "[»$count](bold peach) "
 modified = "[!$count](bold yellow) "
