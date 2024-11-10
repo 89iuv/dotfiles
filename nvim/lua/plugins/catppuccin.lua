@@ -12,6 +12,16 @@ return {
 
         WinSeparator = { fg = colors.crust, bg = colors.base },
 
+        -- lsp
+        -- remove reference highlight as there is no way to disable it
+        -- this is taken care of by illuminate plugin
+        LspReferenceText = { link = "NONE" },
+        LspReferenceRead = { link = "NONE" },
+        LspReferenceWrite = { link = "NONE" },
+
+        -- cmp
+        CmpGhostText = { fg = colors.surface2 },
+
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
 
@@ -28,8 +38,8 @@ return {
         -- snacks
         SnacksNormal = { link = "NormalFloat" },
         SnacksNormalNC = { link = "SnacksNormal" },
-        SnacksWinBar = { fg = colors.overlay1 },
-        SnacksWinBarNC = { fg = colors.surface1 },
+        SnacksWinBar = { fg = colors.surface2 },
+        SnacksWinBarNC = { fg = colors.surface0 },
       }
     end,
   },
