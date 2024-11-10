@@ -28,8 +28,8 @@ return {
         -- snacks
         SnacksNormal = { link = "NormalFloat" },
         SnacksNormalNC = { link = "SnacksNormal" },
-        SnacksWinBar = { fg = colors.surface2 },
-        SnacksWinBarNC = { fg = colors.surface0 },
+        SnacksWinBar = { fg = colors.overlay1 },
+        SnacksWinBarNC = { fg = colors.surface1 },
       }
     end,
   },
