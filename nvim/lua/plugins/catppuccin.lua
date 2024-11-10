@@ -7,8 +7,8 @@ return {
       return {
         -- nvim
         NormalFloat = { fg = colors.text, bg = colors.mantle },
-        FloatBorder = { fg = colors.lavender, bg = colors.base },
-        FloatTitle = { link = "FloatBorder" },
+        FloatBorder = { fg = colors.lavender, bg = colors.mantle },
+        FloatTitle = { link = "FloatBorder" }, -- fix for which_key window title
 
         WinSeparator = { fg = colors.crust, bg = colors.base },
 
@@ -18,9 +18,18 @@ return {
         -- mini
         MiniIndentscopeSymbol = { fg = colors.surface2 },
 
+        -- telescope
+        TelescopeNormal = { link = "NormalFloat" },
+
         -- trouble
         TroubleNormal = { link = "Normal" },
-        TroubleNormalNc = { link = "Normal" },
+        TroubleNormalNc = { link = "TroubleNormal" },
+
+        -- snacks
+        SnacksNormal = { link = "NormalFloat" },
+        SnacksNormalNC = { link = "SnacksNormal" },
+        SnacksWinBar = { fg = colors.surface2 },
+        SnacksWinBarNC = { fg = colors.surface0 },
       }
     end,
   },

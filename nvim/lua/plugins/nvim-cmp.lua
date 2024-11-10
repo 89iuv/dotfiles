@@ -46,13 +46,13 @@ return {
       )
       opts.window = {
         completion = cmp.config.window.bordered({
-          winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
         }),
         documentation = cmp.config.window.bordered({
-          winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
         }),
       }
-      opts.experimental.ghost_text = false
+      opts.experimental.ghost_text = true
     end,
   },
 }
