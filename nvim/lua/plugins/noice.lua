@@ -1,16 +1,14 @@
 return {
   "folke/noice.nvim",
+  -- enabled = false,
   opts = {
     presets = {
       bottom_search = false,
       command_palette = true,
       lsp_doc_border = true,
     },
-
-    lsp = {
-      progress = {
-        enabled = false,
-      },
+    views = {
+      split = { scrollbar = false },
     },
   },
 }
