@@ -21,10 +21,10 @@ return {
     },
     terminal = {
       win = {
+        style = "terminal",
         wo = {
           winhighlight = "Normal:Normal,NormalNC:NormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
         },
-        style = "terminal",
       },
     },
   },

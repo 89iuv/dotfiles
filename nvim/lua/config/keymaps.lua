@@ -13,3 +13,6 @@ vim.keymap.set("n", "<C-w>+", "<cmd>resize +5<cr>", { noremap = false, desc = "I
 vim.keymap.set("n", "<C-w>-", "<cmd>resize -5<cr>", { noremap = false, desc = "Decrease height" })
 vim.keymap.set("n", "<C-w>>", "<cmd>vertical resize +5<cr>", { noremap = false, desc = "Increase width" })
 vim.keymap.set("n", "<C-w><", "<cmd>vertical resize -5<cr>", { noremap = false, desc = "Decrease width" })
+
+-- exit terminal using esc, esc
+vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
