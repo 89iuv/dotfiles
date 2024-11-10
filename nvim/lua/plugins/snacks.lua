@@ -11,6 +11,10 @@ return {
         wo = {
           winhighlight = "Normal:Normal,NormalNC:NormalNC",
         },
+        keys = {
+          q = "close",
+          ["<esc>"] = "close",
+        },
       },
     },
     notifier = {
@@ -24,6 +28,10 @@ return {
         style = "terminal",
         wo = {
           winhighlight = "Normal:Normal,NormalNC:NormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
+        },
+        keys = {
+          q = "close",
+          ["<esc>"] = "close",
         },
       },
     },
