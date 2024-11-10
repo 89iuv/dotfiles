@@ -1,3 +1,5 @@
+quitOnTopLevelReturn: true
+
 git:
   paging:
     colorArg: always
