@@ -52,7 +52,7 @@ return {
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
         }),
       }
-      opts.experimental.ghost_text = { hl_group = "CmpGhostText" }
+      opts.experimental.ghost_text = false
     end,
   },
 }

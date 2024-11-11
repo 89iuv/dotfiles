@@ -19,9 +19,6 @@ return {
         LspReferenceRead = { link = "NONE" },
         LspReferenceWrite = { link = "NONE" },
 
-        -- cmp
-        CmpGhostText = { fg = colors.surface2 },
-
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
 
