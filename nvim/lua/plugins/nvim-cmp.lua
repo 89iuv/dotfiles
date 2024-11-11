@@ -48,7 +48,7 @@ return {
       )
       opts.window = {
         completion = cmp.config.window.bordered({
-          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+          winhighlight = "Normal:Normal,FloatBorder:NormalBorder",
         }),
         documentation = cmp.config.window.bordered({
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
