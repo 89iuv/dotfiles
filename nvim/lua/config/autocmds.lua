@@ -21,6 +21,19 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- Disable mini indentscope for unsuported buffers
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
+    "Trouble",
+    "alpha",
+    "dashboard",
+    "help",
+    "lazy",
+    "mason",
+    "neo-tree",
+    "notify",
+    "snacks_notif",
+    "snacks_terminal",
+    "snacks_win",
+    "toggleterm",
+    "trouble",
     "neotest-summary",
     "copilot-chat",
   },

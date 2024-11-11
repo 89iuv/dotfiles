@@ -1,6 +1,9 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    init = function()
+      vim.opt.pumblend = 0 -- disable cmp menu transparency
+    end,
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")

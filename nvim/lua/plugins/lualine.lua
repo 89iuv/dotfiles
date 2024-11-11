@@ -5,7 +5,6 @@ return {
   },
   init = function()
     vim.g.trouble_lualine = false
-    vim.opt.pumblend = 0 -- disable cmp menu transparency
   end,
   opts = function(_, opts)
     local macchiato = require("catppuccin.palettes").get_palette("macchiato")

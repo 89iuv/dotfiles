@@ -6,6 +6,7 @@ return {
     },
     ensure_installed = {
       "shellcheck",
+      "lemminx",
     },
   },
 }
