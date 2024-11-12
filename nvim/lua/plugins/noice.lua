@@ -7,6 +7,11 @@ return {
       command_palette = true,
       lsp_doc_border = true,
     },
+    lsp = {
+      progress = {
+        enabled = false,
+      },
+    },
     views = {
       split = {
         scrollbar = false,
@@ -18,6 +23,22 @@ return {
         close = {
           keys = { "<esc>", "q" },
         },
+      },
+    },
+    routes = {
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "echo",
+        },
+        opts = { skip = true },
       },
     },
   },
