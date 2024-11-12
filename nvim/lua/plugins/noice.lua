@@ -30,15 +30,14 @@ return {
         filter = {
           event = "msg_show",
           kind = "",
+          any = {
+            { find = "%d+L, %d+B" },
+            { find = "; after #%d+" },
+            { find = "; before #%d+" },
+          },
         },
         opts = { skip = true },
-      },
-      {
-        filter = {
-          event = "msg_show",
-          kind = "echo",
-        },
-        opts = { skip = true },
+        view = "notify",
       },
     },
   },
