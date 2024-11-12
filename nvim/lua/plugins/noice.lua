@@ -1,6 +1,5 @@
 return {
   "folke/noice.nvim",
-  -- enabled = false,
   opts = {
     presets = {
       bottom_search = false,
@@ -26,6 +25,7 @@ return {
       },
     },
     routes = {
+      -- disable notification for saving a file
       {
         filter = {
           event = "msg_show",
