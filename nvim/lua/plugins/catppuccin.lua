@@ -9,6 +9,7 @@ return {
         NormalFloat = { fg = colors.text, bg = colors.mantle },
         FloatBorder = { fg = colors.lavender, bg = colors.mantle },
         FloatTitle = { link = "FloatBorder" }, -- fix for which_key window title
+        StatusLine = { bg = colors.crust },
 
         WinSeparator = { fg = colors.crust, bg = colors.base },
 
