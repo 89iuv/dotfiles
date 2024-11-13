@@ -89,6 +89,7 @@ return {
       notification = {
         wo = {
           winblend = 0,
+          wrap = true,
         },
       },
     },
