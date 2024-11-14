@@ -58,6 +58,7 @@ return {
     lazygit = {
       configure = false,
       win = {
+        height = 0.9,
         backdrop = 80,
         wo = {
           winhighlight = "Normal:Normal,NormalNC:NormalNC",
@@ -71,9 +72,11 @@ return {
     notifier = {
       style = "fancy",
       margin = { top = 0, right = 0, bottom = 0 },
+      top_down = false,
     },
     terminal = {
       win = {
+        height = 20,
         wo = {
           winbar = "",
           winhighlight = "Normal:Normal,NormalNC:NormalNC",

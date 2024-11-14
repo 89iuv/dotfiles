@@ -16,3 +16,6 @@ vim.keymap.set("n", "<C-w><", "<cmd>vertical resize -5<cr>", { noremap = false, 
 
 -- exit terminal using esc, esc
 vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+-- unbind problematic key
+vim.api.nvim_del_keymap("n", "<C-w><C-D>")
