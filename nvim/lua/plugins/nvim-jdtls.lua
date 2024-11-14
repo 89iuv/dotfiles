@@ -13,7 +13,7 @@ return {
           local msg = type .. " " .. message
           local name = client and client.name or ""
 
-          vim.notify(msg, "info", {
+          vim.notify(msg, vim.log.levels.INFO, {
             id = "lsp_progress",
             title = name,
           })

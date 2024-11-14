@@ -32,12 +32,6 @@ return {
         -- trouble
         TroubleNormal = { link = "Normal" },
         TroubleNormalNc = { link = "TroubleNormal" },
-
-        -- snacks
-        SnacksNormal = { link = "NormalFloat" },
-        SnacksNormalNC = { link = "SnacksNormal" },
-        SnacksWinBar = { fg = colors.surface2 },
-        SnacksWinBarNC = { fg = colors.surface0 },
       }
     end,
   },

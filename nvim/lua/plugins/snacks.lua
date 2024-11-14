@@ -47,7 +47,7 @@ return {
           return table.insert(msg, v.msg) or not v.done
         end, p)
 
-        vim.notify(table.concat(msg, "\n"), "info", {
+        vim.notify(table.concat(msg, "\n"), vim.log.levels.INFO, {
           id = "lsp_progress",
           title = client.name,
         })
@@ -59,7 +59,6 @@ return {
       configure = false,
       win = {
         backdrop = 80,
-        style = "lazygit",
         wo = {
           winhighlight = "Normal:Normal,NormalNC:NormalNC",
         },
@@ -75,10 +74,9 @@ return {
     },
     terminal = {
       win = {
-        style = "terminal",
         wo = {
           winbar = "",
-          winhighlight = "Normal:Normal,NormalNC:NormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
+          winhighlight = "Normal:Normal,NormalNC:NormalNC",
         },
         keys = {
           q = "close",
