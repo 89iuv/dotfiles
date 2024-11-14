@@ -77,6 +77,7 @@ return {
       win = {
         style = "terminal",
         wo = {
+          winbar = "",
           winhighlight = "Normal:Normal,NormalNC:NormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
         },
         keys = {
