@@ -8,15 +8,6 @@ return {
       callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-        if client and client.name == "jdtls" then
-          if
-            string.find(ev.data.params.value.message, "Validate documents")
-            or string.find(ev.data.params.value.message, "Publish Diagnostics")
-          then
-            return
-          end
-        end
-
         local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
         if not client or type(value) ~= "table" then
           return
