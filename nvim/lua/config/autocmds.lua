@@ -68,6 +68,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "snacks_win",
     "trouble",
     "copilot-chat",
+    "grug-far",
+    "grug-far-help",
   },
   callback = function()
     vim.b.miniindentscope_disable = true
