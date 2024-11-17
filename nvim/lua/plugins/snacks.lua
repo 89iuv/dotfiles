@@ -68,7 +68,7 @@ return {
     },
     terminal = {
       win = {
-        height = 20,
+        height = 15,
         wo = {
           winbar = "",
           winhighlight = "Normal:Normal,NormalNC:NormalNC",
