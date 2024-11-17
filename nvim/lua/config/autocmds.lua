@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- close some filetypes with <q>
+-- close some filetypes with <esc>
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("close_with_esc"),
   pattern = {
@@ -33,15 +33,10 @@ vim.api.nvim_create_autocmd("FileType", {
     "grug-far",
     "help",
     "lspinfo",
-    "neotest-output",
-    "neotest-output-panel",
-    "neotest-summary",
     "notify",
     "qf",
     "snacks_win",
-    "spectre_panel",
     "startuptime",
-    "tsplayground",
     "copilot-chat",
   },
   callback = function(event)
@@ -63,8 +58,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "Trouble",
-    "alpha",
-    "dashboard",
     "help",
     "lazy",
     "mason",
@@ -73,9 +66,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "snacks_notif",
     "snacks_terminal",
     "snacks_win",
-    "toggleterm",
     "trouble",
-    "neotest-summary",
     "copilot-chat",
   },
   callback = function()

@@ -19,6 +19,12 @@ return {
         end,
       },
     },
+    renderers = {
+      -- disable terminal renderer
+      -- when selecting a terminal from the buffer list
+      -- it will be opened in a new buffer instead of it's buffer
+      terminal = {},
+    },
     filesystem = {
       follow_current_file = {
         enabled = true,

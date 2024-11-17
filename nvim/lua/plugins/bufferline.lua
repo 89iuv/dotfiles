@@ -9,7 +9,7 @@ return {
     opts.options.offsets = {
       {
         filetype = "neo-tree",
-        text = "File Explorer",
+        text = "Explorer",
         highlight = "Normal",
         text_align = "left",
         separator = true,
