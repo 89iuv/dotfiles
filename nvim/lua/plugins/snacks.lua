@@ -61,6 +61,7 @@ return {
       },
     },
     notifier = {
+      level = vim.log.levels.TRACE,
       style = "fancy",
       margin = { top = 0, right = 0, bottom = 0 },
       top_down = false,
