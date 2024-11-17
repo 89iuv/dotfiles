@@ -54,28 +54,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Disable mini indentscope for unsuported buffers
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "Trouble",
-    "help",
-    "lazy",
-    "mason",
-    "neo-tree",
-    "notify",
-    "snacks_notif",
-    "snacks_terminal",
-    "snacks_win",
-    "trouble",
-    "copilot-chat",
-    "grug-far",
-    "grug-far-help",
-  },
-  callback = function()
-    vim.b.miniindentscope_disable = true
-  end,
-})
-
 -- disable word highlight when entering visual mode
 vim.api.nvim_create_autocmd("ModeChanged", {
   pattern = { "*:v", "*:i" },

@@ -19,6 +19,19 @@ return {
         end,
       },
     },
+    default_component_configs = {
+      enable_character_fade = false,
+      -- prefere with expanders until set indent level is approved
+      -- https://github.com/nvim-neo-tree/neo-tree.nvim/pull/1570
+      indent = {
+        with_markers = false,
+        indent_marker = "│",
+        last_indent_marker = "└",
+        with_expanders = true,
+        expander_collapsed = "",
+        expander_expanded = "",
+      },
+    },
     renderers = {
       -- disable terminal renderer
       -- when selecting a terminal from the buffer list

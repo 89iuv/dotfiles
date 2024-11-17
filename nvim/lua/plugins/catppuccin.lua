@@ -20,11 +20,12 @@ return {
         LspReferenceRead = { link = "NONE" },
         LspReferenceWrite = { link = "NONE" },
 
-        -- neotree
-        NeoTreeWinSeparator = { link = "WinSeparator" },
-
         -- mini
         MiniIndentscopeSymbol = { fg = colors.surface2 },
+
+        -- neotree
+        NeoTreeWinSeparator = { link = "WinSeparator" },
+        NeoTreeIndentMarker = { link = "MiniIndentscopeSymbol" },
 
         -- telescope
         TelescopeNormal = { link = "NormalFloat" },
