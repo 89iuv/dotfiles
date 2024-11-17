@@ -30,7 +30,7 @@ return {
         TelescopeNormal = { link = "NormalFloat" },
 
         -- trouble
-        TroubleNormal = { link = "Normal" },
+        TroubleNormal = { link = "NormalFloat" },
         TroubleNormalNc = { link = "TroubleNormal" },
       }
     end,

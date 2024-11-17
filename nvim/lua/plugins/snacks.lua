@@ -74,6 +74,15 @@ return {
           winhighlight = "Normal:Normal,NormalNC:NormalNC",
         },
         keys = {
+          term_normal = {
+            "<esc><esc>",
+            function()
+              return "<C-\\><C-n>"
+            end,
+            mode = "t",
+            expr = true,
+            desc = "Double escape to normal mode",
+          },
           q = "close",
           ["<esc>"] = "close",
         },
