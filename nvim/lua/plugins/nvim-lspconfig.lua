@@ -12,7 +12,7 @@ return {
   opts = {
     servers = {
       bashls = {
-        filetypes = { "sh", "zsh" },
+        filetypes = { "sh" },
       },
       robotframework_ls = {
         settings = settings,
