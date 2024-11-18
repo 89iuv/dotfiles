@@ -145,8 +145,8 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
-# WARN: if DOTFILES_CUSTOMISATION_DISABLED is set then do not set any customisation and return
-if [[ -v $DOTFILES_CUSTOMISATION_DISABLED ]]
+# WARN: if DOTFILES_CUSTOMIZATION_DISABLED is set then do not set any customisation and return
+if [[ -v $DOTFILES_CUSTOMIZATION_DISABLED ]]
   then
     return
 fi
