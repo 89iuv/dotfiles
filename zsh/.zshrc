@@ -42,43 +42,7 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
 
-# Path and application configuration
-
-# If $NVIM variable is not set then update the path variable
-if [[ -z $NVIM ]]
-  then
-    # add ~/.local/bin to the path
-    export PATH=$HOME/.local/bin:$PATH
-
-    # Load system specify environtment variables
-    [ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
-
-    # java: jenv
-    if type jenv > /dev/null
-    then
-      export PATH="$HOME/.jenv/bin:$PATH"
-      eval "$(jenv init -)"
-    fi
-
-    # python: pyenv
-    if type pyenv > /dev/null
-    then
-      export PYENV_ROOT="$HOME/.pyenv"
-      [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-      eval "$(pyenv init -)"
-    fi
-
-    # node: nvm
-    if type nvm > /dev/null
-    then
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    fi
-fi
-
-
-# Dotfiles Customisation
+# Prompt, aliases and colors Customisation
 
 # if DOTFILES_CUSTOMIZATION_DISABLED is not set then apply customization
 if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
@@ -91,6 +55,7 @@ if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
 
     # zsh reduce esc key delay
     # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+    # 10ms for key sequences
     KEYTIMEOUT=1
 
     # keybindings
@@ -110,6 +75,17 @@ if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
     if type nvim > /dev/null
     then
       export EDITOR='nvim'
+    fi
+
+    # starship
+    if type starship > /dev/null
+    then
+      export STARSHIP_CONFIG=~/.config/starship/starship.toml
+      eval "$(starship init zsh)"
+      # warkaround for new line after running a command
+      # https://github.com/starship/starship/issues/560
+      precmd() { precmd() { echo "" } }
+      alias clear="precmd() { precmd() { echo } } && clear"
     fi
 
     # less
@@ -182,16 +158,41 @@ if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
       alias '?gh'='ghcs -t gh'
       alias '?h'='ghce'
     fi
+fi
 
-    # starship
-    if type starship > /dev/null
+
+# Path and programming language configuration
+
+# If $NVIM variable is not set then update the path variable
+if [[ -z $NVIM ]]
+  then
+    # add ~/.local/bin to the path
+    export PATH=$HOME/.local/bin:$PATH
+
+    # Load system specify environtment variables
+    [ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
+
+    # java: jenv
+    if type jenv > /dev/null
     then
-      export STARSHIP_CONFIG=~/.config/starship/starship.toml
-      eval "$(starship init zsh)"
-      # warkaround for new line after running a command
-      # https://github.com/starship/starship/issues/560
-      precmd() { precmd() { echo "" } }
-      alias clear="precmd() { precmd() { echo } } && clear"
+      export PATH="$HOME/.jenv/bin:$PATH"
+      eval "$(jenv init -)"
+    fi
+
+    # python: pyenv
+    if type pyenv > /dev/null
+    then
+      export PYENV_ROOT="$HOME/.pyenv"
+      [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+      eval "$(pyenv init -)"
+    fi
+
+    # node: nvm
+    if type nvm > /dev/null
+    then
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     fi
 fi
 
