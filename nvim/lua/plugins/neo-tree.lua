@@ -24,10 +24,10 @@ return {
       -- prefere with expanders until set indent level is approved
       -- https://github.com/nvim-neo-tree/neo-tree.nvim/pull/1570
       indent = {
-        with_markers = false,
+        with_markers = true,
         indent_marker = "│",
         last_indent_marker = "└",
-        with_expanders = true,
+        with_expanders = false,
         expander_collapsed = "",
         expander_expanded = "",
       },
