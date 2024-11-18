@@ -19,7 +19,7 @@ $character\
 
 palette = "catppuccin_macchiato"
 
-# this works in conjunction with workaround for .zsh.rc
+# this works in conjunction with workaround from .zsh.rc
 add_newline = false
 
 [username]
