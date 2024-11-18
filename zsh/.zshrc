@@ -1,3 +1,4 @@
+# fallback on p10k
 if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
 then
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -16,6 +17,8 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+# fallback on p10k
 if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
 then
   ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -96,7 +99,7 @@ fi
 # eza
 if type eza > /dev/null
 then
-  alias ls="eza -g -s Name --group-directories-first --time-style long-iso"
+  alias ls="eza -g -s Name --group-directories-first --time-style long-iso --icons=auto"
   alias l="ls -la"
   alias la="ls -la -a"
   alias ll="ls -l"
@@ -105,6 +108,12 @@ fi
 # fzf
 if type fzf > /dev/null
 then
+  export FZF_DEFAULT_OPTS=" \
+  --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+  --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+  --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+  --color=selected-bg:#494d64 \
+  --multi"
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   alias fzf="fzf --ansi"
 fi
@@ -112,6 +121,7 @@ fi
 # bat
 if type bat > /dev/null
 then
+  export BAT_THEME="Catppuccin Macchiato"
   alias cat="bat --style=plain --paging=auto"
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   export MANROFFOPT="-c"
@@ -145,10 +155,7 @@ then
   alias '?h'='ghce'
 fi
 
-
-# Prompt, aliases and colors Customisation
-
-# if DOTFILES_CUSTOMIZATION_DISABLED is not set then apply customization
+# load starship
 if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
 then
   # starship
@@ -161,29 +168,27 @@ then
     precmd() { precmd() { echo "" } }
     alias clear="precmd() { precmd() { echo } } && clear"
   fi
+fi
 
+# fallback on p10k, remove custom themes
+if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
+then
   # eza
   if type eza > /dev/null
   then
-    alias ls="eza -g -s Name --group-directories-first --time-style long-iso --icons=auto"
+    alias ls="eza -g -s Name --group-directories-first --time-style long-iso"
   fi
 
   # fzf
   if type fzf > /dev/null
   then
-    # fzf theme: Catppuccin Macchiato
-    export FZF_DEFAULT_OPTS=" \
-  --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
-  --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
-  --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
-  --color=selected-bg:#494d64 \
-  --multi"
+    unset FZF_DEFAULT_OPTS
   fi
 
   # bat
   if type bat > /dev/null
   then
-    export BAT_THEME="Catppuccin Macchiato"
+    export BAT_THEME="base16"
   fi
 fi
 
@@ -195,9 +200,6 @@ if [[ -z $NVIM ]]
 then
   # add ~/.local/bin to the path
   export PATH=$HOME/.local/bin:$PATH
-
-  # Load system specify environtment variables
-  [ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
 
   # java: jenv
   if type jenv > /dev/null
@@ -223,6 +225,7 @@ then
   fi
 fi
 
+# fallback on p10k
 if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
 then
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
