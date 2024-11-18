@@ -1,5 +1,5 @@
 # fallback on p10k
-if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
+if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
 then
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]
@@ -19,7 +19,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # fallback on p10k
-if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
+if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
 then
   ZSH_THEME="powerlevel10k/powerlevel10k"
 fi
@@ -156,7 +156,7 @@ then
 fi
 
 # load starship
-if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
+if [[ -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
 then
   # starship
   if type starship > /dev/null
@@ -171,7 +171,7 @@ then
 fi
 
 # fallback on p10k, remove custom themes
-if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
+if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
 then
   # eza
   if type eza > /dev/null
@@ -226,7 +226,7 @@ then
 fi
 
 # fallback on p10k
-if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
+if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
 then
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
