@@ -1,6 +1,8 @@
 return {
   "williamboman/mason.nvim",
   opts = {
+    -- add maven bin folder to the end of the path
+    PATH = "append",
     ui = {
       border = "rounded",
     },

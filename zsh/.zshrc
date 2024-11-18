@@ -12,23 +12,20 @@ export LANG=en_US.UTF-8
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # add ~/.local/bin to the path
-if [[ -z $NVIM ]]
-  then
-    export PATH=$HOME/.local/bin:$PATH
-fi
+export PATH=$HOME/.local/bin:$PATH
 
 # Load system specify environtment variables
 [ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
 
 # java: jenv
-if [[ -z $NVIM ]] && type jenv > /dev/null
+if type jenv > /dev/null
 then
   export PATH="$HOME/.jenv/bin:$PATH"
   eval "$(jenv init -)"
 fi
 
 # python: pyenv
-if [[ -z $NVIM ]] && type pyenv > /dev/null
+if type pyenv > /dev/null
 then
   export PYENV_ROOT="$HOME/.pyenv"
   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -42,7 +39,7 @@ then
 fi
 
 # node: nvm
-if [[ -z $NVIM ]] && type nvm > /dev/null
+if type nvm > /dev/null
 then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -56,7 +53,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -146,7 +143,7 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
 # WARN: if DOTFILES_CUSTOMIZATION_DISABLED is set then do not set any customisation and return
-if [[ -v $DOTFILES_CUSTOMIZATION_DISABLED ]]
+if [[ ! -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
   then
     return
 fi
