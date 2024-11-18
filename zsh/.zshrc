@@ -5,8 +5,49 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# add ~/.local/bin to the path
+if [[ -z $NVIM ]]
+  then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
+# Load system specify environtment variables
+[ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
+
+# java: jenv
+if [[ -z $NVIM ]] && type jenv > /dev/null
+then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
+# python: pyenv
+if [[ -z $NVIM ]] && type pyenv > /dev/null
+then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
+# python: poetry
+if type poetry > /dev/null
+then
+  export POETRY_VIRTUALENVS_IN_PROJECT=true
+fi
+
+# node: nvm
+if [[ -z $NVIM ]] && type nvm > /dev/null
+then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -15,7 +56,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -82,7 +123,36 @@ plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
+
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# https://github.com/zsh-users/zsh-autosuggestions/issues/351
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
+
+# WARN: if DOTFILES_CUSTOMISATION_DISABLED is set then do not set any customisation and return
+if [[ -v $DOTFILES_CUSTOMISATION_DISABLED ]]
+  then
+    return
+fi
+
+
+# Dotfiles Customisation
 
 # Turn off all beeps
 # unsetopt BEEP
@@ -109,15 +179,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# PATH
-if [[ -z $NVIM ]]
-  then
-    export PATH=$HOME/.local/bin:$PATH
-fi
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -142,25 +203,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# zsh-autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-# This speeds up pasting w/ autosuggest
-# https://github.com/zsh-users/zsh-autosuggestions/issues/238
-pasteinit() {
-  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-}
-pastefinish() {
-  zle -N self-insert $OLD_SELF_INSERT
-}
-zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
-
-# https://github.com/zsh-users/zsh-autosuggestions/issues/351
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
 # less
 alias less="less -iR"
@@ -233,35 +275,6 @@ then
   alias '?h'='ghce'
 fi
 
-# java: jenv
-if [[ -z $NVIM ]] && type jenv > /dev/null
-then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
-fi
-
-# python: pyenv
-if [[ -z $NVIM ]] && type pyenv > /dev/null
-then
-  export PYENV_ROOT="$HOME/.pyenv"
-  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
-
-# python: poetry
-if type poetry > /dev/null
-then
-  export POETRY_VIRTUALENVS_IN_PROJECT=true
-fi
-
-# node: nvm
-if [[ -z $NVIM ]] && type nvm > /dev/null
-then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -275,9 +288,6 @@ then
   precmd() { precmd() { echo "" } }
   alias clear="precmd() { precmd() { echo } } && clear"
 fi
-
-# Load system specify environtment variables
-[ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
 
 # Warkaround to fix duplicate entries in PATH
 path_elements=$(echo "$PATH" | tr ':' '\n')
