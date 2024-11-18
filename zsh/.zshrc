@@ -46,118 +46,118 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
 # if DOTFILES_CUSTOMIZATION_DISABLED is not set then apply customization
 if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
+then
+  # Turn off all beeps
+  # unsetopt BEEP
+
+  # Turn off autocomplete beeps
+  unsetopt LIST_BEEP
+
+  # zsh reduce esc key delay
+  # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+  # 10ms for key sequences
+  KEYTIMEOUT=1
+
+  # keybindings
+  bindkey '^f' edit-command-line
+
+  # Warkaround for ls colors
+  # setup for bsd ls
+  export LSCOLORS='ExGxFxdaCxDaDahbadacec'
+  # setup for gnu ls
+  export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:';
+  # warkaround for wsl folder highlights 
+  export LS_COLORS='ow=1;34:'$LS_COLORS
+  # setup for zsh tab complete colors
+  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+  # default terminal editor
+  if type nvim > /dev/null
   then
-    # Turn off all beeps
-    # unsetopt BEEP
+    export EDITOR='nvim'
+  fi
 
-    # Turn off autocomplete beeps
-    unsetopt LIST_BEEP
+  # starship
+  if type starship > /dev/null
+  then
+    export STARSHIP_CONFIG=~/.config/starship/starship.toml
+    eval "$(starship init zsh)"
+    # warkaround for new line after running a command
+    # https://github.com/starship/starship/issues/560
+    precmd() { precmd() { echo "" } }
+    alias clear="precmd() { precmd() { echo } } && clear"
+  fi
 
-    # zsh reduce esc key delay
-    # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-    # 10ms for key sequences
-    KEYTIMEOUT=1
+  # less
+  alias less="less -iR"
 
-    # keybindings
-    bindkey '^f' edit-command-line
+  # zoxide
+  if type zoxide > /dev/null
+  then
+    eval "$(zoxide init zsh)"
+    alias cd="z"
+    alias cdi="zi"
+  fi
 
-    # Warkaround for ls colors
-    # setup for bsd ls
-    export LSCOLORS='ExGxFxdaCxDaDahbadacec'
-    # setup for gnu ls
-    export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:';
-    # warkaround for wsl folder highlights 
-    export LS_COLORS='ow=1;34:'$LS_COLORS
-    # setup for zsh tab complete colors
-    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+  # eza
+  if type eza > /dev/null
+  then
+    alias ls="eza -g -s Name --group-directories-first --time-style long-iso --icons=auto"
+    alias l="ls -la"
+    alias la="ls -la -a"
+    alias ll="ls -l"
+  fi
 
-    # default terminal editor
-    if type nvim > /dev/null
-    then
-      export EDITOR='nvim'
-    fi
+  # fzf
+  if type fzf > /dev/null
+  then
+    # fzf theme: Catppuccin Macchiato
+    export FZF_DEFAULT_OPTS=" \
+  --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+  --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+  --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+  --color=selected-bg:#494d64 \
+  --multi"
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    alias fzf="fzf --ansi"
+  fi
 
-    # starship
-    if type starship > /dev/null
-    then
-      export STARSHIP_CONFIG=~/.config/starship/starship.toml
-      eval "$(starship init zsh)"
-      # warkaround for new line after running a command
-      # https://github.com/starship/starship/issues/560
-      precmd() { precmd() { echo "" } }
-      alias clear="precmd() { precmd() { echo } } && clear"
-    fi
+  # bat
+  if type bat > /dev/null
+  then
+    export BAT_THEME="Catppuccin Macchiato"
+    alias cat="bat --style=plain --paging=auto"
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c"
 
-    # less
-    alias less="less -iR"
+    alias bathelp='bat --plain --language=help'
+    help() {
+      "$@" --help 2>&1 | bathelp
+    }
+    alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+    alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+  fi
 
-    # zoxide
-    if type zoxide > /dev/null
-    then
-      eval "$(zoxide init zsh)"
-      alias cd="z"
-      alias cdi="zi"
-    fi
+  # lazygit
+  if type lazygit > /dev/null
+  then
+    # this is a fix for not showing the correct colors using delta
+    export COLORTERM=truecolor
+    export XDG_CONFIG_HOME="$HOME/.config"
+    # workaround for ture colors in lazygit from tmux
+    # https://github.com/jesseduffield/lazygit/issues/3668
+    alias lazygit='env TERM=screen-256color lazygit'
+  fi
 
-    # eza
-    if type eza > /dev/null
-    then
-      alias ls="eza -g -s Name --group-directories-first --time-style long-iso --icons=auto"
-      alias l="ls -la"
-      alias la="ls -la -a"
-      alias ll="ls -l"
-    fi
-
-    # fzf
-    if type fzf > /dev/null
-    then
-      # fzf theme: Catppuccin Macchiato
-      export FZF_DEFAULT_OPTS=" \
-    --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
-    --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
-    --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
-    --color=selected-bg:#494d64 \
-    --multi"
-      [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-      alias fzf="fzf --ansi"
-    fi
-
-    # bat
-    if type bat > /dev/null
-    then
-      export BAT_THEME="Catppuccin Macchiato"
-      alias cat="bat --style=plain --paging=auto"
-      export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-      export MANROFFOPT="-c"
-
-      alias bathelp='bat --plain --language=help'
-      help() {
-        "$@" --help 2>&1 | bathelp
-      }
-      alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-      alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
-    fi
-
-    # lazygit
-    if type lazygit > /dev/null
-    then
-      # this is a fix for not showing the correct colors using delta
-      export COLORTERM=truecolor
-      export XDG_CONFIG_HOME="$HOME/.config"
-      # workaround for ture colors in lazygit from tmux
-      # https://github.com/jesseduffield/lazygit/issues/3668
-      alias lazygit='env TERM=screen-256color lazygit'
-    fi
-
-    # github: copilot
-    if type gh > /dev/null
-    then
-      eval "$(gh copilot alias -- zsh)"
-      alias '??'='ghcs -t shell'
-      alias '?git'='ghcs -t git'
-      alias '?gh'='ghcs -t gh'
-      alias '?h'='ghce'
-    fi
+  # github: copilot
+  if type gh > /dev/null
+  then
+    eval "$(gh copilot alias -- zsh)"
+    alias '??'='ghcs -t shell'
+    alias '?git'='ghcs -t git'
+    alias '?gh'='ghcs -t gh'
+    alias '?h'='ghce'
+  fi
 fi
 
 
@@ -165,35 +165,35 @@ fi
 
 # If $NVIM variable is not set then update the path variable
 if [[ -z $NVIM ]]
+then
+  # add ~/.local/bin to the path
+  export PATH=$HOME/.local/bin:$PATH
+
+  # Load system specify environtment variables
+  [ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
+
+  # java: jenv
+  if type jenv > /dev/null
   then
-    # add ~/.local/bin to the path
-    export PATH=$HOME/.local/bin:$PATH
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+  fi
 
-    # Load system specify environtment variables
-    [ -s "$HOME/.sys_env_vars.sh" ] && \. "$HOME/.sys_env_vars.sh"
+  # python: pyenv
+  if type pyenv > /dev/null
+  then
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+  fi
 
-    # java: jenv
-    if type jenv > /dev/null
-    then
-      export PATH="$HOME/.jenv/bin:$PATH"
-      eval "$(jenv init -)"
-    fi
-
-    # python: pyenv
-    if type pyenv > /dev/null
-    then
-      export PYENV_ROOT="$HOME/.pyenv"
-      [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-      eval "$(pyenv init -)"
-    fi
-
-    # node: nvm
-    if type nvm > /dev/null
-    then
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    fi
+  # node: nvm
+  if type nvm > /dev/null
+  then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  fi
 fi
 
 # Warkaround to fix duplicate entries in PATH
