@@ -196,6 +196,10 @@ if [[ -z $DOTFILES_CUSTOMIZATION_DISABLED ]]
     then
       export STARSHIP_CONFIG=~/.config/starship/starship.toml
       eval "$(starship init zsh)"
+      # warkaround for new line after running a command
+      # https://github.com/starship/starship/issues/560
+      precmd() { precmd() { echo "" } }
+      alias clear="precmd() { precmd() { echo } } && clear"
     fi
 
 fi
