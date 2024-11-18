@@ -43,6 +43,7 @@ ln -s ~/.pyenv/bin/pyenv ~/.local/bin/
 pipx install poetry
 mkdir "$ZSH_CUSTOM/plugins/poetry"
 poetry completions zsh >"$ZSH_CUSTOM/plugins/poetry/_poetry"
+poetry config virtualenvs.in-project true
 
 # node: nvm
 # https://github.com/nvm-sh/nvm

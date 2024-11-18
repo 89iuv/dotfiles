@@ -68,13 +68,6 @@ if [[ -z $NVIM ]]
       eval "$(pyenv init -)"
     fi
 
-    # python: poetry
-    # TODO: move this out and into poetry install
-    if type poetry > /dev/null
-    then
-      export POETRY_VIRTUALENVS_IN_PROJECT=true
-    fi
-
     # node: nvm
     if type nvm > /dev/null
     then
