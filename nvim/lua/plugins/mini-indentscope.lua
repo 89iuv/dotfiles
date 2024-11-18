@@ -31,7 +31,10 @@ return {
     })
     -- set custom border in python for mini indent
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = "python",
+      pattern = {
+        "python",
+        "robot",
+      },
       callback = function()
         vim.b.miniindentscope_config = { options = { border = "top" } }
       end,
