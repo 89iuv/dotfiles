@@ -46,6 +46,7 @@ return {
     })
   end,
   opts = {
+    statuscolumn = { enabled = true },
     lazygit = {
       configure = false,
       win = {

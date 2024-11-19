@@ -14,9 +14,11 @@ return {
     opts.options.component_separators = { left = "│", right = "│" }
     opts.options.section_separators = { left = "▌", right = "▐" }
     opts.options.disabled_filetypes = {}
-    -- opts.extensions = { "lazy" }
 
     local icons = LazyVim.config.icons
+    opts.sections.lualine_b = {
+      { "branch", icon = "" },
+    }
     opts.sections.lualine_c = {
       LazyVim.lualine.root_dir({ icon = "󱉭" }),
       {

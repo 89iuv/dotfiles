@@ -6,6 +6,7 @@ return {
   opts = function(_, opts)
     local colors = require("catppuccin.palettes").get_palette("macchiato")
     opts.options.always_show_bufferline = true
+    opts.options.buffer_close_icon = "x"
     opts.options.offsets = {
       {
         filetype = "neo-tree",
