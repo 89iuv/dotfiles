@@ -1,12 +1,8 @@
-# fallback on p10k
-if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
-then
-  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-  # Initialization code that may require console input (password prompts, [y/n]
-  # confirmations, etc.) must go above this block; everything else may go below.
-  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Path to your oh-my-zsh installation.
@@ -16,13 +12,8 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# fallback on p10k
-if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
-then
-  ZSH_THEME="powerlevel10k/powerlevel10k"
-fi
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -155,22 +146,7 @@ then
   alias '?h'='ghce'
 fi
 
-# load starship
-if [[ -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
-then
-  # starship
-  if type starship > /dev/null
-  then
-    export STARSHIP_CONFIG=~/.config/starship/starship.toml
-    eval "$(starship init zsh)"
-    # warkaround for new line after running a command
-    # https://github.com/starship/starship/issues/560
-    precmd() { precmd() { echo "" } }
-    alias clear="precmd() { precmd() { echo } } && clear"
-  fi
-fi
-
-# fallback on p10k, remove custom themes
+# fallback on p10k, remove custom themes and icons
 if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
 then
   # eza
@@ -196,6 +172,7 @@ fi
 # Path and programming language configuration
 
 # If $NVIM variable is not set then update the path variable
+# skip updating the path variables when started from neovim
 if [[ -z $NVIM ]]
 then
   # add ~/.local/bin to the path
@@ -225,15 +202,10 @@ then
   fi
 fi
 
-# fallback on p10k
-if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
-then
-  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-fi
-
 # Warkaround to fix duplicate entries in PATH
 path_elements=$(echo "$PATH" | tr ':' '\n')
 unique_elements=$(echo "$path_elements" | awk '!seen[$0]++' | tr '\n' ':')
 export PATH=${unique_elements%:}
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
