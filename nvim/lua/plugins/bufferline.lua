@@ -6,6 +6,7 @@ return {
   opts = function(_, opts)
     local colors = require("catppuccin.palettes").get_palette("macchiato")
     opts.options.always_show_bufferline = true
+    opts.options.tab_size = 1
     opts.options.offsets = {
       {
         filetype = "neo-tree",
@@ -16,18 +17,17 @@ return {
       },
     }
     opts.options.indicator = {
-      icon = "▎",
+      icon = "▍",
     }
-    opts.options.separator_style = { "▏", "▕" }
+    opts.options.separator_style = { "", "" }
     opts.options.themable = true
     opts.highlights = require("catppuccin.groups.integrations.bufferline").get({
       custom = {
         all = {
-          indicator_selected = { fg = colors.mauve },
-          indicator_visible = { fg = colors.mantle, bg = colors.mantle },
+          indicator_selected = { fg = colors.lavender },
 
-          buffer_selected = { fg = colors.lavender, bg = colors.overlay_0 }, -- current
-          buffer_visible = { fg = colors.subtext0, style = { "bold", "italic" } },
+          buffer_selected = { fg = colors.lavender, bg = colors.base }, -- current
+          buffer_visible = { fg = colors.subtext0, style = {} },
 
           offset_separator = { link = "WinSeparator" },
 
@@ -36,7 +36,7 @@ return {
           modified_selected = { fg = colors.peach },
 
           trunc_marker = {
-            fg = colors.overlay_0,
+            fg = colors.overlay0,
             bg = colors.mantle,
           },
         },

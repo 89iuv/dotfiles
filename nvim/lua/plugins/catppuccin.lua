@@ -10,8 +10,8 @@ return {
         FloatBorder = { fg = colors.lavender, bg = colors.mantle },
         FloatTitle = { link = "FloatBorder" }, -- fix for which_key window title
         StatusLine = { bg = colors.crust },
-
-        WinSeparator = { fg = colors.crust, bg = colors.base },
+        WinSeparator = { fg = colors.surface1, bg = colors.base },
+        LineNr = { fg = colors.surface2 },
 
         -- lsp
         -- remove reference highlight as there is no way to disable it
@@ -21,7 +21,7 @@ return {
         LspReferenceWrite = { link = "NONE" },
 
         -- mini
-        MiniIndentscopeSymbol = { fg = colors.surface2 },
+        MiniIndentscopeSymbol = { fg = colors.overlay0 },
 
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
