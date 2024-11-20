@@ -5,6 +5,41 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+# Path and programming language configuration
+# If $NVIM variable is not set then update the path variable
+# skip updating the path variables when started from neovim
+if [[ -z $NVIM ]]
+then
+  # add ~/.local/bin to the path
+  export PATH=$HOME/.local/bin:$PATH
+
+  # java: jenv
+  if type jenv > /dev/null
+  then
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+  fi
+
+  # python: pyenv
+  if type pyenv > /dev/null
+  then
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+  fi
+
+  # node: nvm
+  if type nvm > /dev/null
+  then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  fi
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -26,9 +61,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -174,44 +206,10 @@ then
   fi
 fi
 
-
-# Path and programming language configuration
-
-# If $NVIM variable is not set then update the path variable
-# skip updating the path variables when started from neovim
-if [[ -z $NVIM ]]
-then
-  # add ~/.local/bin to the path
-  export PATH=$HOME/.local/bin:$PATH
-
-  # java: jenv
-  if type jenv > /dev/null
-  then
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
-  fi
-
-  # python: pyenv
-  if type pyenv > /dev/null
-  then
-    export PYENV_ROOT="$HOME/.pyenv"
-    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-  fi
-
-  # node: nvm
-  if type nvm > /dev/null
-  then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  fi
-fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Warkaround to fix duplicate entries in PATH
 path_elements=$(echo "$PATH" | tr ':' '\n')
 unique_elements=$(echo "$path_elements" | awk '!seen[$0]++' | tr '\n' ':')
 export PATH=${unique_elements%:}
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
