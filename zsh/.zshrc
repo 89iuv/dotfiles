@@ -57,6 +57,12 @@ unsetopt LIST_BEEP
 # 10ms for key sequences
 KEYTIMEOUT=1
 
+# zsh history
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+
 # keybindings
 bindkey '^f' edit-command-line
 
