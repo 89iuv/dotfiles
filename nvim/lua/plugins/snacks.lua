@@ -46,7 +46,9 @@ return {
     })
   end,
   opts = {
-    statuscolumn = { enabled = true },
+    statuscolumn = {
+      enabled = true,
+    },
     lazygit = {
       configure = false,
       win = {
@@ -63,7 +65,7 @@ return {
     },
     notifier = {
       level = vim.log.levels.TRACE,
-      width = { min = 50, max = 50 },
+      width = { min = 0.4, max = 0.4 },
       height = { min = 1, max = 0.6 },
       style = "fancy",
       margin = { top = 0, right = 0, bottom = 0 },
