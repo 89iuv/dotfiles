@@ -100,6 +100,7 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
 
 # keybindings
 bindkey '^f' edit-command-line
