@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- disable word highlight when entering visual mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = { "*:v", "*:i" },
+  pattern = "n:*",
   callback = function()
     require("illuminate").pause()
   end,
@@ -64,7 +64,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 
 -- enable word highlight when entering visual mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = { "v:*", "i:*" },
+  pattern = "*:n",
   callback = function()
     require("illuminate").resume()
   end,
