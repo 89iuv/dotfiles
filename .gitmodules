@@ -13,3 +13,6 @@
 [submodule "btop"]
 	path = btop
 	url = https://github.com/catppuccin/btop.git
+[submodule "zsh/evalcache"]
+	path = zsh/evalcache
+	url = https://github.com/mroth/evalcache

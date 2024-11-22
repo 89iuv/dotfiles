@@ -1,6 +1,7 @@
-# run debug on zsh
-alias zsh-debugrc="time ZSH_DEBUGRC=1 zsh -i -c exit"
-if [[ -n "$ZSH_DEBUGRC" ]]; then
+# benchmark zsh
+alias zsh-time="time zsh -i -c exit"
+alias zsh-debug="time ZSH_DEBUG=1 zsh -i -c exit"
+if [[ -n "$ZSH_DEBUG" ]]; then
   zmodload zsh/zprof
 fi
 
@@ -13,38 +14,6 @@ fi
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
-# Path and programming language configuration
-# If $NVIM variable is not set then update the path variable
-# skip updating the path variables when started from neovim
-if [[ -z $NVIM ]]
-then
-  # add ~/.local/bin to the path
-  export PATH=$HOME/.local/bin:$PATH
-
-  # java: jenv
-  if type jenv > /dev/null
-  then
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
-  fi
-
-  # python: pyenv
-  if type pyenv > /dev/null
-  then
-    export PYENV_ROOT="$HOME/.pyenv"
-    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-  fi
-
-  # node: nvm
-  if type nvm > /dev/null
-  then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  fi
-fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -61,7 +30,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions)
+plugins=(evalcache zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,13 +96,56 @@ then
   export EDITOR='nvim'
 fi
 
+# Path configuration
+# If $NVIM variable is not set then update the path variable
+if [[ -z $NVIM ]]
+then
+  # add ~/.local/bin to the path
+  export PATH=$HOME/.local/bin:$PATH
+fi
+
+# java: jenv
+if [[ -d "$HOME/.jenv" ]]
+then
+  jenv() {
+    unset -f jenv 
+    export PATH="$HOME/.jenv/bin:$PATH"
+    _evalcache jenv init -
+    jenv "$@"
+  }
+fi
+
+# python: pyenv
+if [[ -d "$HOME/.pyenv" ]]
+then
+  pyenv() {
+    unset -f pyenv 
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    _evalcache pyenv init -
+    pyenv "$@"
+  }
+fi
+
+# node: nvm
+if [[ -d "$HOME/.nvm" ]]
+then
+  nvm() {
+    unset -f nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    nvm "$@"
+  }
+fi
+
 # less
 alias less="less -iR"
 
 # zoxide
 if type zoxide > /dev/null
 then
-  eval "$(zoxide init zsh)"
+  _evalcache zoxide init zsh
   alias cd="z"
   alias cdi="zi"
 fi
@@ -190,33 +202,11 @@ fi
 # github: copilot
 if type gh > /dev/null
 then
-  eval "$(gh copilot alias -- zsh)"
+  _evalcache gh copilot alias -- zsh
   alias '??'='ghcs -t shell'
   alias '?git'='ghcs -t git'
   alias '?gh'='ghcs -t gh'
   alias '?h'='ghce'
-fi
-
-# fallback on p10k, remove custom themes and icons
-if [[ ! -z $DOTFILES_CUSTOMIZATION_FALLBACK ]]
-then
-  # eza
-  if type eza > /dev/null
-  then
-    alias ls="eza -g -s Name --group-directories-first --time-style long-iso"
-  fi
-
-  # fzf
-  if type fzf > /dev/null
-  then
-    unset FZF_DEFAULT_OPTS
-  fi
-
-  # bat
-  if type bat > /dev/null
-  then
-    export BAT_THEME="base16"
-  fi
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -227,6 +217,6 @@ path_elements=$(echo "$PATH" | tr ':' '\n')
 unique_elements=$(echo "$path_elements" | awk '!seen[$0]++' | tr '\n' ':')
 export PATH=${unique_elements%:}
 
-if [[ -n "$ZSH_DEBUGRC" ]]; then
+if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
 fi

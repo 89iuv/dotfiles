@@ -63,6 +63,9 @@ ln -s "$dotfiles_path"/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
 ln -s "$dotfiles_path"/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes
 ln -s "$dotfiles_path"/zsh/.p10k.zsh ~/.p10k.zsh
 
+# evalcache
+ln -s "$dotfiles_path"/zsh/evalcache ~/.oh-my-zsh/custom/plugins
+
 # tmux
 brew install tmux
 ln -s "$dotfiles_path"/tmux/.tmux.conf ~/.tmux.conf
