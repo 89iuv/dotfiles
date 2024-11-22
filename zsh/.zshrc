@@ -1,3 +1,9 @@
+# run debug on zsh
+alias zsh-debugrc="time ZSH_DEBUGRC=1 zsh -i -c exit"
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zmodload zsh/zprof
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -220,3 +226,7 @@ fi
 path_elements=$(echo "$PATH" | tr ':' '\n')
 unique_elements=$(echo "$path_elements" | awk '!seen[$0]++' | tr '\n' ':')
 export PATH=${unique_elements%:}
+
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zprof
+fi
