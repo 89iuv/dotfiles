@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# vars
-dotfiles_path=$(pwd)
-
 # generic
-brew install fastfetch
 brew install wget
 brew install zoxide eza fz
 brew install ripgrep fd
@@ -20,7 +16,7 @@ bat cache --build
 
 # btop
 brew install btop
-ln -s "$dotfiles_path"/btop/themes/*.theme ~/.config/btop/themes/
+ln -s "$HOME"/.dotfiles/btop/themes/*.theme "$HOME"/.config/btop/themes/
 
 # lua
 brew install lua
@@ -35,9 +31,9 @@ brew install jenv
 # python
 brew install python pipx
 
-# python pyenv
+# python: pyenv
 brew install pyenv
-ln -s ~/.pyenv/bin/pyenv ~/.local/bin/
+ln -s "$HOME"/.pyenv/bin/pyenv "$HOME"/.local/bin/
 
 # python: poetry
 pipx install poetry
@@ -51,29 +47,33 @@ PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
 nvm install node
 nvm alias default node
 
-# configure
+#fastfetch
+brew install fastfetch
+mkdir -p "$HOME"/.config/fastfetch
+ln -s "$HOME"/.dotfiles/fastfetch/config.jsonc "$HOME"/.config/fastfetch
+
 # oh-my-zsh
-ln -s "$dotfiles_path"/zsh/oh-my-zsh ~/.oh-my-zsh
-ln -s "$dotfiles_path"/zsh/.zshrc ~/.zshrc
+ln -s "$HOME"/.dotfiles/zsh/oh-my-zsh "$HOME"/.oh-my-zsh
+ln -s "$HOME"/.dotfiles/zsh/.zshrc "$HOME"/.zshrc
 
 # zsh-autosuggestions
-ln -s "$dotfiles_path"/zsh/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
+ln -s "$HOME"/.dotfiles/zsh/zsh-autosuggestions "$HOME"/.oh-my-zsh/custom/plugins
 
 # powerlevel10k
-ln -s "$dotfiles_path"/zsh/powerlevel10k ~/.oh-my-zsh/custom/themes
-ln -s "$dotfiles_path"/zsh/.p10k.zsh ~/.p10k.zsh
+ln -s "$HOME"/.dotfiles/zsh/powerlevel10k "$HOME"/.oh-my-zsh/custom/themes
+ln -s "$HOME"/.dotfiles/zsh/.p10k.zsh "$HOME"/.p10k.zsh
 
 # evalcache
-ln -s "$dotfiles_path"/zsh/evalcache ~/.oh-my-zsh/custom/plugins
+ln -s "$HOME"/.dotfiles/zsh/evalcache "$HOME"/.oh-my-zsh/custom/plugins
 
 # tmux
 brew install tmux
-ln -s "$dotfiles_path"/tmux/.tmux.conf ~/.tmux.conf
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ln -s "$HOME"/.dotfiles/tmux/.tmux.conf "$HOME"/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
 
 # nvim
 brew install nvim
-ln -s "$dotfiles_path"/nvim ~/.config/nvim
+ln -s "$HOME"/.dotfiles/nvim "$HOME"/.config/nvim
 
 # delta
 brew install git-delta
@@ -91,13 +91,13 @@ git config --global delta.features catppuccin-macchiato
 git config --global interactive.diffFilter "delta --color-only"
 git config --global merge.conflictstyle diff3
 git config --global diff.colorMoved default
-git config --global include.path ~/.dotfiles/git/delta/catppuccin.gitconfig
+git config --global include.path "$HOME"/.dotfiles/git/delta/catppuccin.gitconfig
 git config --global alias.diffs "-c delta.side-by-side=true diff"
 
 # lazygit
 brew install lazygit
-mkdir -p ~/.config/lazygit
-ln -s "$dotfiles_path"/git/lazygit/config.yml ~/.config/lazygit/config.yml
+mkdir -p "$HOME"/.config/lazygit
+ln -s "$HOME"/.dotfiles/git/lazygit/config.yml "$HOME"/.config/lazygit/config.yml
 
 # Other Fixes and Workarounds
 # Fix for tmux adding double entries in PATH
