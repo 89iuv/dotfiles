@@ -25,6 +25,7 @@ return {
         "copilot-chat",
         "grug-far",
         "grug-far-help",
+        "noice",
       },
       callback = function()
         vim.b.miniindentscope_disable = true
