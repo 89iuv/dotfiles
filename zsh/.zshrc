@@ -28,7 +28,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Plugin config
 
 # tmux integration
-ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_DEFAULT_SESSION_NAME="workspace"
 
 # zsh-autosuggestions
