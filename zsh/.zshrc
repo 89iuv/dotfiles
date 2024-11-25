@@ -32,6 +32,18 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_DEFAULT_SESSION_NAME="workspace"
 
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(evalcache tmux zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# User configuration
+
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -51,18 +63,17 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(evalcache tmux zsh-autosuggestions)
-
-source $ZSH/oh-my-zsh.sh
-
-
-# User configuration
-
+# workaround for autosuggest not clearing on enter
+# https://github.com/zsh-users/zsh-autosuggestions/issues/525
+magic-enter() {
+	if [[ -z "$BUFFER" ]]; then
+		zle clear-screen
+	else
+		# Call built-in accept-line
+		zle .accept-line
+	fi
+}
+zle -N accept-line magic-enter
 # Turn off autocomplete beeps
 unsetopt LIST_BEEP
 
