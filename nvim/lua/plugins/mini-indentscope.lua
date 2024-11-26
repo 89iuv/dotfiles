@@ -26,6 +26,7 @@ return {
         "grug-far",
         "grug-far-help",
         "noice",
+        "markdown",
       },
       callback = function()
         vim.b.miniindentscope_disable = true

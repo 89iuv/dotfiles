@@ -33,6 +33,10 @@ return {
         -- trouble
         TroubleNormal = { link = "NormalFloat" },
         TroubleNormalNc = { link = "TroubleNormal" },
+
+        -- markdown
+        ["@markup.quote.markdown"] = { link = "Normal" },
+        ["@markup.raw.block.markdown"] = { link = "Normal" },
       }
     end,
   },
