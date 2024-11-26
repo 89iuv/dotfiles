@@ -47,7 +47,10 @@ PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
 nvm install node
 nvm alias default node
 
-#fastfetch
+# kitty
+ln -s "$HOME"/.dotfiles/kitty "$HOME"/.config/kitty
+
+# fastfetch
 brew install fastfetch
 mkdir -p "$HOME"/.config/fastfetch
 ln -s "$HOME"/.dotfiles/fastfetch/config.jsonc "$HOME"/.config/fastfetch
