@@ -11,9 +11,18 @@ return {
         enabled = false,
       },
     },
+    commands = {
+      history = {
+        view = "vsplit",
+      },
+      all = {
+        view = "vsplit",
+      },
+    },
     views = {
       split = {
         scrollbar = false,
+        size = "40%",
         close = {
           keys = { "<esc>", "q" },
         },
