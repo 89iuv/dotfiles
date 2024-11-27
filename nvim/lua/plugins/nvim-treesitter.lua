@@ -3,6 +3,7 @@ return {
   opts = {
     ensure_installed = {
       "robot",
+      "mermaid",
     },
     incremental_selection = {
       enable = true,

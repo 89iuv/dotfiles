@@ -50,8 +50,6 @@ return {
         ["@markup.italic.markdown_inline"] = { fg = colors.text, style = { "italic" } },
 
         ["@markup.quote.markdown"] = { link = "RenderMarkdownQuote" },
-
-        ["@markup.raw.block.markdown"] = { link = "Normal" },
       }
     end,
   },
