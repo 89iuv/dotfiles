@@ -4,6 +4,7 @@ return {
   priority = 1000,
   opts = {
     custom_highlights = function(colors)
+      local colors_utils = require("catppuccin.utils.colors")
       return {
         -- nvim
         NormalFloat = { fg = colors.text, bg = colors.mantle },
@@ -35,7 +36,21 @@ return {
         TroubleNormalNc = { link = "TroubleNormal" },
 
         -- markdown
-        ["@markup.quote.markdown"] = { link = "Normal" },
+        RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.1, colors.base) },
+        RenderMarkdownH2Bg = { bg = colors_utils.darken(colors.peach, 0.1, colors.base) },
+        RenderMarkdownH3Bg = { bg = colors_utils.darken(colors.yellow, 0.1, colors.base) },
+        RenderMarkdownH4Bg = { bg = colors_utils.darken(colors.green, 0.1, colors.base) },
+        RenderMarkdownH5Bg = { bg = colors_utils.darken(colors.sapphire, 0.1, colors.base) },
+        RenderMarkdownH6Bg = { bg = colors_utils.darken(colors.lavender, 0.1, colors.base) },
+
+        RenderMarkdownInlineHighlight = { fg = colors.crust, bg = colors_utils.darken(colors.yellow, 0.8, colors.base) },
+        RenderMarkdownQuote = { fg = colors.subtext0 },
+
+        ["@markup.strong.markdown_inline"] = { fg = colors.text, style = { "bold" } },
+        ["@markup.italic.markdown_inline"] = { fg = colors.text, style = { "italic" } },
+
+        ["@markup.quote.markdown"] = { link = "RenderMarkdownQuote" },
+
         ["@markup.raw.block.markdown"] = { link = "Normal" },
       }
     end,
