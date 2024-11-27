@@ -43,7 +43,10 @@ return {
         RenderMarkdownH5Bg = { bg = colors_utils.darken(colors.sapphire, 0.1, colors.base) },
         RenderMarkdownH6Bg = { bg = colors_utils.darken(colors.lavender, 0.1, colors.base) },
 
-        RenderMarkdownInlineHighlight = { fg = colors.crust, bg = colors_utils.darken(colors.yellow, 0.8, colors.base) },
+        RenderMarkdownInlineHighlight = {
+          fg = colors.rosewater,
+          bg = colors_utils.darken(colors.rosewater, 0.2, colors.base),
+        },
         RenderMarkdownQuote = { fg = colors.subtext0 },
 
         ["@markup.strong.markdown_inline"] = { fg = colors.text, style = { "bold" } },

@@ -8,8 +8,15 @@ return {
     },
     heading = {
       position = "inline",
-      icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+      icons = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 " },
     },
+    pipe_table = { style = "full" },
     file_types = { "markdown", "copilot-chat" },
+    -- this will render all characters when entering insert mode
+    win_options = {
+      conceallevel = {
+        default = 0,
+      },
+    },
   },
 }
