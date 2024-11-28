@@ -9,6 +9,7 @@ return {
     ensure_installed = {
       "shellcheck",
       "lemminx",
+      "ltex-ls",
     },
   },
 }
