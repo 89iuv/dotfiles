@@ -48,6 +48,7 @@ nvm install node
 nvm alias default node
 
 # kitty
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ln -s "$HOME"/.dotfiles/kitty "$HOME"/.config/kitty
 
 # fastfetch
