@@ -1,5 +1,3 @@
-quitOnTopLevelReturn: true
-
 git:
   paging:
     colorArg: always
@@ -9,25 +7,25 @@ gui:
   # Use the mocha catppuccin theme
   theme:
     activeBorderColor:
-      - '#f5a97f'
+      - "#f5a97f"
       - bold
     inactiveBorderColor:
-      - '#a5adcb'
+      - "#a5adcb"
     optionsTextColor:
-      - '#8aadf4'
+      - "#8aadf4"
     selectedLineBgColor:
-      - '#363a4f'
+      - "#363a4f"
     cherryPickedCommitBgColor:
-      - '#494d64'
+      - "#494d64"
     cherryPickedCommitFgColor:
-      - '#f5a97f'
+      - "#f5a97f"
     unstagedChangesColor:
-      - '#ed8796'
+      - "#ed8796"
     defaultFgColor:
-      - '#cad3f5'
+      - "#cad3f5"
     searchingActiveBorderColor:
-      - '#eed49f'
+      - "#eed49f"
   border: single
 
   authorColors:
-    '*': '#b7bdf8'
+    "*": "#b7bdf8"

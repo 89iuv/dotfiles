@@ -57,10 +57,6 @@ return {
         wo = {
           winhighlight = "Normal:Normal,NormalNC:NormalNC",
         },
-        keys = {
-          q = "close",
-          ["<esc>"] = "close",
-        },
       },
     },
     notifier = {
@@ -88,8 +84,6 @@ return {
             expr = true,
             desc = "Double escape to normal mode",
           },
-          q = "hide",
-          ["<esc>"] = "hide",
         },
       },
     },

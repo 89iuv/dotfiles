@@ -23,14 +23,6 @@ return {
       split = {
         scrollbar = false,
         size = "40%",
-        close = {
-          keys = { "<esc>", "q" },
-        },
-      },
-      popup = {
-        close = {
-          keys = { "<esc>", "q" },
-        },
       },
     },
     routes = {
