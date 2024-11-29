@@ -8,7 +8,14 @@ return {
     },
     heading = {
       position = "inline",
-      icons = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 " },
+      icons = {
+        "█ 󰎦 ",
+        "██ 󰎩 ",
+        "███ 󰎬 ",
+        "████ 󰎮 ",
+        "█████ 󰎰 ",
+        "██████ 󰎵 ",
+      },
     },
     pipe_table = {
       style = "normal",
