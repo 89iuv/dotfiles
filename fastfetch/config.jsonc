@@ -3,6 +3,9 @@
   "logo": {
     "source": "~/.dotfiles/fastfetch/asci_art.txt",
     "type": "auto",
+    "padding": {
+      "left": 1,
+    },
   },
   "modules": [
     "title",
