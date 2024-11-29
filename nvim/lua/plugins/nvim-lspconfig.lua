@@ -17,6 +17,13 @@ return {
       robotframework_ls = {
         settings = settings,
       },
+      ltex = {
+        settings = {
+          ltex = {
+            language = "en-US",
+          },
+        },
+      },
     },
   },
 }
