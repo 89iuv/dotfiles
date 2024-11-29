@@ -1,6 +1,15 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "uga-rosa/cmp-dictionary",
+        opts = {
+          paths = { "/usr/share/dict/words" },
+          exact_length = 2,
+        },
+      },
+    },
     init = function()
       vim.opt.pumblend = 0 -- disable cmp menu transparency
     end,
@@ -35,6 +44,42 @@ return {
           end, { "i", "s" }),
         })
       )
+      ---@diagnostic disable-next-line: missing-fields
+      opts.formatting = {
+        format = function(entry, item)
+          local icons = LazyVim.config.icons.kinds
+          if icons[item.kind] then
+            item.kind = icons[item.kind] .. item.kind
+          end
+
+          local widths = {
+            abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+            menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+          }
+
+          for key, width in pairs(widths) do
+            if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+              item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+            end
+          end
+
+          item.menu = "[" .. entry.source.name .. "]"
+
+          return item
+        end,
+      }
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
+      }, {
+        { name = "buffer" },
+      }, {
+        {
+          name = "dictionary",
+          keyword_length = 2,
+        },
+      })
       opts.window = {
         completion = cmp.config.window.bordered({
           winhighlight = "Normal:Normal,FloatBorder:NormalBorder",
