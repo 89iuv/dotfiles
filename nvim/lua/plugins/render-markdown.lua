@@ -10,7 +10,22 @@ return {
       position = "inline",
       icons = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 " },
     },
-    pipe_table = { style = "normal" },
+    pipe_table = {
+      style = "normal",
+      border = {
+        " ",
+        " ",
+        " ",
+        "─",
+        "─",
+        "─",
+        " ",
+        " ",
+        " ",
+        " ",
+        "─",
+      },
+    },
     file_types = { "markdown", "copilot-chat" },
     -- this will render all characters when entering insert mode
     win_options = {
