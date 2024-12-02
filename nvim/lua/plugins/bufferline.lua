@@ -19,7 +19,7 @@ return {
     opts.options.indicator = {
       icon = "▍",
     }
-    opts.options.separator_style = { "", "" }
+    opts.options.separator_style = { " ", " " }
     opts.options.themable = true
     opts.highlights = require("catppuccin.groups.integrations.bufferline").get({
       custom = {
@@ -30,6 +30,8 @@ return {
           buffer_visible = { fg = colors.subtext0, style = {} },
 
           offset_separator = { link = "WinSeparator" },
+
+          fill = { bg = colors.mantle },
 
           modified = { fg = colors.peach },
           modified_visible = { fg = colors.peach },
