@@ -2,9 +2,9 @@ return {
   "nvim-telescope/telescope.nvim",
   keys = {
     {
-      "<leader>fs",
+      "<leader>sz",
       "<cmd>Telescope spell_suggest<cr>",
-      desc = "Find Spell Suggestions",
+      desc = "Spell Suggestions",
     },
   },
   opts = {
