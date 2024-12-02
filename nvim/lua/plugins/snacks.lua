@@ -53,7 +53,7 @@ return {
       configure = false,
       win = {
         height = 0.9,
-        backdrop = 80,
+        backdrop = 20,
         wo = {
           winhighlight = "Normal:Normal,NormalNC:NormalNC",
         },
