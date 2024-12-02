@@ -4,8 +4,6 @@ return {
   opts = {
     auto_preview = false,
     auto_refresh = false,
-    focus = true,
-    open_no_results = true,
     modes = {
       lsp = {
         win = {
