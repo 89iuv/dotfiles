@@ -18,7 +18,18 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- disable word highlight when entering visual mode
+-- Disable spell check when ltex-ls LSP is attached to markdown file
+vim.api.nvim_create_autocmd("LspAttach", {
+  pattern = "*",
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "ltex" then
+      vim.opt_local.spell = false
+    end
+  end,
+})
+
+-- Disable word highlight when entering visual mode
 vim.api.nvim_create_autocmd("ModeChanged", {
   pattern = "n:*",
   callback = function()
@@ -26,7 +37,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
--- enable word highlight when entering visual mode
+-- Enable word highlight when entering visual mode
 vim.api.nvim_create_autocmd("ModeChanged", {
   pattern = "*:n",
   callback = function()
