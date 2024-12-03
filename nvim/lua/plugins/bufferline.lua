@@ -31,7 +31,7 @@ return {
 
           offset_separator = { link = "WinSeparator" },
 
-          fill = { bg = colors.mantle },
+          fill = { bg = colors.crust },
 
           modified = { fg = colors.peach },
           modified_visible = { fg = colors.peach },
