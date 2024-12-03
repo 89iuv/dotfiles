@@ -6,13 +6,15 @@ return {
         "uga-rosa/cmp-dictionary",
         opts = {
           paths = { "/usr/share/dict/words" },
-          exact_length = 2,
+          exact_length = 0,
         },
       },
     },
+
     init = function()
       vim.opt.pumblend = 0 -- disable cmp menu transparency
     end,
+
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
@@ -44,6 +46,7 @@ return {
           end, { "i", "s" }),
         })
       )
+
       ---@diagnostic disable-next-line: missing-fields
       opts.formatting = {
         format = function(entry, item)
@@ -68,18 +71,53 @@ return {
           return item
         end,
       }
-      opts.sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
-      }, {
-        { name = "buffer" },
-      }, {
-        {
-          name = "dictionary",
-          keyword_length = 2,
+
+      opts.sources = {
+        { name = "path", priority = 100, group_index = 1, keyword_length = 1 },
+        { name = "nvim_lsp", priority = 100, group_index = 1, keyword_length = 1 },
+        { name = "luasnip", priority = 50, group_index = 1, keyword_length = 1 },
+        { name = "buffer", priority = 10, group_index = 2, keyword_length = 1 },
+        { name = "dictionary", priority = 5, group_index = 3, keyword_length = 3 },
+      }
+
+      -- Custom comparator to sort by source priority
+      local source_comparator = function(entry1, entry2)
+        local get_source_priority = function(name)
+          local priority = 0
+          for _, source in ipairs(opts.sources) do
+            if source.name == name then
+              priority = source.priority
+              break
+            end
+          end
+          return priority
+        end
+
+        local kind1 = get_source_priority(entry1.source.name)
+        local kind2 = get_source_priority(entry2.source.name)
+
+        if kind1 == kind2 then
+          return nil
+        end
+
+        return kind1 > kind2
+      end
+
+      opts.sorting = {
+        priority_weight = 2,
+        comparators = {
+          source_comparator,
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp.config.compare.locality,
+          cmp.config.compare.kind,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
         },
-      })
+      }
+
       opts.window = {
         completion = cmp.config.window.bordered({
           winhighlight = "Normal:Normal,FloatBorder:NormalBorder",
