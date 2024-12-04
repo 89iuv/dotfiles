@@ -6,7 +6,7 @@ return {
     },
     notification = {
       window = {
-        winblend = 50,
+        winblend = 10,
       },
     },
   },

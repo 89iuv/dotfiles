@@ -12,7 +12,7 @@ return {
     },
 
     init = function()
-      vim.opt.pumblend = 0 -- disable cmp menu transparency
+      vim.opt.pumblend = 10 -- disable cmp menu transparency
     end,
 
     ---@param opts cmp.ConfigSchema
@@ -40,6 +40,17 @@ return {
               cmp.select_prev_item()
             elseif luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-k>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              if cmp.visible_docs() then
+                cmp.close_docs()
+              else
+                cmp.open_docs()
+              end
             else
               fallback()
             end
@@ -118,13 +129,16 @@ return {
         },
       }
 
+      opts.view = {
+        docs = {
+          auto_open = false,
+        },
+      }
+
       opts.window = {
-        completion = cmp.config.window.bordered({
-          winhighlight = "Normal:Normal,FloatBorder:NormalBorder",
-        }),
-        documentation = cmp.config.window.bordered({
-          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
-        }),
+        documentation = {
+          border = "none",
+        },
       }
       opts.experimental.ghost_text = false
     end,
