@@ -34,10 +34,12 @@ return {
       { LazyVim.lualine.pretty_path(), padding = { left = 0, right = 1 } },
     }
     opts.sections.lualine_y = {
-      { "location", icon = "󰓾" },
+      "encoding",
+      "fileformat",
     }
     opts.sections.lualine_z = {
-      { "progress", icon = "󰉢" },
+      { "progress", separator = " ", padding = { left = 1, right = 0 } },
+      { "location", padding = { left = 0, right = 1 } },
     }
 
     -- do not add trouble symbols if aerial is enabled

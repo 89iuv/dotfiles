@@ -35,6 +35,14 @@ return {
         TroubleNormal = { link = "NormalFloat" },
         TroubleNormalNc = { link = "TroubleNormal" },
 
+        -- snacks
+        SnacksNotifierHistory = { link = "NormalFloat" },
+        SnacksNotifierInfo = { fg = colors.text },
+        SnacksNotifierWarn = { fg = colors.text },
+        SnacksNotifierDebug = { fg = colors.text },
+        SnacksNotifierError = { fg = colors.text },
+        SnacksNotifierTrace = { fg = colors.text },
+
         -- markdown
         RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.1, colors.base) },
         RenderMarkdownH2Bg = { bg = colors_utils.darken(colors.peach, 0.1, colors.base) },
