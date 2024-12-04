@@ -11,8 +11,8 @@ return {
     lualine_catppuccin.inactive.c.bg = macchiato.crust
 
     opts.options.theme = lualine_catppuccin
-    opts.options.component_separators = { left = "│", right = "│" }
-    opts.options.section_separators = { left = "▌", right = "▐" }
+    opts.options.component_separators = { left = "󰿟", right = "" }
+    opts.options.section_separators = { left = "", right = "" }
     opts.options.disabled_filetypes = {}
 
     local icons = LazyVim.config.icons
