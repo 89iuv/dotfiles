@@ -26,7 +26,7 @@ return {
       },
     },
     routes = {
-      -- enable notification for saving a file
+      -- disable notification for saving a file
       {
         filter = {
           event = "msg_show",
@@ -37,7 +37,7 @@ return {
             { find = "; before #%d+" },
           },
         },
-        opts = { skip = false },
+        opts = { skip = true },
         view = "notify",
       },
     },
