@@ -14,7 +14,7 @@ return {
       },
     },
     notifier = {
-      timeout = 1500, -- default timeout in ms
+      timeout = 3000, -- default timeout in ms
       level = vim.log.levels.INFO,
       width = { min = 0.35, max = 0.35 },
       height = { min = 1, max = 0.6 },
@@ -46,7 +46,7 @@ return {
       notification = {
         wo = {
           winblend = 10,
-          wrap = false,
+          wrap = true,
         },
       },
     },
