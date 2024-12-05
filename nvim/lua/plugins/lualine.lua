@@ -16,6 +16,9 @@ return {
     opts.options.disabled_filetypes = {}
 
     local icons = LazyVim.config.icons
+    opts.sections.lualine_a = {
+      { "mode", icon = "" },
+    }
     opts.sections.lualine_b = {
       { "branch", icon = "" },
     }

@@ -10,8 +10,8 @@ return {
     opts.options.offsets = {
       {
         filetype = "neo-tree",
-        text = "Explorer",
-        highlight = "Normal",
+        text = "Project Explorer",
+        highlight = "BufferlineProjectExplorer",
         text_align = "left",
         separator = true,
       },
@@ -19,7 +19,7 @@ return {
     opts.options.indicator = {
       icon = "▍",
     }
-    opts.options.separator_style = { " ", " " }
+    opts.options.separator_style = { "|", "|" }
     opts.options.themable = true
     opts.highlights = require("catppuccin.groups.integrations.bufferline").get({
       custom = {

@@ -28,6 +28,9 @@ return {
         NeoTreeWinSeparator = { link = "WinSeparator" },
         NeoTreeIndentMarker = { link = "MiniIndentscopeSymbol" },
 
+        -- bufferline
+        BufferlineProjectExplorer = { fg = colors.subtext0, bg = colors.base },
+
         -- telescope
         TelescopeNormal = { link = "NormalFloat" },
 
