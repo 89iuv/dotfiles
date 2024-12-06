@@ -30,7 +30,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # tmux integration
 ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_DEFAULT_SESSION_NAME="workspace"
+ZSH_TMUX_DEFAULT_SESSION_NAME="tmux"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
