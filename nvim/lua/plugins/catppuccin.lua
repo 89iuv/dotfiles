@@ -11,7 +11,7 @@ return {
         FloatBorder = { fg = colors.lavender, bg = colors.mantle },
         FloatTitle = { link = "FloatBorder" }, -- fix for which_key window title
         StatusLine = { bg = colors.crust },
-        WinSeparator = { fg = colors.crust, bg = colors.base },
+        WinSeparator = { fg = colors.surface2, bg = colors.base },
         LineNr = { fg = colors.surface2 },
 
         -- lsp
