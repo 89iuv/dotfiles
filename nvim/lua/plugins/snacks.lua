@@ -45,7 +45,7 @@ return {
     styles = {
       notification = {
         wo = {
-          winblend = 10,
+          winblend = 0,
           wrap = true,
         },
       },

@@ -12,7 +12,7 @@ return {
     },
 
     init = function()
-      vim.opt.pumblend = 10 -- disable cmp menu transparency
+      vim.opt.pumblend = 0 -- disable cmp menu transparency
     end,
 
     ---@param opts cmp.ConfigSchema
