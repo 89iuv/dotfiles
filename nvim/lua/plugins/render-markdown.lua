@@ -33,6 +33,12 @@ return {
         "─",
       },
     },
+    html = {
+      comment = {
+        -- Turn on / off HTML comment concealing
+        conceal = false,
+      },
+    },
     file_types = { "markdown", "copilot-chat" },
     -- this will render all characters when entering insert mode
     win_options = {
