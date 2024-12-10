@@ -87,8 +87,8 @@ return {
         { name = "path", priority = 100, group_index = 1, keyword_length = 1 },
         { name = "nvim_lsp", priority = 100, group_index = 1, keyword_length = 1 },
         { name = "luasnip", priority = 50, group_index = 1, keyword_length = 1 },
-        { name = "buffer", priority = 10, group_index = 2, keyword_length = 1 },
-        { name = "dictionary", priority = 5, group_index = 3, keyword_length = 3 },
+        { name = "buffer", priority = 10, group_index = 1, keyword_length = 1 },
+        { name = "dictionary", priority = 5, group_index = 2, keyword_length = 3 },
       }
 
       -- Custom comparator to sort by source priority
