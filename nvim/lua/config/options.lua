@@ -11,5 +11,7 @@
 -- WARN: on Windows you might want to set `editPreset: "nvim"` due to
 -- this issue https://github.com/jesseduffield/lazygit/issues/3467
 
+vim.g.snacks_animate = false
+
 vim.o.guicursor = "n-c:block,i-ci:ver25,r-cr:hor20,o:hor50,v-ve:hor80"
 vim.o.relativenumber = false
