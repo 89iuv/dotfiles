@@ -1,6 +1,7 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    enabled = true,
     dependencies = {
       {
         "uga-rosa/cmp-dictionary",
