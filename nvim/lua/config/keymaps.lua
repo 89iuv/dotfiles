@@ -8,9 +8,6 @@ vim.keymap.set("i", "<C-j>", "<Down>", { noremap = false, silent = true })
 vim.keymap.set("i", "<C-k>", "<Up>", { noremap = false, silent = true })
 vim.keymap.set("i", "<C-l>", "<Right>", { noremap = false, silent = true })
 
--- use jk to exit
-vim.keymap.set("i", "jk", "<esc>", { noremap = false, silent = true })
-
 -- remap resize to be +5
 vim.keymap.set("n", "<C-w>+", "<cmd>resize +5<cr>", { noremap = false, desc = "Increase height" })
 vim.keymap.set("n", "<C-w>-", "<cmd>resize -5<cr>", { noremap = false, desc = "Decrease height" })

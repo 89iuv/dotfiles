@@ -21,18 +21,15 @@ return {
         LspReferenceRead = { link = "NONE" },
         LspReferenceWrite = { link = "NONE" },
 
-        -- mini
-        MiniIndentscopeSymbol = { fg = colors.overlay0 },
-
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
-        NeoTreeIndentMarker = { link = "MiniIndentscopeSymbol" },
+        NeoTreeIndentMarker = { fg = colors.overlay0 },
 
         -- bufferline
         BufferlineProjectExplorer = { fg = colors.subtext0, bg = colors.base },
 
-        -- telescope
-        TelescopeNormal = { link = "NormalFloat" },
+        -- fzf
+        FzfLuaHeaderText = { fg = colors.maroon },
 
         -- trouble
         TroubleNormal = { link = "NormalFloat" },
@@ -45,6 +42,9 @@ return {
         SnacksNotifierDebug = { fg = colors.text },
         SnacksNotifierError = { fg = colors.text },
         SnacksNotifierTrace = { fg = colors.text },
+
+        SnacksIndent = { fg = colors.surface0 },
+        SnacksIndentScope = { fg = colors.overlay0 },
 
         -- markdown
         RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.1, colors.base) },
