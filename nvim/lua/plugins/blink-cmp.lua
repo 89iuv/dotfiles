@@ -2,6 +2,18 @@ return {
   "saghen/blink.cmp",
   opts = {
     completion = {
+      trigger = {
+        show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "," },
+      },
+      menu = {
+        border = "single",
+      },
+      documentation = {
+        auto_show = false,
+        window = {
+          border = "single",
+        },
+      },
       ghost_text = {
         enabled = false,
       },
