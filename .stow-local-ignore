@@ -1,0 +1,17 @@
+# git files and folders
+\.git
+\.gitignore
+\.gitmodules
+
+# other files and folders
+README.md
+README.md.old
+btop
+fastfetch
+git
+install_macos.sh
+kitty
+nvim
+scripts
+tmux
+zsh
