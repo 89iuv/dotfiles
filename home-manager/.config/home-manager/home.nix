@@ -40,6 +40,15 @@
     pkgs.eza
     pkgs.bat
     pkgs.fzf
+    pkgs.gcc
+    pkgs.curl
+    pkgs.ripgrep
+    pkgs.fd
+    pkgs.xclip
+    pkgs.lazygit
+    pkgs.nodejs
+    pkgs.python3
+    pkgs.unzip
     pkgs.neovim
     pkgs.tmux
   ];
