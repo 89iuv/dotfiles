@@ -1,9 +1,11 @@
 # Dotfiles
 
-## Instal nix package manager
-[Nix Package Manager Download](https://nixos.org/download)
+## Setup Environment 
+- Install nerd fonts: [NerdFonts Download](https://www.nerdfonts.com/font-downloads)
+- Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
+- Install nix package manager: [Nix Package Manager Download](https://nixos.org/download) 
 
-## Install dotfiles
+## Setup Dotfiles
 ```sh
 # clone repo
 git clone https://github.com/89iuv/dotfiles.git .dotfiles
@@ -15,7 +17,7 @@ cd .dotfiles
 mkdir ~/.config
 
 # link dotfiles
-nix-shell -p stow --run"stow ."
+nix-shell -p stow --run"stow */"
 
 # install packages
 nix-shell -p home-manager --run"home-manager switch --impure"

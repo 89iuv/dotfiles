@@ -13,3 +13,9 @@
 [submodule "zsh-syntax-highlighting/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = zsh-syntax-highlighting/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "catppuccin-zsh-syntax-highlighting"]
+	path = catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting
+	url = https://github.com/catppuccin/zsh-syntax-highlighting
+[submodule "catppuccin-bat"]
+	path = catppuccin-bat/bat
+	url = https://github.com/catppuccin/bat

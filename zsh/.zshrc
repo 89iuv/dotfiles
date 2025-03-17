@@ -1,3 +1,10 @@
+# benchmark zsh
+alias zsh-time="time zsh -i -c exit"
+alias zsh-debug="time ZSH_DEBUG=1 zsh -i -c exit"
+if [[ -n "$ZSH_DEBUG" ]]; then
+  zmodload zsh/zprof
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,7 +13,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# add personal scripts to path
+export PATH=$HOME/.scripts:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -15,7 +25,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# warkaround for prompt length
+# https://github.com/romkatv/powerlevel10k/issues/68
+ZLE_RPROMPT_INDENT=0
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -79,9 +94,67 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
+# load catppuccin theme for zsh-syntax-highlighting
+source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
+# custom catppuccin highlights for zsh-syntax-highlighting
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#cdd6f4,underline'
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# zsh-history-substring-search
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=#11111b,bg=#f38ba8"
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=#11111b,bg=#f5c2e7"
+
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(completion)
+
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# https://github.com/zsh-users/zsh-autosuggestions/issues/351
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
+
+# zsh history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt EXTENDED_HISTORY
+
+# setopt SHARE_HISTORY
+unsetopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+
+# zsh reduce esc key delay
+# https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+# 10ms for key sequences
+KEYTIMEOUT=1
+
+# warkaround for wsl folder highlights
+export LS_COLORS="ow=1;34:$LS_COLORS:ow=1;34"
+
+# setup for zsh tab complete colors
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -89,11 +162,12 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -110,5 +184,152 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# zoxide
+if type zoxide > /dev/null
+then
+  eval "$(zoxide init zsh)"
+  alias cd="z"
+  alias cdi="zi"
+fi
+
+# eza
+if type eza > /dev/null
+then
+  alias ls="eza -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
+  alias l="ls -la"
+  alias la="ls -la -a"
+  alias ll="ls -l"
+fi
+
+# bat
+if type bat > /dev/null
+then
+  export BAT_THEME="Catppuccin Mocha"
+  alias cat="bat --style=plain --paging=auto"
+
+  export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+  # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  # export MANROFFOPT="-c"
+
+  help() {
+    "$@" --help 2>&1 | bat --plain --language=help
+  }
+fi
+
+# fzf
+if type fzf > /dev/null
+then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_OPTS=" \
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+  --color=selected-bg:#45475a \
+  --multi"
+fi
+
+# xargs
+# https://unix.stackexchange.com/questions/141367/have-xargs-use-alias-instead-of-binary
+# A trailing space in VALUE causes the next word to be checked for alias substitution when the alias is expanded.
+alias xargs="xargs "
+
+# lazygit
+if type lazygit > /dev/null
+then
+  # this is a fix for not showing the correct colors using delta
+  export COLORTERM=truecolor
+fi
+
+# Programming languages
+
+# node: fnm
+FNM_PATH="/home/vauveges/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/vauveges/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+# Zsh keybindings
+
+# enable vi mode
+bindkey -v
+
+# zsh key keybindings
+bindkey '^f' edit-command-line
+
+# Autocomplete using autosuggestion with fzf
+
+# Turn off autocomplete beeps
+unsetopt LIST_BEEP
+
+# jump strainght to the first completion on tab key press
+setopt menu_complete
+
+# super tab keybind
+super-tab() {
+  # if suggestion is visible
+	if [[ -n "$POSTDISPLAY" ]]; then
+		zle autosuggest-accept
+	else
+		zle fzf-completion
+	fi
+}
+zle -N super-tab
+
+# make zsh-autosuggestions ignore the super-tab widget
+ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(super-tab)
+
+# set completion key keybindings
+bindkey '^I' super-tab
+bindkey '^ ' fzf-completion
+
+# zsh-history-substring-search keybindings
+
+bindkey "^p" history-substring-search-up
+bindkey "^n" history-substring-search-down
+
+bindkey -M menuselect "^p" reverse-menu-complete
+bindkey -M menuselect "^n" menu-complete
+bindkey -M menuselect "^[" undo
+
+# run command on new line and show execution time
+run() {
+  clear
+
+  # catppuccin colors
+  PINK='\033[38;2;245;194;231m'
+  RED='\033[38;2;243;139;168m'
+  MAROON='\033[38;2;235;160;172m'
+  BLUE='\033[38;2;137;180;250m'
+  TEXT='\033[38;2;205;214;244m'
+
+  echo -e "${BLUE}[Running]${TEXT} ${MAROON}$(pwd) $@${TEXT}"
+
+  start_time=$(date +%s%3N)
+  "$@"
+  exit_code=$?
+  end_time=$(date +%s%3N)
+  elapsed_time=$((end_time - start_time))
+
+  exit_code_color=""
+  if [ $exit_code -ne 0 ]
+  then
+    exit_code_color="${RED}"
+  else
+    exit_code_color="${PINK}"
+  fi
+
+  seconds=$((elapsed_time / 1000))
+  milliseconds=$((elapsed_time % 1000))
+  time_str="${seconds}.${milliseconds}"
+
+  echo ""
+  echo "${BLUE}[Done]${TEXT} ${MAROON}exited with${TEXT} ${exit_code_color}code=$exit_code${TEXT} ${MAROON}in${TEXT} ${time_str} ${MAROON}seconds${TEXT}"
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if [[ -n "$ZSH_DEBUG" ]]; then
+  zprof
+fi
