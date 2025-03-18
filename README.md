@@ -11,18 +11,26 @@
 ```sh
 # clone repo
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
+```
 
+```sh
 # link dotfiles
 cd ~/.dotfiles
 nix-shell -p stow --run "stow */"
+```
 
+```sh
 # install packages
 nix-shell -p home-manager --run "home-manager switch --impure"
+```
 
+```sh
 # run local scripts
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
+```
 
+```sh
 # change shell to zsh
 which zsh > tmp.txt
 sudo sh -c "cat tmp.txt >> /etc/shells"
@@ -33,6 +41,6 @@ rm tmp.txt
 ## Issues
 
 The following issues are found in
-macbook pro m1 -> parallel -> windows11 -> wsl1 -> ubuntu:
+Macbook Pro M1 -> Parallels -> Windows11 -> Wsl1 -> Ubuntu24.04:
 
 - marksman trows error: AdvSimd processor support required
