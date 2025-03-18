@@ -1,12 +1,19 @@
 # Dotfiles
 
-## Setup Environment
+<!--toc:start-->
+- [Dotfiles](#dotfiles)
+  - [Environment](#environment)
+  - [Setup](#setup)
+  - [Issues](#issues)
+<!--toc:end-->
+
+## Environment
 
 - Install nerd fonts: [NerdFonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 - Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
 
-## Setup Dotfiles
+## Setup
 
 ```sh
 # clone repo
