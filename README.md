@@ -29,3 +29,11 @@ sudo sh -c "cat tmp.txt >> /etc/shells"
 chsh -s $(which zsh)
 rm tmp.txt
 ```
+
+## Issues
+
+The following issues are found in
+macbook pro m1 -> parallel -> windows11 -> wsl1 -> ubuntu:
+
+- marksman trows error: AdvSimd processor support required
+- gitconfig does not load subsections for git delta
