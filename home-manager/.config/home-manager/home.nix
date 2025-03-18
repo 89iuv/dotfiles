@@ -34,12 +34,15 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.git
     pkgs.stow
-    pkgs.zsh
+
     pkgs.zoxide
     pkgs.eza
     pkgs.bat
     pkgs.fzf
+    pkgs.zsh
+
     pkgs.gcc
     pkgs.curl
     pkgs.ripgrep
@@ -49,8 +52,12 @@
     pkgs.nodejs
     pkgs.python3
     pkgs.unzip
+    pkgs.cmake
     pkgs.neovim
+
     pkgs.tmux
+
+    pkgs.delta
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -1,0 +1,36 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never --file-style=omit --hunk-header-style=omit
+
+gui:
+  # Use the mocha catppuccin theme
+  theme:
+    activeBorderColor:
+      - '#fab387'
+      - bold
+    inactiveBorderColor:
+      - '#a6adc8'
+    optionsTextColor:
+      - '#89b4fa'
+    selectedLineBgColor:
+      - '#313244'
+    cherryPickedCommitBgColor:
+      - '#45475a'
+    cherryPickedCommitFgColor:
+      - '#fab387'
+    unstagedChangesColor:
+      - '#f38ba8'
+    defaultFgColor:
+      - '#cdd6f4'
+    searchingActiveBorderColor:
+      - '#f9e2af'
+
+  authorColors:
+    '*': '#b4befe'
+
+  # Window border style.
+  # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
+  border: single
+
+  showBottomLine: true

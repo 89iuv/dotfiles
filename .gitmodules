@@ -19,3 +19,6 @@
 [submodule "catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting"]
 	path = catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting
 	url = https://github.com/catppuccin/zsh-syntax-highlighting.git
+[submodule "catppuccin-delta/delta"]
+	path = catppuccin-delta/delta
+	url = https://github.com/catppuccin/delta.git
