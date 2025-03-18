@@ -1,18 +1,24 @@
-[submodule "zsh/oh-my-zsh"]
-	path = zsh/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "zsh/powerlevel10k"]
-	path = zsh/powerlevel10k
+[submodule "ohmyzsh/.oh-my-zsh"]
+	path = ohmyzsh/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "powerlevel10k/.oh-my-zsh/custom/themes/powerlevel10k"]
+	path = powerlevel10k/.oh-my-zsh/custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "zsh/zsh-autosuggestions"]
-	path = zsh/zsh-autosuggestions
+[submodule "zsh-autosuggestions/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh-autosuggestions/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "git/delta"]
-	path = git/delta
+[submodule "zsh-history-substring-search/.oh-my-zsh/custom/plugins/zsh-history-substring-search"]
+	path = zsh-history-substring-search/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "zsh-syntax-highlighting/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = zsh-syntax-highlighting/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "catppuccin-bat/bat"]
+	path = catppuccin-bat/bat
+	url = https://github.com/catppuccin/bat.git
+[submodule "catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting"]
+	path = catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting
+	url = https://github.com/catppuccin/zsh-syntax-highlighting.git
+[submodule "catppuccin-delta/delta"]
+	path = catppuccin-delta/delta
 	url = https://github.com/catppuccin/delta.git
-[submodule "btop"]
-	path = btop
-	url = https://github.com/catppuccin/btop.git
-[submodule "zsh/evalcache"]
-	path = zsh/evalcache
-	url = https://github.com/mroth/evalcache
