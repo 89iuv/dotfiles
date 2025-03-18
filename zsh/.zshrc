@@ -101,6 +101,15 @@ source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/th
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#cdd6f4,underline'
 
+# nix complete
+fpath+=$HOME/.nix-profile/share/zsh/site-functions/
+
+# nix profile
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]
+  then
+    . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
