@@ -20,6 +20,7 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = {
         "python",
+        "gitconfig",
       },
       callback = function()
         vim.b.miniindentscope_config = { options = { border = "top" } }
