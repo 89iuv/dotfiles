@@ -51,13 +51,14 @@
     pkgs.lazygit
     pkgs.nodejs
     pkgs.python3
+    pkgs.cargo
     pkgs.unzip
     pkgs.cmake
     pkgs.neovim
 
-    pkgs.tmux
-
     pkgs.delta
+    pkgs.tmux
+    pkgs.fastfetch
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -97,4 +98,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
 }
