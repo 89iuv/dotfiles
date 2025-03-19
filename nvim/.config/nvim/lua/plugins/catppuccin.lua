@@ -25,14 +25,10 @@ return {
 
         BufferLineIndicatorSelected = { fg = colors.lavender },
         BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold", "italic" } },
-        BufferLineBufferVisible = { fg = colors.subtext0 },
+        BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
 
         BufferLineOffsetSeparator = { link = "WinSeparator" },
-        BufferLineSeparator = { fg = colors.crust },
-
-        BufferLineModified = { fg = colors.peach },
-        BufferLineModifiedVisible = { fg = colors.peach, bg = colors.base },
-        BufferLineModifiedSelected = { fg = colors.peach, bg = colors.base },
+        BufferLineSeparator = { fg = colors.overlay0, bg = colors.mantle },
 
         BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
         BufferLineFill = { bg = colors.crust },
