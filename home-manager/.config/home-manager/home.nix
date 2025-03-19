@@ -52,6 +52,7 @@
     pkgs.python3
     pkgs.cargo
     pkgs.unzip
+    pkgs.fswatch
     pkgs.neovim
 
     pkgs.delta
