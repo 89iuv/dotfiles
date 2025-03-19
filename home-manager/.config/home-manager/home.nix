@@ -43,7 +43,6 @@
     pkgs.fzf
     pkgs.zsh
 
-    pkgs.gcc
     pkgs.curl
     pkgs.ripgrep
     pkgs.fd
@@ -53,7 +52,6 @@
     pkgs.python3
     pkgs.cargo
     pkgs.unzip
-    pkgs.cmake
     pkgs.neovim
 
     pkgs.delta

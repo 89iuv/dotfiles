@@ -12,6 +12,7 @@
 - Install nerd fonts: [NerdFonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 - Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
+- Install platform specific build tools ex: make, gcc, etc.
 
 ## Setup
 
