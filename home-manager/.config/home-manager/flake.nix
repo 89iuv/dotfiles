@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of valiuv";
+  description = "Home Manager Configuration";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.

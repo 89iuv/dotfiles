@@ -36,6 +36,7 @@
     # '')
     pkgs.git
     pkgs.stow
+    pkgs.xclip
 
     pkgs.zoxide
     pkgs.eza
@@ -43,20 +44,22 @@
     pkgs.fzf
     pkgs.zsh
 
-    pkgs.curl
-    pkgs.ripgrep
-    pkgs.wget
-    pkgs.fd
-    pkgs.xclip
+    pkgs.delta
     pkgs.lazygit
+
+    pkgs.curl
+    pkgs.wget
+    pkgs.ripgrep
+    pkgs.fd
+    pkgs.unzip
+    pkgs.fswatch
+    pkgs.lua51Packages.lua
+    pkgs.lua51Packages.luarocks
     pkgs.nodejs
     pkgs.python3
     pkgs.cargo
-    pkgs.unzip
-    pkgs.fswatch
     pkgs.neovim
 
-    pkgs.delta
     pkgs.tmux
     pkgs.fastfetch
   ];
