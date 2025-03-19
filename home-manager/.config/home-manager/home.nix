@@ -44,6 +44,8 @@
     pkgs.fzf
     pkgs.zsh
 
+    pkgs.tmux
+
     pkgs.delta
     pkgs.lazygit
 
@@ -60,7 +62,7 @@
     pkgs.cargo
     pkgs.neovim
 
-    pkgs.tmux
+    pkgs.chafa
     pkgs.fastfetch
   ];
 
