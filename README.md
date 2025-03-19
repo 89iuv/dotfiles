@@ -2,10 +2,10 @@
 
 <!--toc:start-->
 - [Dotfiles](#dotfiles)
-  - [Environment](#environment)
   - [System](#system)
     - [Ubuntu](#ubuntu)
     - [Mac](#mac)
+  - [Environment](#environment)
   - [Setup](#setup)
   - [Issues](#issues)
 <!--toc:end-->
