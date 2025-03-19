@@ -256,6 +256,11 @@ then
   export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
+# nix-shell
+nix-zsh() {
+  nix-shell --run zsh "$@"
+}
+
 # edit current command in neovim keybind
 bindkey '^f' edit-command-line
 
