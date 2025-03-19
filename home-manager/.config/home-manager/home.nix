@@ -45,6 +45,7 @@
 
     pkgs.curl
     pkgs.ripgrep
+    pkgs.wget
     pkgs.fd
     pkgs.xclip
     pkgs.lazygit
