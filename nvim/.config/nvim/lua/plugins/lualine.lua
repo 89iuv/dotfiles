@@ -95,11 +95,6 @@ return {
     opts.sections.lualine_z = {
       {
         "fileformat",
-        separator = "",
-        padding = { left = 1, right = 1 },
-      },
-      {
-        "fileformat",
         fmt = string.upper,
         icons_enabled = true,
         symbols = {
@@ -108,21 +103,19 @@ return {
           mac = "cr",
         },
         separator = "",
-        padding = { left = 0, right = 1 },
       },
       {
-        icon = "󰧮",
         "encoding",
         fmt = string.upper,
         separator = "",
-        padding = { left = 1, right = 1 },
+        padding = { left = 0, right = 1 },
       },
       {
-        icon = "󱁐",
         function()
-          return vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
+          return "Space:"..vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
         end,
         separator = "",
+        padding = { left = 0, right = 1 },
       },
     }
 
