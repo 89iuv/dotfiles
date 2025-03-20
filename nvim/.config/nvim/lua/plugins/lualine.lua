@@ -34,7 +34,50 @@ return {
       },
     }
     opts.sections.lualine_c = {
+      {
+        "diff",
+        symbols = {
+          added = icons.git.added,
+          modified = icons.git.modified,
+          removed = icons.git.removed,
+        },
+        source = function()
+          local gitsigns = vim.b.gitsigns_status_dict
+          if gitsigns then
+            return {
+              added = gitsigns.added,
+              modified = gitsigns.changed,
+              removed = gitsigns.removed,
+            }
+          end
+        end,
+      },
       LazyVim.lualine.root_dir({ icon = "󱉭" }),
+      { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+      { LazyVim.lualine.pretty_path(), padding = { left = 0, right = 1 } },
+    }
+    opts.sections.lualine_x = {
+      Snacks.profiler.status(),
+      {
+        ---@diagnostic disable-next-line: undefined-field
+        function() return require("noice").api.status.command.get() end,
+        ---@diagnostic disable-next-line: undefined-field
+        cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+        color = function() return { fg = Snacks.util.color("Statement") } end,
+      },
+      {
+        ---@diagnostic disable-next-line: undefined-field
+        function() return require("noice").api.status.mode.get() end,
+        ---@diagnostic disable-next-line: undefined-field
+        cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+        color = function() return { fg = Snacks.util.color("Constant") } end,
+      },
+      {
+        function() return "  " .. require("dap").status() end,
+        cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+        color = function() return { fg = Snacks.util.color("Debug") } end,
+      },
+      -- stylua: ignore
       {
         "diagnostics",
         symbols = {
@@ -44,16 +87,43 @@ return {
           hint = icons.diagnostics.Hint,
         },
       },
-      { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-      { LazyVim.lualine.pretty_path(), padding = { left = 0, right = 1 } },
     }
     opts.sections.lualine_y = {
       { "progress", separator = " ", padding = { left = 1, right = 0 } },
       { "location", padding = { left = 0, right = 1 } },
     }
     opts.sections.lualine_z = {
-      { "fileformat", separator = "" },
-      { "encoding", separator = "", padding = { left = 0, right = 1 } },
+      {
+        "fileformat",
+        separator = "",
+        padding = { left = 1, right = 1 },
+      },
+      {
+        "fileformat",
+        fmt = string.upper,
+        icons_enabled = true,
+        symbols = {
+          unix = "lf",
+          dos = "crlf",
+          mac = "cr",
+        },
+        separator = "",
+        padding = { left = 0, right = 1 },
+      },
+      {
+        icon = "󰧮",
+        "encoding",
+        fmt = string.upper,
+        separator = "",
+        padding = { left = 1, right = 1 },
+      },
+      {
+        icon = "󱁐",
+        function()
+          return vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
+        end,
+        separator = "",
+      },
     }
 
     -- do not add trouble symbols if aerial is enabled
