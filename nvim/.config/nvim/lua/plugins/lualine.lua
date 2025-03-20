@@ -59,12 +59,12 @@ return {
     opts.sections.lualine_x = {
       Snacks.profiler.status(),
       {
-        ---@diagnostic disable-next-line: undefined-field
         function()
+          ---@diagnostic disable-next-line: undefined-field
           return require("noice").api.status.command.get()
         end,
-        ---@diagnostic disable-next-line: undefined-field
         cond = function()
+          ---@diagnostic disable-next-line: undefined-field
           return package.loaded["noice"] and require("noice").api.status.command.has()
         end,
         color = function()
@@ -72,12 +72,12 @@ return {
         end,
       },
       {
-        ---@diagnostic disable-next-line: undefined-field
         function()
+          ---@diagnostic disable-next-line: undefined-field
           return require("noice").api.status.mode.get()
         end,
-        ---@diagnostic disable-next-line: undefined-field
         cond = function()
+          ---@diagnostic disable-next-line: undefined-field
           return package.loaded["noice"] and require("noice").api.status.mode.has()
         end,
         color = function()

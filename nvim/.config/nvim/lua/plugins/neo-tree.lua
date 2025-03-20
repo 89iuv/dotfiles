@@ -48,6 +48,9 @@ return {
         with_markers = true,
         with_expanders = false,
       },
+      name = {
+        use_git_status_colors = false,
+      },
       file_size = {
         enabled = false,
       },
