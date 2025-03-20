@@ -16,7 +16,7 @@ return {
 
         WinSeparator = { fg = colors.surface2, bg = colors.base },
         StatusLine = { bg = colors.crust },
-        LineNr = { fg = colors.surface1},
+        LineNr = { fg = colors.surface1 },
 
         Folded = { fg = colors.blue, bg = colors_utils.darken(colors.surface0, 0.5, colors.base) },
 
@@ -24,7 +24,7 @@ return {
         BufferlineProjectExplorer = { fg = colors.subtext0, bg = colors.base },
 
         BufferLineIndicatorSelected = { fg = colors.lavender },
-        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold", "italic" } },
+        BufferLineBufferSelected = { fg = colors.text, bg = colors.base, style = { "bold", "italic" } },
         BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
 
         BufferLineOffsetSeparator = { link = "WinSeparator" },
@@ -32,6 +32,22 @@ return {
 
         BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
         BufferLineFill = { bg = colors.crust },
+
+        BufferLineError = { link = "BufferLineBuffer" },
+        BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
+        BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
+
+        BufferLineWarning = { link = "BufferLineBuffer" },
+        BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
+        BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
+
+        BufferLineHint = { link = "BufferLineBuffer" },
+        BufferLineHintVisible = { link = "BufferLineBufferVisible" },
+        BufferLineHintSelected = { link = "BufferLineBufferSelected" },
+
+        BufferLineInfo = { link = "BufferLineBuffer" },
+        BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
+        BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
 
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
