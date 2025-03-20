@@ -19,8 +19,16 @@ return {
     opts.options.separator_style = { "", "" }
     opts.options.diagnostics_indicator = function(_, _, diag)
       local icons = LazyVim.config.icons.diagnostics
-      local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-        .. (diag.warning and icons.Warn .. diag.warning or "")
+      local ret = ""
+      if diag.error then
+        ret = icons.Error
+      elseif diag.warning then
+        ret = icons.Warn
+      elseif diag.info then
+        ret = icons.Info
+      elseif diag.hint then
+        ret = icons.Hint
+      end
       return vim.trim(ret)
     end
     opts.options.themable = true
