@@ -21,6 +21,7 @@ return {
       pattern = {
         "python",
         "gitconfig",
+        "yaml"
       },
       callback = function()
         vim.b.miniindentscope_config = { options = { border = "top" } }
