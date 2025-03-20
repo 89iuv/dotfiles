@@ -55,7 +55,6 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
-    pkgs.fswatch
     pkgs.lua51Packages.lua
     pkgs.lua51Packages.luarocks
     pkgs.nodejs
