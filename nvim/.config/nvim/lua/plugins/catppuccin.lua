@@ -18,7 +18,7 @@ return {
         StatusLine = { bg = colors.crust },
         LineNr = { fg = colors.surface1 },
 
-        Folded = { fg = colors.subtext1, bg = colors_utils.darken(colors.surface0, 0.25, colors.base) },
+        Folded = { fg = colors.blue, bg = colors_utils.darken(colors.surface0, 0.5, colors.base) },
 
         -- bufferline
         BufferlineProjectExplorer = { fg = colors.subtext0, bg = colors.base },
