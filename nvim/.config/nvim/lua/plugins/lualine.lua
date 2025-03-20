@@ -60,22 +60,40 @@ return {
       Snacks.profiler.status(),
       {
         ---@diagnostic disable-next-line: undefined-field
-        function() return require("noice").api.status.command.get() end,
+        function()
+          return require("noice").api.status.command.get()
+        end,
         ---@diagnostic disable-next-line: undefined-field
-        cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-        color = function() return { fg = Snacks.util.color("Statement") } end,
+        cond = function()
+          return package.loaded["noice"] and require("noice").api.status.command.has()
+        end,
+        color = function()
+          return { fg = Snacks.util.color("Statement") }
+        end,
       },
       {
         ---@diagnostic disable-next-line: undefined-field
-        function() return require("noice").api.status.mode.get() end,
+        function()
+          return require("noice").api.status.mode.get()
+        end,
         ---@diagnostic disable-next-line: undefined-field
-        cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-        color = function() return { fg = Snacks.util.color("Constant") } end,
+        cond = function()
+          return package.loaded["noice"] and require("noice").api.status.mode.has()
+        end,
+        color = function()
+          return { fg = Snacks.util.color("Constant") }
+        end,
       },
       {
-        function() return "  " .. require("dap").status() end,
-        cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-        color = function() return { fg = Snacks.util.color("Debug") } end,
+        function()
+          return "  " .. require("dap").status()
+        end,
+        cond = function()
+          return package.loaded["dap"] and require("dap").status() ~= ""
+        end,
+        color = function()
+          return { fg = Snacks.util.color("Debug") }
+        end,
       },
       -- stylua: ignore
       {
@@ -89,10 +107,34 @@ return {
       },
     }
     opts.sections.lualine_y = {
-      { "progress", separator = " ", padding = { left = 1, right = 0 } },
-      { "location", padding = { left = 0, right = 1 } },
+      {
+        function()
+          local cur = vim.fn.line(".")
+          local total = vim.fn.line("$")
+          return string.format("%03d%%%%", math.floor(cur / total * 100))
+        end,
+        icon = "󰆤",
+        separator = " ",
+        padding = { left = 1, right = 0 },
+      },
+      {
+        function()
+          local line = vim.fn.line(".")
+          local lines = vim.api.nvim_buf_line_count(0)
+
+          local col = vim.fn.charcol(".")
+          local cols = vim.api.nvim_win_get_width(0)
+
+          return string.format("%0" .. #tostring(lines) .. "d:%0" .. #tostring(cols) .. "d", line, col)
+        end,
+        padding = { left = 0, right = 1 },
+      },
     }
     opts.sections.lualine_z = {
+      {
+        "fileformat",
+        separator = "",
+      },
       {
         "fileformat",
         fmt = string.upper,
@@ -103,6 +145,7 @@ return {
           mac = "cr",
         },
         separator = "",
+        padding = { left = 0, right = 1 },
       },
       {
         "encoding",
@@ -112,7 +155,7 @@ return {
       },
       {
         function()
-          return "Space:"..vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
+          return "Space:" .. vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
         end,
         separator = "",
         padding = { left = 0, right = 1 },
