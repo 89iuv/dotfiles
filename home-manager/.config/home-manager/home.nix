@@ -45,6 +45,7 @@
     pkgs.zsh
 
     pkgs.tmux
+    pkgs.btop
 
     pkgs.delta
     pkgs.lazygit

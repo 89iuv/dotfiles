@@ -51,9 +51,10 @@ nix-shell -p home-manager --run "home-manager switch --impure"
 ```
 
 ```sh
-# run local scripts
+# run integration scripts
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
+cd ~/.dotfiles/catppuccin-btop && ./install.sh
 ```
 
 ```sh

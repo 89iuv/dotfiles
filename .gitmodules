@@ -22,3 +22,6 @@
 [submodule "catppuccin-delta/delta"]
 	path = catppuccin-delta/delta
 	url = https://github.com/catppuccin/delta.git
+[submodule "catppuccin-btop/btop"]
+	path = catppuccin-btop/btop
+	url = https://github.com/catppuccin/btop.git
