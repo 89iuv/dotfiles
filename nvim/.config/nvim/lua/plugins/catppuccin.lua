@@ -11,12 +11,12 @@ return {
       return {
         -- catppuccin
         NormalFloat = { fg = colors.text, bg = colors.mantle },
-        FloatBorder = { fg = colors.lavender, bg = colors.mantle },
-        FloatTitle = { fg = colors.lavender, bg = colors.mantle },
+        FloatBorder = { fg = colors.surface2, bg = colors.mantle },
+        FloatTitle = { fg = colors.overlay2, bg = colors.mantle },
 
         WinSeparator = { fg = colors.surface2, bg = colors.base },
         StatusLine = { bg = colors.crust },
-        LineNr = { fg = colors.surface1 },
+        LineNr = { fg = colors.surface1},
 
         Folded = { fg = colors.blue, bg = colors_utils.darken(colors.surface0, 0.5, colors.base) },
 
@@ -48,6 +48,8 @@ return {
         BlinkCmpSource = { link = "PmenuSelect" },
         BlinkCmpLabelDescription = { link = "PmenuSelect" },
 
+        BlinkCmpDocBorder = { link = "FloatBorder" },
+
         -- fidget
         FidgetNormal = { link = "NormalFloat" },
         FidgetBorder = { link = "FidgetNormal" },
@@ -59,20 +61,23 @@ return {
         NoiceCmdlinePopup = { link = "NormalFloat" },
         NoiceCmdlinePopupBorder = { link = "FloatBorder" },
 
+        NoiceCmdlinePopupTitleSearch = { link = "FloatTitle" },
+        NoiceCmdlinePopupBorderSearch = { link = "FloatBorder" },
+
         NoiceMini = { bg = colors.mantle },
 
         -- snacks
-        SnacksNotifierInfo = { bg = colors.mantle },
-        SnacksNotifierWarn = { bg = colors.mantle },
-        SnacksNotifierDebug = { bg = colors.mantle },
-        SnacksNotifierError = { bg = colors.mantle },
-        SnacksNotifierTrace = { bg = colors.mantle },
+        SnacksNotifierInfo = { link = "NormalFloat" },
+        SnacksNotifierWarn = { link = "NormalFloat" },
+        SnacksNotifierDebug = { link = "NormalFloat" },
+        SnacksNotifierError = { link = "NormalFloat" },
+        SnacksNotifierTrace = { link = "NormalFloat" },
 
-        SnacksNotifierBorderInfo = { link = "SnacksNotifierInfo" },
-        SnacksNotifierBorderWarn = { link = "SnacksNotifierWarn" },
-        SnacksNotifierBorderDebug = { link = "SnacksNotifierDebug" },
-        SnacksNotifierBorderError = { link = "SnacksNotifierError" },
-        SnacksNotifierBorderTrace = { link = "SnacksNotifierTrace" },
+        SnacksNotifierBorderInfo = { link = "FloatBorder" },
+        SnacksNotifierBorderWarn = { link = "FloatBorder" },
+        SnacksNotifierBorderDebug = { link = "FloatBorder" },
+        SnacksNotifierBorderError = { link = "FloatBorder" },
+        SnacksNotifierBorderTrace = { link = "FloatBorder" },
 
         SnacksPickerCol = { fg = colors.overlay0 },
 
