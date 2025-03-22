@@ -61,5 +61,34 @@ return {
         },
       },
     },
+    routes = {
+      {
+        filter = {
+          event = "msg_show",
+          any = {
+            { find = "%d+L, %d+B" },
+            { find = "; after #%d+" },
+            { find = "; before #%d+" },
+          },
+        },
+        view = "mini",
+      },
+      {
+        filter = {
+          event = "notify",
+          kind = "info",
+          find = "on",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "notify",
+          kind = "info",
+          find = "off",
+        },
+        opts = { skip = true },
+      },
+    },
   },
 }
