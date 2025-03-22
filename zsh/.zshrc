@@ -30,7 +30,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # warkaround for prompt length
 # https://github.com/romkatv/powerlevel10k/issues/68
-ZLE_RPROMPT_INDENT=0
+# ZLE_RPROMPT_INDENT=0
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
