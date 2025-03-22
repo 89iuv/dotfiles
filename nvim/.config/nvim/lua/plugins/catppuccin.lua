@@ -11,27 +11,25 @@ return {
       return {
         -- catppuccin
         NormalFloat = { fg = colors.text, bg = colors.mantle },
-        FloatBorder = { fg = colors.subtext0, bg = colors.mantle },
+        FloatBorder = { fg = colors.overlay2, bg = colors.mantle },
         FloatTitle = { fg = colors.subtext0, bg = colors.mantle },
 
-        WinSeparator = { fg = colors.surface2, bg = colors.base },
+        WinSeparator = { fg = colors.overlay2, bg = colors.base },
         StatusLine = { bg = colors.crust },
         LineNr = { fg = colors.surface1 },
 
         Folded = { fg = colors.blue, bg = colors_utils.darken(colors.surface0, 0.5, colors.base) },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = colors.overlay2, bg = colors.base },
-
+        BufferlineProjectExplorer = { fg = colors.overlay2, bg = colors.mantle },
         BufferLineIndicatorSelected = { fg = colors.lavender },
+        BufferLineSeparator = { link = "WinSeparator" },
+        BufferLineOffsetSeparator = { link = "WinSeparator" },
+        BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
+        BufferLineFill = { bg = colors.mantle },
+
         BufferLineBufferSelected = { fg = colors.text, bg = colors.base, style = { "bold", "italic" } },
         BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
-
-        BufferLineOffsetSeparator = { link = "WinSeparator" },
-        BufferLineSeparator = { fg = colors.overlay0, bg = colors.mantle },
-
-        BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
-        BufferLineFill = { bg = colors.crust },
 
         BufferLineError = { link = "BufferLineBuffer" },
         BufferLineErrorVisible = { link = "BufferLineBufferVisible" },

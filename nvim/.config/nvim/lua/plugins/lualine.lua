@@ -12,7 +12,7 @@ return {
 
     opts.options.theme = lualine_catppuccin
     opts.options.component_separators = { left = "", right = "│" }
-    opts.options.section_separators = { left = "", right = "" }
+    opts.options.section_separators = { left = "", right = "▐" }
     opts.options.disabled_filetypes = {}
 
     local icons = LazyVim.config.icons
@@ -113,9 +113,9 @@ return {
           local total = vim.fn.line("$")
           return string.format("%03d%%%%", math.floor(cur / total * 100))
         end,
-        icon = "󰆤",
-        separator = " ",
-        padding = { left = 1, right = 0 },
+        icon = "󰦪",
+        separator = "",
+        padding = { left = 1, right = 1 },
       },
       {
         function()
@@ -127,13 +127,25 @@ return {
 
           return string.format("%0" .. #tostring(lines) .. "d:%0" .. #tostring(cols) .. "d", line, col)
         end,
-        padding = { left = 0, right = 1 },
+        icon = "󰆾",
+        padding = { left = 1, right = 1 },
       },
     }
     opts.sections.lualine_z = {
       {
-        "fileformat",
+        function()
+          return vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
+        end,
+        icon = "󱇂",
         separator = "",
+        padding = { left = 1, right = 1 },
+      },
+      {
+        "encoding",
+        fmt = string.upper,
+        icon = "󱇃",
+        separator = "",
+        padding = { left = 1, right = 1 },
       },
       {
         "fileformat",
@@ -144,21 +156,9 @@ return {
           dos = "crlf",
           mac = "cr",
         },
+        icon = "󱇄",
         separator = "",
-        padding = { left = 0, right = 1 },
-      },
-      {
-        "encoding",
-        fmt = string.upper,
-        separator = "",
-        padding = { left = 0, right = 1 },
-      },
-      {
-        function()
-          return "Space:" .. vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
-        end,
-        separator = "",
-        padding = { left = 0, right = 1 },
+        padding = { left = 1, right = 1 },
       },
     }
 

@@ -14,7 +14,7 @@ return {
       },
     }
     opts.options.indicator = {
-      icon = "▍",
+      icon = " ",
     }
     opts.options.separator_style = { "", "" }
     opts.options.diagnostics_indicator = function(_, _, diag)
