@@ -2,6 +2,9 @@ return {
   "b0o/incline.nvim",
   event = "VeryLazy",
   opts = {
+    hide = {
+    cursorline = "focused_win",
+  },
     window = {
       margin = {
         horizontal = 0,
