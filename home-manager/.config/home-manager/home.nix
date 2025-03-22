@@ -59,6 +59,7 @@
     pkgs.lua51Packages.luarocks
     pkgs.nodejs
     pkgs.python3
+    pkgs.jdk
     pkgs.cargo
     pkgs.neovim
 
