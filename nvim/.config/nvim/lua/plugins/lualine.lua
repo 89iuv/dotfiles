@@ -95,16 +95,6 @@ return {
           return { fg = Snacks.util.color("Debug") }
         end,
       },
-      -- stylua: ignore
-      {
-        "diagnostics",
-        symbols = {
-          error = icons.diagnostics.Error,
-          warn = icons.diagnostics.Warn,
-          info = icons.diagnostics.Info,
-          hint = icons.diagnostics.Hint,
-        },
-      },
     }
     opts.sections.lualine_y = {
       {
@@ -136,14 +126,14 @@ return {
         function()
           return vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
         end,
-        icon = "󱇂",
+        icon = "󰌒",
         separator = "",
         padding = { left = 1, right = 1 },
       },
       {
         "encoding",
         fmt = string.upper,
-        icon = "󱇃",
+        icon = "󰦩",
         separator = "",
         padding = { left = 1, right = 1 },
       },
@@ -156,7 +146,7 @@ return {
           dos = "crlf",
           mac = "cr",
         },
-        icon = "󱇄",
+        icon = "󰌑",
         separator = "",
         padding = { left = 1, right = 1 },
       },

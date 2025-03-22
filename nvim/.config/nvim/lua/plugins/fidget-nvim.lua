@@ -8,6 +8,7 @@ return {
     },
     notification = {
       window = {
+        border = { "", "" ,"", " ", "", "", "", " " },
         normal_hl = "FidgetNormal",
         border_hl = "FidgetBorder",
         winblend = 0,
