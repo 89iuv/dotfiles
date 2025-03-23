@@ -43,7 +43,7 @@ return {
 
           local lsp_table = {}
           for _, client in ipairs(clients) do
-            table.insert(lsp_table, "󰅡 " .. client.name)
+            table.insert(lsp_table, "󰒓 " .. client.name)
           end
 
           table.sort(lsp_table)
@@ -58,7 +58,7 @@ return {
 
           local formaters_table = {}
           for _, formater in ipairs(formaters) do
-            table.insert(formaters_table, "󰛿 " .. formater.name)
+            table.insert(formaters_table, "󰏫 " .. formater.name)
           end
 
           table.sort(formaters_table)
