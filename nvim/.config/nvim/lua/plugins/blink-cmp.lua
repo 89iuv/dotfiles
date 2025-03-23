@@ -6,6 +6,7 @@ return {
     },
     completion = {
       trigger = {
+        show_in_snippet = false,
         show_on_insert_on_trigger_character = false,
       },
       menu = {
@@ -62,8 +63,29 @@ return {
       },
     },
     keymap = {
-      preset = "super-tab",
-      ["<CR>"] = { "accept", "fallback" },
+      preset = "default",
+      ["<Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        "snippet_forward",
+        "fallback",
+      },
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      ["<CR>"] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        "fallback",
+      },
     },
     signature = {
       enabled = false,

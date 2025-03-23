@@ -118,7 +118,7 @@ return {
           return string.format("%0" .. #tostring(lines) .. "d:%0" .. #tostring(cols) .. "d", line, col)
         end,
         icon = "󰆾",
-        padding = { left = 1, right = 1 },
+        padding = { left = 0, right = 1 },
       },
     }
     opts.sections.lualine_z = {
@@ -135,7 +135,7 @@ return {
         fmt = string.upper,
         icon = "󰦩",
         separator = "",
-        padding = { left = 1, right = 1 },
+        padding = { left = 0, right = 1 },
       },
       {
         "fileformat",
@@ -148,7 +148,7 @@ return {
         },
         icon = "󰌑",
         separator = "",
-        padding = { left = 1, right = 1 },
+        padding = { left = 0, right = 1 },
       },
     }
 

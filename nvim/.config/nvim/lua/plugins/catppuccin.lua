@@ -21,7 +21,7 @@ return {
         Folded = { fg = colors.blue, bg = colors_utils.darken(colors.surface0, 0.5, colors.base) },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = colors.overlay2, bg = colors.mantle },
+        BufferlineProjectExplorer = { fg = colors.overlay2, bg = colors.base },
         BufferLineIndicatorSelected = { fg = colors.lavender },
         BufferLineSeparator = { link = "WinSeparator" },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
