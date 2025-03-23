@@ -12,8 +12,17 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  init = function()
+    -- refresh buffer when a terminal is closed
+    vim.api.nvim_create_autocmd("TermClose", {
+      callback = function()
+        require("neo-tree.sources.buffers.commands").refresh()
+      end,
+    })
+  end,
   opts = {
     popup_border_style = "single",
+    close_if_last_window = true,
     event_handlers = {
       {
         event = "neo_tree_window_after_open",
@@ -60,12 +69,6 @@ return {
       last_modified = {
         enabled = false,
       },
-    },
-    renderers = {
-      -- disable terminal renderer
-      -- when selecting a terminal from the buffer list
-      -- it will be opened in a new buffer instead of it's buffer
-      terminal = {},
     },
     window = {
       auto_expand_width = false,
