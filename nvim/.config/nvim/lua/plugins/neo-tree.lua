@@ -61,6 +61,12 @@ return {
         enabled = false,
       },
     },
+    renderers = {
+      -- disable terminal renderer
+      -- when selecting a terminal from the buffer list
+      -- it will be opened in a new buffer instead of it's buffer
+      terminal = {},
+    },
     window = {
       auto_expand_width = false,
       mappings = {
