@@ -49,6 +49,9 @@ return {
       },
     },
     default_component_configs = {
+      symlink_target = {
+        enabled = true,
+      },
       container = {
         enable_character_fade = true,
       },
