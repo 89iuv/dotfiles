@@ -13,6 +13,7 @@ vim.g.snacks_animate = false
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
+vim.opt.swapfile = false
 vim.opt.pumblend = 0
 vim.opt.relativenumber = false
 vim.opt.list = true
