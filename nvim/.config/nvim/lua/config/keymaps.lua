@@ -4,3 +4,7 @@
 
 -- workaround for <leader>wd not working on fast action
 vim.keymap.set("n", "<leader>w", "<nop>", { desc = "Windows", remap = false })
+
+-- use Shift + j,k instead of Ctrl+u,d for scrolling
+vim.keymap.set("n", "J", "<C-d>", { remap = false})
+vim.keymap.set("n", "K", "<C-u>", { remap = false})

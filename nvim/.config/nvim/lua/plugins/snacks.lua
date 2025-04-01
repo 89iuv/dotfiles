@@ -41,6 +41,14 @@ return {
           cmd = { "delta", "--file-style=omit", "--hunk-header-style=omit" },
         },
       },
+      win = {
+        input = {
+          keys = {
+            ["K"] = "preview_scroll_up",
+            ["J"] = "preview_scroll_down",
+          },
+        },
+      },
     },
     words = {
       debounce = 80, -- time in ms to wait before updating
