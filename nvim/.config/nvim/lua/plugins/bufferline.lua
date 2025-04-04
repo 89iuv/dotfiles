@@ -13,9 +13,6 @@ return {
         separator = true,
       },
     }
-    opts.options.indicator = {
-      icon = " ",
-    }
     opts.options.separator_style = { "", "" }
     opts.options.diagnostics_indicator = function(_, _, diag)
       local icons = LazyVim.config.icons.diagnostics
