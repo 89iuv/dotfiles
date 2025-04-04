@@ -3,6 +3,7 @@ return {
   opts = {
     code = {
       width = "full",
+      border = "thin",
     },
     heading = {
       position = "inline",
