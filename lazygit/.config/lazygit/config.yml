@@ -1,7 +1,7 @@
 git:
   paging:
     colorArg: always
-    pager: delta --paging=never --file-style=omit --hunk-header-style=omit
+    pager: delta --paging=never --hunk-header-style=omit
 
 gui:
   # Use the mocha catppuccin theme
