@@ -21,6 +21,9 @@ config.use_resize_increments = false
 -- rewrite line endings to LF when pasting
 config.canonicalize_pasted_newlines = "LineFeed"
 
+-- cursor
+config.cursor_blink_rate = 0 -- disable cursor blink
+
 -- keymaps
 local normal_keys = { ",", "." }
 local shift_keys = { "<", ">" }
