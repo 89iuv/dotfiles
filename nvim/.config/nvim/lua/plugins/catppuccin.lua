@@ -22,7 +22,7 @@ return {
 
         -- bufferline
         BufferlineProjectExplorer = { fg = colors.overlay2, bg = colors.base },
-        BufferLineIndicatorSelected = { fg = colors.lavender },
+        BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
         BufferLineSeparator = { link = "WinSeparator" },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
         BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
