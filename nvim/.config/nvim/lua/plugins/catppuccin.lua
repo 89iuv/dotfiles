@@ -26,26 +26,24 @@ return {
         BufferLineSeparator = { link = "WinSeparator" },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
         BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
-        BufferLineFill = { bg = colors.mantle },
-
-        BufferLineBufferSelected = { fg = colors.text, bg = colors.base, style = { "bold", "italic" } },
-        BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
-
-        BufferLineError = { link = "BufferLineBuffer" },
-        BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
-        BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
-
-        BufferLineWarning = { link = "BufferLineBuffer" },
-        BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
-        BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
+        BufferLineFill = { bg = colors.crust },
 
         BufferLineHint = { link = "BufferLineBuffer" },
-        BufferLineHintVisible = { link = "BufferLineBufferVisible" },
-        BufferLineHintSelected = { link = "BufferLineBufferSelected" },
-
         BufferLineInfo = { link = "BufferLineBuffer" },
-        BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
+        BufferLineWarning = { link = "BufferLineBuffer" },
+        BufferLineError = { link = "BufferLineBuffer" },
+
+        BufferLineBufferSelected = { fg = colors.text, bg = colors.base, style = { "bold" } },
+        BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
+        BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
+        BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
+
+        BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
+        BufferLineHintVisible = { link = "BufferLineBufferVisible" },
+        BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
+        BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
+        BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
 
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
