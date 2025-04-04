@@ -32,7 +32,7 @@ return {
               severity = vim.diagnostic.severity[string.upper(severity)],
             })
             if n > 0 then
-              table.insert(label, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
+              table.insert(label, 1, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
             end
           end
           return label
