@@ -65,9 +65,17 @@ chsh -s $(which zsh)
 rm tmp.txt
 ```
 
+## Update
+
+```sh
+cd ~/.config/home-manager
+nix flake update
+home-manager switch --impure
+```
+
 ## Issues
 
-The following issues are found in
-Macbook Pro M1 -> Parallels -> Windows11 -> Wsl1 -> Ubuntu24.04:
+The following issues are found in:
 
-- marksman trows error: AdvSimd processor support required
+- Macbook Pro M1 -> Parallels -> Windows11 -> Wsl1 -> Ubuntu24.04:
+  - marksman trows error: AdvSimd processor support required
