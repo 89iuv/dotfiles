@@ -2,11 +2,10 @@ return {
   "saghen/blink.cmp",
   opts = {
     appearance = {
-      nerd_font_variant = "mono", -- mono | normal
+      nerd_font_variant = "normal", -- mono | normal
     },
     completion = {
       trigger = {
-        show_in_snippet = false,
         show_on_insert_on_trigger_character = false,
       },
       menu = {
