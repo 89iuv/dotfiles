@@ -10,6 +10,11 @@ config.font_size = 13
 
 -- window decorations
 config.enable_tab_bar = true
+config.show_tabs_in_tab_bar = false
+config.show_new_tab_button_in_tab_bar = false
+
+config.use_fancy_tab_bar = true
+
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
@@ -25,26 +30,33 @@ config.canonicalize_pasted_newlines = "LineFeed"
 config.cursor_blink_rate = 0 -- disable cursor blink
 
 -- keymaps
-local normal_keys = { ",", "." }
-local shift_keys = { "<", ">" }
-
-local insert_key_pass = function(conf, keys, modifier)
-	modifier = modifier and "|" .. modifier or ""
-	for _, key in ipairs(keys) do
-		table.insert(conf, {
+local insert_key_pass = function(opts)
+	for _, key in ipairs(opts.keys) do
+		table.insert(opts.conf, {
 			key = key,
-			mods = "SUPER",
+			mods = opts.modifier_from,
 			action = wezterm.action.SendKey({
 				key = key,
-				mods = "ALT",
+				mods = opts.modifier_to,
 			}),
 		})
 	end
 end
 
 config.keys = {}
-insert_key_pass(config.keys, normal_keys)
-insert_key_pass(config.keys, shift_keys, "SHIFT")
+insert_key_pass({
+	conf = config.keys,
+	keys = { ",", ".", "w", "p", "m" },
+	modifier_from = "SUPER",
+	modifier_to = "ALT",
+})
+
+insert_key_pass({
+	conf = config.keys,
+	keys = { "<", ">" },
+	modifier_from = "SUPER|SHIFT",
+	modifier_to = "ALT|SHIFT",
+})
 
 -- and finally, return the configuration to wezterm
 return config
