@@ -21,7 +21,7 @@ return {
         Folded = { fg = colors.blue, bg = colors_utils.darken(colors.surface0, 0.5, colors.base) },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = colors.overlay2, bg = colors.base },
+        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.base },
         BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
         BufferLineSeparator = { link = "WinSeparator" },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
@@ -33,13 +33,13 @@ return {
         BufferLineWarning = { link = "BufferLineBuffer" },
         BufferLineError = { link = "BufferLineBuffer" },
 
-        BufferLineBufferSelected = { fg = colors.text, bg = colors.base, style = { "bold" } },
+        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold", "italic" } },
         BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
         BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
         BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
 
-        BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
+        BufferLineBufferVisible = { fg = colors.lavender, bg = colors.mantle },
         BufferLineHintVisible = { link = "BufferLineBufferVisible" },
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
         BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
@@ -96,6 +96,7 @@ return {
         SnacksNotifierBorderTrace = { link = "FloatBorder" },
 
         SnacksPickerCol = { fg = colors.overlay0 },
+        SnacksWinBar = { fg = colors.lavender },
 
         -- trouble
         TroubleNormal = { link = "NormalFloat" },
