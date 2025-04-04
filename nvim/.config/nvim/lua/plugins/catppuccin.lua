@@ -67,8 +67,8 @@ return {
         FidgetBorder = { link = "FidgetNormal" },
 
         -- incline
-        InclineNormal = { fg = colors.subtext0, bg = colors.mantle },
-        InclineNormalNC = { fg = colors.subtext0, bg = colors.mantle },
+        InclineNormal = { fg = colors.subtext0, bg = colors.crust },
+        InclineNormalNC = { fg = colors.subtext0, bg = colors.crust },
 
         -- noice
         NoiceConfirm = { link = "NormalFloat" },
