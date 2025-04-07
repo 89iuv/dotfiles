@@ -25,6 +25,12 @@ return {
       render = function(props)
         local function get_diagnostic_label()
           local icons = LazyVim.config.icons.diagnostics
+          local priority = {
+              DiagnosticSignError = 1,
+              DiagnosticSignWarn  = 2,
+              DiagnosticSignInfo  = 3,
+              DiagnosticSignHint  = 4,
+          }
           local label = {}
 
           for severity, icon in pairs(icons) do
@@ -32,9 +38,14 @@ return {
               severity = vim.diagnostic.severity[string.upper(severity)],
             })
             if n > 0 then
-              table.insert(label, 1, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
+              table.insert(label, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
             end
           end
+
+          table.sort(label, function (a, b)
+            return priority[a["group"]] > priority[b["group"]]
+          end)
+
           return label
         end
 
