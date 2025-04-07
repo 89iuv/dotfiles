@@ -33,7 +33,7 @@ return {
         BufferLineWarning = { link = "BufferLineBuffer" },
         BufferLineError = { link = "BufferLineBuffer" },
 
-        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold", "italic" } },
+        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold" } },
         BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
         BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
