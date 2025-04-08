@@ -87,10 +87,7 @@ return {
       },
     },
     signature = {
-      enabled = false,
-      trigger = {
-        show_on_keyword = true,
-      },
+      enabled = true,
       window = {
         border = "single",
         show_documentation = false,
