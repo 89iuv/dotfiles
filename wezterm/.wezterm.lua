@@ -4,6 +4,9 @@ local config = wezterm.config_builder()
 -- color scheme
 config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 
+-- cursor
+config.cursor_blink_rate = 0 -- disable cursor blink
+
 -- font
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 13
@@ -21,13 +24,6 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.initial_cols = 128
 config.initial_rows = 36
 config.use_resize_increments = false
-
--- paste options
--- rewrite line endings to LF when pasting
-config.canonicalize_pasted_newlines = "LineFeed"
-
--- cursor
-config.cursor_blink_rate = 0 -- disable cursor blink
 
 -- keymaps
 local insert_key_pass = function(opts)
