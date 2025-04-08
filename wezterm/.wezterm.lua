@@ -46,7 +46,7 @@ end
 config.keys = {}
 insert_key_pass({
 	conf = config.keys,
-	keys = { ",", ".", "w", "p", "m" },
+	keys = { ",", ".", "-", "=", "w", "p", "m" },
 	modifier_from = "SUPER",
 	modifier_to = "ALT",
 })
