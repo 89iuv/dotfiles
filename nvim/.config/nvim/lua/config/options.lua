@@ -13,8 +13,6 @@ vim.g.snacks_animate = false
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
-vim.o.guicursor = "n-c:block,i-ci:ver25,r-cr:hor20,o:hor50,v-ve:hor80"
-
 vim.opt.swapfile = false
 vim.opt.pumblend = 0
 vim.opt.relativenumber = false
