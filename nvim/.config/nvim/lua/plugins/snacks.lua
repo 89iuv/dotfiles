@@ -51,8 +51,7 @@ return {
       },
     },
     words = {
-      debounce = 80, -- time in ms to wait before updating
-      modes = { "n" }, -- modes to show references
+      enabled = false,
     },
     notifier = {
       width = { min = 0.35, max = 0.35 },
