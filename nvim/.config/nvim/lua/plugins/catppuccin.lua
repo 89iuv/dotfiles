@@ -18,7 +18,7 @@ return {
         StatusLine = { bg = colors.crust },
         LineNr = { fg = colors.surface1 },
 
-        Folded = { fg = colors.blue, bg = colors_utils.darken(colors.surface0, 0.5, colors.base) },
+        Folded = { fg = colors.blue, bg = colors.surface0 },
 
         -- bufferline
         BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.base },
@@ -33,7 +33,7 @@ return {
         BufferLineWarning = { link = "BufferLineBuffer" },
         BufferLineError = { link = "BufferLineBuffer" },
 
-        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold", "italic" } },
+        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold" } },
         BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
         BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
@@ -55,6 +55,11 @@ return {
 
         -- mini indent scope
         MiniIndentscopeSymbol = { fg = colors.overlay0 },
+
+        -- iluminate
+        IlluminatedWordText = { bg = colors.surface1 },
+        IlluminatedWordRead = { bg = colors.surface1 },
+        IlluminatedWordWrite = { bg = colors.surface1 },
 
         -- blink_cmp
         BlinkCmpSource = { link = "PmenuSelect" },

@@ -100,6 +100,7 @@ source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/th
 # custom catppuccin highlights for zsh-syntax-highlighting
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#cdd6f4,underline'
+ZSH_HIGHLIGHT_STYLES[cursor]='none'
 
 # nix complete
 fpath+=$HOME/.nix-profile/share/zsh/site-functions/
@@ -115,12 +116,20 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# cursor
+_set_vert_cursor() {
+  echo -ne '\e[5 q'
+}
+precmd_functions+=(_set_vert_cursor)
+
 # zsh-history-substring-search
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=#11111b,bg=#f38ba8"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=#11111b,bg=#f5c2e7"
 
 # zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c7086"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(forward-char)
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -136,7 +145,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
 # zsh history
 HISTSIZE=1000000
@@ -157,8 +166,8 @@ setopt HIST_REDUCE_BLANKS
 
 # zsh reduce esc key delay
 # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-# 10ms for key sequences
-KEYTIMEOUT=1
+# 20ms for key sequences
+KEYTIMEOUT=2
 
 # setup for bsd ls
 export LSCOLORS='ExGxFxdaCxDaDahbadacec'
@@ -262,7 +271,7 @@ nix-zsh() {
 }
 
 # edit current command in neovim keybind
-bindkey '^f' edit-command-line
+bindkey '^e' edit-command-line
 
 # super tab keybind
 super-tab() {

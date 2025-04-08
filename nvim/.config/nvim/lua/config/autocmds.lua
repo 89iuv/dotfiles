@@ -19,7 +19,7 @@ end
 local old_nvim_open_win = vim.api.nvim_open_win
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_open_win = function(buffer, enter, config)
-  if (config.border == "rounded") then
+  if config.border == "rounded" then
     config.border = "single"
   end
   return old_nvim_open_win(buffer, enter, config)
@@ -29,7 +29,7 @@ end
 local old_nvim_win_set_config = vim.api.nvim_win_set_config
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_win_set_config = function(window, config)
-  if (config.border == "rounded") then
+  if config.border == "rounded" then
     config.border = "single"
   end
   return old_nvim_win_set_config(window, config)
@@ -43,3 +43,34 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Disable word highlight when entering visual mode
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "n:*",
+  callback = function()
+    require("illuminate").pause()
+  end,
+})
+
+-- Enable word highlight when entering visual mode
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*:n",
+  callback = function()
+    require("illuminate").resume()
+  end,
+})
+
+-- Set cursor on enter
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+  end,
+})
+
+-- Set cursor on exit
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  callback = function()
+    vim.o.guicursor = "a:ver25"
+  end,
+})
