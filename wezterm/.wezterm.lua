@@ -11,19 +11,28 @@ config.cursor_blink_rate = 0 -- disable cursor blink
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 13
 
+-- tabs
+-- config.use_fancy_tab_bar = true
+config.enable_tab_bar = false
+-- config.show_tabs_in_tab_bar = false
+-- config.show_new_tab_button_in_tab_bar = false
+
 -- window decorations
-config.enable_tab_bar = true
-config.show_tabs_in_tab_bar = false
-config.show_new_tab_button_in_tab_bar = false
-
-config.use_fancy_tab_bar = true
-
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
 config.initial_cols = 128
 config.initial_rows = 36
 config.use_resize_increments = false
+
+-- window content alignment
+config.window_content_alignment = {
+	horizontal = "Center",
+	vertical = "Center",
+}
+
+-- close confirmation
+config.window_close_confirmation = "NeverPrompt"
 
 -- keymaps
 local insert_key_pass = function(opts)
