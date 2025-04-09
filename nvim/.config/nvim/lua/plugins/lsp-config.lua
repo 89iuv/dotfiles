@@ -19,20 +19,23 @@ return {
         },
       },
       servers = {
-        -- pyright = {
-        --   settings = {
-        --     pyright = {
-        --       -- Using Ruff's import organizer
-        --       disableOrganizeImports = true,
-        --     },
-        --     python = {
-        --       analysis = {
-        --         -- Ignore all files for analysis to exclusively use Ruff for linting
-        --         ignore = { "*" },
-        --       },
-        --     },
-        --   },
-        -- },
+        ruff = {
+          init_options = {
+            settings = {
+              lint = {
+                select = {
+                  "E", -- pycodestyle
+                  "F", -- Pyflakes
+                  "UP", -- pyupgrade
+                  "B", -- flake8-bugbear
+                  "SIM", -- flake8-simplify
+                  "I", -- isort
+                },
+                ignore = {}
+              }
+            }
+          }
+        }
       },
     }
 

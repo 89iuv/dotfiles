@@ -34,10 +34,11 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.coreutils
     pkgs.less
-    pkgs.git
-    pkgs.stow
     pkgs.xclip
+    pkgs.stow
+    pkgs.git
 
     pkgs.zoxide
     pkgs.eza
@@ -59,7 +60,10 @@
     pkgs.lua51Packages.lua
     pkgs.lua51Packages.luarocks
     pkgs.nodejs
-    pkgs.python3
+    pkgs.python313
+    pkgs.python313Packages.pip
+    pkgs.pipx
+    pkgs.poetry
     pkgs.jdk
     pkgs.cargo
     pkgs.neovim
