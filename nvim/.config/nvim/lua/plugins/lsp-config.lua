@@ -36,10 +36,6 @@ return {
       },
     }
 
-    local keys = require("lazyvim.plugins.lsp.keymaps").get()
-    keys[#keys + 1] = { "K", false }
-    keys[#keys + 1] = { "gk", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Hover" }
-
     return vim.tbl_deep_extend("force", opts, new_opts)
   end,
 }
