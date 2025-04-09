@@ -25,12 +25,6 @@ config.initial_cols = 128
 config.initial_rows = 36
 config.use_resize_increments = false
 
--- window content alignment
-config.window_content_alignment = {
-	horizontal = "Center",
-	vertical = "Center",
-}
-
 -- close confirmation
 config.window_close_confirmation = "NeverPrompt"
 
