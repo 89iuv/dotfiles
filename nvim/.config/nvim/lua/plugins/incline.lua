@@ -23,7 +23,8 @@ return {
         },
       },
       render = function(props)
-        local function get_diagnostic_label()
+
+        local function get_diagnostic_label(namespace)
           local icons = LazyVim.config.icons.diagnostics
           local priority = {
               DiagnosticSignError = 1,
@@ -35,6 +36,7 @@ return {
 
           for severity, icon in pairs(icons) do
             local n = #vim.diagnostic.get(props.buf, {
+              namespace = namespace,
               severity = vim.diagnostic.severity[string.upper(severity)],
             })
             if n > 0 then
@@ -49,54 +51,47 @@ return {
           return label
         end
 
-        local function get_lsp_label()
-          local clients = vim.lsp.get_clients({ bufnr = props.buf })
+        local function get_code_table()
+          local code_table = {}
 
-          local lsp_table = {}
-          for _, client in ipairs(clients) do
-            table.insert(lsp_table, "󰒓 " .. client.name)
+          -- lsp diagnostics and client name
+          local clients = vim.lsp.get_clients({ bufnr = props.buf })
+          table.sort(clients, function (a, b)
+            return a.name < b.name
+          end)
+
+          for index, client in ipairs(clients) do
+            if index ~= 1 then
+              table.insert(code_table, {" │ "})
+            end
+
+            local lsp_client = {}
+            local pull_namespace = vim.lsp.diagnostic.get_namespace(client.id, true)
+            local push_namespace = vim.lsp.diagnostic.get_namespace(client.id, false)
+            table.insert(lsp_client, get_diagnostic_label(pull_namespace))
+            table.insert(lsp_client, get_diagnostic_label(push_namespace))
+            table.insert(lsp_client, { "󰒓 " .. client.name })
+            table.insert(code_table, lsp_client)
           end
 
-          table.sort(lsp_table)
-          local lsp_label = table.concat(lsp_table, " ")
-
-          return vim.trim(lsp_label)
-        end
-
-        local function get_formater_label()
+          -- code formater name
           local conform = require("conform")
           local formaters = conform.list_formatters_to_run(props.buf)
 
-          local formaters_table = {}
+          table.sort(formaters, function (a, b)
+            return a.name < b.name
+          end)
+
           for _, formater in ipairs(formaters) do
-            table.insert(formaters_table, "󰏫 " .. formater.name)
+            table.insert(code_table, {" │ "})
+            table.insert(code_table, { "󰏫 " .. formater.name })
           end
 
-          table.sort(formaters_table)
-          local formaters_label = table.concat(formaters_table, " ")
-
-          return formaters_label
-        end
-
-        local get_code_label = function()
-          local code_helpers = {}
-          table.insert(code_helpers, get_lsp_label())
-          table.insert(code_helpers, get_formater_label())
-
-          -- clean up table
-          local filtered_code_helpers = {}
-          for _, helper in ipairs(code_helpers) do
-            if helper ~= "" then
-              table.insert(filtered_code_helpers, helper)
-            end
-          end
-
-          return table.concat(filtered_code_helpers, " │ ")
+          return code_table
         end
 
         return {
-          { get_diagnostic_label() },
-          { get_code_label() },
+          get_code_table()
         }
       end,
     }
