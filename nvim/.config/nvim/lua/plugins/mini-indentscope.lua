@@ -9,7 +9,7 @@ return {
         "markdown",
         "grug-far-help",
         "snacks_picker_preview",
-        "noice"
+        "noice",
       },
       callback = function()
         vim.b.miniindentscope_disable = true
@@ -21,7 +21,8 @@ return {
       pattern = {
         "python",
         "gitconfig",
-        "yaml"
+        "yaml",
+        "sh",
       },
       callback = function()
         vim.b.miniindentscope_config = { options = { border = "top" } }
