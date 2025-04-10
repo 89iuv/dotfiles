@@ -21,8 +21,8 @@ config.enable_tab_bar = false
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
-config.initial_cols = 128
-config.initial_rows = 36
+config.initial_cols = 120
+config.initial_rows = 30
 config.use_resize_increments = false
 
 -- close confirmation

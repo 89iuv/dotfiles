@@ -10,6 +10,7 @@ Snacks.toggle
   .new({
     name = "Line Column",
     get = function()
+      ---@diagnostic disable-next-line: undefined-field
       if #vim.opt.colorcolumn:get() ~= 0 then
         return true
       else
