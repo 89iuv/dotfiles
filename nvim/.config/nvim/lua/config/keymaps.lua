@@ -4,3 +4,24 @@
 
 -- workaround for <leader>wd not working on fast action
 vim.keymap.set("n", "<leader>w", "<nop>", { desc = "Windows", remap = false })
+
+-- toggle line column
+Snacks.toggle
+  .new({
+    name = "Line Column",
+    get = function()
+      if #vim.opt.colorcolumn:get() ~= 0 then
+        return true
+      else
+        return false
+      end
+    end,
+    set = function(state)
+      if state then
+        vim.opt.colorcolumn = "119"
+      else
+        vim.opt.colorcolumn = ""
+      end
+    end,
+  })
+  :map("<leader>uu")

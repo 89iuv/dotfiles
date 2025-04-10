@@ -23,14 +23,13 @@ return {
         },
       },
       render = function(props)
-
         local function get_diagnostic_label(namespace)
           local icons = LazyVim.config.icons.diagnostics
           local priority = {
-              DiagnosticSignError = 1,
-              DiagnosticSignWarn  = 2,
-              DiagnosticSignInfo  = 3,
-              DiagnosticSignHint  = 4,
+            DiagnosticSignError = 1,
+            DiagnosticSignWarn = 2,
+            DiagnosticSignInfo = 3,
+            DiagnosticSignHint = 4,
           }
           local label = {}
 
@@ -44,7 +43,7 @@ return {
             end
           end
 
-          table.sort(label, function (a, b)
+          table.sort(label, function(a, b)
             return priority[a["group"]] > priority[b["group"]]
           end)
 
@@ -56,13 +55,13 @@ return {
 
           -- lsp diagnostics and client name
           local clients = vim.lsp.get_clients({ bufnr = props.buf })
-          table.sort(clients, function (a, b)
+          table.sort(clients, function(a, b)
             return a.name < b.name
           end)
 
           for index, client in ipairs(clients) do
             if index ~= 1 then
-              table.insert(code_table, {" │ "})
+              table.insert(code_table, { " │ " })
             end
 
             local lsp_client = {}
@@ -78,12 +77,12 @@ return {
           local conform = require("conform")
           local formaters = conform.list_formatters_to_run(props.buf)
 
-          table.sort(formaters, function (a, b)
+          table.sort(formaters, function(a, b)
             return a.name < b.name
           end)
 
           for _, formater in ipairs(formaters) do
-            table.insert(code_table, {" │ "})
+            table.insert(code_table, { " │ " })
             table.insert(code_table, { "󰏫 " .. formater.name })
           end
 
@@ -91,7 +90,7 @@ return {
         end
 
         return {
-          get_code_table()
+          get_code_table(),
         }
       end,
     }
