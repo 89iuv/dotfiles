@@ -31,11 +31,13 @@ return {
                   "SIM", -- flake8-simplify
                   "I", -- isort
                 },
-                ignore = {}
-              }
-            }
-          }
-        }
+                ignore = {
+                  "E501", -- line-to-long
+                },
+              },
+            },
+          },
+        },
       },
     }
 
