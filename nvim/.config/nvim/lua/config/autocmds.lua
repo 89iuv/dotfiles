@@ -59,6 +59,26 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
+-- Disable relative line number when entering insert mode
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*:i",
+  callback = function()
+    if vim.wo.number == true then
+      vim.wo.relativenumber = false
+    end
+  end,
+})
+
+-- Enable relative line number when exiting insert mode
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "i:*",
+  callback = function()
+    if vim.wo.number == true then
+      vim.wo.relativenumber = true
+    end
+  end,
+})
+
 -- Set cursor on enter
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",

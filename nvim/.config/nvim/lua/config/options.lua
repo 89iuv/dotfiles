@@ -15,7 +15,7 @@ vim.g.autoformat = false
 
 vim.opt.swapfile = false
 vim.opt.pumblend = 0
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
