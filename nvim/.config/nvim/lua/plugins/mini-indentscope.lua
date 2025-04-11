@@ -29,14 +29,17 @@ return {
       end,
     })
 
-    opts.draw = {
-      delay = 0,
-      animation = require("mini.indentscope").gen_animation.none(),
+    local new_opts = {
+      draw = {
+        delay = 0,
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+      options = {
+        border = "both",
+        try_as_border = true,
+      },
     }
 
-    opts.options = {
-      border = "both",
-      try_as_border = true,
-    }
+    return vim.tbl_deep_extend("force", opts, new_opts)
   end,
 }
