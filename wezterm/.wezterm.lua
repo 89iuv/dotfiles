@@ -28,7 +28,7 @@ config.use_resize_increments = false
 -- close confirmation
 config.window_close_confirmation = "NeverPrompt"
 
--- keymaps
+-- keymaps helpers
 local insert_key_pass = function(opts)
 	for _, key in ipairs(opts.keys) do
 		table.insert(opts.conf, {
@@ -42,6 +42,18 @@ local insert_key_pass = function(opts)
 	end
 end
 
+local insert_key_map = function(opts)
+	table.insert(opts.conf, {
+		key = opts.key_from,
+		mods = opts.modifier_from and opts.modifier_from or "",
+		action = wezterm.action.SendKey({
+			key = opts.key_to,
+			mods = opts.modifier_to and opts.modifier_to or "",
+		}),
+	})
+end
+
+-- passthrough keys from cmd to alt
 config.keys = {}
 insert_key_pass({
 	conf = config.keys,
@@ -55,6 +67,21 @@ insert_key_pass({
 	keys = { "<", ">" },
 	modifier_from = "SUPER|SHIFT",
 	modifier_to = "ALT|SHIFT",
+})
+
+-- remap keys
+insert_key_map({
+	conf = config.keys,
+	key_from = "§",
+	key_to = "`",
+})
+
+insert_key_map({
+	conf = config.keys,
+	key_from = "±",
+	modfier_from = "SHIFT",
+	key_to = "~",
+	modifier_to = "SHIFT",
 })
 
 -- and finally, return the configuration to wezterm
