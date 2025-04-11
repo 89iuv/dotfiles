@@ -22,6 +22,8 @@ return {
         ruff = {
           init_options = {
             settings = {
+              lineLength = 119,
+              configurationPreference = "filesystemFirst",
               lint = {
                 select = {
                   "E", -- pycodestyle
@@ -32,6 +34,12 @@ return {
                   "I", -- isort
                 },
                 ignore = {
+                  -- covered by pyright
+                  "F401", -- unused-import
+                  "F821", -- undefined-name
+                  "F841", -- unused-variable
+                  "B018", -- useless-expression
+                  -- disabled rules
                   "E501", -- line-to-long
                 },
               },
