@@ -19,8 +19,8 @@ config.line_height = 1
 -- tabs
 -- config.enable_tab_bar = false
 config.use_fancy_tab_bar = true
-config.show_tabs_in_tab_bar = false
-config.show_new_tab_button_in_tab_bar = false
+config.show_tabs_in_tab_bar = true
+config.show_new_tab_button_in_tab_bar = true
 
 -- window decorations
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
@@ -94,11 +94,11 @@ wezterm.on("window-resized", function(window, _)
 	local new_config
 	if window:get_dimensions().is_full_screen then
 		new_config = {
-			enable_tab_bar = false,
+      hide_tab_bar_if_only_one_tab = true
 		}
 	else
 		new_config = {
-			enable_tab_bar = true,
+      hide_tab_bar_if_only_one_tab = false
 		}
 	end
 	local overrides = window:get_config_overrides() or {}
