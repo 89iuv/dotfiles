@@ -5,30 +5,32 @@ local config = wezterm.config_builder()
 config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 
 -- cursor
-config.cursor_blink_rate = 0 -- disable cursor blink
+config.default_cursor_style = "SteadyBar"
+config.cursor_blink_rate = 0
 
--- font
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+-- font mac
 config.font_size = 13
+config.line_height = 1
+
+-- font windows
+-- config.font_size = 11
+-- config.line_height = 0.95
 
 -- tabs
--- config.use_fancy_tab_bar = true
-config.enable_tab_bar = false
--- config.show_tabs_in_tab_bar = false
--- config.show_new_tab_button_in_tab_bar = false
+-- config.enable_tab_bar = false
+config.use_fancy_tab_bar = true
+config.show_tabs_in_tab_bar = false
+config.show_new_tab_button_in_tab_bar = false
 
 -- window decorations
--- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
 config.initial_cols = 128
 config.initial_rows = 36
 config.use_resize_increments = false
 
--- close confirmation
-config.window_close_confirmation = "NeverPrompt"
-
--- keymaps helpers
+-- insert key passthrough
 local insert_key_pass = function(opts)
 	for _, key in ipairs(opts.keys) do
 		table.insert(opts.conf, {
@@ -42,6 +44,7 @@ local insert_key_pass = function(opts)
 	end
 end
 
+-- insert key mapping
 local insert_key_map = function(opts)
 	table.insert(opts.conf, {
 		key = opts.key_from,
@@ -62,6 +65,7 @@ insert_key_pass({
 	modifier_to = "ALT",
 })
 
+-- passthrough keys from shift+cmd to shift+alt
 insert_key_pass({
 	conf = config.keys,
 	keys = { "<", ">" },
@@ -76,6 +80,7 @@ insert_key_map({
 	key_to = "`",
 })
 
+-- remap shift+keys
 insert_key_map({
 	conf = config.keys,
 	key_from = "±",
@@ -83,6 +88,31 @@ insert_key_map({
 	key_to = "~",
 	modifier_to = "SHIFT",
 })
+
+-- hide tab bar when full screen
+wezterm.on("window-resized", function(window, _)
+	local new_config
+	if window:get_dimensions().is_full_screen then
+		new_config = {
+			enable_tab_bar = false,
+		}
+	else
+		new_config = {
+			enable_tab_bar = true,
+		}
+	end
+	local overrides = window:get_config_overrides() or {}
+	local diff = false
+	for k, v in pairs(new_config) do
+		if overrides[k] ~= v then
+			diff = true
+			overrides[k] = v
+		end
+	end
+	if diff then
+		window:set_config_overrides(overrides)
+	end
+end)
 
 -- and finally, return the configuration to wezterm
 return config
