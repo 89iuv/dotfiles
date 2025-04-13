@@ -9,8 +9,13 @@ config.default_cursor_style = "SteadyBar"
 config.cursor_blink_rate = 0
 
 -- font
-config.font_size = 13
--- config.font_size = 11
+if wezterm.target_triple:find("darwin") then
+  config.font_size = 13
+end
+
+if wezterm.target_triple:find("windows") then
+  config.font_size = 11
+end
 
 -- tabs
 -- config.enable_tab_bar = false
