@@ -8,13 +8,9 @@ config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 config.default_cursor_style = "SteadyBar"
 config.cursor_blink_rate = 0
 
--- font mac
+-- font
 config.font_size = 13
-config.line_height = 1
-
--- font windows
 -- config.font_size = 11
--- config.line_height = 0.95
 
 -- tabs
 -- config.enable_tab_bar = false
@@ -26,8 +22,8 @@ config.show_new_tab_button_in_tab_bar = true
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
-config.initial_cols = 128
-config.initial_rows = 36
+config.initial_cols = 130
+config.initial_rows = 35
 config.use_resize_increments = false
 
 -- insert key passthrough
