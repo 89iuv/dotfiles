@@ -73,12 +73,6 @@ nix flake update
 home-manager switch --impure
 ```
 
-## Manual
-
-Fallow the manual instructions from:
-
-- ~/.dotfiles/wezterm/README.md
-
 ## Issues
 
 The following issues are found in:
