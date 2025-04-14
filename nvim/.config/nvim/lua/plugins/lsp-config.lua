@@ -38,6 +38,7 @@ return {
                   "F401", -- unused-import
                   "F821", -- undefined-name
                   "F841", -- unused-variable
+                  "B007", -- unused-loop-control-variable
                   "B018", -- useless-expression
                   -- disabled rules
                   "E501", -- line-to-long
