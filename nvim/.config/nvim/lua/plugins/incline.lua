@@ -59,17 +59,14 @@ return {
             return a.name < b.name
           end)
 
-          for index, client in ipairs(clients) do
-            if index ~= 1 then
-              table.insert(code_table, { " │ " })
-            end
-
+          for _, client in ipairs(clients) do
             local lsp_client = {}
             local pull_namespace = vim.lsp.diagnostic.get_namespace(client.id, true)
             local push_namespace = vim.lsp.diagnostic.get_namespace(client.id, false)
             table.insert(lsp_client, get_diagnostic_label(pull_namespace))
             table.insert(lsp_client, get_diagnostic_label(push_namespace))
             table.insert(lsp_client, { "󰒓 " .. client.name })
+
             table.insert(code_table, lsp_client)
           end
 
@@ -82,11 +79,22 @@ return {
           end)
 
           for _, formater in ipairs(formaters) do
-            table.insert(code_table, { " │ " })
-            table.insert(code_table, { "󰏫 " .. formater.name })
+            local formater_client = {}
+            table.insert(formater_client, { "󰏫 " .. formater.name })
+
+            table.insert(code_table, formater_client)
           end
 
-          return code_table
+          local code_table_formated = {}
+          for index, code in ipairs(code_table) do
+            if index ~= 1 then
+              table.insert(code_table_formated, { " │ " })
+            end
+
+            table.insert(code_table_formated, code)
+          end
+
+          return code_table_formated
         end
 
         return {
