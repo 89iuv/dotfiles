@@ -37,6 +37,7 @@
     pkgs.coreutils
     pkgs.less
     pkgs.xclip
+    pkgs.jq
     pkgs.stow
     pkgs.git
 

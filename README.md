@@ -3,8 +3,6 @@
 <!--toc:start-->
 - [Dotfiles](#dotfiles)
   - [System](#system)
-    - [Ubuntu](#ubuntu)
-    - [Mac](#mac)
   - [Environment](#environment)
   - [Setup](#setup)
   - [Issues](#issues)
@@ -14,15 +12,13 @@
 
 Install platform specific build tools ex: make, gcc, etc.
 
-### Ubuntu
-
 ```sh
+# ubuntu
 sudo apt install build-essentials
 ```
 
-### Mac
-
 ```sh
+# macos
 xcode-select --install
 ```
 
@@ -68,6 +64,20 @@ rm tmp.txt
 ## Update
 
 ```sh
+# update Ubuntu
+sudo apt update
+sudo apt upgrade
+```
+
+```sh
+# update dotfiles
+cd ~/.dotfiles
+git pull
+git submodule update --recursive --init
+```
+
+```sh
+# update home-manager
 cd ~/.config/home-manager
 nix flake update
 home-manager switch --impure
