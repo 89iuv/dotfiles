@@ -265,9 +265,6 @@ then
   export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
-# python: poetry
-export POETRY_VIRTUALENVS_IN_PROJECT=true
-
 # nix-shell
 nix-zsh() {
   nix-shell --run zsh "$@"

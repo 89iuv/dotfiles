@@ -61,10 +61,9 @@
     pkgs.lua51Packages.lua
     pkgs.lua51Packages.luarocks
     pkgs.nodejs
-    pkgs.python313
-    pkgs.python313Packages.pip
-    pkgs.pipx
-    pkgs.poetry
+    pkgs.python3
+    pkgs.python3Packages.pip
+    pkgs.uv
     pkgs.jdk
     pkgs.cargo
     pkgs.neovim
