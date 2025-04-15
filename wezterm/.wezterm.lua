@@ -10,7 +10,7 @@ config.cursor_blink_rate = 0
 
 -- font
 if wezterm.target_triple:find("darwin") then
-  config.font_size = 13
+  config.font_size = 14
 end
 
 if wezterm.target_triple:find("windows") then
