@@ -12,10 +12,10 @@ return {
     })
     return {
       request_timeout = 30000,
-      default_view = "headers_body",
       ui = {
-        winbar = false
-      }
+        default_view = "headers_body",
+        default_winbar_panes = { "body", "headers", "headers_body", "verbose", "help" },
+      },
     }
   end,
 }
