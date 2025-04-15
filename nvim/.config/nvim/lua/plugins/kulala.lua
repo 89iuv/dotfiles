@@ -11,7 +11,7 @@ return {
       end,
     })
     return {
-      request_timeout = 30,
+      request_timeout = 30000,
       default_view = "headers_body",
       ui = {
         winbar = false
