@@ -127,6 +127,9 @@ return {
         ["@markup.italic.markdown_inline"] = { fg = colors.text, style = { "italic" } },
 
         ["@markup.quote.markdown"] = { link = "RenderMarkdownQuote" },
+
+        -- treesitter
+        ["@string.special.url"] = { fg = colors.rosewater, sp = colors.rosewater, style = { "italic", "underline" } },
       }
     end,
   },

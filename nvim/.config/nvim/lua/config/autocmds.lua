@@ -35,6 +35,28 @@ vim.api.nvim_win_set_config = function(window, config)
   return old_nvim_win_set_config(window, config)
 end
 
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc", "json5", "http" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
+-- Disable conceallevel for buftype
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    local patterns = {
+      "nofile",
+    }
+    for _, pattern in ipairs(patterns) do
+      if pattern == vim.bo.buftype then
+        vim.opt_local.conceallevel = 0
+      end
+    end
+  end,
+})
+
 -- Do not continue with comments on the next line
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
