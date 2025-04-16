@@ -6,7 +6,7 @@ return {
 
     -- disable mini indentscope for filetypes
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = global.indent_guide.exclude.filetypes,
+      pattern = global.indent_guide.exclude.filetype,
       callback = function()
         vim.b.miniindentscope_disable = true
       end,
@@ -14,14 +14,14 @@ return {
 
     -- disable mini indentscope for buftypes
     vim.api.nvim_create_autocmd("BufEnter", {
-      callback = function ()
+      callback = function()
         local patterns = global.indent_guide.exclude.buftype
         for _, pattern in ipairs(patterns) do
           if pattern == vim.bo.buftype then
             vim.b.miniindentscope_disable = true
           end
         end
-      end
+      end,
     })
 
     -- set custom border for filetype
