@@ -5,6 +5,9 @@
 -- workaround for <leader>wd not working on fast action
 vim.keymap.set("n", "<leader>w", "<nop>", { desc = "Windows", remap = false })
 
+ -- Highlight the word under the coursor
+vim.api.nvim_set_keymap('n', '*', '*N', {noremap = true})
+
 -- toggle line column
 Snacks.toggle
   .new({
