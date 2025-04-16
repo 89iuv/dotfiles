@@ -2,6 +2,8 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   enabled = true,
   config = function()
+    local global = require("config.global")
+
     Snacks.toggle({
       name = "Indention Guides",
       get = function()
@@ -22,46 +24,8 @@ return {
 
     require("ibl").overwrite({
       exclude = {
-        filetypes = {
-          -- default
-          "lspinfo",
-          "packer",
-          "checkhealth",
-          "help",
-          "man",
-          "gitcommit",
-          "TelescopePrompt",
-          "TelescopeResults",
-          "",
-
-          -- lazy
-          "Trouble",
-          "alpha",
-          "dashboard",
-          "fzf",
-          "help",
-          "lazy",
-          "mason",
-          "neo-tree",
-          "notify",
-          "snacks_dashboard",
-          "snacks_notif",
-          "snacks_terminal",
-          "snacks_win",
-          "toggleterm",
-          "trouble",
-
-          -- custom
-          "markdown",
-          "snacks_picker_preview",
-          "snacks_picker_list",
-          "neo-tree-popup",
-        },
-        buftypes = {
-          "terminal",
-          "quickfix",
-          "prompt",
-        },
+        filetypes = global.indent_guide.exclude.filetype,
+        buftypes = global.indent_guide.exclude.buftype,
       },
     })
   end,

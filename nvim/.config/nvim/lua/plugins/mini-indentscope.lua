@@ -2,43 +2,11 @@ return {
   "echasnovski/mini.indentscope",
   enabled = true,
   opts = function(_, opts)
+    local global = require("config.global")
+
     -- disable mini indentscope for filetypes
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = {
-        -- default
-        "lspinfo",
-        "packer",
-        "checkhealth",
-        "help",
-        "man",
-        "gitcommit",
-        "TelescopePrompt",
-        "TelescopeResults",
-        "",
-
-        -- lazy
-        "Trouble",
-        "alpha",
-        "dashboard",
-        "fzf",
-        "help",
-        "lazy",
-        "mason",
-        "neo-tree",
-        "notify",
-        "snacks_dashboard",
-        "snacks_notif",
-        "snacks_terminal",
-        "snacks_win",
-        "toggleterm",
-        "trouble",
-
-        -- custom
-        "markdown",
-        "snacks_picker_preview",
-        "snacks_picker_list",
-        "neo-tree-popup",
-      },
+      pattern = global.indent_guide.exclude.filetypes,
       callback = function()
         vim.b.miniindentscope_disable = true
       end,
@@ -47,11 +15,7 @@ return {
     -- disable mini indentscope for buftypes
     vim.api.nvim_create_autocmd("BufEnter", {
       callback = function ()
-        local patterns = {
-          "terminal",
-          "quickfix",
-          "prompt",
-        }
+        local patterns = global.indent_guide.exclude.buftype
         for _, pattern in ipairs(patterns) do
           if pattern == vim.bo.buftype then
             vim.b.miniindentscope_disable = true
