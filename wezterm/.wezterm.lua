@@ -12,16 +12,19 @@ config.cursor_blink_rate = 0
 if wezterm.target_triple:find("darwin") then
   -- font
   config.font_size = 14
+  config.line_height = 1.0
 end
 
 -- Windows
 if wezterm.target_triple:find("windows") then
   -- font
   config.font_size = 11
+  config.line_height = 1.0
 
   --default domain
   config.default_domain = 'WSL:Ubuntu'
 end
+
 
 -- tabs
 -- config.enable_tab_bar = false
@@ -36,6 +39,18 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.initial_cols = 130
 config.initial_rows = 35
 config.use_resize_increments = false
+
+config.window_padding = {
+  left = '0.5cell',
+  right = '0.5cell',
+  top = '0.25cell',
+  bottom = '0.25cell',
+}
+
+config.window_content_alignment = {
+  horizontal = 'Center',
+  vertical = 'Center',
+}
 
 -- insert key passthrough
 local insert_key_pass = function(opts)
