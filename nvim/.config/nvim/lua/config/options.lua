@@ -9,7 +9,7 @@
 -- note: the project root si always bellow or equal to the cwd
 -- vim.g.root_spec = { "cwd" }
 
-vim.g.snacks_animate = false
+vim.g.snacks_animate = true
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
