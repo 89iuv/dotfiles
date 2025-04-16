@@ -8,13 +8,19 @@ config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 config.default_cursor_style = "SteadyBar"
 config.cursor_blink_rate = 0
 
--- font
+-- MacOS
 if wezterm.target_triple:find("darwin") then
+  -- font
   config.font_size = 14
 end
 
+-- Windows
 if wezterm.target_triple:find("windows") then
+  -- font
   config.font_size = 11
+
+  --default domain
+  config.default_domain = 'WSL:Ubuntu'
 end
 
 -- tabs
