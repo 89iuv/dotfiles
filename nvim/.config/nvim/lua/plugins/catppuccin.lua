@@ -57,6 +57,9 @@ return {
         -- mini indent scope
         MiniIndentscopeSymbol = { fg = colors.overlay0 },
 
+        -- virtual column
+        VirtColumn = { fg = colors.surface0 },
+
         -- iluminate
         IlluminatedWordText = { bg = colors.surface1 },
         IlluminatedWordRead = { bg = colors.surface1 },
