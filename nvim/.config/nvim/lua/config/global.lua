@@ -36,6 +36,7 @@ M.indent_guide = {
       "snacks_picker_preview",
       "snacks_picker_list",
       "neo-tree-popup",
+      "text",
     },
 
     buftype = {
