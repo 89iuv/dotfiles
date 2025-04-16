@@ -37,6 +37,7 @@ return {
         "markdown",
         "snacks_picker_preview",
         "snacks_picker_list",
+        "neo-tree-popup",
       },
       callback = function()
         vim.b.miniindentscope_disable = true

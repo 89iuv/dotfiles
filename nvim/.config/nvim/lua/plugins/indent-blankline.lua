@@ -55,6 +55,7 @@ return {
           "markdown",
           "snacks_picker_preview",
           "snacks_picker_list",
+          "neo-tree-popup",
         },
         buftypes = {
           "terminal",
