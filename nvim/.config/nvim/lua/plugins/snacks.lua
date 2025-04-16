@@ -1,6 +1,9 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    animate = {
+      fps = 120,
+    },
     dashboard = {
       preset = {
         keys = {

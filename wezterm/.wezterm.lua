@@ -4,27 +4,32 @@ local config = wezterm.config_builder()
 -- color scheme
 config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 
--- cursor
-config.default_cursor_style = "SteadyBar"
-config.cursor_blink_rate = 0
-
 -- MacOS
 if wezterm.target_triple:find("darwin") then
-  -- font
-  config.font_size = 14
-  config.line_height = 1.0
+	-- font
+	config.font_size = 14
+	config.line_height = 1.0
 end
 
 -- Windows
 if wezterm.target_triple:find("windows") then
-  -- font
-  config.font_size = 11
-  config.line_height = 1.0
+	-- font
+	config.font_size = 11
+	config.line_height = 1.0
 
-  --default domain
-  config.default_domain = 'WSL:Ubuntu'
+	--default domain
+	config.default_domain = "WSL:Ubuntu"
 end
 
+-- performance
+config.max_fps = 120
+
+-- disable scroll bar
+config.enable_scroll_bar = false
+
+-- cursor
+config.default_cursor_style = "SteadyBar"
+config.cursor_blink_rate = 0
 
 -- tabs
 -- config.enable_tab_bar = false
@@ -41,16 +46,14 @@ config.initial_rows = 35
 config.use_resize_increments = false
 
 config.window_padding = {
-  left = '0.5cell',
-  right = '0.5cell',
-  top = '0.25cell',
-  bottom = '0.25cell',
+	left = "0.50cell",
+	right = "0.50cell",
+	top = "0.25cell",
+	bottom = "0.25cell",
 }
 
-config.window_content_alignment = {
-  horizontal = 'Center',
-  vertical = 'Center',
-}
+-- disable close confirmation
+config.window_close_confirmation = "NeverPrompt"
 
 -- insert key passthrough
 local insert_key_pass = function(opts)
@@ -116,11 +119,11 @@ wezterm.on("window-resized", function(window, _)
 	local new_config
 	if window:get_dimensions().is_full_screen then
 		new_config = {
-      hide_tab_bar_if_only_one_tab = true
+			hide_tab_bar_if_only_one_tab = true,
 		}
 	else
 		new_config = {
-      hide_tab_bar_if_only_one_tab = false
+			hide_tab_bar_if_only_one_tab = false,
 		}
 	end
 	local overrides = window:get_config_overrides() or {}

@@ -13,8 +13,11 @@ return {
 
     delay_event_to_smear = 10,
 
-    stiffness = 0.7,
-    trailing_stiffness = 0.3,
+    stiffness = 0.8,
+    trailing_stiffness = 0.2,
     max_length = 50,
+
+    time_interval = 8 -- milliseconds
+
   },
 }
