@@ -58,6 +58,7 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
+    pkgs.nixfmt-classic
     pkgs.fish # used in neovim conform plugin
     (pkgs.lua5_1.withPackages (lua_pkgs: [
       lua_pkgs.luarocks
