@@ -42,7 +42,7 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
 config.initial_cols = 128
-config.initial_rows = 34
+config.initial_rows = 36
 config.use_resize_increments = false
 
 config.window_padding = {
