@@ -1,8 +1,11 @@
 return {
   "sphamba/smear-cursor.nvim",
-  enabled = vim.g.snacks_animate,
+  enabled = vim.g.animate_enabled,
   opts = function()
+    local smear_cursor = require("smear_cursor")
     local abort = false
+
+    -- Disable when entering terminal or cmdline
     vim.api.nvim_create_autocmd({ "TermEnter", "CmdlineEnter" }, {
       callback = function()
         abort = false
@@ -10,37 +13,38 @@ return {
         require("smear_cursor").vertical_bar_cursor = true
         vim.defer_fn(function()
           if not abort then
-            require("smear_cursor").enabled = false
+            smear_cursor.enabled = false
           end
         end, 500)
       end,
     })
 
+    -- Enable when leaving terminal or cmdline
     vim.api.nvim_create_autocmd({ "TermLeave", "CmdlineLeave" }, {
       callback = function()
         abort = true
 
-        require("smear_cursor").vertical_bar_cursor = false
-        require("smear_cursor").enabled = true
+        smear_cursor.vertical_bar_cursor = false
+        smear_cursor.enabled = true
       end,
     })
 
-    -- Disable relative line number when entering insert mode
+    -- Disable when entering visual mode
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "*:[vV\x16]",
       callback = function()
         if vim.wo.number == true then
-          require("smear_cursor").enabled = false
+          smear_cursor.enabled = false
         end
       end,
     })
 
-    -- Enable relative line number when exiting insert mode
+    -- Enable  when leaving visual mode
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "[vV\x16]:*",
       callback = function()
         if vim.wo.number == true then
-          require("smear_cursor").enabled = true
+          smear_cursor.enabled = true
         end
       end,
     })
@@ -58,11 +62,11 @@ return {
 
       delay_event_to_smear = 10,
 
-      stiffness = 0.8,
-      trailing_stiffness = 0.2,
+      stiffness = 0.7,
+      trailing_stiffness = 0.3,
       max_length = 50,
 
-      time_interval = 8, -- milliseconds
+      time_interval = 1000 / vim.g.animate_fps,
     }
   end,
 }

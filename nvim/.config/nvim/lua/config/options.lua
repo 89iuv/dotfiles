@@ -9,11 +9,13 @@
 -- note: the project root si always bellow or equal to the cwd
 -- vim.g.root_spec = { "cwd" }
 
-vim.g.snacks_animate = true
+vim.g.animate_fps = 60
+vim.g.animate_enabled = false
+
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
-vim.o.guicursor = "n-sm:block,i-c-ci-ve:ver25,r-cr-o-v:hor20"
+vim.o.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
 
 vim.opt.swapfile = false
 vim.opt.pumblend = 0

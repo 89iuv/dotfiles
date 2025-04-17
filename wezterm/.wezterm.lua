@@ -4,6 +4,9 @@ local config = wezterm.config_builder()
 -- color scheme
 config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 
+-- performance
+config.max_fps = 120
+
 -- MacOS
 if wezterm.target_triple:find("darwin") then
 	-- font
@@ -20,9 +23,6 @@ if wezterm.target_triple:find("windows") then
 	--default domain
 	config.default_domain = "WSL:Ubuntu"
 end
-
--- performance
-config.max_fps = 120
 
 -- disable scroll bar
 config.enable_scroll_bar = false
