@@ -17,7 +17,7 @@ end
 -- Windows
 if wezterm.target_triple:find("windows") then
 	-- font
-	config.font_size = 10
+	config.font_size = 13
 	config.line_height = 1.0
 
 	--default domain
@@ -41,13 +41,13 @@ config.show_new_tab_button_in_tab_bar = true
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
-config.initial_cols = 130
-config.initial_rows = 35
+config.initial_cols = 128
+config.initial_rows = 34
 config.use_resize_increments = false
 
 config.window_padding = {
-	left = "0.50cell",
-	right = "0.50cell",
+	left = "1.00cell",
+	right = "1.00cell",
 	top = "0.25cell",
 	bottom = "0.25cell",
 }
