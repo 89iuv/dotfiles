@@ -59,7 +59,7 @@ return {
       enabled = false,
     },
     notifier = {
-      width = { min = 0.35, max = 0.35 },
+      width = { min = 50, max = 50 },
       height = { min = 1, max = 0.6 },
       style = "fancy",
       margin = { top = 0, right = 0, bottom = 0 },

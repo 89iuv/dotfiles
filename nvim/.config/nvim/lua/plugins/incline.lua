@@ -16,6 +16,7 @@ return {
       hide = {
         cursorline = "focused_win",
       },
+
       window = {
         margin = {
           horizontal = 0,
@@ -23,6 +24,7 @@ return {
         },
         zindex = 10,
       },
+
       render = function(props)
         local function get_diagnostic_label(namespace)
           local icons = LazyVim.config.icons.diagnostics
