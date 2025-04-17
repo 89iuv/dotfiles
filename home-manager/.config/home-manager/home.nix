@@ -58,11 +58,13 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
-    pkgs.lua51Packages.lua
-    pkgs.lua51Packages.luarocks
     pkgs.nodejs
-    pkgs.python3
-    pkgs.python3Packages.pip
+    (pkgs.python3.withPackages (python_pkgs: [
+      python_pkgs.pip
+    ]))
+    (pkgs.lua5_1.withPackages (lua_pkgs: [
+      lua_pkgs.luarocks
+    ]))
     pkgs.uv
     pkgs.jdk
     pkgs.cargo
