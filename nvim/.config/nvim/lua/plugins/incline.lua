@@ -21,6 +21,7 @@ return {
           horizontal = 0,
           vertical = 2,
         },
+        zindex = 10,
       },
       render = function(props)
         local function get_diagnostic_label(namespace)
