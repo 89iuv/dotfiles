@@ -7,14 +7,14 @@ config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 -- MacOS
 if wezterm.target_triple:find("darwin") then
 	-- font
-	config.font_size = 14
+	config.font_size = 13
 	config.line_height = 1.0
 end
 
 -- Windows
 if wezterm.target_triple:find("windows") then
 	-- font
-	config.font_size = 11
+	config.font_size = 10
 	config.line_height = 1.0
 
 	--default domain
