@@ -27,7 +27,7 @@ return {
 
     -- Disable relative line number when entering insert mode
     vim.api.nvim_create_autocmd("ModeChanged", {
-      pattern = "*:v",
+      pattern = "*:[vV\x16]",
       callback = function()
         if vim.wo.number == true then
           require("smear_cursor").enabled = false
@@ -37,7 +37,7 @@ return {
 
     -- Enable relative line number when exiting insert mode
     vim.api.nvim_create_autocmd("ModeChanged", {
-      pattern = "v:*",
+      pattern = "[vV\x16]:*",
       callback = function()
         if vim.wo.number == true then
           require("smear_cursor").enabled = true
