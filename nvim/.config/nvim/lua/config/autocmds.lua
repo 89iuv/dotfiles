@@ -101,14 +101,6 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
--- Set cursor on enter
-vim.api.nvim_create_autocmd("VimEnter", {
-  pattern = "*",
-  callback = function()
-    vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
-  end,
-})
-
 -- Set cursor on exit
 vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
