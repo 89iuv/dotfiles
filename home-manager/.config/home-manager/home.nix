@@ -58,15 +58,16 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
-    pkgs.nodejs
-    (pkgs.python3.withPackages (python_pkgs: [
-      python_pkgs.pip
-    ]))
+    pkgs.fish # used in neovim conform plugin
     (pkgs.lua5_1.withPackages (lua_pkgs: [
       lua_pkgs.luarocks
     ]))
+    (pkgs.python3.withPackages (python_pkgs: [
+      python_pkgs.pip
+    ]))
     pkgs.uv
     pkgs.jdk
+    pkgs.nodejs
     pkgs.cargo
     pkgs.neovim
 
