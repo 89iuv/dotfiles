@@ -11,6 +11,8 @@
 
 vim.g.animate_fps = 60
 vim.g.animate_enabled = false
+vim.g.smear_cursor_animate = true
+vim.g.snacks_animate = nil -- use local override
 
 vim.g.trouble_lualine = false
 vim.g.autoformat = false

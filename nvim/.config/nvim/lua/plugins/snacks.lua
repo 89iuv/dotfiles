@@ -1,7 +1,9 @@
 return {
   "folke/snacks.nvim",
   init = function()
-    vim.g.snacks_animate = vim.g.animate_enabled
+    if vim.g.snacks_animate == nil then
+      vim.g.snacks_animate = vim.g.animate_enabled
+    end
   end,
   opts = {
     animate = {

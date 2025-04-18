@@ -1,15 +1,35 @@
 return {
   "sphamba/smear-cursor.nvim",
-  enabled = vim.g.animate_enabled,
+  init = function ()
+    if vim.g.smear_cursor_animate == nil then
+      vim.g.smear_cursor_animate = vim.g.animate_enabled
+    end
+  end,
   opts = function()
     local smear_cursor = require("smear_cursor")
     local abort = false
 
+    Snacks.toggle
+      .new({
+        name = "Cursor Smear",
+        get = function()
+          return vim.g.smear_cursor_animate
+        end,
+        set = function(state)
+          vim.g.smear_cursor_animate = state
+          smear_cursor.enabled = state
+        end,
+      })
+      :map("<leader>uU")
+
     -- Disable when entering terminal or cmdline
     vim.api.nvim_create_autocmd({ "TermEnter", "CmdlineEnter" }, {
       callback = function()
-        abort = false
+        if not vim.g.smear_cursor_animate then
+          return
+        end
 
+        abort = false
         require("smear_cursor").vertical_bar_cursor = true
         vim.defer_fn(function()
           if not abort then
@@ -22,8 +42,11 @@ return {
     -- Enable when leaving terminal or cmdline
     vim.api.nvim_create_autocmd({ "TermLeave", "CmdlineLeave" }, {
       callback = function()
-        abort = true
+        if not vim.g.smear_cursor_animate then
+          return
+        end
 
+        abort = true
         smear_cursor.vertical_bar_cursor = false
         smear_cursor.enabled = true
       end,
@@ -33,6 +56,10 @@ return {
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "*:[vV\x16]",
       callback = function()
+        if not vim.g.smear_cursor_animate then
+          return
+        end
+
         if vim.wo.number == true then
           smear_cursor.enabled = false
         end
@@ -43,6 +70,10 @@ return {
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "[vV\x16]:*",
       callback = function()
+        if not vim.g.smear_cursor_animate then
+          return
+        end
+
         if vim.wo.number == true then
           smear_cursor.enabled = true
         end
@@ -50,14 +81,16 @@ return {
     })
 
     return {
+      enabled = vim.g.smear_cursor_animate,
+
       hide_target_hack = false,
       cursor_color = "none",
 
-      never_draw_over_target = true,
+      never_draw_over_target = false,
       legacy_computing_symbols_support = true,
 
-      smear_terminal_mode = true,
       smear_insert_mode = false,
+      smear_terminal_mode = true,
       smear_to_cmd = true,
 
       delay_event_to_smear = 10,

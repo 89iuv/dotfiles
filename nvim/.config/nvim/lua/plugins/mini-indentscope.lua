@@ -1,8 +1,31 @@
 return {
   "echasnovski/mini.indentscope",
   enabled = true,
+  init = function()
+    if vim.g.mini_indentscope_animate == nil then
+      vim.g.mini_indentscope_animate = vim.g.animate_enabled
+    end
+  end,
   opts = function(_, opts)
+    local mini_indentscope = require("mini.indentscope")
     local global = require("config.global")
+
+    Snacks.toggle
+      .new({
+        name = "Scope Animation",
+        get = function()
+          return vim.g.mini_indentscope_animate
+        end,
+        set = function(state)
+          vim.g.mini_indentscope_animate = state
+          if state then
+            mini_indentscope.config.draw.animation = mini_indentscope.gen_animation.linear()
+          else
+            mini_indentscope.config.draw.animation = mini_indentscope.gen_animation.none()
+          end
+        end,
+      })
+      :map("<leader>uX")
 
     -- disable mini indentscope for filetypes
     vim.api.nvim_create_autocmd("FileType", {
@@ -39,8 +62,10 @@ return {
 
     local new_opts = {
       draw = {
-        delay = 0,
-        animation = require("mini.indentscope").gen_animation.none(),
+        delay = 20,
+        animation = vim.g.mini_indentscope_animate
+          and mini_indentscope.gen_animation.linear()
+          or mini_indentscope.gen_animation.none(),
       },
       options = {
         border = "both",
