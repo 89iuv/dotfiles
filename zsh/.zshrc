@@ -12,30 +12,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# nix auto complete
-fpath+=$HOME/.nix-profile/share/zsh/site-functions/
-
-# nix profile
-# nix path: ubuntu single user install
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]
-  then
-    . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-
-# nix path: macos multi user install
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' # this is loaded only once per shell
-
-  # prepend nix profile to path to path
-  export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
-fi
-
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:$PATH
-
-# add personal scripts to path
-export PATH=$HOME/.scripts:$PATH
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -119,7 +95,6 @@ source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/th
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[cursor]='none'
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -245,10 +220,7 @@ if type bat > /dev/null
 then
   export BAT_THEME="Catppuccin Mocha"
   alias cat="bat --style=plain --paging=auto"
-
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-  # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  # export MANROFFOPT="-c"
 
   help() {
     "$@" --help 2>&1 | bat --plain --language=help
@@ -353,9 +325,6 @@ run() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# path clean up 
-PATH=`echo -n $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}'`
 
 if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
