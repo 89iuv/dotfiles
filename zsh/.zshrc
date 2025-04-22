@@ -12,8 +12,26 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# nix auto complete
+fpath+=$HOME/.nix-profile/share/zsh/site-functions/
+
+# nix profile
+# nix path: ubuntu single user install
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]
+  then
+    . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
+# nix path: macos multi user install
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' # this is loaded only once per shell
+
+  # prepend nix profile to path to path
+  export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
+fi
+
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # add personal scripts to path
 export PATH=$HOME/.scripts:$PATH
@@ -102,14 +120,6 @@ ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[cursor]='none'
 
-# nix complete
-fpath+=$HOME/.nix-profile/share/zsh/site-functions/
-
-# nix profile
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]
-  then
-    . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -343,6 +353,9 @@ run() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# path clean up 
+PATH=`echo -n $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}'`
 
 if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
