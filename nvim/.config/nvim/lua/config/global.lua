@@ -37,6 +37,13 @@ M.indent_guide = {
       "snacks_picker_list",
       "neo-tree-popup",
       "text",
+      "dapui_scopes",
+      "dapui_breakpoints",
+      "dapui_stacks",
+      "dapui_watches",
+      "dapui_repl",
+      "dapui_console",
+      "neotest-summary",
     },
 
     buftype = {
