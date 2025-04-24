@@ -49,6 +49,7 @@
 
     pkgs.tmux
     pkgs.btop
+    pkgs.yazi
 
     pkgs.delta
     pkgs.lazygit
