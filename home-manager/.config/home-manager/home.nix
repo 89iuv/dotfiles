@@ -76,6 +76,7 @@
 
     pkgs.chafa
     pkgs.fastfetch
+    pkgs.cmatrix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
