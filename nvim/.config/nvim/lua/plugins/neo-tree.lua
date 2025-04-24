@@ -62,6 +62,7 @@ return {
       },
       name = {
         use_git_status_colors = false,
+        right_padding = 1,
       },
       file_size = {
         enabled = false,
@@ -96,6 +97,7 @@ return {
       },
       filtered_items = {
         visible = true,
+        hide_gitignored = false,
         hide_by_name = {
           "__pycache__",
         },

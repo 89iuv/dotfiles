@@ -48,6 +48,7 @@ M.indent_guide = {
 
     buftype = {
       -- default
+      "nofile",
       "terminal",
       "quickfix",
       "prompt",

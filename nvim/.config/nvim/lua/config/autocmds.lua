@@ -35,6 +35,15 @@ vim.api.nvim_win_set_config = function(window, config)
   return old_nvim_win_set_config(window, config)
 end
 
+-- use 4 spaces to indent in java files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "java",
+    callback = function()
+        vim.bo.shiftwidth = 4
+        vim.bo.tabstop = 4
+    end,
+})
+
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "json", "jsonc", "json5", "http" },
