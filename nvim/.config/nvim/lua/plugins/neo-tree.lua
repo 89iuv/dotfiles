@@ -12,6 +12,7 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  lazy = false, -- netrw highjacking does not work if plugin is lazy loaded
   init = function()
     -- refresh buffer when a terminal is closed
     vim.api.nvim_create_autocmd("TermClose", {
