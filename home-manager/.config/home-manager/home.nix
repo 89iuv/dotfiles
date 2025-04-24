@@ -68,6 +68,7 @@
     ]))
     pkgs.uv
     pkgs.jdk
+    pkgs.maven
     pkgs.nodejs
     pkgs.cargo
     pkgs.neovim
