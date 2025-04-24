@@ -25,6 +25,8 @@ return {
         zindex = 10,
       },
 
+      debounce_threshold = 80,
+
       render = function(props)
         local function get_diagnostic_label(namespace)
           local icons = LazyVim.config.icons.diagnostics

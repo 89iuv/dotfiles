@@ -62,7 +62,7 @@ return {
 
     local new_opts = {
       draw = {
-        delay = 20,
+        delay = 80,
         animation = vim.g.mini_indentscope_animate
           and mini_indentscope.gen_animation.linear()
           or mini_indentscope.gen_animation.none(),
