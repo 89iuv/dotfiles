@@ -1,6 +1,7 @@
 return {
   "williamboman/mason.nvim",
   opts = {
+    ensure_installed = { "lemminx" },
     ui = {
       backdrop = 60,
       border = "single",
