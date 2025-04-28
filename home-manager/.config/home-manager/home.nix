@@ -43,6 +43,7 @@
     pkgs.stow
     pkgs.git
 
+    pkgs.tree
     pkgs.zoxide
     pkgs.eza
     pkgs.bat
