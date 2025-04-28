@@ -63,25 +63,34 @@ rm tmp.txt
 
 ## Update
 
+Update Ubuntu:
+
 ```sh
-# update Ubuntu
 sudo apt update
 sudo apt upgrade
 ```
 
+Update dotfiles:
+
 ```sh
-# update dotfiles
 cd ~/.dotfiles
 git pull
 git submodule update --recursive --init
 ```
 
+Update home-manager:
+
 ```sh
-# update home-manager
 cd ~/.config/home-manager
 nix flake update
 home-manager switch --impure
 ```
+
+Update others:
+
+- Update tmux: ctrl+x u all
+- Update neovim: \<leader\>l U
+- Update mason: \<leader\>cm U
 
 ## Issues
 
