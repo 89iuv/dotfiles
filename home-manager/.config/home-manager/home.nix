@@ -116,8 +116,6 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-    NIXPKGS_ALLOW_UNFREE=1;
-    PUPPETEER_EXECUTABLE_PATH=/Users/valiuv/.nix-profile/bin/google-chrome-stable;
   };
 
   # Let Home Manager install and manage itself.
