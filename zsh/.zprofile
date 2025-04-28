@@ -1,3 +1,9 @@
+# brew
+if [ -e '/opt/homebrew/bin/brew' ]
+  then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # nix auto complete
 fpath+=$HOME/.nix-profile/share/zsh/site-functions/
 

@@ -9,6 +9,13 @@ return {
     animate = {
       fps = vim.g.animate_fps,
     },
+    image = {
+      enabled = true,
+      doc = {
+        inline = false,
+        float = true,
+      },
+    },
     dashboard = {
       preset = {
         keys = {

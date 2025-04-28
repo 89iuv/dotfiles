@@ -17,7 +17,7 @@ vim.g.snacks_animate = nil -- use local override, change for global override
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
-vim.o.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
+vim.o.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"
 
 vim.opt.swapfile = false
 vim.opt.pumblend = 0
