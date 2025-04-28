@@ -1,7 +1,11 @@
 return {
   "williamboman/mason.nvim",
+  lazy = false,
   opts = {
-    ensure_installed = { "lemminx" },
+    ensure_installed = {
+      "lemminx",
+      "tree-sitter-cli",
+    },
     ui = {
       backdrop = 60,
       border = "single",

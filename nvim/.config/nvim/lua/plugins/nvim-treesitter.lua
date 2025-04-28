@@ -1,6 +1,18 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "williamboman/mason.nvim",
+  },
   opts = {
+    ensure_installed = {
+      "css",
+      "latex",
+      "norg",
+      "scss",
+      "svelte",
+      "typst",
+      "vue",
+    },
     highlight = {
       -- disable highlight for checkhealth as it does not show colors for ok, warning, error
       disable = function(_, bufnr)

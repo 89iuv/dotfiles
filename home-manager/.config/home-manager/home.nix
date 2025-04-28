@@ -34,6 +34,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.gcc
     pkgs.coreutils
     pkgs.less
     pkgs.xclip
@@ -60,7 +61,12 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
+    # pkgs.sqlite
+    # pkgs.inotify-tools
+    pkgs.tectonic
+    pkgs.texliveBasic
     pkgs.imagemagickBig
+    pkgs.ghostscript
     pkgs.mermaid-cli
     pkgs.google-chrome
     pkgs.fish # used in neovim conform plugin
@@ -70,6 +76,7 @@
     ]))
     (pkgs.python3.withPackages (python_pkgs: [
       python_pkgs.pip
+      python_pkgs.pylatexenc
     ]))
     pkgs.uv
     pkgs.jdk
