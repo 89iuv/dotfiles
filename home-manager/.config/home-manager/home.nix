@@ -60,6 +60,9 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
+    pkgs.imagemagickBig
+    pkgs.mermaid-cli
+    pkgs.google-chrome
     pkgs.fish # used in neovim conform plugin
     pkgs.nixfmt-classic
     (pkgs.lua5_1.withPackages (lua_pkgs: [
@@ -113,6 +116,8 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    NIXPKGS_ALLOW_UNFREE=1;
+    PUPPETEER_EXECUTABLE_PATH=/Users/valiuv/.nix-profile/bin/google-chrome-stable;
   };
 
   # Let Home Manager install and manage itself.
