@@ -10,7 +10,7 @@ return {
       fps = vim.g.animate_fps,
     },
     image = {
-      enabled = require("config.global").terminal.is_kitty,
+      enabled = require("config.global").active_terminal.is_modern,
     },
     dashboard = {
       preset = {

@@ -1,6 +1,21 @@
 local M = {
-  terminal = {
-    is_kitty = vim.fn.getenv("KITTY_PID") ~= vim.NIL and true or false,
+  active_terminal = {
+    is_modern = (function()
+      local is_modern = false
+
+      local modern_terminals_detection = {
+        kitty = vim.fn.getenv("KITTY_PID") ~= vim.NIL and true or false,
+      }
+
+      for _, active in pairs(modern_terminals_detection) do
+        if (active) then
+          is_modern = true
+          break
+        end
+      end
+
+      return is_modern
+    end)(),
   },
   indent_guide = {
     exclude = {
