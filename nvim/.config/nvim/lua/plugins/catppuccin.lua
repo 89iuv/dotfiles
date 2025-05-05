@@ -22,7 +22,7 @@ return {
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.base },
+        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
         BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
         BufferLineSeparator = { link = "WinSeparator" },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
@@ -105,7 +105,7 @@ return {
         SnacksNotifierBorderTrace = { link = "FloatBorder" },
 
         SnacksPickerCol = { fg = colors.overlay0 },
-        SnacksWinBar = { fg = colors.lavender },
+        SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },
 
         -- trouble
         TroubleNormal = { link = "NormalFloat" },

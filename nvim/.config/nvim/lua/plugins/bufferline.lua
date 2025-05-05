@@ -14,7 +14,7 @@ return {
       },
     }
     opts.options.indicator = {
-      icon = "▎",
+      icon = " ",
     }
     opts.options.buffer_close_icon = ''
     opts.options.separator_style = { "", "" }
