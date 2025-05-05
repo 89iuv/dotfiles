@@ -119,8 +119,6 @@ return {
         RenderMarkdownH5Bg = { bg = colors_utils.darken(colors.sapphire, 0.2, colors.base) },
         RenderMarkdownH6Bg = { bg = colors_utils.darken(colors.lavender, 0.2, colors.base) },
 
-        RenderMarkdownCode = { bg = colors_utils.darken(colors.base, 0.2, colors.mantle) },
-
         RenderMarkdownInlineHighlight = {
           fg = colors.rosewater,
           bg = colors_utils.darken(colors.rosewater, 0.2, colors.base),
