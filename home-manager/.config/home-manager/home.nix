@@ -34,7 +34,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.gcc
     pkgs.coreutils
     pkgs.less
     pkgs.xsel
@@ -62,8 +61,7 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
-    # pkgs.sqlite
-    # pkgs.inotify-tools
+    pkgs.tree-sitter
     pkgs.tectonic
     pkgs.texliveBasic
     pkgs.imagemagickBig
