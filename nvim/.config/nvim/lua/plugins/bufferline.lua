@@ -14,7 +14,7 @@ return {
       },
     }
     opts.options.indicator = {
-      icon = " ",
+      icon = "▎",
     }
     opts.options.left_trunc_marker = '󰛁 '
     opts.options.right_trunc_marker = '󰛂 '
