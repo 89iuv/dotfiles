@@ -17,7 +17,7 @@ return {
       icon = " ",
     }
     opts.options.buffer_close_icon = ''
-    opts.options.separator_style = { "", "" }
+    opts.options.separator_style = { "│", "│" }
     opts.options.diagnostics_indicator = function(_, _, diag)
       local icons = LazyVim.config.icons.diagnostics
       local ret = ""

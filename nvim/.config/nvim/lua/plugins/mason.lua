@@ -1,5 +1,6 @@
 return {
-  "mason-org/mason.nvim",
+  "williamboman/mason.nvim",
+  version = "1.*",
   opts = {
     ensure_installed = {
       "debugpy", -- used by python dap

@@ -11,7 +11,7 @@ return {
       return {
         -- catppuccin
         NormalFloat = { fg = colors.text, bg = colors.mantle },
-        FloatBorder = { fg = colors.overlay2, bg = colors.mantle },
+        FloatBorder = { fg = colors.subtext0, bg = colors.mantle },
         FloatTitle = { fg = colors.subtext0, bg = colors.mantle },
 
         WinBar = { fg = colors.overlay0, bg = colors.mantle },
@@ -23,9 +23,11 @@ return {
 
         -- bufferline
         BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
-        BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
-        BufferLineSeparator = { link = "WinSeparator" },
+
+        BufferLineSeparator = { fg = colors.overlay2, bg = colors.mantle },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
+
+        BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
         BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
         BufferLineFill = { bg = colors.crust },
 
