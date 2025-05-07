@@ -43,6 +43,11 @@ return {
       },
     },
     default_component_configs = {
+      git_status = {
+        symbols = {
+          modified = "",
+        },
+      },
       symlink_target = {
         enabled = true,
       },

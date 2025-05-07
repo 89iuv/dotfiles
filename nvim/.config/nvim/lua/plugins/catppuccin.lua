@@ -28,7 +28,7 @@ return {
         BufferLineOffsetSeparator = { link = "WinSeparator" },
 
         BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
-        BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.mantle },
+        BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.crust },
         BufferLineFill = { bg = colors.crust },
 
         BufferLineHint = { link = "BufferLineBuffer" },

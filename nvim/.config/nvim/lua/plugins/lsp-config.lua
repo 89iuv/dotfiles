@@ -5,6 +5,7 @@ return {
       diagnostics = {
         virtual_text = {
           source = true,
+          prefix = "■",
         },
         severity_sort = true,
         float = {
