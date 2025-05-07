@@ -1,8 +1,5 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "williamboman/mason.nvim",
-  },
   opts = {
     ensure_installed = {
       "css",

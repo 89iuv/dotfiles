@@ -1,10 +1,9 @@
 return {
-  "williamboman/mason.nvim",
-  lazy = false,
+  "mason-org/mason.nvim",
   opts = {
     ensure_installed = {
+      "debugpy", -- used by python dap
       "lemminx",
-      "tree-sitter-cli",
     },
     ui = {
       backdrop = 60,
