@@ -79,10 +79,6 @@ return {
       terminal = {
         win = {
           height = 0.30,
-          wo = {
-            -- winbar = "",
-            -- winhighlight = "Normal:Normal,WinBar:SnacksWinBar",
-          },
           keys = {
             term_normal = {
               "<esc><esc>",

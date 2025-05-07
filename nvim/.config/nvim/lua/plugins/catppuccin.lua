@@ -15,16 +15,16 @@ return {
         FloatTitle = { fg = colors.subtext0, bg = colors.mantle },
 
         WinBar = { fg = colors.overlay0, bg = colors.mantle },
-        WinSeparator = { fg = colors.overlay2, bg = colors.base },
+        WinSeparator = { fg = colors.crust, bg = colors.base },
         StatusLine = { bg = colors.crust },
 
         LineNr = { fg = colors.surface1 },
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
+        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.base },
 
-        BufferLineSeparator = { fg = colors.overlay2, bg = colors.mantle },
+        BufferLineSeparator = { fg = colors.crust, bg = colors.mantle },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
 
         BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },

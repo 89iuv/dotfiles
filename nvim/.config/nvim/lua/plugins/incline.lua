@@ -93,7 +93,7 @@ return {
           local code_table_formated = {}
           for index, code in ipairs(code_table) do
             if index ~= 1 then
-              table.insert(code_table_formated, { " │ " })
+              table.insert(code_table_formated, { "  " })
             end
 
             table.insert(code_table_formated, code)
