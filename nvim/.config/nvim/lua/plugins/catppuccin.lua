@@ -11,11 +11,11 @@ return {
       return {
         -- catppuccin
         NormalFloat = { fg = colors.text, bg = colors.mantle },
-        FloatBorder = { fg = colors.subtext0, bg = colors.mantle },
+        FloatBorder = { fg = colors.overlay2, bg = colors.mantle },
         FloatTitle = { fg = colors.subtext0, bg = colors.mantle },
 
         WinBar = { fg = colors.overlay0, bg = colors.mantle },
-        WinSeparator = { fg = colors.crust, bg = colors.base },
+        WinSeparator = { fg = colors.surface2, bg = colors.base },
         StatusLine = { bg = colors.crust },
 
         LineNr = { fg = colors.surface1 },
