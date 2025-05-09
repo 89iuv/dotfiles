@@ -10,7 +10,7 @@ gui:
       - '#fab387'
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - '#9399b2'
     optionsTextColor:
       - '#89b4fa'
     selectedLineBgColor:
@@ -28,6 +28,9 @@ gui:
 
   authorColors:
     '*': '#b4befe'
+
+  nerdFontsVersion: "3"
+  # showFileIcons: false
 
   # Window border style.
   # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
