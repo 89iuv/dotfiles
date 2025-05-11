@@ -1,25 +1,33 @@
 return {
   "lukas-reineke/virt-column.nvim",
-  enabled = true,
+  dependencies = {
+    "folke/snacks.nvim",
+    opts = function()
+      Snacks.toggle
+        .new({
+          name = "Line Column",
+          get = function()
+            return vim.g.virt_column
+          end,
+          set = function(state)
+            vim.g.virt_column = state
+            require("virt-column").update({ enabled = vim.g.virt_column })
+          end,
+        })
+        :map("<leader>uu")
+    end,
+  },
+  lazy = true,
+  event = function()
+    if vim.g.virt_column then
+      return "BufEnter"
+    end
+  end,
   opts = function()
-    local enabled = false
-    Snacks.toggle
-      .new({
-        name = "Line Column",
-        get = function()
-            return enabled
-        end,
-        set = function(state)
-          enabled = state
-          require "virt-column".update { enabled = enabled }
-        end,
-      })
-      :map("<leader>uu")
-
     return {
-      enabled = enabled,
+      enabled = vim.g.virt_column,
       virtcolumn = "119",
-      highlight = "VirtColumn"
+      highlight = "VirtColumn",
     }
   end,
 }

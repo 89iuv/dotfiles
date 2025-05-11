@@ -62,6 +62,9 @@ return {
         -- virtual column
         VirtColumn = { fg = colors.surface0 },
 
+        -- show keys
+        SkActive = { fg = colors.crust, bg = colors.lavender },
+
         -- iluminate
         IlluminatedWordText = { bg = colors.surface1 },
         IlluminatedWordRead = { bg = colors.surface1 },
