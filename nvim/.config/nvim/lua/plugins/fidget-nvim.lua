@@ -5,9 +5,21 @@ return {
   opts = {
     progress = {
       display = {
-        done_icon = "󰸞 ",
-        -- TODO: use an animation instead of a static icon
-        progress_icon = " ",
+        done_icon = "✔ ",
+        progress_icon = {
+          pattern = {
+            "⠋ ",
+            "⠙ ",
+            "⠹ ",
+            "⠸ ",
+            "⠼ ",
+            "⠴ ",
+            "⠦ ",
+            "⠧ ",
+            "⠇ ",
+            "⠏ ",
+          },
+        },
         format_message = function(msg)
           local message = require("fidget.progress.display").default_format_message(msg)
           return " " .. message
