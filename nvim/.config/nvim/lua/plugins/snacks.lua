@@ -40,6 +40,9 @@ return {
         enabled = true,
       },
       picker = {
+        layout = {
+          cycle = false,
+        },
         sources = {
           files = {
             hidden = true,
