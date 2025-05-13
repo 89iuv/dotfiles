@@ -5,7 +5,7 @@ return {
       local state = require("bufferline.state")
       local commands = require("bufferline.commands")
 
-      local index, element = commands.get_current_element_index(state)
+      local index = commands.get_current_element_index(state)
       local next_index = index + direction
 
       if next_index <= 0 then
