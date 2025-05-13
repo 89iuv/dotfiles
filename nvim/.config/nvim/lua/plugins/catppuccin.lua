@@ -78,7 +78,7 @@ return {
 
         -- fidget
         FidgetNormal = { link = "NormalFloat" },
-        FidgetBorder = { link = "FidgetNormal" },
+        FidgetBorder = { link = "FloatBorder" },
 
         -- incline
         InclineNormal = { fg = colors.subtext0, bg = colors.crust },
