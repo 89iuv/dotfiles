@@ -5,9 +5,6 @@
 -- workaround for <leader>wd not working on fast action
 vim.keymap.set("n", "<leader>w", "<nop>", { desc = "Windows", remap = false })
 
-vim.keymap.set("n", "*", "*N", { noremap = true, desc = "Search word unde cursor" })
-vim.keymap.set("v", "*", 'y/\\V<C-r>"<CR>N', { noremap = true, desc = "Search selection under cursor" })
-
 -- toggle animations
 Snacks.toggle
   .new({
