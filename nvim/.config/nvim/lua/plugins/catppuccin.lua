@@ -55,7 +55,8 @@ return {
         BufferTabpageFill = { fg = colors.crust, bg = colors.crust },
 
         BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
-        BufferCurrentMod = { bg = colors.base, fg = colors.yellow },
+        BufferCurrentMod = { bg = colors.base, fg = colors.lavender },
+        BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
         BufferCurrentBtn= { bg = colors.base, fg = colors.red },
         BufferCurrentSign = { bg = colors.base, fg = colors.overlay2 },
 
@@ -64,6 +65,8 @@ return {
         BufferVisibleWarn = { bg = colors.base, fg = colors.subtext0 },
         BufferVisibleInfo = { bg = colors.base, fg = colors.subtext0 },
         BufferVisibleHint = { bg = colors.base, fg = colors.subtext0 },
+        BufferVisibleMod = { bg = colors.base, fg = colors.subtext0 },
+        BufferVisibleModBtn = { bg = colors.base, fg = colors.peach },
         BufferVisibleBtn= { bg = colors.base, fg = colors.red },
         BufferVisibleSign = { bg = colors.base, fg = colors.overlay2 },
 
@@ -72,6 +75,8 @@ return {
         BufferInactiveWarn = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveInfo = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveHint = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveMod = { bg = colors.base, fg = colors.overlay0 },
+        BufferInactiveModBtn = { bg = colors.base, fg = colors.peach },
         BufferInactiveSign = { bg = colors.mantle, fg = colors.overlay2 },
 
 
