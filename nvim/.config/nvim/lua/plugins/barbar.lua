@@ -5,7 +5,7 @@ return {
   },
   enabled = true,
   lazy = true,
-  event = "BufAdd",
+  event = "VimEnter",
   init = function()
     vim.g.barbar_auto_setup = false
   end,
@@ -33,8 +33,6 @@ return {
       auto_hide = false,
 
       icons = {
-        -- buffer_index = true,
-        -- buffer_number = true,
         button = "",
         modified = { button = "●" },
         pinned = { button = "󰐃", filename = true },
