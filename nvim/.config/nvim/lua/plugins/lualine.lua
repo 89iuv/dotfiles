@@ -13,7 +13,7 @@ return {
     opts.options.theme = lualine_catppuccin
     opts.options.component_separators = { left = "", right = "│" }
     opts.options.section_separators = { left = "", right = "▐" }
-    opts.options.disabled_filetypes = {}
+    -- opts.options.disabled_filetypes = {} -- enable for bufferline, disable for barbar
 
     local icons = LazyVim.config.icons
     opts.sections.lualine_a = {

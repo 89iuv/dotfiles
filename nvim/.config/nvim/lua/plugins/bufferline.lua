@@ -1,5 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
+  enabled = false,
   opts = function(_, opts)
     local cycle = function(direction)
       local state = require("bufferline.state")
@@ -19,10 +20,13 @@ return {
       commands.cycle(direction)
     end
 
-    vim.keymap.set("n", "<S-h>", function() cycle(-1) end, { desc = "Prev Buffer" })
-    vim.keymap.set("n", "<S-l>", function() cycle(1) end, { desc = "Next Buffer" })
-    vim.keymap.set("n", "[b", function() cycle(-1) end, { desc = "Prev Buffer" })
-    vim.keymap.set("n", "]b", function() cycle(1) end, { desc = "Next Buffer" })
+    local enable_cycle = false
+    if enable_cycle then
+      vim.keymap.set("n", "<S-h>", function() cycle(-1) end, { desc = "Prev Buffer" })
+      vim.keymap.set("n", "<S-l>", function() cycle(1) end, { desc = "Next Buffer" })
+      vim.keymap.set("n", "[b", function() cycle(-1) end, { desc = "Prev Buffer" })
+      vim.keymap.set("n", "]b", function() cycle(1) end, { desc = "Next Buffer" })
+    end
 
     local new_opts = {
       options = {
@@ -39,12 +43,12 @@ return {
           },
         },
         indicator = {
-          icon = "▎",
+          icon = " ",
         },
         left_trunc_marker = "󰁍 ",
         right_trunc_marker = "󰁔 ",
         buffer_close_icon = "",
-        separator_style = { " ", " " },
+        separator_style = { "│", "│" },
         diagnostics_indicator = function(_, _, diag)
           local icons = LazyVim.config.icons.diagnostics
           local ret = ""

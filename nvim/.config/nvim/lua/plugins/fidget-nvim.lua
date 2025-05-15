@@ -37,7 +37,7 @@ return {
         end,
       },
       window = {
-        border = "single",
+        border = "none",
         -- border = { "", "" ,"", " ", "", "", "", " " },
         normal_hl = "FidgetNormal",
         border_hl = "FidgetBorder",

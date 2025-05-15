@@ -4,6 +4,7 @@ return {
   opts = {
     term_colors = true,
     integrations = {
+      barbar = true,
       fidget = true,
     },
     custom_highlights = function(colors)
@@ -22,9 +23,9 @@ return {
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.base },
+        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
 
-        BufferLineSeparator = { fg = colors.crust, bg = colors.mantle },
+        BufferLineSeparator = { fg = colors.overlay2, bg = colors.mantle },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
 
         BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
@@ -47,6 +48,32 @@ return {
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
         BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
         BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
+
+        -- barbar
+        BufferOffset = { fg = colors.lavender, bg = colors.mantle },
+        BufferScrollArrow = { fg = colors.overlay2, bg = colors.mantle },
+        BufferTabpageFill = { fg = colors.crust, bg = colors.crust },
+
+        BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
+        BufferCurrentMod = { bg = colors.base, fg = colors.yellow },
+        BufferCurrentBtn= { bg = colors.base, fg = colors.red },
+        BufferCurrentSign = { bg = colors.base, fg = colors.overlay2 },
+
+        BufferVisible = { bg = colors.base, fg = colors.subtext0 },
+        BufferVisibleError = { bg = colors.base, fg = colors.subtext0 },
+        BufferVisibleWarn = { bg = colors.base, fg = colors.subtext0 },
+        BufferVisibleInfo = { bg = colors.base, fg = colors.subtext0 },
+        BufferVisibleHint = { bg = colors.base, fg = colors.subtext0 },
+        BufferVisibleBtn= { bg = colors.base, fg = colors.red },
+        BufferVisibleSign = { bg = colors.base, fg = colors.overlay2 },
+
+        BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveError = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveWarn = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveInfo = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveHint = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveSign = { bg = colors.mantle, fg = colors.overlay2 },
+
 
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
