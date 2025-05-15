@@ -93,6 +93,7 @@ return {
             run_in_directory(state.tree:get_node(), Snacks.picker.grep)
           end,
         },
+        ["<S-l>"] = "open", -- disable keymap as it conflicts with barbar
       },
     },
     filesystem = {
