@@ -13,6 +13,7 @@ return {
         return
       end
 
+      ---@diagnostic disable-next-line: undefined-field
       if next_index > #state.components then
         return
       end
