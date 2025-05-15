@@ -54,31 +54,36 @@ return {
         BufferScrollArrow = { fg = colors.overlay2, bg = colors.mantle },
         BufferTabpageFill = { fg = colors.crust, bg = colors.crust },
 
+        -- barbar current
         BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
         BufferCurrentMod = { bg = colors.base, fg = colors.lavender },
         BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
         BufferCurrentBtn= { bg = colors.base, fg = colors.red },
         BufferCurrentSign = { bg = colors.base, fg = colors.overlay2 },
 
-        BufferVisible = { bg = colors.mantle, fg = colors.subtext0 },
-        BufferVisibleError = { bg = colors.mantle, fg = colors.subtext0 },
-        BufferVisibleWarn = { bg = colors.mantle, fg = colors.subtext0 },
-        BufferVisibleInfo = { bg = colors.mantle, fg = colors.subtext0 },
-        BufferVisibleHint = { bg = colors.mantle, fg = colors.subtext0 },
-        BufferVisibleMod = { bg = colors.mantle, fg = colors.subtext0 },
+        -- barbar visible
+        BufferVisible = { bg = colors.mantle, fg = colors.subtext1 },
+        BufferVisibleMod = { bg = colors.mantle, fg = colors.subtext1 },
         BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
         BufferVisibleBtn = { bg = colors.mantle, fg = colors.overlay0 },
         BufferVisibleSign = { bg = colors.mantle, fg = colors.overlay2 },
 
+        BufferVisibleError = { bg = colors.mantle, fg = colors.subtext1 },
+        BufferVisibleWarn = { bg = colors.mantle, fg = colors.subtext1 },
+        BufferVisibleInfo = { bg = colors.mantle, fg = colors.subtext1 },
+        BufferVisibleHint = { bg = colors.mantle, fg = colors.subtext1 },
+
+        -- barbar inactive
         BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },
-        BufferInactiveError = { bg = colors.mantle, fg = colors.overlay0 },
-        BufferInactiveWarn = { bg = colors.mantle, fg = colors.overlay0 },
-        BufferInactiveInfo = { bg = colors.mantle, fg = colors.overlay0 },
-        BufferInactiveHint = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveMod = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
         BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveSign = { bg = colors.mantle, fg = colors.overlay2 },
+
+        BufferInactiveError = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveWarn = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveInfo = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveHint = { bg = colors.mantle, fg = colors.overlay0 },
 
 
         -- neotree
