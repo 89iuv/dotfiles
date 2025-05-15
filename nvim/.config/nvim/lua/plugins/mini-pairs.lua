@@ -1,4 +1,4 @@
 return {
-  "echasnovski/mini.nvim",
+  "echasnovski/mini.pairs",
   enabled = false,
 }
