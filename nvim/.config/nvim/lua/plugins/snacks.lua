@@ -41,7 +41,7 @@ return {
       },
       picker = {
         layout = {
-          cycle = false,
+          cycle = true,
         },
         sources = {
           files = {

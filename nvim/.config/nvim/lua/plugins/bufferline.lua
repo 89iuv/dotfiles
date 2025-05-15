@@ -21,6 +21,8 @@ return {
 
     vim.keymap.set("n", "<S-h>", function() cycle(-1) end, { desc = "Prev Buffer" })
     vim.keymap.set("n", "<S-l>", function() cycle(1) end, { desc = "Next Buffer" })
+    vim.keymap.set("n", "[b", function() cycle(-1) end, { desc = "Prev Buffer" })
+    vim.keymap.set("n", "]b", function() cycle(1) end, { desc = "Next Buffer" })
 
     local new_opts = {
       options = {
