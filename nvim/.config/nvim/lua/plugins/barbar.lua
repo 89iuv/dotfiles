@@ -5,7 +5,7 @@ return {
   },
   enabled = true,
   lazy = true,
-  event = "VimEnter",
+  event = "VeryLazy",
   init = function()
     vim.g.barbar_auto_setup = false
   end,
