@@ -6,10 +6,13 @@ return {
       enabled = true,
       ignore = {
         link = false,
-      }
+      },
     },
     latex = {
-      enabled = false,
+      enabled = true,
+    },
+    checkbox = {
+      enabled = true,
     },
     code = {
       width = "full",

@@ -15,6 +15,9 @@ return {
       image = {
         enabled = global.active_terminal.is_modern,
       },
+      input = {
+        enabled = true,
+      },
       dashboard = {
         preset = {
           keys = {
