@@ -86,7 +86,7 @@ return {
         "fallback",
       },
       ["<C-k>"] = { "fallback" }, -- used in insert mode navigation ctrl+hjkl
-      ["<C-K>"] = { "show_signature", "hide_signature", "fallback" },
+      ["<M-p>"] = { "show_signature", "hide_signature", "fallback" },
     },
     signature = {
       enabled = true,
