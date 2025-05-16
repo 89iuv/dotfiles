@@ -30,6 +30,7 @@ Note:
 ## Configure Snacks
 
 - [ ] enable snacks bigfile and configure it
+- [ ] enable snacks quickfile and configure it
 - [x] enable snacks input
   - [x] make neo-tree use normal mode on esc key
 
