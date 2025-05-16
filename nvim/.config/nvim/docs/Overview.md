@@ -22,11 +22,6 @@ Tasks:
     - [x] ~(optional) investigate if neovim tabs can be made to look like bufferline~
     - [x] change the Project Explorer fg and bg colors
 
-Note:
-
-- load barbar using lazy loading "BufAdd" event
-  - this is needed in order to overwrite lazyvim's buffer keymaps
-
 ## Configure Snacks
 
 - [x] enable snacks bigfile and configure it
