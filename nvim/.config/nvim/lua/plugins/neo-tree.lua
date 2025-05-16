@@ -13,6 +13,22 @@ end
 return {
   "nvim-neo-tree/neo-tree.nvim",
   lazy = false, -- netrw highjacking does not work if plugin is lazy loaded
+  keys = {
+    {
+      "<leader>fm",
+      function()
+        require("neo-tree.command").execute({ reveal = true, dir = LazyVim.root() })
+      end,
+      desc = "Explorer Reveal File (Root Dir)",
+    },
+    {
+      "<leader>fM",
+      function()
+        require("neo-tree.command").execute({ reveal = true, dir = vim.uv.cwd() })
+      end,
+      desc = "Explorer Reveal File (cwd)",
+    },
+  },
   init = function()
     -- refresh buffer when a terminal is closed
     vim.api.nvim_create_autocmd("TermClose", {
@@ -99,8 +115,8 @@ return {
     filesystem = {
       group_empty_dirs = true,
       follow_current_file = {
-        enabled = true,
-        leave_dirs_open = false,
+        enabled = false,
+        leave_dirs_open = true,
       },
       filtered_items = {
         visible = true,
@@ -112,8 +128,8 @@ return {
     },
     buffers = {
       follow_current_file = {
-        enabled = true,
-        leave_dirs_open = false,
+        enabled = false,
+        leave_dirs_open = true,
       },
     },
   },
