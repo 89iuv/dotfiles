@@ -74,22 +74,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Disable word highlight when entering visual mode
-vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "n:*",
-  callback = function()
-    require("illuminate").pause()
-  end,
-})
-
--- Enable word highlight when entering visual mode
-vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "*:n",
-  callback = function()
-    require("illuminate").resume()
-  end,
-})
-
 -- Disable relative line number when entering insert mode
 vim.api.nvim_create_autocmd("ModeChanged", {
   pattern = "*:i",
