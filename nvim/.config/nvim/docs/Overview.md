@@ -24,7 +24,7 @@ Tasks:
 
 Note:
 
-- load barbar using lazy loading
+- load barbar using lazy loading "BufAdd" event
   - this is needed in order to overwrite lazyvim's buffer keymaps
 
 ## Configure Snacks

@@ -5,6 +5,12 @@
 -- workaround for <leader>wd not working on fast action
 vim.keymap.set("n", "<leader>w", "<nop>", { desc = "Windows", remap = false })
 
+-- move in insert using ctrl+hjkl
+vim.keymap.set("i", "<C-h>", "<Left>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-j>", "<Down>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-k>", "<Up>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-l>", "<Right>", { noremap = true, silent = true })
+
 -- toggle animations
 Snacks.toggle
   .new({
