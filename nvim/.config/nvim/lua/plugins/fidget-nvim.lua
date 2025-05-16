@@ -5,7 +5,7 @@ return {
   opts = {
     progress = {
       display = {
-        done_icon = "✔ ",
+        done_icon = "✓ ",
         progress_icon = {
           pattern = {
             "⠋ ",
