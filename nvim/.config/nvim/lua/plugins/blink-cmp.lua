@@ -74,7 +74,7 @@ return {
         "snippet_forward",
         "fallback",
       },
-      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
       ["<CR>"] = {
         function(cmp)
           if cmp.snippet_active() then
@@ -85,8 +85,8 @@ return {
         end,
         "fallback",
       },
-      ['<C-k>'] = { 'fallback' }, -- used in insert mode navigation ctrl+hjkl
-      ['<C-K>'] = { 'show_signature', 'hide_signature', 'fallback' },
+      ["<C-k>"] = { "fallback" }, -- used in insert mode navigation ctrl+hjkl
+      ["<C-K>"] = { "show_signature", "hide_signature", "fallback" },
     },
     signature = {
       enabled = true,
