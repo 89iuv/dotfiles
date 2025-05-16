@@ -18,8 +18,8 @@ Tasks:
     - [x] close buffers to the left
     - [x] close buffers to the right
     - [x] close others
-  - [ ] integrate the look and feel of the plugin
-    - [ ] (optional) investigate if neovim tabs can be made to look like bufferline
+  - [x] integrate the look and feel of the plugin
+    - [x] ~(optional) investigate if neovim tabs can be made to look like bufferline~
     - [x] change the Project Explorer fg and bg colors
 
 Note:
@@ -29,8 +29,8 @@ Note:
 
 ## Configure Snacks
 
-- [ ] enable snacks bigfile and configure it
-- [ ] enable snacks quickfile and configure it
+- [x] enable snacks bigfile and configure it
+- [x] enable snacks quickfile and configure it
 - [x] enable snacks input
   - [x] make neo-tree use normal mode on esc key
 

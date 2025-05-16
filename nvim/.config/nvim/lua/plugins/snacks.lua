@@ -1,3 +1,11 @@
+local neovim_header = [[
+███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]]
+
 return {
   "folke/snacks.nvim",
   init = function()
@@ -5,18 +13,15 @@ return {
       vim.g.snacks_animate = vim.g.animate_enabled
     end
   end,
-  opts = function()
+  opts = function(_, opts)
     local global = require("config.global")
 
-    return {
+    local new_opts = {
       animate = {
         fps = vim.g.animate_fps,
       },
       image = {
         enabled = global.active_terminal.is_modern,
-      },
-      input = {
-        enabled = true,
       },
       dashboard = {
         preset = {
@@ -30,17 +35,8 @@ return {
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
-          header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+          header = neovim_header
         },
-      },
-      statuscolumn = {
-        enabled = true,
       },
       picker = {
         layout = {
@@ -71,9 +67,6 @@ return {
             cmd = { "delta", "--file-style=omit", "--hunk-header-style=omit" },
           },
         },
-      },
-      words = {
-        enabled = false,
       },
       notifier = {
         width = { min = 50, max = 50 },
@@ -119,5 +112,8 @@ return {
         backdrop = 60,
       },
     }
+
+    return vim.tbl_deep_extend("force", opts, new_opts)
+
   end,
 }

@@ -24,8 +24,8 @@ return {
 
     require("ibl").overwrite({
       exclude = {
-        filetypes = global.indent_guide.exclude.filetype,
-        buftypes = global.indent_guide.exclude.buftype,
+        filetypes = global.excluded.filetype,
+        buftypes = global.excluded.buftype,
       },
     })
   end,

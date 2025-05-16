@@ -8,7 +8,7 @@ local M = {
       }
 
       for _, active in pairs(modern_terminals_detection) do
-        if (active) then
+        if active then
           is_modern = true
           break
         end
@@ -17,59 +17,58 @@ local M = {
       return is_modern
     end)(),
   },
-  indent_guide = {
-    exclude = {
-      filetype = {
-        -- default
-        "lspinfo",
-        "packer",
-        "checkhealth",
-        "help",
-        "man",
-        "gitcommit",
-        "TelescopePrompt",
-        "TelescopeResults",
-        "",
 
-        -- lazy
-        "Trouble",
-        "alpha",
-        "dashboard",
-        "fzf",
-        "help",
-        "lazy",
-        "mason",
-        "neo-tree",
-        "notify",
-        "snacks_dashboard",
-        "snacks_notif",
-        "snacks_terminal",
-        "snacks_win",
-        "toggleterm",
-        "trouble",
+  excluded = {
+    filetype = {
+      -- default
+      "lspinfo",
+      "packer",
+      "checkhealth",
+      "help",
+      "man",
+      "gitcommit",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "",
 
-        -- custom
-        "markdown",
-        "snacks_picker_preview",
-        "snacks_picker_list",
-        "neo-tree-popup",
-        "text",
-        "dapui_scopes",
-        "dapui_breakpoints",
-        "dapui_stacks",
-        "dapui_watches",
-        "dapui_repl",
-        "dapui_console",
-        "neotest-summary",
-      },
+      -- lazy
+      "Trouble",
+      "alpha",
+      "dashboard",
+      "fzf",
+      "help",
+      "lazy",
+      "mason",
+      "neo-tree",
+      "notify",
+      "snacks_dashboard",
+      "snacks_notif",
+      "snacks_terminal",
+      "snacks_win",
+      "toggleterm",
+      "trouble",
 
-      buftype = {
-        -- default
-        "nofile",
-        "terminal",
-        "quickfix",
-        "prompt",
-      },
+      -- custom
+      "markdown",
+      "snacks_picker_preview",
+      "snacks_picker_list",
+      "neo-tree-popup",
+      "text",
+      "dapui_scopes",
+      "dapui_breakpoints",
+      "dapui_stacks",
+      "dapui_watches",
+      "dapui_repl",
+      "dapui_console",
+      "neotest-summary",
+    },
+
+    buftype = {
+      -- default
+      "nofile",
+      "terminal",
+      "quickfix",
+      "prompt",
     },
   },
 }
