@@ -52,6 +52,7 @@ local M = {
       "markdown",
       "snacks_picker_preview",
       "snacks_picker_list",
+      "snacks_picker_input",
       "neo-tree-popup",
       "text",
       "dapui_scopes",
