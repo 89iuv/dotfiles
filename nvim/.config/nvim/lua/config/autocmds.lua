@@ -94,6 +94,14 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
+-- move help file to the right
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "help",
+  callback = function ()
+    vim.cmd("wincmd L")
+  end
+})
+
 -- Set cursor on exit
 vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
