@@ -29,6 +29,10 @@ Tasks:
 - [x] enable snacks input
   - [x] make neo-tree use normal mode on esc key
 
+## Configure LSP
+
+- [x] disable custom config for ruff rules
+
 ## Configure neovim
 
 - [ ] open checkhealth in a split window instead of a new nvim tab
