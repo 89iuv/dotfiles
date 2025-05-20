@@ -115,13 +115,13 @@ return {
         BlinkCmpDocBorder = { link = "FloatBorder" },
 
         -- fidget
-        FidgetNormal = { fg = colors.subtext0, bg = colors_utils.darken(colors.base, 0.4, colors.mantle) },
-        FidgetBorder = { fg = colors.overlay2, bg = colors_utils.darken(colors.base, 0.4, colors.mantle) },
+        FidgetNormal = { fg = colors.subtext0, bg = colors_utils.darken(colors.mantle, 0.4, colors.crust) },
+        FidgetBorder = { fg = colors.overlay2, bg = colors_utils.darken(colors.mantle, 0.4, colors.crust) },
 
         -- incline
-        InclineNormal = { fg = colors.subtext0, bg = colors_utils.darken(colors.base, 0.4, colors.mantle) },
-        InclineNormalNC = { fg = colors.subtext0, bg = colors_utils.darken(colors.base, 0.4, colors.mantle) },
-        InclineSeparator = { fg = colors.overlay2, bg = colors_utils.darken(colors.base, 0.4, colors.mantle) },
+        InclineNormal = { fg = colors.subtext0, bg = colors_utils.darken(colors.mantle, 0.4, colors.crust) },
+        InclineNormalNC = { fg = colors.subtext0, bg = colors_utils.darken(colors.mantle, 0.4, colors.crust) },
+        InclineSeparator = { fg = colors.overlay2, bg = colors_utils.darken(colors.mantle, 0.4, colors.crust) },
 
         -- noice
         NoiceConfirm = { link = "NormalFloat" },
