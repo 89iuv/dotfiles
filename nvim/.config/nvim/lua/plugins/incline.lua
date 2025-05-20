@@ -18,6 +18,9 @@ return {
       },
 
       window = {
+        options = {
+          winblend = 0,
+        },
         margin = {
           horizontal = 0,
           vertical = 2,
@@ -25,9 +28,32 @@ return {
         zindex = 10,
       },
 
-      debounce_threshold = 80,
-
       render = function(props)
+        local opts = {
+          icons = {
+            diagnostics = "󰒔 ",
+            linters = "󰸫 ",
+            formaters = "󰿠 ",
+          },
+          separator = {
+            module = "  ",
+            group = " │ ",
+          }
+        }
+
+        local function insert_separator(tbl, sep, gr)
+          local table_formated = {}
+          for index, item in ipairs(tbl) do
+            if index ~= 1 then
+              table.insert(table_formated, { sep, group = gr })
+            end
+
+            table.insert(table_formated, item)
+          end
+
+          return table_formated
+        end
+
         local function get_diagnostic_label(namespace)
           local icons = LazyVim.config.icons.diagnostics
           local priority = {
@@ -64,15 +90,42 @@ return {
             return a.name < b.name
           end)
 
+          local diagnostic_group = {}
           for _, client in ipairs(clients) do
             local lsp_client = {}
             local pull_namespace = vim.lsp.diagnostic.get_namespace(client.id, true)
             local push_namespace = vim.lsp.diagnostic.get_namespace(client.id, false)
             table.insert(lsp_client, get_diagnostic_label(pull_namespace))
             table.insert(lsp_client, get_diagnostic_label(push_namespace))
-            table.insert(lsp_client, { "󰒓 " .. client.name })
+            table.insert(lsp_client, { opts.icons.diagnostics .. client.name })
 
-            table.insert(code_table, lsp_client)
+            table.insert(diagnostic_group, lsp_client)
+          end
+          diagnostic_group = insert_separator(diagnostic_group, opts.separator.module, "InclineSeparator")
+          if #diagnostic_group > 0 then
+            table.insert(code_table, diagnostic_group)
+          end
+
+          -- code linter name
+          local linters = require("lint").linters_by_ft[vim.bo[props.buf].filetype]
+          linters = linters ~= nil and linters or {}
+
+          table.sort(linters, function(a, b)
+            return a < b
+          end)
+
+          local linter_group = {}
+          for _, linter in ipairs(linters) do
+            local linter_client = {}
+            local ns = require("lint").get_namespace(linter)
+            table.insert(linter_client, get_diagnostic_label(ns))
+            table.insert(linter_client, { opts.icons.linters .. linter })
+
+            table.insert(linter_group, linter_client)
+          end
+          linter_group = insert_separator(linter_group, opts.separator.module, "InclineSeparator")
+          if #linter_group > 0 then
+            table.insert(code_table, linter_group)
           end
 
           -- code formater name
@@ -83,22 +136,19 @@ return {
             return a.name < b.name
           end)
 
+          local formater_group = {}
           for _, formater in ipairs(formaters) do
             local formater_client = {}
-            table.insert(formater_client, { "󰏫 " .. formater.name })
+            table.insert(formater_client, { opts.icons.formaters .. formater.name })
 
-            table.insert(code_table, formater_client)
+            table.insert(formater_group, formater_client)
+          end
+          formater_group = insert_separator(formater_group, opts.separator.module, "InclineSeparator")
+          if #formater_group > 0 then
+            table.insert(code_table, formater_group)
           end
 
-          local code_table_formated = {}
-          for index, code in ipairs(code_table) do
-            if index ~= 1 then
-              table.insert(code_table_formated, { "  " })
-            end
-
-            table.insert(code_table_formated, code)
-          end
-
+          local code_table_formated = insert_separator(code_table, opts.separator.group, "InclineSeparator")
           return code_table_formated
         end
 
