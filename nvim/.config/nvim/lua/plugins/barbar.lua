@@ -32,7 +32,7 @@ return {
         },
         scroll = {
           left = "│",
-          right = "",
+          right = " ",
         },
       },
       sidebar_filetypes = {
