@@ -22,33 +22,6 @@ return {
         LineNr = { fg = colors.surface2 },
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
-        -- bufferline
-        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
-
-        BufferLineSeparator = { fg = colors.overlay2, bg = colors.mantle },
-        BufferLineOffsetSeparator = { link = "WinSeparator" },
-
-        BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
-        BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.crust },
-        BufferLineFill = { bg = colors.crust },
-
-        BufferLineHint = { link = "BufferLineBuffer" },
-        BufferLineInfo = { link = "BufferLineBuffer" },
-        BufferLineWarning = { link = "BufferLineBuffer" },
-        BufferLineError = { link = "BufferLineBuffer" },
-
-        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold" } },
-        BufferLineHintSelected = { link = "BufferLineBufferSelected" },
-        BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
-        BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
-        BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
-
-        BufferLineBufferVisible = { fg = colors.lavender, bg = colors.mantle },
-        BufferLineHintVisible = { link = "BufferLineBufferVisible" },
-        BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
-        BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
-        BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
-
         -- barbar
         BufferOffset = { fg = colors.lavender, bg = colors.mantle },
         BufferScrollArrow = { fg = colors.overlay2, bg = colors.mantle },
@@ -59,32 +32,31 @@ return {
         BufferCurrentMod = { bg = colors.base, fg = colors.lavender },
         BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
         BufferCurrentBtn= { bg = colors.base, fg = colors.red },
-        BufferCurrentSign = { bg = colors.base, fg = colors.overlay2 },
+        BufferCurrentSign = { bg = colors.base, fg = colors.lavender },
 
         -- barbar visible
         BufferVisible = { bg = colors.mantle, fg = colors.subtext1 },
         BufferVisibleMod = { bg = colors.mantle, fg = colors.subtext1 },
         BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
-        BufferVisibleBtn = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferVisibleBtn = { bg = colors.mantle, fg = colors.red },
         BufferVisibleSign = { bg = colors.mantle, fg = colors.overlay2 },
 
-        BufferVisibleError = { bg = colors.mantle, fg = colors.subtext1 },
-        BufferVisibleWarn = { bg = colors.mantle, fg = colors.subtext1 },
-        BufferVisibleInfo = { bg = colors.mantle, fg = colors.subtext1 },
-        BufferVisibleHint = { bg = colors.mantle, fg = colors.subtext1 },
+        BufferVisibleError = { bg = colors.mantle, fg = colors.red },
+        BufferVisibleWarn = { bg = colors.mantle, fg = colors.yellow },
+        BufferVisibleInfo = { bg = colors.mantle, fg = colors.sky },
+        BufferVisibleHint = { bg = colors.mantle, fg = colors.teal },
 
         -- barbar inactive
         BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveMod = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
-        BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveBtn = { bg = colors.mantle, fg = colors.red },
         BufferInactiveSign = { bg = colors.mantle, fg = colors.overlay2 },
 
-        BufferInactiveError = { bg = colors.mantle, fg = colors.overlay0 },
-        BufferInactiveWarn = { bg = colors.mantle, fg = colors.overlay0 },
-        BufferInactiveInfo = { bg = colors.mantle, fg = colors.overlay0 },
-        BufferInactiveHint = { bg = colors.mantle, fg = colors.overlay0 },
-
+        BufferInactiveError = { bg = colors.mantle, fg = colors.red },
+        BufferInactiveWarn = { bg = colors.mantle, fg = colors.yellow },
+        BufferInactiveInfo = { bg = colors.mantle, fg = colors.sky },
+        BufferInactiveHint = { bg = colors.mantle, fg = colors.teal },
 
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },

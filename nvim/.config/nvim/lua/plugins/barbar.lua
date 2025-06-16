@@ -13,6 +13,7 @@ return {
     return {
       animation = vim.g.animate_enabled,
       auto_hide = false,
+      highlight_inactive_file_icons = true,
 
       icons = {
         button = "",
@@ -30,7 +31,7 @@ return {
           separator = { left = "│", right = "" },
         },
         scroll = {
-          left = "",
+          left = "│",
           right = "",
         },
       },
