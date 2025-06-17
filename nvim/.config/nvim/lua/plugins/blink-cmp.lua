@@ -9,7 +9,7 @@ return {
         show_on_insert_on_trigger_character = false,
       },
       menu = {
-        border = "single",
+        -- border = "single",
         draw = {
           columns = {
             { "label", "label_description", "source_name", gap = 1 },
@@ -27,9 +27,9 @@ return {
       },
       documentation = {
         auto_show = false,
-        window = {
-          border = "single",
-        },
+        -- window = {
+        --   border = "single",
+        -- },
       },
       list = {
         selection = {

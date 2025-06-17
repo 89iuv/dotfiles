@@ -13,9 +13,10 @@ return {
       :map("<leader>ue")
 
     local opts = {
-      hide = {
-        cursorline = "focused_win",
-      },
+      -- dissabled because it creates a bug with barbar
+      -- hide = {
+      --   cursorline = "focused_win",
+      -- },
 
       window = {
         options = {

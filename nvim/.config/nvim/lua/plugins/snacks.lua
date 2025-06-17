@@ -35,7 +35,7 @@ return {
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
-          header = neovim_header
+          header = neovim_header,
         },
       },
       picker = {
@@ -74,10 +74,15 @@ return {
         style = "fancy",
         margin = { top = 0, right = 0, bottom = 0 },
         top_down = true,
+        refresh = 80,
       },
       terminal = {
         win = {
           height = 0.30,
+          -- wo = {
+          --   winbar = "",
+          --   winhighlight = "Normal:Normal,WinBar:SnacksWinBar",
+          -- },
           keys = {
             term_normal = {
               "<esc><esc>",
@@ -114,6 +119,5 @@ return {
     }
 
     return vim.tbl_deep_extend("force", opts, new_opts)
-
   end,
 }
