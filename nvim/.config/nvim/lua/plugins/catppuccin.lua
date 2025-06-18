@@ -17,19 +17,19 @@ return {
 
       return {
         -- catppuccin
-        NormalFloat = { fg = colors.text, bg = colors.mantle },
-        FloatBorder = { fg = colors.surface2, bg = colors.mantle },
-        FloatTitle = { fg = colors.subtext1, bg = colors.mantle },
+        NormalFloat = { fg = colors.text, bg = layer2 },
+        FloatBorder = { fg = colors.surface2, bg = layer2 },
+        FloatTitle = { fg = colors.subtext1, bg = layer2 },
 
         WinBar = { fg = colors.overlay0, bg = colors.mantle },
-        WinSeparator = { fg = colors.surface2, bg = layer0 },
+        WinSeparator = { fg = colors.surface2, bg = layer1 },
         StatusLine = { bg = layer4 },
 
         LineNr = { fg = colors.surface2 },
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
         -- barbar
-        BufferOffset = { fg = colors.lavender, bg = layer3 },
+        BufferOffset = { fg = colors.lavender, bg = layer2 },
         BufferScrollArrow = { fg = colors.surface2, bg = colors.mantle },
         BufferTabpageFill = { fg = layer4, bg = layer2 },
 
@@ -65,8 +65,8 @@ return {
         BufferInactiveHint = { bg = layer2, fg = colors.teal },
 
         -- neotree
-        NeoTreeNormal = { bg = layer3 },
-        NeoTreeNormalNC = { bg = layer3 },
+        NeoTreeNormal = { bg = layer2 },
+        NeoTreeNormalNC = { bg = layer2 },
 
         -- NeoTreeWinSeparator = { fg = layer0, bg = layer0 },
         NeoTreeWinSeparator = { link = "WinSeparator" },
@@ -91,21 +91,25 @@ return {
         IlluminatedWordWrite = { bg = colors.surface1 },
 
         -- blink_cmp
-        -- NOTE: what is this for?
-        -- BlinkCmpSource = { link = "PmenuSelect" },
-        -- BlinkCmpLabelDescription = { link = "PmenuSelect" },
+        BlinkCmpMenu = { bg = layer1 },
+        BlinkCmpMenuBorder = { fg = colors.surface2, bg = layer1 },
+        BlinkCmpMenuSelection = { bg = colors.surface0, style = { "bold" } },
 
-        -- BlinkCmpDoc = { bg = layer1 },
-        -- BlinkCmpDocBorder = { bg = layer1 },
+        BlinkCmpDoc = { bg = layer1 },
+        BlinkCmpDocBorder = { fg = colors.surface2, bg = layer1 },
+        BlinkCmpDocSeparator = { fg = colors.surface2, bg = layer1 },
+
+        BlinkCmpSignatureHelp = { bg = layer1 },
+        BlinkCmpSignatureHelpBorder = { fg = colors.surface2, bg = layer1 },
 
         -- fidget
-        FidgetNormal = { fg = colors.subtext0, bg = layer1 },
-        FidgetBorder = { fg = colors.overlay2, bg = layer1 },
+        FidgetNormal = { fg = colors.subtext0, bg = layer3 },
+        FidgetBorder = { fg = colors.overlay2, bg = layer3 },
 
         -- incline
-        InclineNormal = { fg = colors.subtext0, bg = layer1 },
-        InclineNormalNC = { fg = colors.subtext0, bg = layer1 },
-        InclineSeparator = { fg = colors.surface2, bg = layer1 },
+        InclineNormal = { fg = colors.subtext0, bg = layer3 },
+        InclineNormalNC = { fg = colors.subtext0, bg = layer3 },
+        InclineSeparator = { fg = colors.surface2, bg = layer3 },
 
         -- noice
         NoiceConfirm = { link = "NormalFloat" },
