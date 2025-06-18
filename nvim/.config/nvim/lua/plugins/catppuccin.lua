@@ -38,14 +38,14 @@ return {
         BufferCurrentMod = { bg = layer0, fg = colors.lavender },
         BufferCurrentModBtn = { bg = layer0, fg = colors.peach },
         BufferCurrentBtn = { bg = layer0, fg = colors.red },
-        BufferCurrentSign = { bg = layer0, fg = colors.lavender },
+        BufferCurrentSign = { bg = layer0, fg = colors.surface2 },
 
         -- barbar visible
-        BufferVisible = { bg = layer2, fg = colors.subtext1 },
-        BufferVisibleMod = { bg = layer2, fg = colors.subtext1 },
+        BufferVisible = { bg = layer2, fg = colors.subtext0 },
+        BufferVisibleMod = { bg = layer2, fg = colors.subtext0 },
         BufferVisibleModBtn = { bg = layer2, fg = colors.peach },
         BufferVisibleBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferVisibleSign = { bg = layer2, fg = colors.subtext1 },
+        BufferVisibleSign = { bg = layer2, fg = colors.surface2 },
 
         BufferVisibleError = { bg = layer2, fg = colors.red },
         BufferVisibleWarn = { bg = layer2, fg = colors.yellow },
@@ -53,11 +53,11 @@ return {
         BufferVisibleHint = { bg = layer2, fg = colors.teal },
 
         -- barbar inactive
-        BufferInactive = { bg = layer2, fg = colors.overlay0 },
-        BufferInactiveMod = { bg = layer2, fg = colors.overlay0 },
+        BufferInactive = { bg = layer2, fg = colors_utils.darken(colors.subtext0, 0.5, layer2) },
+        BufferInactiveMod = { bg = layer2, fg = colors_utils.darken(colors.subtext0, 0.5, layer2) },
         BufferInactiveModBtn = { bg = layer2, fg = colors.peach },
         BufferInactiveBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferInactiveSign = { bg = layer2, fg = colors.subtext1 },
+        BufferInactiveSign = { bg = layer2, fg = colors.surface2 },
 
         BufferInactiveError = { bg = layer2, fg = colors_utils.darken(colors.red, 0.5, layer2) },
         BufferInactiveWarn = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.5, layer2) },
