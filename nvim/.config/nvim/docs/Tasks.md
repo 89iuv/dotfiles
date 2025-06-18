@@ -1,15 +1,23 @@
-# Overview
+# Tasks
 
 <!--toc:start-->
-- [Overview](#overview)
-  - [Replace bufferline with barbar](#replace-bufferline-with-barbar)
+- [Tasks](#tasks)
+  - [Configure Neo-tree](#configure-neo-tree)
+  - [Configure Neovim](#configure-neovim)
+  - [Replace Bufferline with Barbar](#replace-bufferline-with-barbar)
   - [Configure Snacks](#configure-snacks)
-  - [Configure neovim](#configure-neovim)
+  - [Configure LSP](#configure-lsp)
 <!--toc:end-->
 
-## Replace bufferline with barbar
+## Configure Neo-tree
 
-Tasks:
+- [ ] add shortcut for neo-tree to toggle fallow buffer
+
+## Configure Neovim
+
+- [ ] open checkhealth in a split window instead of a new nvim tab
+
+## Replace Bufferline with Barbar
 
 - [x] replace bufferline with barbar
   - [x] ~disable lazyvim mappings for buffer switching~
@@ -32,7 +40,3 @@ Tasks:
 ## Configure LSP
 
 - [x] disable custom config for ruff rules
-
-## Configure neovim
-
-- [ ] open checkhealth in a split window instead of a new nvim tab
