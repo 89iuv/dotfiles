@@ -45,7 +45,7 @@ return {
         BufferVisibleMod = { bg = layer2, fg = colors.subtext1 },
         BufferVisibleModBtn = { bg = layer2, fg = colors.peach },
         BufferVisibleBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferVisibleSign = { bg = layer2, fg = colors.subtext0 },
+        BufferVisibleSign = { bg = layer2, fg = colors.subtext1 },
 
         BufferVisibleError = { bg = layer2, fg = colors.red },
         BufferVisibleWarn = { bg = layer2, fg = colors.yellow },
@@ -57,12 +57,12 @@ return {
         BufferInactiveMod = { bg = layer2, fg = colors.overlay0 },
         BufferInactiveModBtn = { bg = layer2, fg = colors.peach },
         BufferInactiveBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferInactiveSign = { bg = layer2, fg = colors.subtext0 },
+        BufferInactiveSign = { bg = layer2, fg = colors.subtext1 },
 
-        BufferInactiveError = { bg = layer2, fg = colors.red },
-        BufferInactiveWarn = { bg = layer2, fg = colors.yellow },
-        BufferInactiveInfo = { bg = layer2, fg = colors.sky },
-        BufferInactiveHint = { bg = layer2, fg = colors.teal },
+        BufferInactiveError = { bg = layer2, fg = colors_utils.darken(colors.red, 0.5, layer2) },
+        BufferInactiveWarn = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.5, layer2) },
+        BufferInactiveInfo = { bg = layer2, fg = colors_utils.darken(colors.sky, 0.5, layer2) },
+        BufferInactiveHint = { bg = layer2, fg = colors_utils.darken(colors.teal, 0.5, layer2) },
 
         -- neotree
         NeoTreeNormal = { bg = layer2 },
