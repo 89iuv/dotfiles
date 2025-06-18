@@ -1,13 +1,14 @@
 # Tasks
 
 <!--toc:start-->
+
 - [Tasks](#tasks)
   - [Configure Neo-tree](#configure-neo-tree)
   - [Configure Neovim](#configure-neovim)
   - [Replace Bufferline with Barbar](#replace-bufferline-with-barbar)
   - [Configure Snacks](#configure-snacks)
   - [Configure LSP](#configure-lsp)
-<!--toc:end-->
+  <!--toc:end-->
 
 ## Configure Neo-tree
 
@@ -16,6 +17,7 @@
 ## Configure Neovim
 
 - [ ] open checkhealth in a split window instead of a new nvim tab
+- [ ] add highlight for side panels or for floating window
 
 ## Replace Bufferline with Barbar
 
