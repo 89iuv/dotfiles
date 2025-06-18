@@ -12,7 +12,8 @@
 
 ## Configure Neo-tree
 
-- [ ] add shortcut for neo-tree to toggle fallow buffer
+- [x] ~add shortcut for neo-tree to toggle fallow buffer~
+  - not that simple to do
 
 ## Configure Neovim
 
