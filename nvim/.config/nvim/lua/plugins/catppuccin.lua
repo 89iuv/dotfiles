@@ -45,7 +45,7 @@ return {
         BufferVisibleMod = { bg = layer2, fg = colors.subtext1 },
         BufferVisibleModBtn = { bg = layer2, fg = colors.peach },
         BufferVisibleBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferVisibleSign = { bg = layer2, fg = colors.surface2 },
+        BufferVisibleSign = { bg = layer2, fg = colors.subtext0 },
 
         BufferVisibleError = { bg = layer2, fg = colors.red },
         BufferVisibleWarn = { bg = layer2, fg = colors.yellow },
@@ -53,11 +53,11 @@ return {
         BufferVisibleHint = { bg = layer2, fg = colors.teal },
 
         -- barbar inactive
-        BufferInactive = { bg = layer2, fg = colors.surface2 },
-        BufferInactiveMod = { bg = layer2, fg = colors.surface2 },
+        BufferInactive = { bg = layer2, fg = colors.overlay0 },
+        BufferInactiveMod = { bg = layer2, fg = colors.overlay0 },
         BufferInactiveModBtn = { bg = layer2, fg = colors.peach },
         BufferInactiveBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferInactiveSign = { bg = layer2, fg = colors.surface2 },
+        BufferInactiveSign = { bg = layer2, fg = colors.subtext0 },
 
         BufferInactiveError = { bg = layer2, fg = colors.red },
         BufferInactiveWarn = { bg = layer2, fg = colors.yellow },
