@@ -2,7 +2,7 @@
 
 # : Manager {{{
 
-[manager]
+[mgr]
 cwd = { fg = "#94e2d5" }
 
 # Hovered
@@ -32,6 +32,15 @@ count_selected = { fg = "#1e1e2e", bg = "#f9e2af" }
 # Border
 border_symbol = "│"
 border_style  = { fg = "#7f849c" }
+
+# : }}}
+
+
+# : Tabs {{{
+
+[tabs]
+active   = { fg = "#1e1e2e", bg = "#89b4fa", bold = true }
+inactive = { fg = "#89b4fa", bg = "#313244" }
 
 # : }}}
 
