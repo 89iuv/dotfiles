@@ -8,6 +8,6 @@
 [flavor]
 dark = "catppuccin-mocha"
 
-[status]
-sep_left  = { open = "▐", close = "▌" }
-sep_right = { open = "▐", close = "▌" }
+# [status]
+# sep_left  = { open = "▐", close = "▌" }
+# sep_right = { open = "▐", close = "▌" }

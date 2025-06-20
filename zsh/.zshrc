@@ -247,6 +247,19 @@ then
   export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
+# yazi
+if type yazi > /dev/null
+then
+  y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+  }
+  alias yazi=y
+fi
+
 # nix-shell
 nix-zsh() {
   nix-shell --run zsh "$@"
