@@ -94,13 +94,15 @@ return {
       smear_terminal_mode = true,
       smear_to_cmd = true,
 
-      delay_event_to_smear = (1000 / vim.g.animate_fps) / 2,
-
-      stiffness = 0.7,
-      trailing_stiffness = 0.3,
-      max_length = 25,
-
+      delay_event_to_smear = (1000 / vim.g.animate_fps) / 4,
       time_interval = 1000 / vim.g.animate_fps,
+
+      stiffness = 0.75,
+      trailing_stiffness = 0.35,
+      anticipation = 0.45,
+      damping = 0.65,
+
+      max_length = 25,
     }
   end,
 }
