@@ -9,6 +9,10 @@ return {
     },
     custom_highlights = function(colors)
       local colors_utils = require("catppuccin.utils.colors")
+      local accent = colors.lavender
+      local separator = colors.surface2
+      local border = colors.surface2
+
       local layer0 = colors.base
       local layer1 = colors_utils.blend(colors.base, colors.mantle, 0.5)
       local layer2 = colors.mantle
@@ -18,34 +22,67 @@ return {
       return {
         -- catppuccin
         NormalFloat = { fg = colors.text, bg = layer2 },
-        FloatBorder = { fg = colors.surface2, bg = layer2 },
+        FloatBorder = { fg = border, bg = layer2 },
         FloatTitle = { fg = colors.subtext1, bg = layer2 },
 
         WinBar = { fg = colors.overlay0, bg = colors.mantle },
-        WinSeparator = { fg = colors.surface2, bg = layer1 },
+        WinSeparator = { fg = separator, bg = layer1 },
         StatusLine = { bg = layer4 },
 
         LineNr = { fg = colors.surface2 },
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
+        -- bufferline
+        BufferlineProjectExplorer = { fg = accent, bg = layer2 },
+
+        BufferLineSeparator = { fg = separator, bg = layer2 },
+        BufferLineOffsetSeparator = { link = "WinSeparator" },
+
+        BufferLineIndicatorSelected = { fg = accent, bg = colors.base },
+        BufferLineTruncMarker = { fg = colors.overlay0, bg = layer4 },
+        BufferLineFill = { bg = layer4 },
+
+        BufferLineBuffer = { fg = colors.overlay2, bg = layer2 },
+        BufferLineError = { link = "BufferLineBuffer" },
+        BufferLineWarning = { link = "BufferLineBuffer" },
+        BufferLineInfo = { link = "BufferLineBuffer" },
+        BufferLineHint = { link = "BufferLineBuffer" },
+
+        BufferLineBufferSelected = { fg = accent, bg = layer0, style = { "bold" } },
+        BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
+        BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
+        BufferLineHintSelected = { link = "BufferLineBufferSelected" },
+        BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
+
+        BufferLineBufferVisible = { fg = colors.text, bg = layer2 },
+        BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
+        BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
+        BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
+        BufferLineHintVisible = { link = "BufferLineBufferVisible" },
+
+        BufferLineErrorDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.red, 0.65, layer2) },
+        BufferLineWarningDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.65, layer2) },
+        BufferLineInfoDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.sky, 0.65, layer2) },
+        BufferLineHintDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.teal, 0.65, layer2) },
+
         -- barbar
-        BufferOffset = { fg = colors.lavender, bg = layer2 },
-        BufferScrollArrow = { fg = colors.surface2, bg = colors.mantle },
+        BufferOffset = { fg = accent, bg = layer2 },
+        BufferScrollArrow = { fg = colors.overlay0, bg = colors.mantle },
         BufferTabpageFill = { fg = layer4, bg = layer2 },
 
         -- barbar current
-        BufferCurrent = { bg = layer0, fg = colors.lavender, style = { "bold" } },
-        BufferCurrentMod = { bg = layer0, fg = colors.lavender },
+        BufferCurrent = { bg = layer0, fg = accent, style = { "bold" } },
+        BufferCurrentMod = { bg = layer0, fg = accent },
         BufferCurrentModBtn = { bg = layer0, fg = colors.peach },
         BufferCurrentBtn = { bg = layer0, fg = colors.red },
-        BufferCurrentSign = { bg = layer0, fg = colors.surface2 },
+        BufferCurrentSign = { bg = layer0, fg = separator },
 
         -- barbar visible
         BufferVisible = { bg = layer2, fg = colors.subtext0 },
         BufferVisibleMod = { bg = layer2, fg = colors.subtext0 },
         BufferVisibleModBtn = { bg = layer2, fg = colors.peach },
         BufferVisibleBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferVisibleSign = { bg = layer2, fg = colors.surface2 },
+        BufferVisibleSign = { bg = layer2, fg = separator },
 
         BufferVisibleError = { bg = layer2, fg = colors.red },
         BufferVisibleWarn = { bg = layer2, fg = colors.yellow },
@@ -57,7 +94,7 @@ return {
         BufferInactiveMod = { bg = layer2, fg = colors_utils.darken(colors.subtext0, 0.5, layer2) },
         BufferInactiveModBtn = { bg = layer2, fg = colors.peach },
         BufferInactiveBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferInactiveSign = { bg = layer2, fg = colors.surface2 },
+        BufferInactiveSign = { bg = layer2, fg = separator },
 
         BufferInactiveError = { bg = layer2, fg = colors_utils.darken(colors.red, 0.5, layer2) },
         BufferInactiveWarn = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.5, layer2) },
@@ -83,7 +120,7 @@ return {
         VirtColumn = { fg = colors.surface0 },
 
         -- show keys
-        SkActive = { fg = layer4, bg = colors.lavender },
+        SkActive = { fg = layer4, bg = accent },
 
         -- iluminate
         IlluminatedWordText = { bg = colors.surface1 },
@@ -92,15 +129,15 @@ return {
 
         -- blink_cmp
         BlinkCmpMenu = { bg = layer1 },
-        BlinkCmpMenuBorder = { fg = colors.surface2, bg = layer1 },
+        BlinkCmpMenuBorder = { fg = border, bg = layer1 },
         BlinkCmpMenuSelection = { bg = colors.surface0, style = { "bold" } },
 
         BlinkCmpDoc = { bg = layer1 },
-        BlinkCmpDocBorder = { fg = colors.surface2, bg = layer1 },
-        BlinkCmpDocSeparator = { fg = colors.surface2, bg = layer1 },
+        BlinkCmpDocBorder = { fg = border, bg = layer1 },
+        BlinkCmpDocSeparator = { fg = border, bg = layer1 },
 
         BlinkCmpSignatureHelp = { bg = layer1 },
-        BlinkCmpSignatureHelpBorder = { fg = colors.surface2, bg = layer1 },
+        BlinkCmpSignatureHelpBorder = { fg = border, bg = layer1 },
 
         -- fidget
         FidgetNormal = { fg = colors.subtext0, bg = layer3 },
@@ -109,7 +146,7 @@ return {
         -- incline
         InclineNormal = { fg = colors.subtext0, bg = layer3 },
         InclineNormalNC = { fg = colors.subtext0, bg = layer3 },
-        InclineSeparator = { fg = colors.surface2, bg = layer3 },
+        InclineSeparator = { fg = separator, bg = layer3 },
 
         -- noice
         NoiceConfirm = { link = "NormalFloat" },
@@ -143,7 +180,7 @@ return {
         SnacksNotifierBorderTrace = { link = "FloatBorder" },
 
         SnacksPickerCol = { fg = colors.overlay0 },
-        SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },
+        SnacksWinBar = { fg = accent, bg = colors.mantle },
 
         -- trouble
         TroubleNormal = { link = "NormalFloat" },

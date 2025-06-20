@@ -3,7 +3,7 @@ return {
   dependencies = {
     "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
   },
-  enabled = true,
+  enabled = false,
   lazy = false,
   init = function()
     vim.g.barbar_auto_setup = false
