@@ -101,7 +101,7 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
-    background_jobs         # presence of background jobs
+    # background_jobs         # presence of background jobs
     status                  # exit code of the last command
     prompt_char             # prompt symbol
   )
