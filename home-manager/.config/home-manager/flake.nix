@@ -14,7 +14,10 @@
     let
       username = builtins.getEnv "USER";
       system = builtins.currentSystem;
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        system = "${system}";
+        config.allowUnfree = true;
+      };
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

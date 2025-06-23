@@ -266,7 +266,6 @@ nix-zsh() {
 }
 
 # nix env vars
-export NIXPKGS_ALLOW_UNFREE=1;
 export PUPPETEER_EXECUTABLE_PATH=/Users/valiuv/.nix-profile/bin/google-chrome-stable;
 
 # edit current command in neovim keybind
