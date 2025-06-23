@@ -100,7 +100,7 @@ return {
       stiffness = 0.75,
       trailing_stiffness = 0.35,
       anticipation = 0.45,
-      damping = 0.65,
+      damping = 0.85,
 
       max_length = 25,
     }
