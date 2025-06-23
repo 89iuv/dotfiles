@@ -34,11 +34,15 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.coreutils
     pkgs.less
-    pkgs.git
+    pkgs.xsel
+    pkgs.dust
+    pkgs.jq
     pkgs.stow
-    pkgs.xclip
+    pkgs.git
 
+    pkgs.tree
     pkgs.zoxide
     pkgs.eza
     pkgs.bat
@@ -47,6 +51,7 @@
 
     pkgs.tmux
     pkgs.btop
+    pkgs.yazi
 
     pkgs.delta
     pkgs.lazygit
@@ -56,16 +61,32 @@
     pkgs.ripgrep
     pkgs.fd
     pkgs.unzip
-    pkgs.lua51Packages.lua
-    pkgs.lua51Packages.luarocks
-    pkgs.nodejs
-    pkgs.python3
+    pkgs.tree-sitter
+    pkgs.tectonic
+    pkgs.texliveBasic
+    pkgs.imagemagickBig
+    pkgs.ghostscript
+    pkgs.mermaid-cli
+    pkgs.google-chrome
+    pkgs.fish # used in neovim conform plugin
+    pkgs.nixfmt-classic
+    (pkgs.lua5_1.withPackages (lua_pkgs: [
+      lua_pkgs.luarocks
+    ]))
+    (pkgs.python3.withPackages (python_pkgs: [
+      python_pkgs.pip
+      python_pkgs.pylatexenc
+    ]))
+    pkgs.uv
     pkgs.jdk
+    pkgs.maven
+    pkgs.nodejs
     pkgs.cargo
     pkgs.neovim
 
     pkgs.chafa
     pkgs.fastfetch
+    pkgs.cmatrix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

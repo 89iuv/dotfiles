@@ -12,6 +12,23 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  lazy = false, -- netrw highjacking does not work if plugin is lazy loaded
+  keys = {
+    {
+      "<leader>fm",
+      function()
+        require("neo-tree.command").execute({ reveal = true, dir = LazyVim.root() })
+      end,
+      desc = "Explorer Reveal File (Root Dir)",
+    },
+    {
+      "<leader>fM",
+      function()
+        require("neo-tree.command").execute({ reveal = true, dir = vim.uv.cwd() })
+      end,
+      desc = "Explorer Reveal File (cwd)",
+    },
+  },
   init = function()
     -- refresh buffer when a terminal is closed
     vim.api.nvim_create_autocmd("TermClose", {
@@ -21,7 +38,7 @@ return {
     })
   end,
   opts = {
-    popup_border_style = "single",
+    popup_border_style = require("config.global").border,
     close_if_last_window = true,
     event_handlers = {
       {
@@ -49,6 +66,11 @@ return {
       },
     },
     default_component_configs = {
+      git_status = {
+        symbols = {
+          modified = "",
+        },
+      },
       symlink_target = {
         enabled = true,
       },
@@ -62,6 +84,7 @@ return {
       },
       name = {
         use_git_status_colors = false,
+        right_padding = 1,
       },
       file_size = {
         enabled = false,
@@ -86,16 +109,18 @@ return {
             run_in_directory(state.tree:get_node(), Snacks.picker.grep)
           end,
         },
+        ["<S-l>"] = "refresh", -- disable keymap as it conflicts with barbar
       },
     },
     filesystem = {
       group_empty_dirs = true,
       follow_current_file = {
-        enabled = true,
-        leave_dirs_open = false,
+        enabled = false,
+        leave_dirs_open = true,
       },
       filtered_items = {
         visible = true,
+        hide_gitignored = false,
         hide_by_name = {
           "__pycache__",
         },
@@ -103,8 +128,8 @@ return {
     },
     buffers = {
       follow_current_file = {
-        enabled = true,
-        leave_dirs_open = false,
+        enabled = false,
+        leave_dirs_open = true,
       },
     },
   },

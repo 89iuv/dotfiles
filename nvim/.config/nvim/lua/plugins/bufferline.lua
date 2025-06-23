@@ -1,36 +1,68 @@
 return {
   "akinsho/bufferline.nvim",
+  event = "BufEnter",
+  enabled = true,
   opts = function(_, opts)
-    opts.options.always_show_bufferline = true
-    opts.options.tab_size = 1
-    opts.options.truncate_names = false
-    opts.options.offsets = {
-      {
-        filetype = "neo-tree",
-        text = "Project Explorer",
-        highlight = "BufferlineProjectExplorer",
-        text_align = "left",
-        separator = true,
+    local new_opts = {
+      options = {
+        always_show_bufferline = true,
+        tab_size = 1,
+        truncate_names = false,
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "Project Explorer",
+            highlight = "BufferlineProjectExplorer",
+            text_align = "left",
+            separator = true,
+          },
+          {
+            filetype = "trouble",
+            text = "Side Bar",
+            highlight = "BufferlineProjectExplorer",
+            text_align = "left",
+            separator = true,
+          },
+          {
+            filetype = "grug-far",
+            text = "Side Bar",
+            highlight = "BufferlineProjectExplorer",
+            text_align = "left",
+            separator = true,
+          },
+          {
+            filetype = "help",
+            text = "Side Bar",
+            highlight = "BufferlineProjectExplorer",
+            text_align = "left",
+            separator = true,
+          },
+        },
+        indicator = {
+          icon = "▎",
+        },
+        left_trunc_marker = "",
+        right_trunc_marker = "",
+        buffer_close_icon = "",
+        separator_style = { " ", " " },
+        diagnostics_indicator = function(_, _, diag)
+          local icons = LazyVim.config.icons.diagnostics
+          local ret = ""
+          if diag.error then
+            ret = icons.Error
+          elseif diag.warning then
+            ret = icons.Warn
+          elseif diag.info then
+            ret = icons.Info
+          elseif diag.hint then
+            ret = icons.Hint
+          end
+          return vim.trim(ret)
+        end,
+        themable = true,
       },
     }
-    opts.options.indicator = {
-      icon = " ",
-    }
-    opts.options.separator_style = { "", "" }
-    opts.options.diagnostics_indicator = function(_, _, diag)
-      local icons = LazyVim.config.icons.diagnostics
-      local ret = ""
-      if diag.error then
-        ret = icons.Error
-      elseif diag.warning then
-        ret = icons.Warn
-      elseif diag.info then
-        ret = icons.Info
-      elseif diag.hint then
-        ret = icons.Hint
-      end
-      return vim.trim(ret)
-    end
-    opts.options.themable = true
+
+    return vim.tbl_deep_extend("force", opts, new_opts)
   end,
 }

@@ -20,7 +20,7 @@ local old_nvim_open_win = vim.api.nvim_open_win
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_open_win = function(buffer, enter, config)
   if config.border == "rounded" then
-    config.border = "single"
+    config.border = require("config.global").border
   end
   return old_nvim_open_win(buffer, enter, config)
 end
@@ -30,10 +30,41 @@ local old_nvim_win_set_config = vim.api.nvim_win_set_config
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_win_set_config = function(window, config)
   if config.border == "rounded" then
-    config.border = "single"
+    config.border = require("config.global").border
   end
   return old_nvim_win_set_config(window, config)
 end
+
+-- use 4 spaces to indent in java files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "java",
+    callback = function()
+        vim.bo.shiftwidth = 4
+        vim.bo.tabstop = 4
+    end,
+})
+
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc", "json5", "http" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
+-- Disable conceallevel for buftype
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    local patterns = {
+      "nofile",
+    }
+    for _, pattern in ipairs(patterns) do
+      if pattern == vim.bo.buftype then
+        vim.opt_local.conceallevel = 0
+      end
+    end
+  end,
+})
 
 -- Do not continue with comments on the next line
 vim.api.nvim_create_autocmd("FileType", {
@@ -43,28 +74,32 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Disable word highlight when entering visual mode
+-- Disable relative line number when entering insert mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "n:*",
+  pattern = "*:i",
   callback = function()
-    require("illuminate").pause()
+    if vim.wo.number == true then
+      vim.wo.relativenumber = false
+    end
   end,
 })
 
--- Enable word highlight when entering visual mode
+-- Enable relative line number when exiting insert mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "*:n",
+  pattern = "i:*",
   callback = function()
-    require("illuminate").resume()
+    if vim.wo.number == true then
+      vim.wo.relativenumber = true
+    end
   end,
 })
 
--- Set cursor on enter
-vim.api.nvim_create_autocmd("VimEnter", {
-  pattern = "*",
-  callback = function()
-    vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
-  end,
+-- move help file to the right
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "help",
+  callback = function ()
+    vim.cmd("wincmd L")
+  end
 })
 
 -- Set cursor on exit

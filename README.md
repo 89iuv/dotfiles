@@ -3,8 +3,6 @@
 <!--toc:start-->
 - [Dotfiles](#dotfiles)
   - [System](#system)
-    - [Ubuntu](#ubuntu)
-    - [Mac](#mac)
   - [Environment](#environment)
   - [Setup](#setup)
   - [Issues](#issues)
@@ -14,15 +12,13 @@
 
 Install platform specific build tools ex: make, gcc, etc.
 
-### Ubuntu
-
 ```sh
+# ubuntu
 sudo apt install build-essentials
 ```
 
-### Mac
-
 ```sh
+# macos
 xcode-select --install
 ```
 
@@ -67,11 +63,34 @@ rm tmp.txt
 
 ## Update
 
+Update Ubuntu:
+
+```sh
+sudo apt update
+sudo apt upgrade
+```
+
+Update dotfiles:
+
+```sh
+cd ~/.dotfiles
+git pull
+git submodule update --recursive --init
+```
+
+Update home-manager:
+
 ```sh
 cd ~/.config/home-manager
 nix flake update
 home-manager switch --impure
 ```
+
+Update others:
+
+- Update tmux: ctrl+x u all
+- Update neovim: \<leader\>l U
+- Update mason: \<leader\>cm U
 
 ## Issues
 

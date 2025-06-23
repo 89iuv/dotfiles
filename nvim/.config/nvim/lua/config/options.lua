@@ -9,20 +9,28 @@
 -- note: the project root si always bellow or equal to the cwd
 -- vim.g.root_spec = { "cwd" }
 
-vim.g.snacks_animate = false
+vim.g.animate_fps = 60
+vim.g.animate_enabled = false
+vim.g.smear_cursor_animate = true
+vim.g.snacks_animate = nil -- use local override, change for global override
+
+-- vim.o.winborder = "none"
+
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
+vim.o.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"
+
 vim.opt.swapfile = false
 vim.opt.pumblend = 0
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- format for folded lines
-vim.opt.foldtext = 'v:lua.CustomFoldText()'
+vim.opt.foldtext = "v:lua.CustomFoldText()"
 function _G.CustomFoldText()
   local line = vim.fn.getline(vim.v.foldstart)
   local num_lines = vim.v.foldend - vim.v.foldstart + 1
-  return line .. ' ... ' .. num_lines .. ' lines'
+  return line .. " ... " .. num_lines .. " lines"
 end

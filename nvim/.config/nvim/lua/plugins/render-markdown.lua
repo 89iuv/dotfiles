@@ -1,6 +1,19 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   opts = {
+    debounce = 80,
+    anti_conceal = {
+      enabled = true,
+      ignore = {
+        link = false,
+      },
+    },
+    latex = {
+      enabled = true,
+    },
+    checkbox = {
+      enabled = true,
+    },
     code = {
       width = "full",
       border = "thin",
@@ -38,10 +51,10 @@ return {
         conceal = false,
       },
     },
-    -- this will render all characters when entering insert mode
     win_options = {
       conceallevel = {
         default = 0,
+        rendered = 3,
       },
     },
   },

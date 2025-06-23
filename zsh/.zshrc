@@ -12,12 +12,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# add personal scripts to path
-export PATH=$HOME/.scripts:$PATH
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -102,15 +96,6 @@ ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#cdd6f4,underline'
 ZSH_HIGHLIGHT_STYLES[cursor]='none'
 
-# nix complete
-fpath+=$HOME/.nix-profile/share/zsh/site-functions/
-
-# nix profile
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]
-  then
-    . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-
 source $ZSH/oh-my-zsh.sh
 
 
@@ -129,7 +114,7 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=#11111b,bg=#f5c2e7"
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c7086"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(forward-char)
+# ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(forward-char)
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -235,10 +220,7 @@ if type bat > /dev/null
 then
   export BAT_THEME="Catppuccin Mocha"
   alias cat="bat --style=plain --paging=auto"
-
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-  # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  # export MANROFFOPT="-c"
 
   help() {
     "$@" --help 2>&1 | bat --plain --language=help
@@ -265,10 +247,27 @@ then
   export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
+# yazi
+if type yazi > /dev/null
+then
+  y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+  }
+  alias yazi=y
+fi
+
 # nix-shell
 nix-zsh() {
   nix-shell --run zsh "$@"
 }
+
+# nix env vars
+export NIXPKGS_ALLOW_UNFREE=1;
+export PUPPETEER_EXECUTABLE_PATH=/Users/valiuv/.nix-profile/bin/google-chrome-stable;
 
 # edit current command in neovim keybind
 bindkey '^e' edit-command-line

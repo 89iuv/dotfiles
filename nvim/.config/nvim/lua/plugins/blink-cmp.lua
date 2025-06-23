@@ -9,7 +9,7 @@ return {
         show_on_insert_on_trigger_character = false,
       },
       menu = {
-        border = "single",
+        border = require("config.global").border,
         draw = {
           columns = {
             { "label", "label_description", "source_name", gap = 1 },
@@ -28,7 +28,7 @@ return {
       documentation = {
         auto_show = false,
         window = {
-          border = "single",
+          border = require("config.global").border,
         },
       },
       list = {
@@ -74,7 +74,7 @@ return {
         "snippet_forward",
         "fallback",
       },
-      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
       ["<CR>"] = {
         function(cmp)
           if cmp.snippet_active() then
@@ -85,11 +85,13 @@ return {
         end,
         "fallback",
       },
+      ["<C-k>"] = { "fallback" }, -- used in insert mode navigation ctrl+hjkl
+      ["<M-p>"] = { "show_signature", "hide_signature", "fallback" },
     },
     signature = {
       enabled = true,
       window = {
-        border = "single",
+        border = require("config.global").border,
         show_documentation = false,
       },
     },
