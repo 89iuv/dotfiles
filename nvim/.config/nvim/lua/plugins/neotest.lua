@@ -2,7 +2,7 @@ return {
   "nvim-neotest/neotest",
   opts = {
     floating = {
-      border = "single",
+      border = require("config.global").border,
     },
     output = { open_on_run = false },
     quickfix = {

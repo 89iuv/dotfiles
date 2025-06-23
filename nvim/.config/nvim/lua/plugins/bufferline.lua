@@ -1,5 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
+  event = "BufEnter",
   enabled = true,
   opts = function(_, opts)
     local new_opts = {

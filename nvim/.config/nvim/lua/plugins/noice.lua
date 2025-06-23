@@ -6,7 +6,7 @@ return {
         views = {
           cmdline_popupmenu = {
             border = {
-              style = "single",
+              style = require("config.global").border,
             },
             win_options = {
               winblend = 0,
@@ -20,7 +20,7 @@ return {
         views = {
           hover = {
             border = {
-              style = "single",
+              style = require("config.global").border,
             },
           },
         },
@@ -39,17 +39,17 @@ return {
     views = {
       popup = {
         border = {
-          style = "single",
+          style = require("config.global").border,
         },
       },
       cmdline_popup = {
         border = {
-          style = "single",
+          style = require("config.global").border,
         },
       },
       cmdline_input = {
         border = {
-          style = "single",
+          style = require("config.global").border,
         },
       },
       cmdline_popupmenu = {
@@ -57,7 +57,7 @@ return {
       },
       confirm = {
         border = {
-          style = "single",
+          style = require("config.global").border,
         },
       },
     },

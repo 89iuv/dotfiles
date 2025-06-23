@@ -33,7 +33,7 @@ require("lazy").setup({
   install = { colorscheme = { "tokyonight", "habamax" } },
   ui = {
     backdrop = 60,
-    border = "single",
+    border = require("config.global").border,
   },
   checker = {
     enabled = true, -- check for plugin updates periodically

@@ -38,7 +38,7 @@ return {
     })
   end,
   opts = {
-    popup_border_style = "single",
+    popup_border_style = require("config.global").border,
     close_if_last_window = true,
     event_handlers = {
       {

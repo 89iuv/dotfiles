@@ -7,7 +7,7 @@ return {
     },
     ui = {
       backdrop = 60,
-      border = "single",
+      border = require("config.global").border,
       width = 0.8,
       height = 0.8,
     },

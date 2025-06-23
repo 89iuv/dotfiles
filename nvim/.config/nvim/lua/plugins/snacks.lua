@@ -104,7 +104,7 @@ return {
       },
       styles = {
         news = {
-          border = "single",
+          border = require("config.global").border,
         },
         notification = {
           wo = {

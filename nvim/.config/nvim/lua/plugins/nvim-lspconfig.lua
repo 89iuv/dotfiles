@@ -7,7 +7,7 @@ return {
     local new_opts = {
       diagnostics = {
         float = {
-          border = "single",
+          border = require("config.global").border,
         },
       },
     }

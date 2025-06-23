@@ -18,6 +18,8 @@ local M = {
     end)(),
   },
 
+  border = "rounded",
+
   excluded = {
     filetype = {
       -- default
