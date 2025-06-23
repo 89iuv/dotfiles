@@ -107,8 +107,8 @@ return {
 
         -- NeoTreeWinSeparator = { fg = layer0, bg = layer0 },
         NeoTreeWinSeparator = { link = "WinSeparator" },
-        NeoTreeIndentMarker = { link = "IblIndent" },
-        NeoTreeExpander = { link = "IblIndent" },
+        NeoTreeIndentMarker = { fg = colors.surface1 },
+        NeoTreeExpander = { fg = colors.surface1 },
 
         -- indent blankline
         IblIndent = { fg = colors.surface0 },
@@ -185,6 +185,7 @@ return {
         -- trouble
         TroubleNormal = { link = "NormalFloat" },
         TroubleNormalNc = { link = "TroubleNormal" },
+        TroubleIndent = { fg = colors.surface1 },
 
         -- markdown
         RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.2, layer0) },
