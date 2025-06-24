@@ -7,9 +7,10 @@ return {
       "neo-tree",
     }
     local side_bar_filetypes = {
+      "help",
       "trouble",
       "grug-far",
-      "help",
+      "neotest-summary",
       "json.kulala_ui",
       "text.kulala_ui",
     }
