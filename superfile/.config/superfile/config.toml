@@ -34,7 +34,7 @@ default_sort_type = 0
 sort_order_reversed = false
 #
 # Case sensitive sort by name (upper "B" comes before lower "a" if true).
-case_sensitive_sort = false
+case_sensitive_sort = true
 #
 # Whether to enable debug mode.
 debug = false
@@ -42,7 +42,7 @@ debug = false
 # ================   Style =================
 #
 # Whether to use the builtin syntax highlighting with chroma or use bat. Values: "" for builtin chroma, "bat" for bat
-code_previewer = ''
+code_previewer = 'bat'
 # 
 # If you don't have or don't want Nerdfont installed you can turn this off
 nerdfont = true
@@ -71,7 +71,7 @@ border_middle_right = "┫"
 # ==========PLUGINS========== #
 # 
 # Show more detailed metadata, please install exiftool before enabling this plugin!
-metadata = false
+metadata = true
 #
 # Enable MD5 checksum generation for files
 enable_md5_checksum = false

@@ -52,6 +52,8 @@
     pkgs.tmux
     pkgs.btop
     pkgs.yazi
+
+    pkgs.exiftool
     pkgs.superfile
 
     pkgs.delta
