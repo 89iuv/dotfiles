@@ -18,7 +18,7 @@ local M = {
     end)(),
   },
 
-  border = "rounded",
+  border = "single",
 
   excluded = {
     filetype = {
