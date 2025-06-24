@@ -239,6 +239,18 @@ then
   --multi"
 fi
 
+# ripgrep
+if type rg > /dev/null
+then
+  alias grep="rg -uuu"
+fi
+
+# fd
+if type fd > /dev/null
+then
+  alias find="fd -u"
+fi
+
 # lazygit
 if type lazygit > /dev/null
 then
@@ -290,8 +302,8 @@ nix-zsh() {
 # nix env vars
 export PUPPETEER_EXECUTABLE_PATH=/Users/valiuv/.nix-profile/bin/google-chrome-stable;
 
-# edit current command in neovim keybind
-bindkey '^e' edit-command-line
+# format the current command in neovim keybind
+bindkey '^f' edit-command-line
 
 # super tab keybind
 super-tab() {
