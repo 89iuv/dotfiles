@@ -3,41 +3,46 @@ return {
   event = "BufEnter",
   enabled = true,
   opts = function(_, opts)
+    local project_exporer_filetypes = {
+      "neo-tree",
+    }
+    local side_bar_filetypes = {
+      "trouble",
+      "grug-far",
+      "help",
+      "json.kulala_ui",
+      "text.kulala_ui",
+    }
+
+    local offsets = {}
+    for _, project_exporer_filetype in ipairs(project_exporer_filetypes) do
+      local offset = {
+        filetype = project_exporer_filetype,
+        text = "Project Explorer",
+        highlight = "BufferlineProjectExplorer",
+        text_align = "left",
+        separator = true,
+      }
+      table.insert(offsets, offset)
+    end
+
+    for _, side_bar_filetype in ipairs(side_bar_filetypes) do
+      local offset = {
+        filetype = side_bar_filetype,
+        text = "Side Bar",
+        highlight = "BufferlineProjectExplorer",
+        text_align = "left",
+        separator = true,
+      }
+      table.insert(offsets, offset)
+    end
+
     local new_opts = {
       options = {
         always_show_bufferline = true,
         tab_size = 1,
         truncate_names = false,
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "Project Explorer",
-            highlight = "BufferlineProjectExplorer",
-            text_align = "left",
-            separator = true,
-          },
-          {
-            filetype = "trouble",
-            text = "Side Bar",
-            highlight = "BufferlineProjectExplorer",
-            text_align = "left",
-            separator = true,
-          },
-          {
-            filetype = "grug-far",
-            text = "Side Bar",
-            highlight = "BufferlineProjectExplorer",
-            text_align = "left",
-            separator = true,
-          },
-          {
-            filetype = "help",
-            text = "Side Bar",
-            highlight = "BufferlineProjectExplorer",
-            text_align = "left",
-            separator = true,
-          },
-        },
+        offsets = offsets,
         indicator = {
           icon = "▎",
         },
