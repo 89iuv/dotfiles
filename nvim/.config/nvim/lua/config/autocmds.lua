@@ -7,6 +7,11 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- helper function to crate autogroup name
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
 -- overwrite highlight mode for nvim_buf_set_extmark
 local old_nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
 ---@diagnostic disable-next-line: duplicate-set-field
@@ -35,13 +40,21 @@ vim.api.nvim_win_set_config = function(window, config)
   return old_nvim_win_set_config(window, config)
 end
 
+-- Do not continue with comments on the next line
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "r", "o" })
+  end,
+})
+
 -- use 4 spaces to indent in java files
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "java",
-    callback = function()
-        vim.bo.shiftwidth = 4
-        vim.bo.tabstop = 4
-    end,
+  pattern = "java",
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+  end,
 })
 
 -- Fix conceallevel for json files
@@ -52,25 +65,72 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Disable conceallevel for buftype
-vim.api.nvim_create_autocmd("BufEnter", {
+-- move help file to the right
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "help",
   callback = function()
-    local patterns = {
-      "nofile",
-    }
-    for _, pattern in ipairs(patterns) do
-      if pattern == vim.bo.buftype then
-        vim.opt_local.conceallevel = 0
-      end
-    end
+    vim.cmd("wincmd L")
   end,
 })
 
--- Do not continue with comments on the next line
+-- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
+  group = augroup("close_with_q"),
+  pattern = {
+    "PlenaryTestPopup",
+    "checkhealth",
+    "dbout",
+    "gitsigns-blame",
+    "grug-far",
+    "help",
+    "lspinfo",
+    "notify",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.schedule(function()
+      vim.keymap.set("n", "q", function()
+        vim.cmd("close")
+        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+      end, {
+        buffer = event.buf,
+        silent = true,
+        desc = "Quit buffer",
+      })
+    end)
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "neotest-output",
+    "neotest-output-panel",
+    "neotest-attach",
+    "neotest-summary",
+  },
+  group = augroup("NeotestConfig"),
+  callback = function(opts)
+    vim.keymap.set("n", "q", function()
+      pcall(vim.api.nvim_win_close, 0, true)
+    end, {
+      buffer = opts.buf,
+        silent = true,
+        desc = "Close window",
+    })
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "neotest-summary",
+    "neotest-output-panel",
+  },
   callback = function()
-    vim.opt_local.formatoptions:remove({ "r", "o" })
+    vim.wo.winhighlight = "Normal:NormalFloat"
   end,
 })
 
@@ -92,14 +152,6 @@ vim.api.nvim_create_autocmd("ModeChanged", {
       vim.wo.relativenumber = true
     end
   end,
-})
-
--- move help file to the right
-vim.api.nvim_create_autocmd("Filetype", {
-  pattern = "help",
-  callback = function ()
-    vim.cmd("wincmd L")
-  end
 })
 
 -- Set cursor on exit

@@ -4,9 +4,19 @@ return {
     floating = {
       border = require("config.global").border,
     },
-    output = { open_on_run = false },
-    quickfix = {
+    status = {
       enabled = true,
+      signs = true,
+      virtual_text = false,
+    },
+    output = {
+      open_on_run = false,
+    },
+    output_panel = {
+      enabled = true,
+    },
+    quickfix = {
+      enabled = false,
       open = function()
         if LazyVim.has("trouble.nvim") then
           require("trouble").open({ mode = "quickfix", focus = false })

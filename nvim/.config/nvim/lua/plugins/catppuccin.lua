@@ -6,6 +6,7 @@ return {
     integrations = {
       barbar = true,
       fidget = true,
+      neotest = true,
     },
     custom_highlights = function(colors)
       local colors_utils = require("catppuccin.utils.colors")
@@ -186,6 +187,10 @@ return {
         TroubleNormal = { link = "NormalFloat" },
         TroubleNormalNc = { link = "TroubleNormal" },
         TroubleIndent = { fg = colors.surface1 },
+
+        -- neotest
+        NeotestIndent = { link = "NeoTreeIndentMarker" },
+        NeotestExpandMarker = { link = "NeoTreeIndentMarker" },
 
         -- markdown
         RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.2, layer0) },
