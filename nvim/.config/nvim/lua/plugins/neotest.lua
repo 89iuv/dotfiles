@@ -16,14 +16,7 @@ return {
       enabled = true,
     },
     quickfix = {
-      enabled = false,
-      open = function()
-        if LazyVim.has("trouble.nvim") then
-          require("trouble").open({ mode = "quickfix", focus = false })
-        else
-          vim.cmd("copen")
-        end
-      end,
+      enabled = true,
     },
     icons = {
       child_indent = "│",
