@@ -10,22 +10,25 @@
 -- vim.g.root_spec = { "cwd" }
 
 vim.g.animate_fps = 60
+
 vim.g.animate_enabled = false
 vim.g.smear_cursor_animate = true
 vim.g.snacks_animate = nil -- use local override, change for global override
 
--- vim.o.winborder = "none"
-
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
-vim.o.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"
+vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"
+vim.opt.conceallevel = 0
 
-vim.opt.swapfile = false
+-- vim.o.winborder = "none"
+
 vim.opt.pumblend = 0
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.relativenumber = true
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+vim.opt.swapfile = false
 
 -- format for folded lines
 vim.opt.foldtext = "v:lua.CustomFoldText()"
