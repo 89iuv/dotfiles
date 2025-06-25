@@ -294,6 +294,17 @@ then
   alias superfile=spf
 fi
 
+# github copilot
+if type gh > /dev/null
+then
+  if gh extension list | grep -q copilot
+  then
+    eval "$(gh copilot alias -- zsh)"
+    alias "??"="ghcs"
+    alias "?e"="ghce"
+  fi
+fi
+
 # nix-shell
 nix-zsh() {
   nix-shell --run zsh "$@"

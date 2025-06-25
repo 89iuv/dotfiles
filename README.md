@@ -61,6 +61,12 @@ chsh -s $(which zsh)
 rm tmp.txt
 ```
 
+```sh
+# install github copilot cli
+gh auth login
+gh extension install github/gh-copilot
+```
+
 ## Update
 
 Update Ubuntu:
