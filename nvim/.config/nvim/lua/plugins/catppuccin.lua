@@ -183,6 +183,11 @@ return {
         SnacksPickerCol = { fg = colors.overlay0 },
         SnacksWinBar = { fg = accent, bg = colors.mantle },
 
+        -- SnacksInputIcon
+        SnacksInputNormal = { link = "NormalFloat", },
+        SnacksInputTitle = { link = "FloatTitle" },
+        SnacksInputBorder = { link = "FloatBorder" },
+
         -- trouble
         TroubleNormal = { link = "NormalFloat" },
         TroubleNormalNc = { link = "TroubleNormal" },
