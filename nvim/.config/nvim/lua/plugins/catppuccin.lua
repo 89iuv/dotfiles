@@ -210,6 +210,9 @@ return {
         ["@markup.italic.markdown_inline"] = { fg = colors.text, style = { "italic" } },
 
         ["@markup.quote.markdown"] = { link = "RenderMarkdownQuote" },
+        ["@markup.link.url"] = { fg = colors.rosewater, sp = colors.rosewater, style = { "italic", "underline"} },
+        ["@markup.link.label"] = { fg = colors.sapphire, sp = colors.sapphire, style = { "italic", "underline"} },
+        ["@markup.link"] = { fg = colors.lavender, sp = colors.lavender, style = { "italic", "underline"} },
 
         -- treesitter
         ["@string.special.url"] = { fg = colors.rosewater, sp = colors.rosewater, style = { "italic", "underline" } },
