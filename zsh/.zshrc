@@ -297,7 +297,7 @@ fi
 # github copilot
 if type gh > /dev/null
 then
-  if gh extension list | grep -q copilot
+  if gh extension list 2>&1 | grep -q copilot
   then
     eval "$(gh copilot alias -- zsh)"
     alias "??"="ghcs"
