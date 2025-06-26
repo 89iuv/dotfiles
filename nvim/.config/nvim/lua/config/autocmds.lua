@@ -65,6 +65,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- disable conceallevel
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  pattern = { "kulala://ui" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
 -- move help file to the right
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = "help",
@@ -118,8 +126,8 @@ vim.api.nvim_create_autocmd("FileType", {
       pcall(vim.api.nvim_win_close, 0, true)
     end, {
       buffer = opts.buf,
-        silent = true,
-        desc = "Close window",
+      silent = true,
+      desc = "Close window",
     })
   end,
 })
@@ -131,6 +139,16 @@ vim.api.nvim_create_autocmd("FileType", {
   },
   callback = function()
     vim.wo.winhighlight = "Normal:NormalFloat"
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "copilot-*" },
+  callback = function()
+    -- Set buffer-local options
+    vim.opt_local.relativenumber = false
+    vim.opt_local.number = false
+    vim.opt_local.conceallevel = 0
   end,
 })
 

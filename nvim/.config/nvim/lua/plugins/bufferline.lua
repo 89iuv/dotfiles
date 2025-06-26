@@ -13,6 +13,7 @@ return {
       "neotest-summary",
       "json.kulala_ui",
       "text.kulala_ui",
+      "copilot-chat",
     }
 
     local offsets = {}

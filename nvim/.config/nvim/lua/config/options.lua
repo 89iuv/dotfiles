@@ -19,7 +19,7 @@ vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"
-vim.opt.conceallevel = 0
+-- vim.opt.conceallevel = 0
 
 -- vim.o.winborder = "none"
 
