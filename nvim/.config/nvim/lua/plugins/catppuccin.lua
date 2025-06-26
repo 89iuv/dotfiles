@@ -41,7 +41,7 @@ return {
 
         BufferLineIndicatorSelected = { fg = accent, bg = colors.base },
         BufferLineTruncMarker = { fg = colors.overlay0, bg = layer4 },
-        BufferLineFill = { bg = layer4 },
+        BufferLineFill = { bg = layer3 },
 
         BufferLineBuffer = { fg = colors.overlay2, bg = layer2 },
         BufferLineError = { link = "BufferLineBuffer" },
@@ -145,9 +145,9 @@ return {
         FidgetBorder = { fg = colors.overlay2, bg = layer3 },
 
         -- incline
-        InclineNormal = { fg = colors.subtext0, bg = layer3 },
-        InclineNormalNC = { fg = colors.subtext0, bg = layer3 },
-        InclineSeparator = { fg = separator, bg = layer3 },
+        InclineNormal = { fg = colors.subtext0, bg = layer1 },
+        InclineNormalNC = { fg = colors.subtext0, bg = layer1 },
+        InclineSeparator = { fg = separator, bg = layer1 },
 
         -- noice
         NoiceConfirm = { link = "NormalFloat" },
