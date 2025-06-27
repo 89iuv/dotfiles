@@ -151,6 +151,12 @@ return {
         InclineNormalNC = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
         InclineSeparator = { fg = colors.surface2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
 
+        InclineLsp = { fg = colors.teal, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        InclineLinter = { fg = colors.sky, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        InclineFormatter = { fg = colors.sapphire, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+
+        InclineText = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+
         -- noice
         NoiceConfirm = { link = "NormalPopup" },
         NoiceConfirmBorder = { link = "PopupBorder" },
