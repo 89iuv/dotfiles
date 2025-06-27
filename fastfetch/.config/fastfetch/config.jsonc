@@ -19,7 +19,10 @@
     "gpu",
     "memory",
     "swap",
-    "disk",
+    {
+      "type": "disk",
+      "folders": "/"
+    },
     "battery",
     "break",
     "packages",
