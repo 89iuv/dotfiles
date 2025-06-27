@@ -75,6 +75,7 @@
     pkgs.nixfmt-classic
     (pkgs.lua5_1.withPackages (lua_pkgs: [
       lua_pkgs.luarocks
+      lua_pkgs.tiktoken_core # used in nvim copilot chat
     ]))
     (pkgs.python3.withPackages (python_pkgs: [
       python_pkgs.pip
@@ -90,6 +91,7 @@
     pkgs.chafa
     pkgs.fastfetch
     pkgs.cmatrix
+    pkgs.stress
 
     pkgs.gh
   ];
