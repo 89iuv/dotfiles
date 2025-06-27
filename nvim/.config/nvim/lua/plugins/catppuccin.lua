@@ -13,20 +13,20 @@ return {
 
       return {
         -- catppuccin
-        NormalSide = { fg = colors.text, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        SideWinbar = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        NormalSide = { fg = colors.text, bg = colors.mantle },
+        SideWinbar = { fg = colors.lavender, bg = colors.mantle },
 
-        NormalPopup = { fg = colors.text, bg = colors.mantle },
-        PopupBorder = { fg = colors.overlay2, bg = colors.mantle },
-        PopupTitle = { fg = colors.lavender, bg = colors.mantle },
+        NormalPopup = { fg = colors.text, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        PopupBorder = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        PopupTitle = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
 
         NormalFloat = { fg = colors.text, bg = colors.mantle },
-        FloatBorder = { fg = colors.lavender, bg = colors.mantle },
+        FloatBorder = { fg = colors.subtext0, bg = colors.mantle },
         FloatTitle = { fg = colors.lavender, bg = colors.mantle },
 
-        WinSeparator = { fg = colors.overlay0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        WinSeparator = { fg = colors.overlay0, bg = colors_utils.blend(colors.base, colors.mantle, 0.75) },
 
-        StatusLine = { bg = colors.crust },
+        StatusLine = { bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
         LineNr = { fg = colors.surface2 },
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
@@ -38,8 +38,8 @@ return {
         BufferLineOffsetSeparator = { link = "WinSeparator" },
 
         BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
-        BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.crust },
-        BufferLineFill = { bg = colors.crust },
+        BufferLineTruncMarker = { fg = colors.surface2, bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
+        BufferLineFill = { bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
 
         BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
         BufferLineError = { link = "BufferLineBuffer" },
@@ -59,10 +59,10 @@ return {
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
         BufferLineHintVisible = { link = "BufferLineBufferVisible" },
 
-        BufferLineErrorDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.65, colors.mantle) },
-        BufferLineWarningDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.65, colors.mantle) },
-        BufferLineInfoDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.65, colors.mantle) },
-        BufferLineHintDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.65, colors.mantle) },
+        BufferLineErrorDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.75, colors.mantle) },
+        BufferLineWarningDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.75, colors.mantle) },
+        BufferLineInfoDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.75, colors.mantle) },
+        BufferLineHintDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.75, colors.mantle) },
 
         -- barbar
         BufferOffset = { fg = colors.lavender, bg = colors.mantle },
@@ -117,7 +117,7 @@ return {
 
         -- code indents
         IblIndent = { fg = colors.surface0 },
-        MiniIndentscopeSymbol = { fg = colors.overlay0 },
+        MiniIndentscopeSymbol = { fg = colors.overlay1 },
 
         -- virtual column
         VirtColumn = { fg = colors.surface0 },
@@ -143,19 +143,19 @@ return {
         BlinkCmpSignatureHelpBorder = { fg = colors.surface2, bg = colors.mantle },
 
         -- fidget
-        FidgetNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
-        FidgetBorder = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        FidgetNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        FidgetBorder = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
         -- incline
-        InclineNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
-        InclineNormalNC = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
-        InclineSeparator = { fg = colors.surface2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        InclineNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineNormalNC = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineSeparator = { fg = colors.overlay0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
-        InclineLsp = { fg = colors.teal, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
-        InclineLinter = { fg = colors.sky, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
-        InclineFormatter = { fg = colors.sapphire, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        InclineLsp = { fg = colors.maroon, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineLinter = { fg = colors.pink, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineFormatter = { fg = colors.flamingo, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
-        InclineText = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        InclineText = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
         -- noice
         NoiceConfirm = { link = "NormalPopup" },

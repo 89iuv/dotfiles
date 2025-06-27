@@ -4,11 +4,12 @@ return {
     { "catppuccin/nvim" },
   },
   opts = function(_, opts)
-    local catppuccin_palettes = require("catppuccin.palettes").get_palette("mocha")
     local lualine_catppuccin = require("catppuccin.utils.lualine")()
+    local colors = require("catppuccin.palettes").get_palette("mocha")
+    local colors_utils = require("catppuccin.utils.colors")
 
-    lualine_catppuccin.normal.c.bg = catppuccin_palettes.crust
-    lualine_catppuccin.inactive.c.bg = catppuccin_palettes.crust
+    lualine_catppuccin.normal.c.bg = colors_utils.blend(colors.mantle, colors.crust, 0.5)
+    lualine_catppuccin.inactive.c.bg = colors_utils.blend(colors.mantle, colors.crust, 0.5)
 
     opts.options.theme = lualine_catppuccin
     opts.options.component_separators = { left = "", right = "│" }
