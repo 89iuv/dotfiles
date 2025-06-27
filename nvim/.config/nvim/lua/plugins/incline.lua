@@ -32,9 +32,9 @@ return {
       render = function(props)
         local opts = {
           icons = {
-            diagnostics = "",
-            linters = "",
-            formaters = "",
+            diagnostics = "󰅟",
+            linters = "󰍉",
+            formaters = "󰏫",
           },
           separator = {
             module = "  ",
