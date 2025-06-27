@@ -32,7 +32,7 @@ return {
       local offset = {
         filetype = side_bar_filetype,
         text = "Side Bar",
-        highlight = "BufferlineProjectExplorer",
+        highlight = "BufferlineSideBar",
         text_align = "left",
         separator = true,
       }

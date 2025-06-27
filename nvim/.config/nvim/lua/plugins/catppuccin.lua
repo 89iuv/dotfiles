@@ -10,118 +10,120 @@ return {
     },
     custom_highlights = function(colors)
       local colors_utils = require("catppuccin.utils.colors")
-      local accent = colors.lavender
-      local separator = colors.surface2
-      local border = colors.surface2
-
-      local layer0 = colors.base
-      local layer1 = colors_utils.blend(colors.base, colors.mantle, 0.5)
-      local layer2 = colors.mantle
-      local layer3 = colors_utils.blend(colors.mantle, colors.crust, 0.5)
-      local layer4 = colors.crust
 
       return {
         -- catppuccin
-        NormalFloat = { fg = colors.text, bg = layer2 },
-        FloatBorder = { fg = border, bg = layer2 },
-        FloatTitle = { fg = colors.subtext1, bg = layer2 },
+        NormalSide = { fg = colors.text, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        SideWinbar = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
-        WinBar = { fg = colors.overlay0, bg = colors.mantle },
-        WinSeparator = { fg = separator, bg = layer1 },
-        StatusLine = { bg = layer4 },
+        NormalPopup = { fg = colors.text, bg = colors.mantle },
+        PopupBorder = { fg = colors.overlay2, bg = colors.mantle },
+        PopupTitle = { fg = colors.lavender, bg = colors.mantle },
 
+        NormalFloat = { fg = colors.text, bg = colors.mantle },
+        FloatBorder = { fg = colors.lavender, bg = colors.mantle },
+        FloatTitle = { fg = colors.lavender, bg = colors.mantle },
+
+        WinSeparator = { fg = colors.overlay0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+
+        StatusLine = { bg = colors.crust },
         LineNr = { fg = colors.surface2 },
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = accent, bg = layer2 },
+        BufferlineProjectExplorer = { link = "SideWinbar" },
+        BufferlineSideBar = { link = "SideWinbar" },
 
-        BufferLineSeparator = { fg = separator, bg = layer2 },
+        BufferLineSeparator = { fg = colors.surface2, bg = colors.mantle },
         BufferLineOffsetSeparator = { link = "WinSeparator" },
 
-        BufferLineIndicatorSelected = { fg = accent, bg = colors.base },
-        BufferLineTruncMarker = { fg = colors.overlay0, bg = layer4 },
-        BufferLineFill = { bg = layer3 },
+        BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
+        BufferLineTruncMarker = { fg = colors.overlay0, bg = colors.crust },
+        BufferLineFill = { bg = colors.crust },
 
-        BufferLineBuffer = { fg = colors.overlay2, bg = layer2 },
+        BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
         BufferLineError = { link = "BufferLineBuffer" },
         BufferLineWarning = { link = "BufferLineBuffer" },
         BufferLineInfo = { link = "BufferLineBuffer" },
         BufferLineHint = { link = "BufferLineBuffer" },
 
-        BufferLineBufferSelected = { fg = accent, bg = layer0, style = { "bold" } },
+        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold" } },
         BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
         BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
         BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
 
-        BufferLineBufferVisible = { fg = colors.text, bg = layer2 },
+        BufferLineBufferVisible = { fg = colors.text, bg = colors.mantle },
         BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
         BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
         BufferLineHintVisible = { link = "BufferLineBufferVisible" },
 
-        BufferLineErrorDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.red, 0.65, layer2) },
-        BufferLineWarningDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.65, layer2) },
-        BufferLineInfoDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.sky, 0.65, layer2) },
-        BufferLineHintDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.teal, 0.65, layer2) },
+        BufferLineErrorDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.65, colors.mantle) },
+        BufferLineWarningDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.65, colors.mantle) },
+        BufferLineInfoDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.65, colors.mantle) },
+        BufferLineHintDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.65, colors.mantle) },
 
         -- barbar
-        BufferOffset = { fg = accent, bg = layer2 },
+        BufferOffset = { fg = colors.lavender, bg = colors.mantle },
         BufferScrollArrow = { fg = colors.overlay0, bg = colors.mantle },
-        BufferTabpageFill = { fg = layer4, bg = layer2 },
+        BufferTabpageFill = { fg = colors.crust, bg = colors.mantle },
 
         -- barbar current
-        BufferCurrent = { bg = layer0, fg = accent, style = { "bold" } },
-        BufferCurrentMod = { bg = layer0, fg = accent },
-        BufferCurrentModBtn = { bg = layer0, fg = colors.peach },
-        BufferCurrentBtn = { bg = layer0, fg = colors.red },
-        BufferCurrentSign = { bg = layer0, fg = separator },
+        BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
+        BufferCurrentMod = { bg = colors.base, fg = colors.lavender },
+        BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
+        BufferCurrentBtn = { bg = colors.base, fg = colors.red },
+        BufferCurrentSign = { bg = colors.base, fg = colors.surface2 },
 
         -- barbar visible
-        BufferVisible = { bg = layer2, fg = colors.subtext0 },
-        BufferVisibleMod = { bg = layer2, fg = colors.subtext0 },
-        BufferVisibleModBtn = { bg = layer2, fg = colors.peach },
-        BufferVisibleBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferVisibleSign = { bg = layer2, fg = separator },
+        BufferVisible = { bg = colors.mantle, fg = colors.subtext0 },
+        BufferVisibleMod = { bg = colors.mantle, fg = colors.subtext0 },
+        BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
+        BufferVisibleBtn = { bg = colors.mantle, fg = colors.overlay2 },
+        BufferVisibleSign = { bg = colors.mantle, fg = colors.surface2 },
 
-        BufferVisibleError = { bg = layer2, fg = colors.red },
-        BufferVisibleWarn = { bg = layer2, fg = colors.yellow },
-        BufferVisibleInfo = { bg = layer2, fg = colors.sky },
-        BufferVisibleHint = { bg = layer2, fg = colors.teal },
+        BufferVisibleError = { bg = colors.mantle, fg = colors.red },
+        BufferVisibleWarn = { bg = colors.mantle, fg = colors.yellow },
+        BufferVisibleInfo = { bg = colors.mantle, fg = colors.sky },
+        BufferVisibleHint = { bg = colors.mantle, fg = colors.teal },
 
         -- barbar inactive
-        BufferInactive = { bg = layer2, fg = colors_utils.darken(colors.subtext0, 0.5, layer2) },
-        BufferInactiveMod = { bg = layer2, fg = colors_utils.darken(colors.subtext0, 0.5, layer2) },
-        BufferInactiveModBtn = { bg = layer2, fg = colors.peach },
-        BufferInactiveBtn = { bg = layer2, fg = colors.overlay2 },
-        BufferInactiveSign = { bg = layer2, fg = separator },
+        BufferInactive = { bg = colors.mantle, fg = colors_utils.darken(colors.subtext0, 0.5, colors.mantle) },
+        BufferInactiveMod = { bg = colors.mantle, fg = colors_utils.darken(colors.subtext0, 0.5, colors.mantle) },
+        BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
+        BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay2 },
+        BufferInactiveSign = { bg = colors.mantle, fg = colors.surface2 },
 
-        BufferInactiveError = { bg = layer2, fg = colors_utils.darken(colors.red, 0.5, layer2) },
-        BufferInactiveWarn = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.5, layer2) },
-        BufferInactiveInfo = { bg = layer2, fg = colors_utils.darken(colors.sky, 0.5, layer2) },
-        BufferInactiveHint = { bg = layer2, fg = colors_utils.darken(colors.teal, 0.5, layer2) },
+        BufferInactiveError = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.5, colors.mantle) },
+        BufferInactiveWarn = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.5, colors.mantle) },
+        BufferInactiveInfo = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.5, colors.mantle) },
+        BufferInactiveHint = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.5, colors.mantle) },
 
         -- neotree
-        NeoTreeNormal = { bg = layer2 },
-        NeoTreeNormalNC = { bg = layer2 },
+        NeoTreeNormal = { link = "NormalSide" },
+        NeoTreeNormalNC = { link = "NormalSide" },
 
-        -- NeoTreeWinSeparator = { fg = layer0, bg = layer0 },
+        -- NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
         NeoTreeWinSeparator = { link = "WinSeparator" },
         NeoTreeIndentMarker = { fg = colors.surface1 },
         NeoTreeExpander = { fg = colors.surface1 },
 
-        -- indent blankline
-        IblIndent = { fg = colors.surface0 },
+        -- whichkey
+        WhichKey = { link = "NormalPopup" },
+        WhichKeyBorder = { link = "PopupBorder" },
+        WhichKeyTitle = { link = "PopupTitle" },
+        WhichKeyNormal = { link = "NormalPopup" },
 
-        -- mini indent scope
+        -- code indents
+        IblIndent = { fg = colors.surface0 },
         MiniIndentscopeSymbol = { fg = colors.overlay0 },
 
         -- virtual column
         VirtColumn = { fg = colors.surface0 },
 
         -- show keys
-        SkActive = { fg = layer4, bg = accent },
+        SkActive = { fg = colors.crust, bg = colors.lavender },
 
         -- iluminate
         IlluminatedWordText = { bg = colors.surface1 },
@@ -129,67 +131,68 @@ return {
         IlluminatedWordWrite = { bg = colors.surface1 },
 
         -- blink_cmp
-        BlinkCmpMenu = { bg = layer1 },
-        BlinkCmpMenuBorder = { fg = border, bg = layer1 },
+        BlinkCmpMenu = { bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        BlinkCmpMenuBorder = { fg = colors.surface2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
         BlinkCmpMenuSelection = { bg = colors.surface0, style = { "bold" } },
 
-        BlinkCmpDoc = { bg = layer1 },
-        BlinkCmpDocBorder = { fg = border, bg = layer1 },
-        BlinkCmpDocSeparator = { fg = border, bg = layer1 },
+        BlinkCmpDoc = { bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        BlinkCmpDocBorder = { fg = colors.surface2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        BlinkCmpDocSeparator = { fg = colors.surface2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
 
-        BlinkCmpSignatureHelp = { bg = layer1 },
-        BlinkCmpSignatureHelpBorder = { fg = border, bg = layer1 },
+        BlinkCmpSignatureHelp = { bg = colors.mantle },
+        BlinkCmpSignatureHelpBorder = { fg = colors.surface2, bg = colors.mantle },
 
         -- fidget
-        FidgetNormal = { fg = colors.subtext0, bg = layer3 },
-        FidgetBorder = { fg = colors.overlay2, bg = layer3 },
+        FidgetNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        FidgetBorder = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
 
         -- incline
-        InclineNormal = { fg = colors.subtext0, bg = layer1 },
-        InclineNormalNC = { fg = colors.subtext0, bg = layer1 },
-        InclineSeparator = { fg = separator, bg = layer1 },
+        InclineNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        InclineNormalNC = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        InclineSeparator = { fg = colors.surface2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
 
         -- noice
-        NoiceConfirm = { link = "NormalFloat" },
-        NoiceConfirmBorder = { link = "FloatBorder" },
+        NoiceConfirm = { link = "NormalPopup" },
+        NoiceConfirmBorder = { link = "PopupBorder" },
 
-        NoiceCmdlinePopup = { link = "NormalFloat" },
-        NoiceCmdlinePopupBorder = { link = "FloatBorder" },
-        NoiceCmdlinePopupBorderSearch = { link = "FloatBorder" },
+        NoiceCmdlinePopup = { link = "NormalPopup" },
+        NoiceCmdlinePopupBorder = { link = "PopupBorder" },
+        NoiceCmdlinePopupBorderSearch = { link = "PopupBorder" },
 
-        NoiceCmdlinePopupTitleSearch = { link = "FloatTitle" },
-        NoiceCmdlinePopupTitleLua = { link = "FloatTitle" },
-        NoiceCmdlinePopupTitleHelp = { link = "FloatTitle" },
-        NoiceCmdlinePopupTitleInput = { link = "FloatTitle" },
-        NoiceCmdlinePopupTitleFilter = { link = "FloatTitle" },
-        NoiceCmdlinePopupTitleCmdline = { link = "FloatTitle" },
-        NoiceCmdlinePopupTitleCalculator = { link = "FloatTitle" },
+        NoiceCmdlinePopupTitleSearch = { link = "PopupTitle" },
+        NoiceCmdlinePopupTitleLua = { link = "PopupTitle" },
+        NoiceCmdlinePopupTitleHelp = { link = "PopupTitle" },
+        NoiceCmdlinePopupTitleInput = { link = "PopupTitle" },
+        NoiceCmdlinePopupTitleFilter = { link = "PopupTitle" },
+        NoiceCmdlinePopupTitleCmdline = { link = "PopupTitle" },
+        NoiceCmdlinePopupTitleCalculator = { link = "PopupTitle" },
 
-        NoiceMini = { bg = colors.mantle },
+        NoiceMini = { bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
 
         -- snacks
-        SnacksNotifierInfo = { link = "NormalFloat" },
-        SnacksNotifierWarn = { link = "NormalFloat" },
-        SnacksNotifierDebug = { link = "NormalFloat" },
-        SnacksNotifierError = { link = "NormalFloat" },
-        SnacksNotifierTrace = { link = "NormalFloat" },
+        SnacksNotifierInfo = { link = "NormalPopup" },
+        SnacksNotifierWarn = { link = "NormalPopup" },
+        SnacksNotifierDebug = { link = "NormalPopup" },
+        SnacksNotifierError = { link = "NormalPopup" },
+        SnacksNotifierTrace = { link = "NormalPopup" },
 
-        SnacksNotifierBorderInfo = { link = "FloatBorder" },
-        SnacksNotifierBorderWarn = { link = "FloatBorder" },
-        SnacksNotifierBorderDebug = { link = "FloatBorder" },
-        SnacksNotifierBorderError = { link = "FloatBorder" },
-        SnacksNotifierBorderTrace = { link = "FloatBorder" },
+        SnacksNotifierBorderInfo = { link = "PopupBorder" },
+        SnacksNotifierBorderWarn = { link = "PopupBorder" },
+        SnacksNotifierBorderDebug = { link = "PopupBorder" },
+        SnacksNotifierBorderError = { link = "PopupBorder" },
+        SnacksNotifierBorderTrace = { link = "PopupBorder" },
 
         SnacksPickerCol = { fg = colors.overlay0 },
-        SnacksWinBar = { fg = accent, bg = colors.mantle },
+        SnacksWinBar = { link = "SideWinbar" },
+        SnacksTerminal = { link = "NormalSide" },
 
         -- SnacksInputIcon
-        SnacksInputNormal = { link = "NormalFloat", },
-        SnacksInputTitle = { link = "FloatTitle" },
-        SnacksInputBorder = { link = "FloatBorder" },
+        SnacksInputNormal = { link = "NormalPopup", },
+        SnacksInputTitle = { link = "PopupTitle" },
+        SnacksInputBorder = { link = "PopupBorder" },
 
         -- trouble
-        TroubleNormal = { link = "NormalFloat" },
+        TroubleNormal = { link = "NormalSide" },
         TroubleNormalNc = { link = "TroubleNormal" },
         TroubleIndent = { fg = colors.surface1 },
 
@@ -198,16 +201,16 @@ return {
         NeotestExpandMarker = { link = "NeoTreeIndentMarker" },
 
         -- markdown
-        RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.2, layer0) },
-        RenderMarkdownH2Bg = { bg = colors_utils.darken(colors.peach, 0.2, layer0) },
-        RenderMarkdownH3Bg = { bg = colors_utils.darken(colors.yellow, 0.2, layer0) },
-        RenderMarkdownH4Bg = { bg = colors_utils.darken(colors.green, 0.2, layer0) },
-        RenderMarkdownH5Bg = { bg = colors_utils.darken(colors.sapphire, 0.2, layer0) },
-        RenderMarkdownH6Bg = { bg = colors_utils.darken(colors.lavender, 0.2, layer0) },
+        RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.2, colors.base) },
+        RenderMarkdownH2Bg = { bg = colors_utils.darken(colors.peach, 0.2, colors.base) },
+        RenderMarkdownH3Bg = { bg = colors_utils.darken(colors.yellow, 0.2, colors.base) },
+        RenderMarkdownH4Bg = { bg = colors_utils.darken(colors.green, 0.2, colors.base) },
+        RenderMarkdownH5Bg = { bg = colors_utils.darken(colors.sapphire, 0.2, colors.base) },
+        RenderMarkdownH6Bg = { bg = colors_utils.darken(colors.lavender, 0.2, colors.base) },
 
         RenderMarkdownInlineHighlight = {
           fg = colors.rosewater,
-          bg = colors_utils.darken(colors.rosewater, 0.2, layer0),
+          bg = colors_utils.darken(colors.rosewater, 0.2, colors.base),
         },
         RenderMarkdownQuote = { fg = colors.subtext0 },
 
