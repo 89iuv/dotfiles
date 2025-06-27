@@ -147,15 +147,15 @@ return {
         FidgetBorder = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
         -- incline
-        InclineNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineNormalNC = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineSeparator = { fg = colors.overlay0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineNormal = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineNormalNC = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineSeparator = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
-        InclineLsp = { fg = colors.maroon, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineLinter = { fg = colors.pink, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineFormatter = { fg = colors.flamingo, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineLsp = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineLinter = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineFormatter = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
-        InclineText = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineText = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
 
         -- noice
         NoiceConfirm = { link = "NormalPopup" },
