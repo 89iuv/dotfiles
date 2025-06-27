@@ -202,24 +202,21 @@ alias xargs="xargs "
 if type zoxide > /dev/null
 then
   eval "$(zoxide init zsh)"
-  alias cd="z"
-  alias cdi="zi"
 fi
 
 # eza
 if type eza > /dev/null
 then
   alias ls="eza -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
-  alias l="ls -la"
-  alias la="ls -la -a"
-  alias ll="ls -l"
+  alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
+  alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
+  alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
 fi
 
 # bat
 if type bat > /dev/null
 then
   export BAT_THEME="Catppuccin Mocha"
-  alias cat="bat --style=plain --paging=auto"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
   help() {
@@ -237,18 +234,6 @@ then
   --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
   --color=selected-bg:#45475a \
   --multi"
-fi
-
-# ripgrep
-if type rg > /dev/null
-then
-  alias grep="rg -uuu"
-fi
-
-# fd
-if type fd > /dev/null
-then
-  alias find="fd -u"
 fi
 
 # lazygit
