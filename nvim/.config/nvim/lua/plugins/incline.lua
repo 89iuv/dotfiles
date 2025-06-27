@@ -32,9 +32,9 @@ return {
       render = function(props)
         local opts = {
           icons = {
-            diagnostics = "󰒔 ",
-            linters = "󰸫 ",
-            formaters = "󰿠 ",
+            diagnostics = "",
+            linters = "",
+            formaters = "",
           },
           separator = {
             module = "  ",
@@ -98,8 +98,7 @@ return {
             local push_namespace = vim.lsp.diagnostic.get_namespace(client.id, false)
             table.insert(lsp_client, get_diagnostic_label(pull_namespace))
             table.insert(lsp_client, get_diagnostic_label(push_namespace))
-            table.insert(lsp_client, { opts.icons.diagnostics, group = "InclineLsp" })
-            table.insert(lsp_client, { client.name, group = "InclineText" })
+            table.insert(lsp_client, { opts.icons.diagnostics .. " " .. client.name, group = "InclineLsp" })
 
             table.insert(diagnostic_group, lsp_client)
           end
@@ -121,8 +120,7 @@ return {
             local linter_client = {}
             local ns = require("lint").get_namespace(linter)
             table.insert(linter_client, get_diagnostic_label(ns))
-            table.insert(linter_client, { opts.icons.linters, group = "InclineLinter" })
-            table.insert(linter_client, { linter, group = "InclineText" })
+            table.insert(linter_client, { opts.icons.linters .. " " .. linter, group = "InclineLinter" })
 
             table.insert(linter_group, linter_client)
           end
@@ -142,8 +140,7 @@ return {
           local formater_group = {}
           for _, formater in ipairs(formaters) do
             local formater_client = {}
-            table.insert(formater_client, { opts.icons.formaters, group = "InclineFormatter" })
-            table.insert(formater_client, { formater.name, group = "InclineText" })
+            table.insert(formater_client, { opts.icons.formaters .. " " .. formater.name, group = "InclineFormatter" })
 
             table.insert(formater_group, formater_client)
           end

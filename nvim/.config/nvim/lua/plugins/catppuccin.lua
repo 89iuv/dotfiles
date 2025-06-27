@@ -143,19 +143,18 @@ return {
         BlinkCmpSignatureHelpBorder = { fg = colors.surface2, bg = colors.mantle },
 
         -- fidget
-        FidgetNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        FidgetBorder = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        FidgetNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
+        FidgetBorder = { fg = colors.overlay2, bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
 
         -- incline
-        InclineNormal = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineNormalNC = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineSeparator = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
+        InclineNormalNC = { link = "InclineNormal" },
 
-        InclineLsp = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineLinter = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
-        InclineFormatter = { fg = colors.lavender, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineSeparator = { fg = colors.overlay0, bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
 
-        InclineText = { fg = colors.overlay2, bg = colors_utils.blend(colors.base, colors.mantle, 0.25) },
+        InclineLsp = { link = "InclineNormal" },
+        InclineLinter = { link = "InclineNormal" },
+        InclineFormatter = { link = "InclineNormal" },
 
         -- noice
         NoiceConfirm = { link = "NormalPopup" },
@@ -173,7 +172,7 @@ return {
         NoiceCmdlinePopupTitleCmdline = { link = "PopupTitle" },
         NoiceCmdlinePopupTitleCalculator = { link = "PopupTitle" },
 
-        NoiceMini = { bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
+        NoiceMini = { bg = colors_utils.blend(colors.mantle, colors.crust, 0.75) },
 
         -- snacks
         SnacksNotifierInfo = { link = "NormalPopup" },
@@ -193,7 +192,7 @@ return {
         SnacksTerminal = { link = "NormalSide" },
 
         -- SnacksInputIcon
-        SnacksInputNormal = { link = "NormalPopup", },
+        SnacksInputNormal = { link = "NormalPopup" },
         SnacksInputTitle = { link = "PopupTitle" },
         SnacksInputBorder = { link = "PopupBorder" },
 
