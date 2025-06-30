@@ -59,6 +59,8 @@
     pkgs.delta
     pkgs.lazygit
 
+    pkgs.wordnet
+    pkgs.scowl
     pkgs.curl
     pkgs.wget
     pkgs.ripgrep

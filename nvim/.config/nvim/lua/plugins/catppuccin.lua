@@ -142,6 +142,9 @@ return {
         BlinkCmpSignatureHelp = { bg = colors.mantle },
         BlinkCmpSignatureHelpBorder = { fg = colors.surface2, bg = colors.mantle },
 
+        -- blink_cmp_dictionary
+        BlinkCmpKindDict = { fg = colors.teal },
+
         -- fidget
         FidgetNormal = { fg = colors.subtext0, bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
         FidgetBorder = { fg = colors.overlay2, bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
