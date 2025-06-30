@@ -95,12 +95,12 @@ home-manager switch --impure
 Update others:
 
 - Update tmux: ctrl+x u all
-- Update neovim: \<leader\>l U
-- Update mason: \<leader\>cm U
+- Update Neovim: \<leader\>l U
+- Update Mason: \<leader\>cm U
 
 ## Issues
 
 The following issues are found in:
 
-- Macbook Pro M1 -> Parallels -> Windows11 -> Wsl1 -> Ubuntu24.04:
-  - marksman trows error: AdvSimd processor support required
+- MacBook Pro M1 → Parallels → Windows11 → Wsl1 → Ubuntu24.04:
+  - marksman throws error: AdvSimd processor support required
