@@ -15,14 +15,14 @@ return {
   lazy = false, -- netrw highjacking does not work if plugin is lazy loaded
   keys = {
     {
-      "<leader>fm",
+      "<leader>fl",
       function()
         require("neo-tree.command").execute({ reveal = true, dir = LazyVim.root() })
       end,
       desc = "Explorer Reveal File (Root Dir)",
     },
     {
-      "<leader>fM",
+      "<leader>fL",
       function()
         require("neo-tree.command").execute({ reveal = true, dir = vim.uv.cwd() })
       end,
