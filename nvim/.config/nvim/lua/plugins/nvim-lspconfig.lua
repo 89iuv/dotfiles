@@ -1,14 +1,5 @@
 return {
   "neovim/nvim-lspconfig",
-  dependencies = {
-    {
-      "barreiroleo/ltex-extra.nvim",
-      branch = "dev",
-      opts = {
-        path = ".ltex",
-      },
-    },
-  },
   opts = function(_, opts)
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
     keys[#keys + 1] = { "<c-k>", false, mode = "i" }
