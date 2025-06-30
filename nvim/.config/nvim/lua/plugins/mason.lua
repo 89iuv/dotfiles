@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       "debugpy", -- used by python dap
       "lemminx",
+      "ltex-ls-plus"
     },
     ui = {
       backdrop = 60,
