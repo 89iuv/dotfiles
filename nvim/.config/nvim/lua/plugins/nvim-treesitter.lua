@@ -10,12 +10,6 @@ return {
       "typst",
       "vue",
     },
-    highlight = {
-      -- disable highlight for checkhealth as it does not show colors for ok, warning, error
-      disable = function(_, bufnr)
-        return vim.bo[bufnr].filetype == "checkhealth"
-      end,
-    },
     incremental_selection = {
       enable = true,
       keymaps = {
