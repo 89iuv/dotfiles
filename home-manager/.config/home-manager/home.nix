@@ -70,7 +70,6 @@
     pkgs.imagemagickBig
     pkgs.ghostscript
     pkgs.mermaid-cli
-    pkgs.google-chrome
     pkgs.fish # used in neovim conform plugin
     pkgs.nixfmt-classic
     (pkgs.lua5_1.withPackages (lua_pkgs: [
