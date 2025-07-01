@@ -26,7 +26,7 @@ return {
         end,
         -- How to format a progress annotation
         format_annote = function(msg)
-          return msg.title .. " "
+          return  msg.title and msg.title .. " " or " "
         end,
       },
     },
