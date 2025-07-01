@@ -47,7 +47,7 @@ return {
           },
         },
         ltex_plus = {
-          filetypes = {"markdown", "text"},
+          filetypes = { "markdown", "text" },
           settings = {
             ltex = {
               enabled = true,
@@ -58,8 +58,12 @@ return {
       },
       setup = {
         ltex_plus = function(_, ltex_plus_opts)
-          ltex_plus_opts.on_attach = function()
-            vim.opt_local.spell = false
+          ltex_plus_opts.on_attach = function(_, bufnr)
+            for _, win in ipairs(vim.api.nvim_list_wins()) do
+              if vim.api.nvim_win_get_buf(win) == bufnr then
+                vim.wo[win].spell = false
+              end
+            end
           end
         end,
       },

@@ -65,6 +65,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Set wrap in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "text", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = false
+  end,
+})
+
 -- Disable conceallevel
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = { "kulala://ui" },
