@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- use 4 spaces to indent in java files
+-- Use 4 spaces to indent in java files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   callback = function()
@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- disable conceallevel
+-- Disable conceallevel
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = { "kulala://ui" },
   callback = function()
@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
--- move help file to the right
+-- Move help file to the right
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = "help",
   callback = function()
@@ -81,7 +81,7 @@ vim.api.nvim_create_autocmd("Filetype", {
   end,
 })
 
--- close some filetypes with <q> and <esc>
+-- Close some filetypes with <q> and <esc>
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("close_with_q"),
   pattern = {

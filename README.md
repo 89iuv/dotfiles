@@ -94,7 +94,7 @@ home-manager switch --impure
 
 Update others:
 
-- Update tmux: ctrl+x u all
+- Update tmux: Ctrl+x u all
 - Update Neovim: \<leader\>l U
 - Update Mason: \<leader\>cm U
 
