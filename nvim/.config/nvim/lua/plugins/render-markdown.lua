@@ -1,6 +1,6 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  ft = {"markdown", "copilot-chat"},
+  ft = { "markdown", "copilot-chat" },
   opts = {
     debounce = 80,
     anti_conceal = {
@@ -18,6 +18,7 @@ return {
     code = {
       width = "full",
       border = "thin",
+      disable_background = {},
     },
     heading = {
       position = "inline",
