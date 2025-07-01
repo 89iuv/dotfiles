@@ -45,8 +45,9 @@ return {
           auto_insert = false,
         },
       },
-      ghost_text = {},
-      enabled = false,
+      ghost_text = {
+        enabled = false,
+      },
     },
     sources = {
       default = function()
