@@ -13,15 +13,16 @@ vim.g.animate_fps = 60
 
 vim.g.animate_enabled = false
 vim.g.smear_cursor_animate = true
-vim.g.snacks_animate = nil -- use local override, change for global override
+vim.g.snacks_animate = nil -- nil inherits from vim.g.animate_enabled
+vim.g.mini_indentscope_animate = nil -- nil inherits from vim.g.animate_enabled
 
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
+-- vim.o.winborder = "none"
+
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"
 -- vim.opt.conceallevel = 0
-
--- vim.o.winborder = "none"
 
 vim.opt.pumblend = 0
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
