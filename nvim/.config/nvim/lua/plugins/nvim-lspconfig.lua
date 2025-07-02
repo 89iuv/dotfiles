@@ -47,7 +47,7 @@ return {
           },
         },
         ltex_plus = {
-          filetypes = { "markdown", "text" },
+          filetypes = { "markdown" },
           settings = {
             ltex = {
               enabled = true,
