@@ -72,6 +72,9 @@ local M = {
       "terminal",
       "quickfix",
       "prompt",
+
+      -- custom
+      "",
     },
   },
 }
