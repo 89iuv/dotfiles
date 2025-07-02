@@ -64,42 +64,6 @@ return {
         BufferLineInfoDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.75, colors.mantle) },
         BufferLineHintDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.75, colors.mantle) },
 
-        -- barbar
-        BufferOffset = { fg = colors.lavender, bg = colors.mantle },
-        BufferScrollArrow = { fg = colors.overlay0, bg = colors.mantle },
-        BufferTabpageFill = { fg = colors.crust, bg = colors.mantle },
-
-        -- barbar current
-        BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
-        BufferCurrentMod = { bg = colors.base, fg = colors.lavender },
-        BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
-        BufferCurrentBtn = { bg = colors.base, fg = colors.red },
-        BufferCurrentSign = { bg = colors.base, fg = colors.surface2 },
-
-        -- barbar visible
-        BufferVisible = { bg = colors.mantle, fg = colors.subtext0 },
-        BufferVisibleMod = { bg = colors.mantle, fg = colors.subtext0 },
-        BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
-        BufferVisibleBtn = { bg = colors.mantle, fg = colors.overlay2 },
-        BufferVisibleSign = { bg = colors.mantle, fg = colors.surface2 },
-
-        BufferVisibleError = { bg = colors.mantle, fg = colors.red },
-        BufferVisibleWarn = { bg = colors.mantle, fg = colors.yellow },
-        BufferVisibleInfo = { bg = colors.mantle, fg = colors.sky },
-        BufferVisibleHint = { bg = colors.mantle, fg = colors.teal },
-
-        -- barbar inactive
-        BufferInactive = { bg = colors.mantle, fg = colors_utils.darken(colors.subtext0, 0.5, colors.mantle) },
-        BufferInactiveMod = { bg = colors.mantle, fg = colors_utils.darken(colors.subtext0, 0.5, colors.mantle) },
-        BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
-        BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay2 },
-        BufferInactiveSign = { bg = colors.mantle, fg = colors.surface2 },
-
-        BufferInactiveError = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.5, colors.mantle) },
-        BufferInactiveWarn = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.5, colors.mantle) },
-        BufferInactiveInfo = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.5, colors.mantle) },
-        BufferInactiveHint = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.5, colors.mantle) },
-
         -- neotree
         NeoTreeNormal = { link = "NormalSide" },
         NeoTreeNormalNC = { link = "NormalSide" },
