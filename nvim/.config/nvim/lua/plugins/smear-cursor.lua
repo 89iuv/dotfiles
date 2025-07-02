@@ -97,10 +97,10 @@ return {
       delay_event_to_smear = (1000 / vim.g.animate_fps) / 4,
       time_interval = 1000 / vim.g.animate_fps,
 
-      stiffness = 0.75,
-      trailing_stiffness = 0.35,
-      anticipation = 0.45,
-      damping = 0.85,
+      stiffness = 0.6,
+      trailing_stiffness = 0.4,
+      anticipation = 0.2,
+      damping = 0.8,
 
       max_length = 25,
     }
