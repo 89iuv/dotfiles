@@ -12,7 +12,7 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
--- overwrite highlight mode for nvim_buf_set_extmark
+-- Overwrite highlight mode for nvim_buf_set_extmark
 local old_nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_buf_set_extmark = function(buffer, ns_id, line, col, opts)
@@ -20,7 +20,7 @@ vim.api.nvim_buf_set_extmark = function(buffer, ns_id, line, col, opts)
   return old_nvim_buf_set_extmark(buffer, ns_id, line, col, opts)
 end
 
--- overwrite border style for nvim_open_win
+-- Overwrite border style for nvim_open_win
 local old_nvim_open_win = vim.api.nvim_open_win
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_open_win = function(buffer, enter, config)
@@ -30,7 +30,7 @@ vim.api.nvim_open_win = function(buffer, enter, config)
   return old_nvim_open_win(buffer, enter, config)
 end
 
--- overwrite border style for nvim_win_set_config
+-- Overwrite border style for nvim_win_set_config
 local old_nvim_win_set_config = vim.api.nvim_win_set_config
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_win_set_config = function(window, config)
@@ -65,11 +65,12 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Set wrap in text filetypes
+-- Set spell and wrap in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "text", "markdown" },
   callback = function()
     vim.opt_local.wrap = false
+    vim.opt_local.spell = false
   end,
 })
 
