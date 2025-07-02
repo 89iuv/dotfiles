@@ -23,7 +23,7 @@ return {
       })
       :map("<leader>uU")
 
-    -- Disable when entering terminal or cmdline
+    -- Disable when entering terminal or command line
     vim.api.nvim_create_autocmd({ "TermEnter", "CmdlineEnter" }, {
       callback = function()
         if not vim.g.smear_cursor_animate then
@@ -40,7 +40,7 @@ return {
       end,
     })
 
-    -- Enable when leaving terminal or cmdline
+    -- Enable when leaving terminal or command line
     vim.api.nvim_create_autocmd({ "TermLeave", "CmdlineLeave" }, {
       callback = function()
         if not vim.g.smear_cursor_animate then
@@ -67,7 +67,7 @@ return {
       end,
     })
 
-    -- Enable  when leaving visual mode
+    -- Enable when leaving visual mode
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "[vV\x16]:*",
       callback = function()
@@ -94,7 +94,7 @@ return {
       smear_terminal_mode = true,
       smear_to_cmd = true,
 
-      delay_event_to_smear = (1000 / vim.g.animate_fps) / 4,
+      delay_event_to_smear = (1000 / vim.g.animate_fps) / 2,
       time_interval = 1000 / vim.g.animate_fps,
 
       stiffness = 0.6,
