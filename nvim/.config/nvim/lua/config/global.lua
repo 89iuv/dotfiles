@@ -31,7 +31,6 @@ local M = {
       "gitcommit",
       "TelescopePrompt",
       "TelescopeResults",
-      "",
 
       -- lazy
       "Trouble",
@@ -72,9 +71,6 @@ local M = {
       "terminal",
       "quickfix",
       "prompt",
-
-      -- custom
-      "",
     },
   },
 }
