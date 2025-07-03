@@ -6,3 +6,13 @@
 ratio = [2, 4, 3 ]
 show_hidden = true
 sort_sensitive = true
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
