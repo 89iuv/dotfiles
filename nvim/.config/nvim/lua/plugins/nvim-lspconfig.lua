@@ -70,6 +70,7 @@ return {
         -- },
       },
       setup = {
+        -- harper: ignore
         -- ltex_plus = function(_, ltex_plus_opts)
         --   ltex_plus_opts.on_attach = function(_, bufnr)
         --     for _, win in ipairs(vim.api.nvim_list_wins()) do
