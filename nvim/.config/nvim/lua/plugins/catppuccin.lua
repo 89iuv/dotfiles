@@ -25,9 +25,7 @@ return {
         FloatTitle = { fg = colors.lavender, bg = colors.mantle },
 
         WinSeparator = { fg = colors.overlay0, bg = colors_utils.blend(colors.base, colors.mantle, 0.75) },
-
         StatusLine = { bg = colors_utils.blend(colors.mantle, colors.crust, 0.5) },
-        LineNr = { fg = colors.surface2 },
         Folded = { fg = colors.blue, bg = colors.surface0 },
 
         -- bufferline
@@ -64,11 +62,10 @@ return {
         BufferLineInfoDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.75, colors.mantle) },
         BufferLineHintDiagnostic = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.75, colors.mantle) },
 
-        -- neotree
+        -- neo-tree
         NeoTreeNormal = { link = "NormalSide" },
         NeoTreeNormalNC = { link = "NormalSide" },
 
-        -- NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
         NeoTreeWinSeparator = { link = "WinSeparator" },
         NeoTreeIndentMarker = { fg = colors.surface1 },
         NeoTreeExpander = { fg = colors.surface1 },
@@ -94,7 +91,7 @@ return {
         IlluminatedWordRead = { bg = colors.surface1 },
         IlluminatedWordWrite = { bg = colors.surface1 },
 
-        -- blink_cmp
+        -- blink
         BlinkCmpMenu = { bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
         BlinkCmpMenuBorder = { fg = colors.surface2, bg = colors_utils.blend(colors.base, colors.mantle, 0.5) },
         BlinkCmpMenuSelection = { bg = colors.surface0, style = { "bold" } },
@@ -106,7 +103,7 @@ return {
         BlinkCmpSignatureHelp = { bg = colors.mantle },
         BlinkCmpSignatureHelpBorder = { fg = colors.surface2, bg = colors.mantle },
 
-        -- blink_cmp_dictionary
+        -- blink completion dictionary
         BlinkCmpKindDict = { fg = colors.teal },
 
         -- fidget
@@ -158,7 +155,7 @@ return {
         SnacksWinBar = { link = "SideWinbar" },
         SnacksTerminal = { link = "NormalSide" },
 
-        -- SnacksInputIcon
+        -- snacks input icon
         SnacksInputNormal = { link = "NormalPopup" },
         SnacksInputTitle = { link = "PopupTitle" },
         SnacksInputBorder = { link = "PopupBorder" },
@@ -194,7 +191,7 @@ return {
         ["@markup.link.label"] = { fg = colors.sapphire, sp = colors.sapphire, style = {} },
         ["@markup.link"] = { fg = colors.lavender, sp = colors.lavender, style = {} },
 
-        -- treesitter
+        -- Tree-sitter
         ["@string.special.url"] = { fg = colors.rosewater, sp = colors.rosewater, style = { "italic", "underline" } },
       }
     end,

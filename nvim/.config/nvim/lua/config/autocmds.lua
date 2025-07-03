@@ -7,12 +7,12 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- helper function to crate autogroup name
+-- Helper function to crate augroup name
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
--- Overwrite highlight mode for nvim_buf_set_extmark
+-- Overwrite highlight mode
 local old_nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_buf_set_extmark = function(buffer, ns_id, line, col, opts)
@@ -20,7 +20,7 @@ vim.api.nvim_buf_set_extmark = function(buffer, ns_id, line, col, opts)
   return old_nvim_buf_set_extmark(buffer, ns_id, line, col, opts)
 end
 
--- Overwrite border style for nvim_open_win
+-- Overwrite border style for nvim open window
 local old_nvim_open_win = vim.api.nvim_open_win
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_open_win = function(buffer, enter, config)
@@ -30,7 +30,7 @@ vim.api.nvim_open_win = function(buffer, enter, config)
   return old_nvim_open_win(buffer, enter, config)
 end
 
--- Overwrite border style for nvim_win_set_config
+-- Overwrite border style for nvim configure window
 local old_nvim_win_set_config = vim.api.nvim_win_set_config
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_win_set_config = function(window, config)
@@ -172,7 +172,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- Disable relative line number when entering insert mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "*:i",
+  pattern = "[vV\x16]:*",
   callback = function()
     if vim.wo.number == true then
       vim.wo.relativenumber = false
@@ -182,7 +182,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 
 -- Enable relative line number when exiting insert mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "i:*",
+  pattern = "*:[vV\x16]",
   callback = function()
     if vim.wo.number == true then
       vim.wo.relativenumber = true
