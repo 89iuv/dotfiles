@@ -306,7 +306,7 @@ super-tab() {
 	if [[ -n "$POSTDISPLAY" ]]; then
 		zle autosuggest-accept
 	else
-		zle fzf-completion
+    LBUFFER+=$'\t'
 	fi
 }
 zle -N super-tab
@@ -329,6 +329,7 @@ unsetopt LIST_BEEP
 setopt menu_complete
 
 # zsh menu select keybindings
+bindkey -M menuselect "^ " menu-select
 bindkey -M menuselect "^p" reverse-menu-complete
 bindkey -M menuselect "^n" menu-complete
 bindkey -M menuselect "^[" undo
