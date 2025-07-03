@@ -59,27 +59,6 @@ return {
             },
           },
         },
-        -- ltex_plus = {
-        --   filetypes = { "markdown" },
-        --   settings = {
-        --     ltex = {
-        --       enabled = true,
-        --       language = "en-US",
-        --     },
-        --   },
-        -- },
-      },
-      setup = {
-        -- harper: ignore
-        -- ltex_plus = function(_, ltex_plus_opts)
-        --   ltex_plus_opts.on_attach = function(_, bufnr)
-        --     for _, win in ipairs(vim.api.nvim_list_wins()) do
-        --       if vim.api.nvim_win_get_buf(win) == bufnr then
-        --         vim.wo[win].spell = false
-        --       end
-        --     end
-        --   end
-        -- end,
       },
     }
 
