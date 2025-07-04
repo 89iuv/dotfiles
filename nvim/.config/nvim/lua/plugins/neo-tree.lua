@@ -75,7 +75,7 @@ return {
         enabled = true,
       },
       container = {
-        enable_character_fade = true,
+        enable_character_fade = false,
       },
       indent = {
         padding = 1,
@@ -97,6 +97,7 @@ return {
       },
     },
     window = {
+      width = 45, -- applies to left and right positions
       auto_expand_width = false,
       mappings = {
         ["<leader>ff"] = {
