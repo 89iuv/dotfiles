@@ -77,6 +77,14 @@ sudo apt update
 sudo apt upgrade
 ```
 
+Update home-manager:
+
+```sh
+cd ~/.config/home-manager
+nix flake update
+home-manager switch --impure
+```
+
 Update dotfiles:
 
 ```sh
@@ -85,12 +93,12 @@ git pull
 git submodule update --recursive --init
 ```
 
-Update home-manager:
+Update integrations:
 
 ```sh
-cd ~/.config/home-manager
-nix flake update
-home-manager switch --impure
+cd ~/.dotfiles/catppuccin-bat && ./install.sh
+cd ~/.dotfiles/catppuccin-delta && ./install.sh
+cd ~/.dotfiles/catppuccin-btop && ./install.sh
 ```
 
 Update others:
