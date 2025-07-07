@@ -5,6 +5,7 @@
   - [System](#system)
   - [Environment](#environment)
   - [Setup](#setup)
+  - [Update](#update)
   - [Issues](#issues)
 <!--toc:end-->
 
@@ -94,7 +95,7 @@ home-manager switch --impure
 
 Update others:
 
-- Update tmux: Ctrl+x u all
+- Update Tmux: Ctrl+x U all
 - Update Neovim: \<leader\>l U
 - Update Mason: \<leader\>cm U
 
