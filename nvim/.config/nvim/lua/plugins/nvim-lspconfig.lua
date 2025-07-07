@@ -54,7 +54,7 @@ return {
                 SpellCheck = true,
               },
               codeActions = {
-                ForceStable = true,
+                ForceStable = false,
               },
             },
           },

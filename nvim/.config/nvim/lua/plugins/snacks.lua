@@ -80,7 +80,6 @@ return {
         win = {
           height = 0.30,
           wo = {
-            --   winbar = "",
             winhighlight = "Normal:SnacksTerminal,WinBar:SnacksWinBar",
           },
           keys = {
