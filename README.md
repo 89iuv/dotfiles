@@ -25,7 +25,7 @@ xcode-select --install
 
 ## Environment
 
-- Install nerd fonts: [NerdFonts Download](https://www.nerdfonts.com/font-downloads)
+- Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 - Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
 
@@ -74,7 +74,7 @@ chsh -s $(which zsh)
 rm tmp.txt
 ```
 
-Install Github copilot cli:
+Install github copilot cli:
 
 ```sh
 gh auth login
@@ -125,9 +125,9 @@ sort -U \
 
 Update others:
 
-- Update Tmux: ctrl+x U all
-- Update Neovim: \<leader\>l U
-- Update Mason: \<leader\>cm U
+- Update tmux: ctrl+x U all
+- Update neovim: \<leader\>l U
+- Update mason: \<leader\>cm U
 
 ## Issues
 
