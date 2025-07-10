@@ -31,39 +31,52 @@ xcode-select --install
 
 ## Setup
 
+Clone repo:
+
 ```sh
-# clone repo
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
 ```
 
+Link dotfiles:
+
 ```sh
-# link dotfiles
 cd ~/.dotfiles
 nix-shell -p stow --run "stow */"
 ```
 
+Install packages:
+
 ```sh
-# install packages
 nix-shell -p home-manager --run "home-manager switch --impure"
 ```
 
+Run integration scripts:
+
 ```sh
-# run integration scripts
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
 ```
 
+Optional decouple dictionaries:
+
 ```sh
-# change shell to zsh
+rm -rf ~/.config/harper
+cp  ~/.dotfiles/harper/.config/harper ~/.config/harper
+```
+
+Change shell to zsh:
+
+```sh
 which zsh > tmp.txt
 sudo sh -c "cat tmp.txt >> /etc/shells"
 chsh -s $(which zsh)
 rm tmp.txt
 ```
 
+Install Github copilot cli:
+
 ```sh
-# install github copilot cli
 gh auth login
 gh extension install github/gh-copilot
 ```
@@ -99,6 +112,15 @@ Update integrations:
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
+```
+
+Optional update dictionaries:
+
+```sh
+sort -U \
+~/.dotfiles/harper/.config/harper/words.txt \
+~/.config/harper/words.txt \
+> ~/.config/harper/words.txt
 ```
 
 Update others:

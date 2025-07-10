@@ -47,12 +47,13 @@ return {
           },
         },
         harper_ls = {
-          filetypes = { "markdown" },
           settings = {
             ["harper-ls"] = {
+              userDictPath = vim.fn.expand("$HOME/.config/harper/words.txt"),
               linters = {
                 SentenceCapitalization = true,
                 SpellCheck = true,
+                ToDoHyphen = false,
               },
               codeActions = {
                 ForceStable = false,

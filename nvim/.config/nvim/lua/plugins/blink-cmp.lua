@@ -92,11 +92,11 @@ return {
     },
     sources = {
       default = function()
-        -- put those which will be shown always
+        -- Put those which will be shown always
         local result = { "copilot", "lsp", "path", "snippets", "buffer" }
         if
-          -- turn on dictionary in markdown or text file
-          vim.tbl_contains({ "markdown", "text" }, vim.bo.filetype)
+          -- Turn on dictionary in markdown or text file
+          vim.tbl_contains({ "markdown" }, vim.bo.filetype)
           -- or turn on dictionary if cursor is in the comment block
           or inside_comment_block()
         then
@@ -104,9 +104,6 @@ return {
         end
         return result
       end,
-      per_filetype = {
-        markdown = { inherit_defaults = true, "dictionary" },
-      },
       providers = {
         snippets = {
           should_show_items = function(ctx)
@@ -119,7 +116,11 @@ return {
           min_keyword_length = 3,
           score_offset = -10, -- Boost/penalize the score of the items
           opts = {
-            dictionary_files = { vim.fn.expand("$HOME/.nix-profile/share/dict/words.txt") },
+            dictionary_files = {
+              -- TODO: combine this into only one dictionary
+              vim.fn.expand("$HOME/.nix-profile/share/dict/words.txt"),
+              vim.fn.expand("$HOME/.config/harper/words.txt"),
+            },
           },
         },
       },
@@ -160,7 +161,7 @@ return {
         end,
         "fallback",
       },
-      ["<C-k>"] = { "fallback" }, -- used in insert mode navigation ctrl+hjkl
+      ["<C-k>"] = { "fallback" }, -- Used in insert mode navigation ctrl+hjkl
       ["<M-p>"] = { "show_signature", "hide_signature", "fallback" },
     },
     signature = {

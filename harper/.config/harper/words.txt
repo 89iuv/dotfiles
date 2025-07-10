@@ -1,0 +1,15 @@
+AdvSimd
+Catppuccin
+Github
+LazyVim
+M1
+NerdFonts
+TODO
+Tmux
+Windows11
+Wsl1
+cli
+ctrl
+gcc
+hjkl
+zsh
