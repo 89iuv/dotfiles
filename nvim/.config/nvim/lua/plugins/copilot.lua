@@ -1,8 +1,10 @@
+-- plugin is used only for github 2 factor authentication
 return {
   "zbirenbaum/copilot.lua",
   opts = {
     filetypes = {
-      -- disable copilot attaching to files
+      markdown = false,
+      help = false,
       ["*"] = false,
     },
   },
