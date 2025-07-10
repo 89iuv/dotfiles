@@ -93,7 +93,7 @@ return {
     sources = {
       default = function()
         -- put those which will be shown always
-        local result = { "lsp", "path", "snippets", "buffer" }
+        local result = { "copilot", "lsp", "path", "snippets", "buffer" }
         if
           -- turn on dictionary in markdown or text file
           vim.tbl_contains({ "markdown", "text" }, vim.bo.filetype)
