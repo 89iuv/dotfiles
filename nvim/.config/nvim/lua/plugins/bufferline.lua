@@ -50,7 +50,6 @@ return {
         },
         left_trunc_marker = "",
         right_trunc_marker = "",
-        buffer_close_icon = "",
         separator_style = { " ", " " },
         diagnostics_indicator = function(_, _, diag)
           local icons = LazyVim.config.icons.diagnostics
