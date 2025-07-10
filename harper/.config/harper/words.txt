@@ -22,6 +22,7 @@ neo
 neotest
 neovim
 nvim
+os
 quickfile
 tmux
 zsh
