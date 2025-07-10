@@ -103,7 +103,7 @@ cd ~/.dotfiles/catppuccin-btop && ./install.sh
 
 Update others:
 
-- Update Tmux: Ctrl+x U all
+- Update Tmux: ctrl+x U all
 - Update Neovim: \<leader\>l U
 - Update Mason: \<leader\>cm U
 
