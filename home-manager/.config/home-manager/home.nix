@@ -91,12 +91,13 @@
     pkgs.neovim
 
     pkgs.nmap
-    # pkgs.traceroute # no package available for macos
+    # pkgs.traceroute # no package available for mac os
 
     pkgs.chafa
     pkgs.fastfetch
     pkgs.cmatrix
     pkgs.stress
+    pkgs.hyperfine
 
     pkgs.gh
   ];
