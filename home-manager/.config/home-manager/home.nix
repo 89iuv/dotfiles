@@ -90,6 +90,9 @@
     pkgs.cargo
     pkgs.neovim
 
+    pkgs.nmap
+    # pkgs.traceroute # no package available for macos
+
     pkgs.chafa
     pkgs.fastfetch
     pkgs.cmatrix
