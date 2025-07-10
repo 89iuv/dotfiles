@@ -1,4 +1,4 @@
--- Use this function to check if the cursor is inside a comment block
+-- use this function to check if the cursor is inside a comment block
 local function inside_comment_block()
   if vim.api.nvim_get_mode().mode ~= "i" then
     return false
@@ -92,10 +92,10 @@ return {
     },
     sources = {
       default = function()
-        -- Put those which will be shown always
+        -- put those which will be shown always
         local result = { "copilot", "lsp", "path", "snippets", "buffer" }
         if
-          -- Turn on dictionary in markdown or text file
+          -- turn on dictionary in markdown or text file
           vim.tbl_contains({ "markdown" }, vim.bo.filetype)
           -- or turn on dictionary if cursor is in the comment block
           or inside_comment_block()
@@ -114,7 +114,7 @@ return {
           module = "blink-cmp-dictionary",
           name = "Dictionary",
           min_keyword_length = 3,
-          score_offset = -10, -- Boost/penalize the score of the items
+          score_offset = -10, -- boost/penalize the score of the items
           opts = {
             dictionary_files = {
               -- TODO: combine this into only one dictionary
@@ -161,7 +161,7 @@ return {
         end,
         "fallback",
       },
-      ["<C-k>"] = { "fallback" }, -- Used in insert mode navigation ctrl+hjkl
+      ["<C-k>"] = { "fallback" }, -- used in insert mode navigation ctrl+hjkl
       ["<M-p>"] = { "show_signature", "hide_signature", "fallback" },
     },
     signature = {
