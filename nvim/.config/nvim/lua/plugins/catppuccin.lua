@@ -170,13 +170,6 @@ return {
         NeotestExpandMarker = { link = "NeoTreeIndentMarker" },
 
         -- markdown
-        RenderMarkdownH1Bg = { bg = colors_utils.darken(colors.red, 0.2, colors.base) },
-        RenderMarkdownH2Bg = { bg = colors_utils.darken(colors.peach, 0.2, colors.base) },
-        RenderMarkdownH3Bg = { bg = colors_utils.darken(colors.yellow, 0.2, colors.base) },
-        RenderMarkdownH4Bg = { bg = colors_utils.darken(colors.green, 0.2, colors.base) },
-        RenderMarkdownH5Bg = { bg = colors_utils.darken(colors.sapphire, 0.2, colors.base) },
-        RenderMarkdownH6Bg = { bg = colors_utils.darken(colors.lavender, 0.2, colors.base) },
-
         RenderMarkdownInlineHighlight = {
           fg = colors.rosewater,
           bg = colors_utils.darken(colors.rosewater, 0.2, colors.base),
