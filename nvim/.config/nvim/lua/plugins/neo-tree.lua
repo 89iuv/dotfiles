@@ -97,7 +97,7 @@ return {
       },
     },
     window = {
-      width = 45, -- applies to left and right positions
+      width = 40, -- Applies to left and right positions
       auto_expand_width = false,
       mappings = {
         ["<leader>ff"] = {
