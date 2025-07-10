@@ -31,7 +31,7 @@ return {
 
           return branch
         end,
-        icon = "",
+        icon = "󰘬",
       },
     }
     opts.sections.lualine_c = {
