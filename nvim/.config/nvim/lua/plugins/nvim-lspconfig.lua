@@ -51,7 +51,7 @@ return {
           settings = {
             ["harper-ls"] = {
               linters = {
-                SentenceCapitalization = false,
+                SentenceCapitalization = true,
                 SpellCheck = true,
               },
               codeActions = {
