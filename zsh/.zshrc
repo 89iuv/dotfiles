@@ -289,6 +289,12 @@ then
   fi
 fi
 
+# luarocks
+if type luarocks > /dev/null
+then
+  eval "$(luarocks path --local)"
+fi
+
 # nix-shell
 nix-zsh() {
   nix-shell --run zsh "$@"

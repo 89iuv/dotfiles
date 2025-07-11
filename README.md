@@ -81,6 +81,12 @@ gh auth login
 gh extension install github/gh-copilot
 ```
 
+Install tiktoken for github copilot chat
+
+```sh
+luarocks install --lua-version 5.1 tiktoken_core --local
+```
+
 ## Update
 
 Update Ubuntu:
