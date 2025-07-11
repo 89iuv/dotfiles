@@ -8,7 +8,7 @@ return {
     formatters = {
       black = {
         prepend_args = {
-          "--line-length", "119"
+          "--line-length", "120"
         },
       },
       prettier = {

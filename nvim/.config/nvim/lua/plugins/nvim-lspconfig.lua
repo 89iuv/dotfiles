@@ -27,7 +27,7 @@ return {
         ruff = {
           init_options = {
             settings = {
-              lineLength = 119,
+              lineLength = 120,
               configurationPreference = "filesystemFirst",
               lint = {
                 select = {

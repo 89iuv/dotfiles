@@ -17,6 +17,7 @@ return {
         :map("<leader>uu")
     end,
   },
+  enabled = true,
   lazy = true,
   event = function()
     if vim.g.virt_column then
@@ -26,7 +27,8 @@ return {
   opts = function()
     return {
       enabled = vim.g.virt_column,
-      virtcolumn = "119",
+      char = { "┃", "│" },
+      virtcolumn = "80,120",
       highlight = "VirtColumn",
     }
   end,
