@@ -4,7 +4,7 @@ return {
     local global = require("config.global")
 
     local new_opts = {
-      delay = 80,
+      delay = 160,
       filetypes_denylist = global.excluded.filetype,
       modes_allowlist = { "n" },
     }

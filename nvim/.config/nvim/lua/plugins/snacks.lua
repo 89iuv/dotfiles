@@ -8,11 +8,6 @@ local neovim_header = [[
 
 return {
   "folke/snacks.nvim",
-  init = function()
-    if vim.g.snacks_animate == nil then
-      vim.g.snacks_animate = vim.g.animate_enabled
-    end
-  end,
   opts = function(_, opts)
     local global = require("config.global")
 
@@ -67,6 +62,12 @@ return {
             cmd = { "delta", "--file-style=omit", "--hunk-header-style=omit" },
           },
         },
+      },
+      indent = {
+        enabled = false,
+        scope = {
+          enabled = false,
+        }
       },
       notifier = {
         width = { min = 50, max = 50 },

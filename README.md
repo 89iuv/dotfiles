@@ -62,7 +62,7 @@ Optional decouple dictionaries:
 
 ```sh
 rm -rf ~/.config/harper
-cp  ~/.dotfiles/harper/.config/harper ~/.config/harper
+cp -r ~/.dotfiles/harper/.config/harper ~/.config/harper
 ```
 
 Change shell to zsh:

@@ -15,11 +15,13 @@ return {
     }):map("<leader>ug")
 
     require("ibl").setup({
+      debounce = 160,
       indent = {
-        char = "│",
-        tab_char = "│",
+        char = "▏",
       },
-      scope = { enabled = false },
+      scope = {
+        enabled = false,
+      },
     })
 
     require("ibl").overwrite({

@@ -67,18 +67,14 @@ return {
         NeoTreeNormalNC = { link = "NormalSide" },
 
         NeoTreeWinSeparator = { link = "WinSeparator" },
-        NeoTreeIndentMarker = { fg = colors.surface1 },
-        NeoTreeExpander = { fg = colors.surface1 },
+        NeoTreeIndentMarker = { link = "LineNr" },
+        NeoTreeExpander = { link = "LineNr" },
 
         -- whichkey
         WhichKey = { link = "NormalPopup" },
         WhichKeyBorder = { link = "PopupBorder" },
         WhichKeyTitle = { link = "PopupTitle" },
         WhichKeyNormal = { link = "NormalPopup" },
-
-        -- code indents
-        IblIndent = { fg = colors.surface0 },
-        MiniIndentscopeSymbol = { fg = colors.overlay1 },
 
         -- virtual column
         VirtColumn = { fg = colors.surface0 },

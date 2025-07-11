@@ -2,7 +2,7 @@ return {
   "MeanderingProgrammer/render-markdown.nvim",
   ft = { "markdown", "copilot-chat" },
   opts = {
-    debounce = 80,
+    debounce = 160,
     anti_conceal = {
       enabled = true,
       ignore = {
