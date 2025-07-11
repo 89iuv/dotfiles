@@ -1,4 +1,4 @@
--- plugin is used only for github 2 factor authentication
+-- this plugin is used only for github 2 factor authentication
 return {
   "zbirenbaum/copilot.lua",
   opts = {

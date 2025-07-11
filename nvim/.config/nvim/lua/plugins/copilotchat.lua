@@ -8,8 +8,5 @@ return {
 
     insert_at_end = true,
     chat_autocomplete = true,
-
-    model = "gpt-4.1",
-    context = "buffer",
   }
 }
