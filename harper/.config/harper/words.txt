@@ -25,4 +25,5 @@ nvim
 os
 quickfile
 tmux
+typr
 zsh
