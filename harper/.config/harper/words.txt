@@ -21,6 +21,7 @@ hjkl
 neo
 neotest
 neovim
+noice
 nvim
 os
 quickfile

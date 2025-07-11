@@ -70,7 +70,7 @@ return {
         NeoTreeIndentMarker = { link = "LineNr" },
         NeoTreeExpander = { link = "LineNr" },
 
-        -- whichkey
+        -- which key
         WhichKey = { link = "NormalPopup" },
         WhichKeyBorder = { link = "PopupBorder" },
         WhichKeyTitle = { link = "PopupTitle" },
@@ -82,7 +82,7 @@ return {
         -- show keys
         SkActive = { fg = colors.crust, bg = colors.lavender },
 
-        -- iluminate
+        -- illuminate
         IlluminatedWordText = { bg = colors.surface1 },
         IlluminatedWordRead = { bg = colors.surface1 },
         IlluminatedWordWrite = { bg = colors.surface1 },
