@@ -3,22 +3,6 @@ return {
   ft = { "markdown", "copilot-chat" },
   opts = {
     debounce = 160,
-    on = {
-      render = function()
-        pcall(function()
-          require("virt-column").setup_buffer(0, {
-            enabled = false
-          })
-        end)
-      end,
-      clear = function()
-        pcall(function()
-          require("virt-column").setup_buffer(0, {
-            enabled = vim.g.virt_column
-          })
-        end)
-      end,
-    },
     completions = {
       lsp = {
         enabled = true,
@@ -30,10 +14,13 @@ return {
     anti_conceal = {
       enabled = true,
       ignore = {
-        link = false,
+        code_background = false,
       },
     },
     latex = {
+      enabled = true,
+    },
+    link = {
       enabled = true,
     },
     checkbox = {
@@ -79,8 +66,8 @@ return {
     },
     win_options = {
       conceallevel = {
-        default = 0,
-        rendered = 2,
+        default = 0, -- show everything (including links) when not in rendered mode
+        rendered = 3,
       },
     },
   },
