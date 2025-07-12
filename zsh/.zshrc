@@ -312,7 +312,7 @@ super-tab() {
 	if [[ -n "$POSTDISPLAY" ]]; then
 		zle autosuggest-accept
 	else
-    LBUFFER+=$'\t'
+    zle fzf-completion
 	fi
 }
 zle -N super-tab
@@ -323,6 +323,7 @@ ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(super-tab)
 # set completion key keybindings
 bindkey '^I' super-tab
 bindkey '^ ' fzf-completion
+bindkey "^[" autosuggest-clear
 
 # zsh-history-substring-search keybindings
 bindkey "^p" history-substring-search-up
