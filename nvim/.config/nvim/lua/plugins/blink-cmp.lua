@@ -117,7 +117,6 @@ return {
           score_offset = -10, -- boost/penalize the score of the items
           opts = {
             dictionary_files = {
-              -- TODO: combine this into only one dictionary
               vim.fn.expand("$HOME/.nix-profile/share/dict/words.txt"),
               vim.fn.expand("$HOME/.config/harper/words.txt"),
             },
@@ -161,8 +160,6 @@ return {
         end,
         "fallback",
       },
-      ["<C-k>"] = { "fallback" }, -- used in insert mode navigation ctrl+hjkl
-      ["<M-p>"] = { "show_signature", "hide_signature", "fallback" },
     },
     signature = {
       enabled = true,

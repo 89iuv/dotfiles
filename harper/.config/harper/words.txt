@@ -16,6 +16,7 @@ cli
 cmp
 ctrl
 esc
+ftplugins
 gcc
 github
 hjkl
