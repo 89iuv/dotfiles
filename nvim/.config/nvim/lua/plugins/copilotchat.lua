@@ -6,7 +6,10 @@ return {
     separator = string.rep("─", 3),
     error_header = "> [!ERROR] Error",
 
-    insert_at_end = true,
     chat_autocomplete = true,
+
+    auto_follow_cursor = true,
+    auto_insert_mode = true,
+    insert_at_end = false,
   }
 }
