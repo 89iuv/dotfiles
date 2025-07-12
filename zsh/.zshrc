@@ -284,7 +284,7 @@ then
   if gh extension list 2>&1 | grep -q copilot
   then
     eval "$(gh copilot alias -- zsh)"
-    alias "??"="ghcs"
+    alias "?h"="ghcs"
     alias "?e"="ghce"
   fi
 fi
