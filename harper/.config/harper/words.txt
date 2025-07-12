@@ -1,4 +1,5 @@
 AdvSimd
+Kanata
 LazyVim
 M1
 Nerdfonts
