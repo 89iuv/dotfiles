@@ -1,5 +1,6 @@
 AdvSimd
 Kanata
+KindaVim
 LazyVim
 M1
 Nerdfonts
@@ -28,6 +29,7 @@ noice
 nvim
 os
 quickfile
+secondbrain
 tiktoken
 tmux
 typr
