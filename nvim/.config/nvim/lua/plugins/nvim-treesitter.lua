@@ -1,5 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+   keys = {
+    { "<M-o>", desc = "Increment Selection" },
+    { "<M-i>", desc = "Decrement Selection", mode = "x" },
+  },
   opts = {
     ensure_installed = {
       "css",
