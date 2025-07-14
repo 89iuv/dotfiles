@@ -70,6 +70,10 @@ return {
         NeoTreeIndentMarker = { link = "LineNr" },
         NeoTreeExpander = { link = "LineNr" },
 
+        NeoTreeDotfile = { fg = colors.overlay0 },
+        NeoTreeProjectName = { fg = colors.blue },
+        NeoTreeProjectPath = { link = "NeoTreeDotfile"  },
+
         -- which key
         WhichKey = { link = "NormalPopup" },
         WhichKeyBorder = { link = "PopupBorder" },

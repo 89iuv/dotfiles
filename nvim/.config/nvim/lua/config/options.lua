@@ -18,6 +18,8 @@ vim.g.virt_column = false
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
+vim.g.root_spec = { "lsp", { ".git", "lua", ".root" }, "cwd" }
+
 -- vim.o.winborder = "none"
 
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"

@@ -104,13 +104,13 @@ return {
           function(state)
             run_in_directory(state.tree:get_node(), Snacks.picker.files)
           end,
-          desc = "Find Files (Current Node)"
+          desc = "Find Files (Current Node)",
         },
         ["<leader>sg"] = {
           function(state)
             run_in_directory(state.tree:get_node(), Snacks.picker.grep)
           end,
-          desc = "Grep (Current Node)"
+          desc = "Grep (Current Node)",
         },
         ["<S-l>"] = "refresh", -- disable keymap as it conflicts with barbar
       },
@@ -127,6 +127,28 @@ return {
         hide_by_name = {
           "__pycache__",
         },
+      },
+      components = {
+        name = function(config, node, state)
+          local fc = require("neo-tree.sources.filesystem.components")
+          local result = fc.name(config, node, state)
+          if node:get_depth() == 1 and node.type ~= "message" then
+            local project_path = result.text
+            local project_name = vim.fn.fnamemodify(node.path, ":t")
+            result.text = project_name .. " " .. project_path
+            result = {
+              {
+                text = project_name,
+                highlight = "NeoTreeProjectName",
+              },
+              {
+                text = project_path,
+                highlight = "NeoTreeProjectPath",
+              }
+            }
+          end
+          return result
+        end,
       },
     },
     buffers = {
