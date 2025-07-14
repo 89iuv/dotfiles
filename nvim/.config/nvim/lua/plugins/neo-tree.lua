@@ -104,11 +104,13 @@ return {
           function(state)
             run_in_directory(state.tree:get_node(), Snacks.picker.files)
           end,
+          desc = "Find Files (Current Node)"
         },
         ["<leader>sg"] = {
           function(state)
             run_in_directory(state.tree:get_node(), Snacks.picker.grep)
           end,
+          desc = "Grep (Current Node)"
         },
         ["<S-l>"] = "refresh", -- disable keymap as it conflicts with barbar
       },
