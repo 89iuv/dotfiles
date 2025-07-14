@@ -52,7 +52,7 @@ return {
         truncate_names = false,
         offsets = offsets,
         indicator = {
-          icon = "▎",
+          icon = " ",
         },
         buffer_close_icon = "󰅖 ",
         left_trunc_marker = "",
