@@ -89,7 +89,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
 # load catppuccin theme for zsh-syntax-highlighting
-source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 # custom catppuccin highlights for zsh-syntax-highlighting
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
@@ -215,7 +215,7 @@ fi
 # bat
 if type bat > /dev/null
 then
-  export BAT_THEME="Catppuccin Mocha"
+  export BAT_THEME="Catppuccin Macchiato"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
   help() {

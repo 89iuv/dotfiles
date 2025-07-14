@@ -5,7 +5,7 @@ return {
   },
   opts = function(_, opts)
     local lualine_catppuccin = require("catppuccin.utils.lualine")()
-    local colors = require("catppuccin.palettes").get_palette("mocha")
+    local colors = require("catppuccin.palettes").get_palette("macchiato")
     local colors_utils = require("catppuccin.utils.colors")
 
     lualine_catppuccin.normal.c.bg = colors_utils.blend(colors.mantle, colors.crust, 0.5)
@@ -14,7 +14,7 @@ return {
     opts.options.theme = lualine_catppuccin
     opts.options.component_separators = { left = "", right = "│" }
     opts.options.section_separators = { left = "", right = "▐" }
-    -- opts.options.disabled_filetypes = {} -- enable for bufferline, disable for barbar
+    -- opts.options.disabled_filetypes = {}
 
     local icons = LazyVim.config.icons
     opts.sections.lualine_a = {

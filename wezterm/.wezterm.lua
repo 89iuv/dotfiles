@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- color scheme
-config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
+config.color_scheme = "Catppuccin Macchiato"
 
 -- performance
 config.max_fps = 120

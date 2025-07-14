@@ -6,7 +6,7 @@ git config --global include.path "$HOME/.dotfiles/catppuccin-delta/delta/catppuc
 
 git config --global interactive.diffFilter "delta --color-only"
 
-git config --global delta.features catppuccin-mocha
+git config --global delta.features catppuccin-macchiato
 
 git config --global delta.true-colors "always"
 git config --global delta.navigate true

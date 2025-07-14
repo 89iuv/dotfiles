@@ -6,7 +6,7 @@
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
 [flavor]
-dark = "catppuccin-mocha"
+dark = "catppuccin-macchiato"
 
 # [status]
 # sep_left  = { open = "▐", close = "▌" }

@@ -1,6 +1,6 @@
 # More details are at https://superfile.netlify.app/configure/superfile-config/
 # change your theme
-theme = 'catppuccin'
+theme = 'catppuccin-macchiato'
 # 
 # The editor files will be opened with. (Leave blank to use the EDITOR environment variable).
 editor = ''

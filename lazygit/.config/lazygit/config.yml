@@ -4,30 +4,29 @@ git:
     pager: delta --paging=never --hunk-header-style=omit
 
 gui:
-  # Use the mocha catppuccin theme
   theme:
     activeBorderColor:
-      - '#fab387'
+      - '#f5a97f'
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - '#a5adcb'
     optionsTextColor:
-      - '#89b4fa'
+      - '#8aadf4'
     selectedLineBgColor:
-      - '#313244'
+      - '#363a4f'
     cherryPickedCommitBgColor:
-      - '#45475a'
+      - '#494d64'
     cherryPickedCommitFgColor:
-      - '#fab387'
+      - '#f5a97f'
     unstagedChangesColor:
-      - '#f38ba8'
+      - '#ed8796'
     defaultFgColor:
-      - '#cdd6f4'
+      - '#cad3f5'
     searchingActiveBorderColor:
-      - '#f9e2af'
+      - '#eed49f'
 
   authorColors:
-    '*': '#b4befe'
+    '*': '#b7bdf8'
 
   nerdFontsVersion: "3"
   # showFileIcons: false
