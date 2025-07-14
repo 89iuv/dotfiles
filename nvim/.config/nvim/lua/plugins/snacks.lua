@@ -9,14 +9,9 @@ local neovim_header = [[
 return {
   "folke/snacks.nvim",
   opts = function(_, opts)
-    local global = require("config.global")
-
     local new_opts = {
       animate = {
         fps = vim.g.animate_fps,
-      },
-      image = {
-        enabled = global.active_terminal.is_modern,
       },
       dashboard = {
         preset = {

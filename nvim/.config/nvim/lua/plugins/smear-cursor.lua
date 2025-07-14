@@ -88,7 +88,7 @@ return {
       cursor_color = "none",
 
       never_draw_over_target = false,
-      legacy_computing_symbols_support = global.active_terminal.is_modern,
+      legacy_computing_symbols_support = false,
 
       smear_insert_mode = false,
       smear_terminal_mode = true,
