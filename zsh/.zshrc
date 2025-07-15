@@ -199,7 +199,7 @@ fi
 alias xargs="xargs "
 
 # tmux
-alias tn="tmux new -s -A tmux"
+alias tn="tmux new -A -s tmux"
 alias ta="tmux attach"
 alias tl="tmux ls"
 
@@ -293,6 +293,9 @@ then
     alias "?e"="ghce"
   fi
 fi
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
 
 # luarocks
 if type luarocks > /dev/null
