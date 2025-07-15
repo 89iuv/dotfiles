@@ -27,6 +27,7 @@ xcode-select --install
 
 - Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
+  - manual change background color from base to crust
 - Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
 
 ## Setup
