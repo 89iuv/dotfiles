@@ -15,7 +15,7 @@ Install platform specific build tools ex: make, gcc, etc.
 
 ```sh
 # ubuntu
-sudo apt install build-essentials
+sudo apt install build-essentials inotify-tools
 ```
 
 ```sh
@@ -27,7 +27,6 @@ xcode-select --install
 
 - Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
-  - manual change background color from base to crust
 - Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
 
 ## Setup
