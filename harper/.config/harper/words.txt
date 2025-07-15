@@ -1,4 +1,5 @@
 AdvSimd
+Groq
 Kanata
 KindaVim
 LazyVim
@@ -19,6 +20,7 @@ cmp
 ctrl
 esc
 ftplugins
+fzf
 gcc
 github
 hjkl
