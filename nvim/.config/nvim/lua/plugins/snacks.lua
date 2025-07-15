@@ -71,6 +71,9 @@ return {
         margin = { top = 0, right = 0, bottom = 0 },
         top_down = true,
         refresh = 80,
+        wo = {
+          winblend = vim.opt.winblend
+        }
       },
       terminal = {
         win = {

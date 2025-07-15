@@ -60,6 +60,7 @@ return {
       },
       menu = {
         border = require("config.global").border,
+        winblend = vim.o.winblend,
         draw = {
           columns = {
             { "label", "label_description", "source_name", gap = 1 },
@@ -79,6 +80,7 @@ return {
         auto_show = false,
         window = {
           border = require("config.global").border,
+          winblend = vim.o.winblend,
         },
       },
       list = {
@@ -165,6 +167,7 @@ return {
       enabled = true,
       window = {
         border = require("config.global").border,
+        winblend = vim.o.winblend,
         show_documentation = false,
       },
     },

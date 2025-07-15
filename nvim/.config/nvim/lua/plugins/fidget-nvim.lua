@@ -41,7 +41,7 @@ return {
         -- border = { "", "" ,"", " ", "", "", "", " " },
         normal_hl = "FidgetNormal",
         border_hl = "FidgetBorder",
-        winblend = 0,
+        winblend = vim.o.winblend,
         x_padding = 0,
       },
     },
