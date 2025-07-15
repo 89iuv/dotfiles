@@ -62,10 +62,10 @@ return {
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
         BufferLineHintVisible = { link = "BufferLineBufferVisible" },
 
-        BufferLineErrorDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.red, 0.75, layer2) },
-        BufferLineWarningDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.75, layer2) },
-        BufferLineInfoDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.sky, 0.75, layer2) },
-        BufferLineHintDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.teal, 0.75, layer2) },
+        BufferLineErrorDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.red, 0.5, layer2) },
+        BufferLineWarningDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.yellow, 0.5, layer2) },
+        BufferLineInfoDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.sky, 0.5, layer2) },
+        BufferLineHintDiagnostic = { bg = layer2, fg = colors_utils.darken(colors.teal, 0.5, layer2) },
 
         -- neo-tree
         NeoTreeNormal = { link = "NormalSide" },
