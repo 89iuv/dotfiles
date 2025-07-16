@@ -6,6 +6,7 @@ LazyVim
 M1
 Nerdfonts
 TODO
+Treesitter
 Windows11
 Wsl1
 barbar
