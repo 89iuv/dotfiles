@@ -115,7 +115,6 @@ return {
       width = 40, -- Applies to left and right positions
       auto_expand_width = false,
       mappings = {
-        ["m"] = { "move", config = { show_path = "relative" } },
         ["<S-l>"] = "refresh", -- disable keymap as it conflicts with barbar
         ["<leader>ff"] = {
           function(state)
