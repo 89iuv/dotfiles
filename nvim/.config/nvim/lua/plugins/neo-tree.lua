@@ -10,9 +10,24 @@ local run_in_directory = function(state_tree_node, snacks_picker_function)
   end
 end
 
+local create_new_note = function(state)
+  local title = "Note - " .. os.date()
+
+  local path = state.tree:get_node().path
+  local filename = title .. ".md"
+  local full_path = path .. "/" .. filename
+  local header = "# " .. title
+
+  local file = io.open(full_path, "w")
+  if file then
+    file:write(header)
+    file:close()
+  end
+end
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  lazy = false, -- netrw highjacking does not work if plugin is lazy loaded
+  lazy = false, -- netrw jacking does not work if plugin is lazy loaded
   keys = {
     {
       "<leader>fl",
@@ -100,6 +115,8 @@ return {
       width = 40, -- Applies to left and right positions
       auto_expand_width = false,
       mappings = {
+        ["m"] = { "move", config = { show_path = "relative" } },
+        ["<S-l>"] = "refresh", -- disable keymap as it conflicts with barbar
         ["<leader>ff"] = {
           function(state)
             run_in_directory(state.tree:get_node(), Snacks.picker.files)
@@ -112,7 +129,12 @@ return {
           end,
           desc = "Grep (Current Node)",
         },
-        ["<S-l>"] = "refresh", -- disable keymap as it conflicts with barbar
+        ["n"] = {
+          function(state)
+            create_new_note(state)
+          end,
+          desc = "create_new_note"
+        },
       },
     },
     filesystem = {
@@ -144,7 +166,7 @@ return {
               {
                 text = project_path,
                 highlight = "NeoTreeProjectPath",
-              }
+              },
             }
           end
           return result
