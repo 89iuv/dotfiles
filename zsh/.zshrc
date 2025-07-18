@@ -397,10 +397,3 @@ run() {
 if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
 fi
-
-# fnm
-FNM_PATH="./.fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="./.fnm:$PATH"
-  eval "`fnm env`"
-fi
