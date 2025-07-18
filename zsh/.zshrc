@@ -309,9 +309,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 # nodejs: fnm
-FNM_PATH="~/.fnm"
+FNM_PATH="$HOME/.fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="~/.fnm:$PATH"
+  export PATH="$HOME/.fnm:$PATH"
   eval "$(fnm env --shell zsh)"
 fi
 

@@ -102,11 +102,11 @@ nodejs
 
 ```sh
 # download
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "~/.fnm" --skip-shell --force-install
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install
 
 # setup
-FNM_PATH="~/.fnm"
-export PATH="~/.fnm:$PATH"
+FNM_PATH="$HOME/.fnm"
+export PATH="$HOME/.fnm:$PATH"
 eval "$(fnm env --shell zsh)"
 
 # install
