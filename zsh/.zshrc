@@ -92,14 +92,20 @@ plugins=(zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlightin
 source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 # custom catppuccin highlights for zsh-syntax-highlighting
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#cdd6f4,underline'
-ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#cdd6f4,underline'
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
 ZSH_HIGHLIGHT_STYLES[cursor]='none'
 
 source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
+
+# env
+
+# fix for lazygit not showing correct colors
+export COLORTERM=truecolor
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # cursor
 _set_vert_cursor() {
@@ -240,14 +246,6 @@ then
   --color=border:#363A4F,label:#CAD3F5"
 fi
 
-# lazygit
-if type lazygit > /dev/null
-then
-  # this is a fix for not showing the correct colors using delta
-  export COLORTERM=truecolor
-  export XDG_CONFIG_HOME="$HOME/.config"
-fi
-
 # yazi
 if type yazi > /dev/null
 then
@@ -283,20 +281,6 @@ then
   alias superfile=spf
 fi
 
-# github copilot
-if type gh > /dev/null
-then
-  if gh extension list 2>&1 | grep -q copilot
-  then
-    eval "$(gh copilot alias -- zsh)"
-    alias "?h"="ghcs"
-    alias "?e"="ghce"
-  fi
-fi
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
-
 # luarocks
 if type luarocks > /dev/null
 then
@@ -315,13 +299,24 @@ if [ -d "$FNM_PATH" ]; then
   eval "$(fnm env --shell zsh)"
 fi
 
+# github copilot
+if type gh > /dev/null
+then
+  if gh extension list 2>&1 | grep -q copilot
+  then
+    eval "$(gh copilot alias -- zsh)"
+    alias "?h"="ghcs"
+    alias "?e"="ghce"
+  fi
+fi
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+
 # nix-shell
 nix-zsh() {
   nix-shell --run zsh "$@"
 }
-
-# nix env vars
-export PUPPETEER_EXECUTABLE_PATH=/Users/valiuv/.nix-profile/bin/google-chrome-stable;
 
 # format the current command in neovim keybind
 bindkey '^f' edit-command-line
