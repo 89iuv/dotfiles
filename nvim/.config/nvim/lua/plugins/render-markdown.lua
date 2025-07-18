@@ -18,7 +18,7 @@ return {
       },
     },
     latex = {
-      enabled = true,
+      enabled = false,
     },
     link = {
       enabled = true,

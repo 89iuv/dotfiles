@@ -28,6 +28,9 @@ return {
           header = neovim_header,
         },
       },
+      image = {
+        enabled = false
+      },
       picker = {
         layout = {
           cycle = true,
