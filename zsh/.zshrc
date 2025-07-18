@@ -281,24 +281,6 @@ then
   alias superfile=spf
 fi
 
-# luarocks
-if type luarocks > /dev/null
-then
-  eval "$(luarocks path --local)"
-fi
-
-# python: pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-
-# nodejs: fnm
-FNM_PATH="$HOME/.fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$HOME/.fnm:$PATH"
-  eval "$(fnm env --shell zsh)"
-fi
-
 # github copilot
 if type gh > /dev/null
 then
@@ -309,9 +291,6 @@ then
     alias "?e"="ghce"
   fi
 fi
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
 
 # nix-shell
 nix-zsh() {

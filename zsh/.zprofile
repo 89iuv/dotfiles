@@ -22,6 +22,27 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
 fi
 
+# lua: luarocks
+if type luarocks > /dev/null
+then
+  eval "$(luarocks path --local)"
+fi
+
+# python: pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# nodejs: fnm
+FNM_PATH="$HOME/.fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$HOME/.fnm:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$PATH
 
