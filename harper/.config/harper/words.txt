@@ -28,6 +28,7 @@ github
 hjkl
 icloud
 karabiner
+lua
 neo
 neotest
 neovim
