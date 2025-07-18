@@ -34,73 +34,73 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    # system
     pkgs.coreutils
-    pkgs.less
+    pkgs.exiftool
     pkgs.xsel
     pkgs.xclip
-    pkgs.dust
-    pkgs.jq
-    pkgs.stow
-    pkgs.git
+    pkgs.delta
 
-    pkgs.tree
+    # shell
+    pkgs.zsh # maybe this should be installed via nix
+    pkgs.fish # used in neovim conform plugin
+
+    # cmd tools
+    pkgs.git
     pkgs.zoxide
     pkgs.eza
+    pkgs.tree
+    pkgs.less
     pkgs.bat
     pkgs.fzf
-    pkgs.zsh
-
-    pkgs.tmux
-    pkgs.btop
-    pkgs.yazi
-
-    pkgs.exiftool
-    pkgs.superfile
-
-    pkgs.delta
-    pkgs.lazygit
-
-    pkgs.wordnet
-    pkgs.scowl
-    pkgs.lynx
+    pkgs.dust
+    pkgs.stow
+    pkgs.nmap
+    # pkgs.traceroute # no package available for mac os
+    pkgs.unzip
     pkgs.curl
     pkgs.wget
+    pkgs.lynx
+    pkgs.jq
     pkgs.ripgrep
-    pkgs.ast-grep
     pkgs.fd
-    pkgs.unzip
+    pkgs.chafa
+    pkgs.fastfetch
+    pkgs.cmatrix
+    pkgs.stress
+    pkgs.hyperfine
+    pkgs.gh
+
+    # neovim dependencies
+    pkgs.wordnet
+    pkgs.scowl
+    pkgs.ast-grep
     pkgs.tree-sitter
     pkgs.tectonic
     pkgs.texliveBasic
     pkgs.imagemagickBig
     pkgs.ghostscript
     pkgs.mermaid-cli
-    pkgs.fish # used in neovim conform plugin
     pkgs.nixfmt-classic
+
+    # programming
     (pkgs.lua5_1.withPackages (lua_pkgs: [
       lua_pkgs.luarocks
     ]))
-    (pkgs.python3.withPackages (python_pkgs: [
-      python_pkgs.pip
-      python_pkgs.pylatexenc
-    ]))
-    pkgs.uv
     pkgs.jdk
     pkgs.maven
-    pkgs.nodejs
+    pkgs.uv
     pkgs.cargo
+
+    # cmd applications
     pkgs.neovim
+    pkgs.tmux
+    pkgs.lazygit
+    pkgs.btop
+    pkgs.yazi
+    pkgs.superfile
 
-    pkgs.nmap
-    # pkgs.traceroute # no package available for mac os
-
-    pkgs.chafa
-    pkgs.fastfetch
-    pkgs.cmatrix
-    pkgs.stress
-    pkgs.hyperfine
-
-    pkgs.gh
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -151,8 +151,8 @@ setopt HIST_REDUCE_BLANKS
 
 # zsh reduce esc key delay
 # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-# 20ms for key sequences
-KEYTIMEOUT=2
+# 10ms for key sequences
+KEYTIMEOUT=1
 
 # setup for bsd ls
 export LSCOLORS='ExGxFxdaCxDaDahbadacec'
@@ -302,6 +302,14 @@ if type luarocks > /dev/null
 then
   eval "$(luarocks path --local)"
 fi
+
+# python: pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# nodejs: fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # nix-shell
 nix-zsh() {

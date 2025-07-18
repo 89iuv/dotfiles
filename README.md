@@ -13,14 +13,29 @@
 
 Install platform specific build tools ex: make, gcc, etc.
 
-```sh
-# ubuntu
-sudo apt install build-essentials inotify-tools
-```
+### ubuntu
 
 ```sh
-# macos
+# system
+sudo apt install build-essentials inotify-tools
+
+# python
+sudo apt install make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl git \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+```
+
+### macos
+
+```sh
+# system
 xcode-select --install
+
+# brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# python
+brew install openssl readline sqlite3 xz zlib tcl-tk@8 libb2
 ```
 
 ## Environment
@@ -63,6 +78,37 @@ Optional decouple dictionaries:
 ```sh
 rm -rf ~/.config/harper
 cp -r ~/.dotfiles/harper/.config/harper ~/.config/harper
+```
+
+Programming languages
+
+python:
+
+```sh
+# download
+curl -fsSL https://pyenv.run | bash
+
+# setup
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# install
+pyenv install 3
+pyenv global 3
+```
+
+nodejs
+
+```sh
+# download
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
+
+# setup
+fnm env --use-on-cd --shell zsh
+
+# install
+fnm install 22
 ```
 
 Change shell to zsh:
