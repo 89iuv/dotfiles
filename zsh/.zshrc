@@ -309,7 +309,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 # nodejs: fnm
-eval "$(fnm env --use-on-cd --shell zsh)"
+FNM_PATH="~/.fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="~/.fnm:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
 
 # nix-shell
 nix-zsh() {
@@ -397,4 +401,11 @@ run() {
 
 if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
+fi
+
+# fnm
+FNM_PATH="./.fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="./.fnm:$PATH"
+  eval "`fnm env`"
 fi
