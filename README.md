@@ -127,6 +127,7 @@ zsh
 
 ```sh
 tempfile=$(mktemp) \
+  && curl -o $tempfile https://raw.githubusercontent.com/wezterm/wezterm/master/termwiz/data/wezterm.terminfo \
   && tic -x -o ~/.terminfo $tempfile \
   && rm $tempfile
 ```
