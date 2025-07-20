@@ -4,7 +4,9 @@ Kanata
 KindaVim
 LazyVim
 M1
+Macos
 Nerdfonts
+Nodejs
 TODO
 Treesitter
 Windows11
@@ -38,7 +40,9 @@ nvim
 os
 quickfile
 secondbrain
+terminfo
 tiktoken
 tmux
 typr
+wezterm
 zsh
