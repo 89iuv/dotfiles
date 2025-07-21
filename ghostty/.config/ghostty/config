@@ -31,3 +31,8 @@ window-padding-y = 2
 
 window-width = 140
 window-height = 35
+
+# key bindings
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = alt+enter=toggle_fullscreen
