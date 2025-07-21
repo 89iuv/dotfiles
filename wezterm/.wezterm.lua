@@ -1,14 +1,13 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
--- term
-config.term = "wezterm"
-
 -- color scheme
 config.color_scheme = "Catppuccin Macchiato"
 
 -- performance
 config.max_fps = 60
+config.front_end = "WebGpu"
+config.enable_kitty_graphics = true
 
 -- MacOS
 if wezterm.target_triple:find("darwin") then
