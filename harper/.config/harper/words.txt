@@ -11,6 +11,7 @@ Nodejs
 TODO
 Treesitter
 Windows11
+Wsl
 Wsl1
 barbar
 bigfile
