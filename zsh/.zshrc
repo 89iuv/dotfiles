@@ -109,7 +109,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # cursor
 _set_vert_cursor() {
-  echo -ne '\e[5 q'
+  echo -ne '\e[6 q'
 }
 precmd_functions+=(_set_vert_cursor)
 

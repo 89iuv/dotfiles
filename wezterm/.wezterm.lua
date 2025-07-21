@@ -9,20 +9,17 @@ config.max_fps = 60
 config.front_end = "WebGpu"
 config.enable_kitty_graphics = true
 
--- MacOS
-if wezterm.target_triple:find("darwin") then
+-- default
+config.font_size = 14
+config.line_height = 1.13
+
+-- WSL
+if wezterm.target_triple:find("windows") then
   -- font
-  config.font_size = 15
-  config.line_height = 1.1
-elseif wezterm.target_triple:find("windows") then
-  -- font
-  config.font_size = 13
-  config.line_height = 1.1
+  config.font_size = 10
 
   --default domain
   config.default_domain = "WSL:Ubuntu"
-else
-  config.line_height = 1.1
 end
 
 -- disable scrollbar
@@ -42,15 +39,15 @@ config.enable_tab_bar = false
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- window size
-config.initial_cols = 130
+config.initial_cols = 140
 config.initial_rows = 35
 config.use_resize_increments = false
 
 config.window_padding = {
-  left = "0.25cell",
-  right = "0.25cell",
-  top = "0.25cell",
-  bottom = "0.25cell",
+  left = "2px",
+  right = "2px",
+  top = "2px",
+  bottom = "2px",
 }
 
 -- disable close confirmation

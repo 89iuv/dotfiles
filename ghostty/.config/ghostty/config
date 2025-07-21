@@ -1,0 +1,33 @@
+# theme
+theme = catppuccin-macchiato
+
+# font
+font-family = ""
+font-family = "JetBrains Mono"
+font-family = "Symbols Nerd Font Mono"
+font-size = 14
+font-thicken
+
+adjust-cell-height = 13%
+
+# cursor
+cursor-color = #f4dbd6
+cursor-text = #24273a
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# system
+macos-option-as-alt = true
+macos-titlebar-style = native
+macos-titlebar-proxy-icon = hidden
+
+# window
+window-theme = dark
+
+window-padding-x = 2
+window-padding-y = 2
+
+window-width = 140
+window-height = 35
