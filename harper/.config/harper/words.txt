@@ -4,7 +4,7 @@ Kanata
 KindaVim
 LazyVim
 M1
-Macos
+MacOS
 Nerdfonts
 Nodejs
 TODO
