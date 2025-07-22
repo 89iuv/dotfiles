@@ -9,9 +9,9 @@ local neovim_header = [[
 return {
   "folke/snacks.nvim",
   opts = function(_, opts)
-    -- require("snacks.image").supports_file = function()
-    --   return false
-    -- end
+    require("snacks.image").supports_file = function()
+      return vim.g.image_support
+    end
     local new_opts = {
       animate = {
         fps = vim.g.animate_fps,
@@ -32,7 +32,7 @@ return {
         },
       },
       image = {
-        enabled = true,
+        enabled = vim.g.image_support,
       },
       picker = {
         layout = {
