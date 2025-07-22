@@ -24,7 +24,7 @@ vim.g.root_spec = { "lsp", { ".git", "lua", ".root" }, "cwd" }
 vim.opt.pumblend = 0
 vim.opt.winblend = 0
 
-vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve-t:ver25,r-cr-o:hor20"
+vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon0-blinkoff0-blinkwait0"
 -- vim.opt.conceallevel = 0
 
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
