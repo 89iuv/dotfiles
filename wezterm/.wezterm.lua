@@ -6,7 +6,7 @@ config.color_scheme = "Catppuccin Macchiato"
 
 -- performance
 config.max_fps = 60
-config.front_end = "WebGpu"
+-- config.front_end = "WebGpu"
 config.enable_kitty_graphics = true
 
 -- default
