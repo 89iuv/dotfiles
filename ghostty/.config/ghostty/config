@@ -35,7 +35,10 @@ adjust-cell-height = 13%
 # cursor
 cursor-style = block
 cursor-style-blink = false
-shell-integration-features = no-cursor
+
+# shell
+shell-integration = none
+# shell-integration-features = no-cursor
 
 # system
 macos-option-as-alt = true

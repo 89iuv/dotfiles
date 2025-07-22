@@ -189,11 +189,3 @@ vim.api.nvim_create_autocmd("ModeChanged", {
     end
   end,
 })
-
--- Set cursor on exit
-vim.api.nvim_create_autocmd("VimLeave", {
-  pattern = "*",
-  callback = function()
-    vim.o.guicursor = "a:ver25"
-  end,
-})
