@@ -6,14 +6,25 @@ config.color_scheme = "Catppuccin Macchiato"
 
 -- performance
 config.max_fps = 60
-config.front_end = "WebGpu"
+-- config.front_end = "WebGpu"
 config.enable_kitty_graphics = true
 
--- default
-config.font_size = 14
+-- font
 config.line_height = 1.13
 
--- WSL
+-- Linux
+if wezterm.target_triple:find("linux") then
+  -- font
+  config.font_size = 12
+end
+
+-- Mac OS
+if wezterm.target_triple:find("darwin") then
+  -- font
+  config.font_size = 14
+end
+
+-- Windows WSL
 if wezterm.target_triple:find("windows") then
   -- font
   config.font_size = 10
@@ -26,7 +37,6 @@ end
 config.enable_scroll_bar = false
 
 -- cursor
-config.default_cursor_style = "SteadyBar"
 config.cursor_blink_rate = 0
 
 -- tabs
