@@ -5,7 +5,7 @@
   - [System](#system)
     - [Fedora](#fedora)
     - [Ubuntu](#ubuntu)
-    - [Macos](#macos)
+    - [MacOS](#macos)
   - [Environment](#environment)
   - [Setup](#setup)
     - [Clone repo](#clone-repo)
@@ -14,7 +14,6 @@
     - [Run integration scripts](#run-integration-scripts)
     - [Optional decouple dictionaries](#optional-decouple-dictionaries)
     - [Change shell to zsh](#change-shell-to-zsh)
-    - [Compile terminfo for wezterm](#compile-terminfo-for-wezterm)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
     - [Install github copilot cli](#install-github-copilot-cli)
@@ -57,7 +56,7 @@ libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 ```
 
-### Macos
+### MacOS
 
 ```sh
 # system
@@ -72,7 +71,6 @@ brew install openssl readline sqlite3 xz zlib tcl-tk@8 libb2
 
 ## Environment
 
-- Install wezterm: [Wezterm](https://wezterm.org/installation.html)
 - Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 - Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
@@ -121,15 +119,6 @@ sudo sh -c "cat tmp.txt >> /etc/shells"
 chsh -s $(which zsh)
 rm tmp.txt
 zsh
-```
-
-### Compile terminfo for wezterm
-
-```sh
-tempfile=$(mktemp) \
-  && curl -o $tempfile https://raw.githubusercontent.com/wezterm/wezterm/master/termwiz/data/wezterm.terminfo \
-  && tic -x -o ~/.terminfo $tempfile \
-  && rm $tempfile
 ```
 
 ### Install Python
