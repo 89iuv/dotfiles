@@ -2,15 +2,15 @@
 
 <!--toc:start-->
 - [Dotfiles](#dotfiles)
+  - [Environment](#environment)
+    - [Clone repo](#clone-repo)
   - [System](#system)
     - [Fedora](#fedora)
-    - [Fedora Native](#fedora-native)
+    - [Fedora Native (without Home Manager)](#fedora-native-without-home-manager)
     - [Ubuntu](#ubuntu)
     - [MacOS](#macos)
-    - [Nix pkgs](#nix-pkgs)
-  - [Environment](#environment)
   - [Setup](#setup)
-    - [Clone repo](#clone-repo)
+    - [Install dependencies using Home Manager](#install-dependencies-using-home-manager)
     - [Link dotfiles](#link-dotfiles)
     - [Run integration scripts](#run-integration-scripts)
     - [Optional decouple dictionaries](#optional-decouple-dictionaries)
@@ -20,10 +20,10 @@
     - [Install github copilot cli](#install-github-copilot-cli)
     - [Install tiktoken for github copilot chat](#install-tiktoken-for-github-copilot-chat)
   - [Update](#update)
-    - [Update Ubuntu](#update-ubuntu)
     - [Update Fedora](#update-fedora)
+    - [Update Ubuntu](#update-ubuntu)
     - [Update MacOS](#update-macos)
-    - [Update home-manager](#update-home-manager)
+    - [Update Home Manager](#update-home-manager)
     - [Update dotfiles](#update-dotfiles)
     - [Update integrations](#update-integrations)
     - [Optional update dictionaries](#optional-update-dictionaries)
@@ -62,7 +62,7 @@ libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2
 
 ### Fedora Native (without Home Manager)
 
-By installing this dependencies you can skyp installing nix pkgs
+By installing this dependencies you can skip installing nix pkgs
 
 ```sh
 # enable rpm fusion free and non free
