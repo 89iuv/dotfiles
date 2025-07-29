@@ -54,6 +54,9 @@ Install platform specific build tools ex: make, gcc, etc.
 # git
 sudo dnf group install c-development development-tools
 
+# tmux battery
+sudo dnf install acpi
+
 # python
 sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
 readline-devel sqlite sqlite-devel openssl-devel tk-devel \
