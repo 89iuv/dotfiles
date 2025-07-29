@@ -96,6 +96,10 @@ sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 ```
 
+Issues:
+
+- wordnet from the fedora package does not work
+
 ### Ubuntu
 
 ```sh
