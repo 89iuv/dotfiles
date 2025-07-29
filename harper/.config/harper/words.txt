@@ -36,6 +36,7 @@ github
 hjkl
 icloud
 karabiner
+kscreen
 lua
 neo
 neotest
@@ -52,4 +53,5 @@ tiktoken
 tmux
 typr
 wezterm
+wordnet
 zsh
