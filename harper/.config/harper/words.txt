@@ -5,9 +5,11 @@ Kanata
 KindaVim
 LazyVim
 M1
+M2
 MacOS
 Nerdfonts
 Nodejs
+Synology
 TODO
 Treesitter
 WebGpu
@@ -42,6 +44,7 @@ netrw
 noice
 nvim
 os
+pkgs
 quickfile
 secondbrain
 terminfo

@@ -36,7 +36,7 @@
 - Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 - Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
-- Add key binding to replace capslook with esc
+- Add key binding to replace `capslook` with `esc`
 
 ### Clone repo
 
