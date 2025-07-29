@@ -83,6 +83,7 @@ git-delta \
 zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
 wordnet \
+lua luarocks compat-lua \
 neovim tmux btop lazygit \
 fastfetch
 
