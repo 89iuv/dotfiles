@@ -3,11 +3,7 @@ return {
   enabled = true,
   opts = {
     term_colors = true,
-    integrations = {
-      barbar = true,
-      fidget = true,
-      neotest = true,
-    },
+
     custom_highlights = function(colors)
       local colors_utils = require("catppuccin.utils.colors")
       local layer0 = colors.base
@@ -144,6 +140,8 @@ return {
         NoiceMini = { bg = layer3 },
 
         -- snacks
+        SnacksPickerInput = { link = "NormalSide" },
+
         SnacksNotifierInfo = { link = "NormalPopup" },
         SnacksNotifierWarn = { link = "NormalPopup" },
         SnacksNotifierDebug = { link = "NormalPopup" },
