@@ -4,13 +4,14 @@
 - [Dotfiles](#dotfiles)
   - [System](#system)
     - [Fedora](#fedora)
+    - [Fedora Native](#fedora-native)
     - [Ubuntu](#ubuntu)
     - [MacOS](#macos)
+    - [Nix pkgs](#nix-pkgs)
   - [Environment](#environment)
   - [Setup](#setup)
     - [Clone repo](#clone-repo)
     - [Link dotfiles](#link-dotfiles)
-    - [Install packages](#install-packages)
     - [Run integration scripts](#run-integration-scripts)
     - [Optional decouple dictionaries](#optional-decouple-dictionaries)
     - [Change shell to zsh](#change-shell-to-zsh)
@@ -20,6 +21,8 @@
     - [Install tiktoken for github copilot chat](#install-tiktoken-for-github-copilot-chat)
   - [Update](#update)
     - [Update Ubuntu](#update-ubuntu)
+    - [Update Fedora](#update-fedora)
+    - [Update MacOS](#update-macos)
     - [Update home-manager](#update-home-manager)
     - [Update dotfiles](#update-dotfiles)
     - [Update integrations](#update-integrations)
@@ -27,6 +30,19 @@
     - [Update others](#update-others)
   - [Issues](#issues)
 <!--toc:end-->
+
+## Environment
+
+- Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
+- Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
+- Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
+- Add key binding to replace capslook with esc
+
+### Clone repo
+
+```sh
+git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
+```
 
 ## System
 
@@ -36,12 +52,48 @@ Install platform specific build tools ex: make, gcc, etc.
 
 ```sh
 # git
-dnf install git-core
+sudo dnf group install c-development development-tools
 
 # python
-dnf install make gcc patch zlib-devel bzip2 bzip2-devel\
-readline-devel sqlite sqlite-devel openssl-devel tk-devel\
+sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
+readline-devel sqlite sqlite-devel openssl-devel tk-devel \
 libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2
+```
+
+### Fedora Native (without Home Manager)
+
+By installing this dependencies you can skyp installing nix pkgs
+
+```sh
+# enable rpm fusion free and non free
+sudo dnf install \
+https://download1.rpmfusion.org\
+/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install \
+https://download1.rpmfusion.org\
+/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# enable copr repos
+sudo dnf copr enable atim/lazygit -y
+
+# install dependencies
+sudo dnf install \
+git-delta \
+zsh zoxide bat fzf ripgrep fd jq stow \
+curl wget lynx \
+wordnet \
+neovim tmux btop lazygit \
+fastfetch
+
+# manual instalation
+wget -c https://github.com\
+/eza-community/eza/releases/latest/download\
+/eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
+
+sudo chmod +x eza
+sudo chown root:root eza
+sudo mv eza /usr/local/bin/eza
 ```
 
 ### Ubuntu
@@ -69,31 +121,19 @@ xcode-select --install
 brew install openssl readline sqlite3 xz zlib tcl-tk@8 libb2
 ```
 
-## Environment
-
-- Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
-- Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
-- Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
-
 ## Setup
 
-### Clone repo
+### Install dependencies using Home Manager
 
 ```sh
-git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
+nix-shell -p home-manager --run "home-manager switch --impure"
 ```
 
 ### Link dotfiles
 
 ```sh
 cd ~/.dotfiles
-nix-shell -p stow --run "stow */"
-```
-
-### Install packages
-
-```sh
-nix-shell -p home-manager --run "home-manager switch --impure"
+stow --run "stow */"
 ```
 
 ### Run integration scripts
@@ -129,7 +169,7 @@ curl -fsSL https://pyenv.run | bash
 
 # setup
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 
 # install
@@ -141,7 +181,7 @@ pyenv global 3
 
 ```sh
 # download
-curl -fsSL https://fnm.vercel.app/install\
+curl -fsSL https://fnm.vercel.app/install \
   | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install
 
 # setup
@@ -168,6 +208,12 @@ luarocks install --lua-version 5.1 tiktoken_core --local
 
 ## Update
 
+### Update Fedora
+
+```sh
+sudo dnf upgrade
+```
+
 ### Update Ubuntu
 
 ```sh
@@ -175,7 +221,14 @@ sudo apt update
 sudo apt upgrade
 ```
 
-### Update home-manager
+### Update MacOS
+
+```sh
+brew update
+brew upgrade
+```
+
+### Update Home Manager
 
 ```sh
 cd ~/.config/home-manager

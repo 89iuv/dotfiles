@@ -101,8 +101,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# env
-
 # fix for lazygit not showing correct colors
 export COLORTERM=truecolor
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -136,7 +134,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
 # zsh history
 HISTSIZE=1000000
@@ -316,7 +314,7 @@ ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(super-tab)
 
 # set completion key keybindings
 bindkey '^I' super-tab
-bindkey '^ ' fzf-completion
+ bindkey '^ ' autosuggest-fetch
 bindkey "^[" autosuggest-clear
 
 # zsh-history-substring-search keybindings
@@ -330,7 +328,6 @@ unsetopt LIST_BEEP
 setopt menu_complete
 
 # zsh menu select keybindings
-bindkey -M menuselect "^ " menu-select
 bindkey -M menuselect "^p" reverse-menu-complete
 bindkey -M menuselect "^n" menu-complete
 bindkey -M menuselect "^[" undo
