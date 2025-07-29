@@ -84,7 +84,8 @@ sudo dnf copr enable atim/lazygit -y
 sudo dnf install \
 git-delta \
 zsh zoxide bat fzf ripgrep fd jq stow \
-curl wget lynx \
+curl wget lynx k\
+chafa ImageMagick \
 lua luarocks compat-lua \
 neovim tmux btop lazygit \
 fastfetch
@@ -198,6 +199,9 @@ eval "$(fnm env --shell zsh)"
 
 # install
 fnm install 22
+
+# install global packages
+npm install -g @mermaid-js/mermaid-cli
 ```
 
 ### Install github copilot cli
