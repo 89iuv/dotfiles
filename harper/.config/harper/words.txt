@@ -25,6 +25,7 @@ cli
 cmd
 cmp
 ctrl
+dap
 esc
 ftplugins
 fzf

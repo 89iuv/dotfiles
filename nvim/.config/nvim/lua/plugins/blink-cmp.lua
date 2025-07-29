@@ -119,7 +119,7 @@ return {
           score_offset = -10, -- boost/penalize the score of the items
           opts = {
             dictionary_files = {
-              vim.fn.expand("$HOME/.nix-profile/share/dict/wamerican.txt"),
+              vim.fn.expand("$HOME/.dotfiles/words/english-words/words.txt"),
               vim.fn.expand("$HOME/.config/harper/words.txt"),
             },
           },
