@@ -4,11 +4,13 @@ Groq
 Kanata
 KindaVim
 LazyVim
+Logitech
 M1
 M2
 MacOS
 Nerdfonts
 Nodejs
+Solaar
 Synology
 TODO
 Treesitter
