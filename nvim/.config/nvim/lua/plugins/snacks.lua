@@ -9,8 +9,10 @@ local neovim_header = [[
 return {
   "folke/snacks.nvim",
   opts = function(_, opts)
-    require("snacks.image").supports_file = function()
-      return vim.g.image_support
+    if not vim.g.image_support then
+      require("snacks.image").supports_file = function()
+        return vim.g.image_support
+      end
     end
     local new_opts = {
       animate = {
