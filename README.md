@@ -51,6 +51,9 @@ Install platform specific build tools ex: make, gcc, etc.
 ### Fedora
 
 ```sh
+# remove unnecessary package
+sudo dnf remove PackageKit-command-not-found
+
 # git
 sudo dnf group install c-development development-tools
 
