@@ -84,16 +84,16 @@ sudo dnf copr enable atim/lazygit -y
 sudo dnf install \
 git-delta \
 zsh zoxide bat fzf ripgrep fd jq stow \
-curl wget lynx k\
+curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
 neovim tmux btop lazygit \
 fastfetch
 
 # manual instalation
-wget -c https://github.com\
-/eza-community/eza/releases/latest/download\
-/eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
+wget -c https://github.com/\
+eza-community/eza/releases/latest/download/\
+eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
 
 sudo chmod +x eza
 sudo chown root:root eza
