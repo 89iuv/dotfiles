@@ -23,6 +23,8 @@ local create_new_note = function(state)
     file:write(header)
     file:close()
   end
+
+  vim.cmd("edit" .. " " .. full_path)
 end
 
 return {
