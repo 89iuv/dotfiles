@@ -49,7 +49,7 @@ return {
       options = {
         always_show_bufferline = true,
         tab_size = 1,
-        truncate_names = false,
+        truncate_names = true,
         offsets = offsets,
         indicator = {
           icon = " ",
