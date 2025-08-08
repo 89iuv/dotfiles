@@ -52,7 +52,7 @@ return {
   },
   opts = {
     appearance = {
-      nerd_font_variant = "normal", -- mono | normal
+      nerd_font_variant = "mono", -- mono | normal
     },
     completion = {
       trigger = {
@@ -118,6 +118,9 @@ return {
           min_keyword_length = 3,
           score_offset = -10, -- boost/penalize the score of the items
           opts = {
+            kind_icons = {
+              Dict = "󰘝 ",
+            },
             dictionary_files = {
               vim.fn.expand("$HOME/.dotfiles/words/english-words/words.txt"),
               vim.fn.expand("$HOME/.config/harper/words.txt"),
