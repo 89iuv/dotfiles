@@ -57,6 +57,14 @@ sudo dnf group install c-development development-tools
 # tmux dependencies
 sudo dnf install acpi xclip
 
+# btop dependencies for intel gpu
+sudo dnf install intel_gpu_top
+
+# run at every startup
+# TODO: add systemd script to do this autmatic
+# source: https://github.com/luisbocanegra/plasma-intel-gpu-monitor?tab=readme-ov-file#requirements
+sudo setcap cap_perfmon=+ep /usr/bin/btop
+
 # python
 sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
 readline-devel sqlite sqlite-devel openssl-devel tk-devel \
