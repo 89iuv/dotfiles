@@ -48,6 +48,7 @@ kscreen
 lua
 neo
 neotest
+neotree
 neovim
 netrw
 noice
