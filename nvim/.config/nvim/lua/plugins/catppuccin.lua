@@ -1,109 +1,118 @@
 return {
   "catppuccin/nvim",
   enabled = true,
-  opts = {
-    term_colors = true,
-    auto_integrations = true,
+  opts = function(_, opts)
+    local module = require("catppuccin.groups.integrations.bufferline")
+    if module then
+      module.get = module.get_theme
+    end
 
-    custom_highlights = function(colors)
-      local colors_utils = require("catppuccin.utils.colors")
+    local new_opts = {
+      term_colors = true,
+      auto_integrations = true,
 
-      return {
-        -- catppuccin
-        FloatBorder = { fg = colors.lavender, bg = colors.mantle },
-        FloatTitle = { fg = colors.lavender, bg = colors.mantle },
+      custom_highlights = function(colors)
+        local colors_utils = require("catppuccin.utils.colors")
 
-        WinSeparator = { fg = colors.overlay0, bg = colors.base },
-        StatusLine = { bg = colors.crust },
+        return {
+          -- catppuccin
+          FloatBorder = { fg = colors.lavender, bg = colors.mantle },
+          FloatTitle = { fg = colors.lavender, bg = colors.mantle },
 
-        -- bufferline
-        BufferlineProjectExplorer = { fg = colors.lavender },
-        BufferlineSideBar = { fg = colors.lavender, bg = colors.base },
+          WinSeparator = { fg = colors.overlay0, bg = colors.base },
+          StatusLine = { bg = colors.crust },
 
-        BufferLineOffsetSeparator = { link = "WinSeparator" },
-        BufferLineTruncMarker = { fg = colors.surface2, bg = colors.crust },
-        BufferLineFill = { bg = colors.crust },
+          -- bufferline
+          BufferlineProjectExplorer = { fg = colors.lavender },
+          BufferlineSideBar = { fg = colors.lavender, bg = colors.base },
 
-        BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
-        BufferLineError = { link = "BufferLineBuffer" },
-        BufferLineWarning = { link = "BufferLineBuffer" },
-        BufferLineInfo = { link = "BufferLineBuffer" },
-        BufferLineHint = { link = "BufferLineBuffer" },
+          BufferLineOffsetSeparator = { link = "WinSeparator" },
+          BufferLineTruncMarker = { fg = colors.surface2, bg = colors.crust },
+          BufferLineFill = { bg = colors.crust },
 
-        BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold" } },
-        BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
-        BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
-        BufferLineHintSelected = { link = "BufferLineBufferSelected" },
-        BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
+          BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
+          BufferLineError = { link = "BufferLineBuffer" },
+          BufferLineWarning = { link = "BufferLineBuffer" },
+          BufferLineInfo = { link = "BufferLineBuffer" },
+          BufferLineHint = { link = "BufferLineBuffer" },
 
-        BufferLineBufferVisible = { fg = colors.text, bg = colors.mantle },
-        BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
-        BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
-        BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
-        BufferLineHintVisible = { link = "BufferLineBufferVisible" },
+          BufferLineBufferSelected = { fg = colors.lavender, bg = colors.base, style = { "bold" } },
+          BufferLineErrorSelected = { link = "BufferLineBufferSelected" },
+          BufferLineWarningSelected = { link = "BufferLineBufferSelected" },
+          BufferLineHintSelected = { link = "BufferLineBufferSelected" },
+          BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
 
-        BufferLineErrorDiagnostic = {
-          bg = colors.mantle,
-          fg = colors_utils.darken(colors.red, 0.5, colors.mantle)
-        },
-        BufferLineWarningDiagnostic = {
-          bg = colors.mantle,
-          fg = colors_utils.darken(colors.yellow, 0.5, colors.mantle),
-        },
-        BufferLineInfoDiagnostic = {
-          bg = colors.mantle,
-          fg = colors_utils.darken(colors.sky, 0.5, colors.mantle)
-        },
-        BufferLineHintDiagnostic = {
-          bg = colors.mantle,
-          fg = colors_utils.darken(colors.teal, 0.5, colors.mantle)
-        },
+          BufferLineBufferVisible = { fg = colors.text, bg = colors.mantle },
+          BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
+          BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
+          BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
+          BufferLineHintVisible = { link = "BufferLineBufferVisible" },
 
-        -- neotree
-        NeoTreeWinSeparator = { link = "WinSeparator" },
-        NeoTreeIndentMarker = { link = "LineNr" },
-        NeoTreeExpander = { link = "LineNr" },
+          BufferLineErrorDiagnostic = {
+            bg = colors.mantle,
+            fg = colors_utils.darken(colors.red, 0.5, colors.mantle),
+          },
+          BufferLineWarningDiagnostic = {
+            bg = colors.mantle,
+            fg = colors_utils.darken(colors.yellow, 0.5, colors.mantle),
+          },
+          BufferLineInfoDiagnostic = {
+            bg = colors.mantle,
+            fg = colors_utils.darken(colors.sky, 0.5, colors.mantle),
+          },
+          BufferLineHintDiagnostic = {
+            bg = colors.mantle,
+            fg = colors_utils.darken(colors.teal, 0.5, colors.mantle),
+          },
 
-        NeoTreeDotfile = { fg = colors.overlay0 },
-        NeoTreeProjectName = { fg = colors.blue },
-        NeoTreeProjectPath = { link = "NeoTreeDotfile" },
+          -- neotree
+          NeoTreeWinSeparator = { link = "WinSeparator" },
+          NeoTreeIndentMarker = { link = "LineNr" },
+          NeoTreeExpander = { link = "LineNr" },
 
-        -- show keys
-        SkActive = { fg = colors.mantle, bg = colors.lavender },
-        SkInactive = { fg = colors.text, bg = colors.surface0 },
+          NeoTreeDotfile = { fg = colors.overlay0 },
+          NeoTreeProjectName = { fg = colors.blue },
+          NeoTreeProjectPath = { link = "NeoTreeDotfile" },
 
-        -- blink
-        -- blink completion dictionary
-        BlinkCmpKindDict = { fg = colors.teal },
+          -- show keys
+          SkActive = { fg = colors.mantle, bg = colors.lavender },
+          SkInactive = { fg = colors.text, bg = colors.surface0 },
 
-        -- mini indent scope
-        MiniIndentscopeSymbol = { fg = colors.surface2 },
+          -- blink
+          -- blink completion dictionary
+          BlinkCmpKindDict = { fg = colors.teal },
 
-        -- fidget
-        FidgetNormal = { link = "NormalFloat" },
-        FidgetBorder = { link = "FloatBorder" },
+          -- mini indent scope
+          MiniIndentscopeSymbol = { fg = colors.surface2 },
 
-        -- incline
-        InclineNormal = { fg = colors.subtext0, bg = colors.mantle },
-        InclineNormalNC = { link = "InclineNormal" },
+          -- fidget
+          FidgetNormal = { link = "NormalFloat" },
+          FidgetBorder = { link = "FloatBorder" },
 
-        InclineSeparator = { fg = colors.overlay0, bg = colors.mantle },
+          -- incline
+          InclineNormal = { fg = colors.subtext0, bg = colors.mantle },
+          InclineNormalNC = { link = "InclineNormal" },
 
-        InclineLsp = { link = "InclineNormal" },
-        InclineLinter = { link = "InclineNormal" },
-        InclineFormatter = { link = "InclineNormal" },
+          InclineSeparator = { fg = colors.overlay0, bg = colors.mantle },
 
-        -- snacks
-        SnacksWinBar = { fg = colors.lavender },
+          InclineLsp = { link = "InclineNormal" },
+          InclineLinter = { link = "InclineNormal" },
+          InclineFormatter = { link = "InclineNormal" },
 
-        -- trouble
-        TroubleNormal = { bg = colors.base },
-        TroubleNormalNc = { link = "TroubleNormal" },
+          -- snacks
+          SnacksWinBar = { fg = colors.lavender },
 
-        -- neotest
-        NeotestIndent = { link = "LineNr" },
-        NeotestExpandMarker = { link = "LineNr" },
-      }
-    end,
-  },
+          -- trouble
+          TroubleNormal = { bg = colors.base },
+          TroubleNormalNc = { link = "TroubleNormal" },
+
+          -- neotest
+          NeotestIndent = { link = "LineNr" },
+          NeotestExpandMarker = { link = "LineNr" },
+        }
+      end,
+    }
+
+    return vim.tbl_deep_extend("force", opts, new_opts)
+  end,
 }
