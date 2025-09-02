@@ -6,7 +6,6 @@ return {
     end
   end,
   opts = function()
-    local global = require("config.global")
     local smear_cursor = require("smear_cursor")
     local abort = false
 
@@ -88,7 +87,7 @@ return {
       cursor_color = "none",
 
       never_draw_over_target = false,
-      legacy_computing_symbols_support = true,
+      legacy_computing_symbols_support = false,
 
       smear_insert_mode = false,
       smear_terminal_mode = true,

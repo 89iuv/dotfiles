@@ -76,6 +76,9 @@ return {
         -- blink completion dictionary
         BlinkCmpKindDict = { fg = colors.teal },
 
+        -- mini indent scope
+        MiniIndentscopeSymbol = { fg = colors.surface2 },
+
         -- fidget
         FidgetNormal = { link = "NormalFloat" },
         FidgetBorder = { link = "FloatBorder" },

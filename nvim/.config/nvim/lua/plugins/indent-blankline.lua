@@ -17,7 +17,7 @@ return {
     require("ibl").setup({
       debounce = 160,
       indent = {
-        char = "▏",
+        char = "│",
       },
       scope = {
         enabled = false,

@@ -57,6 +57,9 @@ sudo dnf group install c-development development-tools
 # tmux dependencies
 sudo dnf install acpi xclip
 
+# TODO: find a better way to fix the clipboard issue on wsl
+sudo dnf remove xclip wl-clipboard
+
 # btop dependencies for intel gpu
 sudo dnf install intel_gpu_top
 
@@ -85,9 +88,6 @@ sudo dnf install \
 https://download1.rpmfusion.org\
 /nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-# enable copr repos
-sudo dnf copr enable atim/lazygit -y
-
 # install dependencies
 sudo dnf install \
 git-delta \
@@ -95,14 +95,17 @@ zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
-neovim tmux btop lazygit \
+neovim tmux btop \
 fastfetch
 
-# manual instalation
+# install lazygit
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+
+# install eza
 wget -c https://github.com/\
 eza-community/eza/releases/latest/download/\
 eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
-
 sudo chmod +x eza
 sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
@@ -149,7 +152,7 @@ nix-shell -p home-manager --run "home-manager switch --impure"
 
 ```sh
 cd ~/.dotfiles
-stow --run "stow */"
+stow */
 ```
 
 ### Run integration scripts
@@ -209,7 +212,7 @@ eval "$(fnm env --shell zsh)"
 fnm install 22
 
 # install global packages
-npm install -g @mermaid-js/mermaid-cli
+sudo npm install -g @mermaid-js/mermaid-cli
 ```
 
 ### Install github copilot cli
