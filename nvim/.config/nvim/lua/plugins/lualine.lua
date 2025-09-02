@@ -6,10 +6,9 @@ return {
   opts = function(_, opts)
     local lualine_catppuccin = require("catppuccin.utils.lualine")()
     local colors = require("catppuccin.palettes").get_palette("macchiato")
-    local colors_utils = require("catppuccin.utils.colors")
 
-    lualine_catppuccin.normal.c.bg = colors_utils.blend(colors.mantle, colors.crust, 0.5)
-    lualine_catppuccin.inactive.c.bg = colors_utils.blend(colors.mantle, colors.crust, 0.5)
+    lualine_catppuccin.normal.c.bg = colors.crust
+    lualine_catppuccin.inactive.c.bg = colors.crust
 
     opts.options.theme = lualine_catppuccin
     opts.options.component_separators = { left = "╱", right = "│" }
