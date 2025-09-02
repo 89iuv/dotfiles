@@ -2,6 +2,7 @@ return {
   "catppuccin/nvim",
   enabled = true,
   opts = function(_, opts)
+    -- workaround for: https://github.com/LazyVim/LazyVim/issues/6355
     local module = require("catppuccin.groups.integrations.bufferline")
     if module then
       module.get = module.get_theme
@@ -9,7 +10,7 @@ return {
 
     local new_opts = {
       term_colors = true,
-      auto_integrations = true,
+      -- auto_integrations = true,
 
       custom_highlights = function(colors)
         local colors_utils = require("catppuccin.utils.colors")
