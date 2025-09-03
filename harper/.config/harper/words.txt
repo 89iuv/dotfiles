@@ -24,12 +24,14 @@ WebGpu
 Windows11
 Wsl
 Wsl1
+ascii
 barbar
 bigfile
 btop
 bufferline
 bufnr
 catppuccin
+chafa
 checkhealth
 cli
 cmd
