@@ -17,7 +17,7 @@ return {
         StatusLine = { bg = colors.crust },
 
         -- bufferline
-        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.base },
+        BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
         BufferlineSideBar = { fg = colors.lavender, bg = colors.base },
 
         BufferLineOffsetSeparator = { link = "WinSeparator" },
