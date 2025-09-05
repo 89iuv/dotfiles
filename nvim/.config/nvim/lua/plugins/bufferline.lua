@@ -11,9 +11,7 @@ return {
   -- workaround for https://github.com/LazyVim/LazyVim/pull/6354
   init = function()
     local bufline = require("catppuccin.groups.integrations.bufferline")
-    function bufline.get()
-      return bufline.get_theme()
-    end
+    bufline.get = bufline.get_theme
   end,
   opts = function(_, opts)
     local project_exporer_filetypes = {

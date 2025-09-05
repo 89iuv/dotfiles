@@ -5,6 +5,10 @@ return {
     term_colors = true,
     auto_integrations = true,
 
+    integrations = {
+      bufferline = false, -- integration is done in LazyVim
+    },
+
     custom_highlights = function(colors)
       local colors_utils = require("catppuccin.utils.colors")
 
@@ -22,7 +26,6 @@ return {
 
         BufferLineOffsetSeparator = { link = "WinSeparator" },
         BufferLineTruncMarker = { fg = colors.surface2, bg = colors.crust },
-        BufferLineFill = { bg = colors.crust },
 
         BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
         BufferLineError = { link = "BufferLineBuffer" },
@@ -36,7 +39,7 @@ return {
         BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
 
-        BufferLineBufferVisible = { fg = colors.text, bg = colors.mantle },
+        BufferLineBufferVisible = { fg = colors.lavender, bg = colors.mantle },
         BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
         BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
@@ -58,13 +61,6 @@ return {
           bg = colors.mantle,
           fg = colors_utils.darken(colors.teal, 0.5, colors.mantle),
         },
-
-        BufferLineErrorDiagnosticSelected = { bg = colors.base, fg = colors.red, style = {"bold"} },
-        BufferLineWarningDiagnosticSelected = { bg = colors.base, fg = colors.yellow, style = {"bold"} },
-        BufferLineInfoDiagnosticSelected = { bg = colors.base, fg = colors.sky, style = {"bold"} },
-        BufferLineHintDiagnosticSelected = { bg = colors.base, fg = colors.teal, style = {"bold"} },
-
-        BufferLineCloseButtonSelected = {bg = colors.base, fg = colors.red },
 
         -- neotree
         NeoTreeWinSeparator = { link = "WinSeparator" },
