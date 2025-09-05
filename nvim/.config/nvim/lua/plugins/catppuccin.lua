@@ -76,6 +76,10 @@ return {
         SkInactive = { fg = colors.text, bg = colors.surface0 },
 
         -- blink
+        -- blink border
+        BlinkCmpMenuBorder = { fg = colors.surface2, bg = colors.mantle },
+        BlinkCmpDocBorder = { link = "BlinkCmpMenuBorder" },
+
         -- blink completion dictionary
         BlinkCmpKindDict = { fg = colors.teal },
 
