@@ -53,8 +53,9 @@ return {
     local new_opts = {
       options = {
         always_show_bufferline = true,
-        tab_size = 1,
+        max_name_length = 30,
         truncate_names = true,
+        tab_size = 1,
         offsets = offsets,
         indicator = {
           icon = " ",
