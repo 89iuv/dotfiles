@@ -34,11 +34,3 @@ vim.opt.relativenumber = false
 vim.opt.list = true
 
 vim.opt.swapfile = false
-
--- format for folded lines
-vim.opt.foldtext = "v:lua.CustomFoldText()"
-function _G.CustomFoldText()
-  local line = vim.fn.getline(vim.v.foldstart)
-  local num_lines = vim.v.foldend - vim.v.foldstart + 1
-  return line .. " ... " .. num_lines .. " lines"
-end
