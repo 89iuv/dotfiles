@@ -123,7 +123,6 @@ return {
             },
             dictionary_files = {
               vim.fn.expand("$HOME/.dotfiles/words/english-words/words.txt"),
-              vim.fn.expand("$HOME/.config/harper/words.txt"),
             },
           },
         },

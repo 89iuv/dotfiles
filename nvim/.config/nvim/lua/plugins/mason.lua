@@ -4,7 +4,6 @@ return {
     ensure_installed = {
       "debugpy", -- used by python dap
       "lemminx",
-      "harper-ls",
     },
     ui = {
       backdrop = 60,

@@ -43,21 +43,6 @@ return {
             },
           },
         },
-        harper_ls = {
-          settings = {
-            ["harper-ls"] = {
-              userDictPath = vim.fn.expand("$HOME/.config/harper/words.txt"),
-              linters = {
-                SpellCheck = true,
-                SentenceCapitalization = false,
-                ToDoHyphen = false,
-              },
-              codeActions = {
-                ForceStable = false,
-              },
-            },
-          },
-        },
       },
     }
 

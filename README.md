@@ -13,8 +13,7 @@
     - [Install dependencies using Home Manager](#install-dependencies-using-home-manager)
     - [Link dotfiles](#link-dotfiles)
     - [Run integration scripts](#run-integration-scripts)
-    - [Optional decouple dictionaries](#optional-decouple-dictionaries)
-    - [Change shell to zsh](#change-shell-to-zsh)
+  - [Change shell to zsh](#change-shell-to-zsh)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
     - [Install github copilot cli](#install-github-copilot-cli)
@@ -26,7 +25,6 @@
     - [Update Home Manager](#update-home-manager)
     - [Update dotfiles](#update-dotfiles)
     - [Update integrations](#update-integrations)
-    - [Optional update dictionaries](#optional-update-dictionaries)
     - [Update others](#update-others)
   - [Issues](#issues)
 <!--toc:end-->
@@ -163,14 +161,7 @@ cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
 ```
 
-### Optional decouple dictionaries
-
-```sh
-rm -rf ~/.config/harper
-cp -r ~/.dotfiles/harper/.config/harper ~/.config/harper
-```
-
-### Change shell to zsh
+## Change shell to zsh
 
 ```sh
 which zsh > tmp.txt
@@ -272,15 +263,6 @@ git submodule update --recursive --init
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
-```
-
-### Optional update dictionaries
-
-```sh
-sort -U \
-~/.dotfiles/harper/.config/harper/words.txt \
-~/.config/harper/words.txt \
-> ~/.config/harper/words.txt
 ```
 
 ### Update others
