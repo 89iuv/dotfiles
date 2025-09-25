@@ -107,6 +107,10 @@ eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
 sudo chmod +x eza
 sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
+
+# install yazi
+sudo dnf copr enable lihaohong/yazi
+sudo dnf install yazi
 ```
 
 Issues:
