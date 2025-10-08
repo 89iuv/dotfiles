@@ -10,36 +10,6 @@ local run_in_directory = function(state_tree_node, snacks_picker_function)
   end
 end
 
-local create_new_note = function(state)
-  local title = "Note - " .. os.date()
-
-  local path
-  if state.tree:get_node().type == "directory" then
-    path = state.tree:get_node():get_id()
-  else
-    path = state.tree:get_node():get_parent_id()
-  end
-
-  local filename = title .. ".md"
-  local header = "# " .. title
-
-  local neo_tree_inputs = require("neo-tree.ui.inputs")
-  neo_tree_inputs.input("Enter name for new note (defaults to the current timestamp):", filename, function(input)
-    if input and input ~= "" then
-      local full_path = path .. "/" .. input
-      local file = io.open(full_path, "w")
-      if file then
-        file:write(header)
-        file:close()
-      end
-      require("neo-tree.command").execute({
-        reveal_file = full_path, -- path to file or folder to reveal
-        reveal_force_cwd = true, -- change cwd without asking if needed
-      })
-    end
-  end)
-end
-
 return {
   "nvim-neo-tree/neo-tree.nvim",
   lazy = false, -- netrw jacking does not work if plugin is lazy loaded
@@ -142,12 +112,6 @@ return {
             run_in_directory(state.tree:get_node(), Snacks.picker.grep)
           end,
           desc = "Grep (Current Node)",
-        },
-        ["n"] = {
-          function(state)
-            create_new_note(state)
-          end,
-          desc = "create_new_note",
         },
       },
     },
