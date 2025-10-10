@@ -70,6 +70,9 @@ sudo setcap cap_perfmon=+ep /usr/bin/btop
 sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
 readline-devel sqlite sqlite-devel openssl-devel tk-devel \
 libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2
+
+# kitty
+sudo dnf install xz
 ```
 
 ### Fedora Native (without Home Manager)
