@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.indentscope",
+  "nvim-mini/mini.indentscope",
   enabled = true,
   opts = function(_, opts)
     local mini_indentscope = require("mini.indentscope")
