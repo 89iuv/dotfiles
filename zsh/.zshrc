@@ -317,7 +317,7 @@ ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(super-tab)
 
 # set completion key keybindings
 bindkey '^I' super-tab
- bindkey '^ ' autosuggest-fetch
+bindkey '^ ' autosuggest-fetch
 bindkey "^[" autosuggest-clear
 
 # zsh-history-substring-search keybindings
