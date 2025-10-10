@@ -203,9 +203,12 @@ fi
 alias xargs="xargs "
 
 # tmux
-alias tn="tmux new -A -s tmux"
-alias ta="tmux attach"
-alias tl="tmux ls"
+if type tmux > /dev/null
+then
+  alias tn="tmux new -A -s tmux"
+  alias ta="tmux attach"
+  alias tl="tmux ls"
+fi
 
 # zoxide
 if type zoxide > /dev/null
