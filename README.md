@@ -6,35 +6,23 @@
     - [Clone repo](#clone-repo)
   - [System](#system)
     - [Fedora](#fedora)
-    - [Fedora Native (without Home Manager)](#fedora-native-without-home-manager)
-    - [Ubuntu](#ubuntu)
-    - [MacOS](#macos)
   - [Setup](#setup)
-    - [Install dependencies using Home Manager](#install-dependencies-using-home-manager)
     - [Link dotfiles](#link-dotfiles)
     - [Run integration scripts](#run-integration-scripts)
-  - [Change shell to zsh](#change-shell-to-zsh)
+    - [Change shell to zsh](#change-shell-to-zsh)
+  - [Additional](#additional)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
-    - [Install github copilot cli](#install-github-copilot-cli)
-    - [Install tiktoken for github copilot chat](#install-tiktoken-for-github-copilot-chat)
   - [Update](#update)
-    - [Update Fedora](#update-fedora)
-    - [Update Ubuntu](#update-ubuntu)
-    - [Update MacOS](#update-macos)
-    - [Update Home Manager](#update-home-manager)
     - [Update dotfiles](#update-dotfiles)
     - [Update integrations](#update-integrations)
     - [Update others](#update-others)
-  - [Issues](#issues)
 <!--toc:end-->
 
 ## Environment
 
 - Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
-- Install nix package manager: [Nix Package Manager Download](https://nixos.org/download)
-- Add key binding to replace `capslook` with `esc`
 
 ### Clone repo
 
@@ -43,8 +31,6 @@ git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
 ```
 
 ## System
-
-Install platform specific build tools ex: make, gcc, etc.
 
 ### Fedora
 
@@ -58,28 +44,14 @@ sudo dnf install acpi xclip
 # TODO: find a better way to fix the clipboard issue on wsl
 sudo dnf remove xclip wl-clipboard
 
-# btop dependencies for intel gpu
+# (Optional) btop dependencies for intel gpu
 sudo dnf install intel_gpu_top
 
-# run at every startup
 # TODO: add systemd script to do this autmatic
+# (Optional) run at every startup
 # source: https://github.com/luisbocanegra/plasma-intel-gpu-monitor?tab=readme-ov-file#requirements
 sudo setcap cap_perfmon=+ep /usr/bin/btop
 
-# python
-sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
-readline-devel sqlite sqlite-devel openssl-devel tk-devel \
-libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2
-
-# kitty
-sudo dnf install xz
-```
-
-### Fedora Native (without Home Manager)
-
-By installing this dependencies you can skip installing nix pkgs
-
-```sh
 # enable rpm fusion free and non free
 sudo dnf install \
 https://download1.rpmfusion.org\
@@ -97,11 +69,7 @@ curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
 neovim tmux btop \
-fastfetch
-
-# install lazygit
-sudo dnf copr enable atim/lazygit -y
-sudo dnf install lazygit
+fastfetch stress
 
 # install eza
 wget -c https://github.com/\
@@ -111,47 +79,15 @@ sudo chmod +x eza
 sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 
-# install yazi
-sudo dnf copr enable lihaohong/yazi
-sudo dnf install yazi
-```
+# install lazygit
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
 
-Issues:
-
-- wordnet from the fedora package does not work
-
-### Ubuntu
-
-```sh
-# system
-sudo apt install build-essentials inotify-tools
-
-# python
-sudo apt install make build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev curl git \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-```
-
-### MacOS
-
-```sh
-# system
-xcode-select --install
-
-# brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# python
-brew install openssl readline sqlite3 xz zlib tcl-tk@8 libb2
+# install kitty dependencies
+sudo dnf install xz
 ```
 
 ## Setup
-
-### Install dependencies using Home Manager
-
-```sh
-nix-shell -p home-manager --run "home-manager switch --impure"
-```
 
 ### Link dotfiles
 
@@ -168,7 +104,7 @@ cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
 ```
 
-## Change shell to zsh
+### Change shell to zsh
 
 ```sh
 which zsh > tmp.txt
@@ -178,9 +114,16 @@ rm tmp.txt
 zsh
 ```
 
+## Additional
+
 ### Install Python
 
 ```sh
+# dependencies
+sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
+readline-devel sqlite sqlite-devel openssl-devel tk-devel \
+libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2
+
 # download
 curl -fsSL https://pyenv.run | bash
 
@@ -213,48 +156,7 @@ fnm install 22
 sudo npm install -g @mermaid-js/mermaid-cli
 ```
 
-### Install github copilot cli
-
-```sh
-gh auth login
-gh extension install github/gh-copilot
-```
-
-### Install tiktoken for github copilot chat
-
-```sh
-luarocks install --lua-version 5.1 tiktoken_core --local
-```
-
 ## Update
-
-### Update Fedora
-
-```sh
-sudo dnf upgrade
-```
-
-### Update Ubuntu
-
-```sh
-sudo apt update
-sudo apt upgrade
-```
-
-### Update MacOS
-
-```sh
-brew update
-brew upgrade
-```
-
-### Update Home Manager
-
-```sh
-cd ~/.config/home-manager
-nix flake update
-home-manager switch --impure
-```
 
 ### Update dotfiles
 
@@ -277,10 +179,3 @@ cd ~/.dotfiles/catppuccin-btop && ./install.sh
 - Update tmux: ctrl+x U all
 - Update neovim: \<leader\>l U
 - Update mason: \<leader\>cm U
-
-## Issues
-
-The following issues are found in:
-
-- MacBook Pro M1 → Parallels → Windows11 → Wsl1 → Ubuntu24.04:
-  - marksman throws error: AdvSimd processor support required

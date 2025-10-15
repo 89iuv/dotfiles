@@ -6,11 +6,7 @@ return {
         views = {
           cmdline_popupmenu = {
             border = {
-              style = require("config.global").border,
-            },
-            win_options = {
-              winblend = 0,
-              winhighlight = { Normal = "NoiceCmdlinePopup", FloatBorder = "NoiceCmdlinePopupBorder" },
+              style = vim.o.winborder,
             },
           },
         },
@@ -20,16 +16,13 @@ return {
         views = {
           hover = {
             border = {
-              style = require("config.global").border,
+              style = vim.o.winborder,
             },
           },
         },
       },
     },
     lsp = {
-      progress = {
-        enabled = false,
-      },
       signature = {
         auto_open = {
           enabled = false,
@@ -39,25 +32,22 @@ return {
     views = {
       popup = {
         border = {
-          style = require("config.global").border,
+          style = vim.o.winborder,
         },
       },
       cmdline_popup = {
         border = {
-          style = require("config.global").border,
+          style = vim.o.winborder,
         },
       },
       cmdline_input = {
         border = {
-          style = require("config.global").border,
+          style = vim.o.winborder,
         },
-      },
-      cmdline_popupmenu = {
-        view = "mini",
       },
       confirm = {
         border = {
-          style = require("config.global").border,
+          style = vim.o.winborder,
         },
       },
     },

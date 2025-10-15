@@ -25,7 +25,8 @@ local old_nvim_open_win = vim.api.nvim_open_win
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_open_win = function(buffer, enter, config)
   if config.border == "rounded" then
-    config.border = require("config.global").border
+    ---@diagnostic disable-next-line: assign-type-mismatch
+    config.border = vim.o.winborder
   end
   return old_nvim_open_win(buffer, enter, config)
 end
@@ -35,7 +36,8 @@ local old_nvim_win_set_config = vim.api.nvim_win_set_config
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_win_set_config = function(window, config)
   if config.border == "rounded" then
-    config.border = require("config.global").border
+    ---@diagnostic disable-next-line: assign-type-mismatch
+    config.border = vim.o.winborder
   end
   return old_nvim_win_set_config(window, config)
 end
@@ -45,15 +47,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove({ "r", "o" })
-  end,
-})
-
--- Use 4 spaces to indent in java files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "java",
-  callback = function()
-    vim.bo.shiftwidth = 4
-    vim.bo.tabstop = 4
   end,
 })
 
@@ -71,14 +64,6 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.opt_local.wrap = false
     vim.opt_local.spell = true
-  end,
-})
-
--- Disable conceallevel
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  pattern = { "kulala://ui" },
-  callback = function()
-    vim.opt_local.conceallevel = 0
   end,
 })
 
@@ -128,45 +113,6 @@ vim.api.nvim_create_autocmd("FileType", {
         desc = "Quit buffer",
       })
     end)
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "neotest-output",
-    "neotest-output-panel",
-    "neotest-attach",
-    "neotest-summary",
-  },
-  group = augroup("NeotestConfig"),
-  callback = function(opts)
-    vim.keymap.set("n", "q", function()
-      pcall(vim.api.nvim_win_close, 0, true)
-    end, {
-      buffer = opts.buf,
-      silent = true,
-      desc = "Close window",
-    })
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "neotest-summary",
-    "neotest-output-panel",
-  },
-  callback = function()
-    vim.wo.winhighlight = "Normal:NormalFloat"
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "copilot-*" },
-  callback = function()
-    -- Set buffer-local options
-    vim.opt_local.relativenumber = false
-    vim.opt_local.number = false
-    vim.opt_local.conceallevel = 0
   end,
 })
 

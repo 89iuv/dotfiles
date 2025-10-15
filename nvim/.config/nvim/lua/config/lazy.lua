@@ -33,14 +33,14 @@ require("lazy").setup({
   install = { colorscheme = { "tokyonight", "habamax" } },
   ui = {
     backdrop = 60,
-    border = require("config.global").border,
+    border = "single", -- this loads before vim.opt.winborder is set
   },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
   change_detection = {
-    notify = false,
+    notify = true,
   },
   performance = {
     rtp = {

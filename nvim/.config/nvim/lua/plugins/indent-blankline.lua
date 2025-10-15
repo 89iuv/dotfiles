@@ -26,8 +26,8 @@ return {
 
     require("ibl").overwrite({
       exclude = {
-        filetypes = global.excluded.filetype,
-        buftypes = global.excluded.buftype,
+        filetypes = global.special_files.excluded.filetype,
+        buftypes = global.special_files.excluded.buftype,
       },
     })
   end,

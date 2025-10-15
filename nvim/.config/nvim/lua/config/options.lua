@@ -22,7 +22,7 @@ vim.g.autoformat = false
 
 vim.g.root_spec = { "lsp", { ".git", "lua", ".root" }, "cwd" }
 
--- vim.o.winborder = "none"
+vim.opt.winborder = "single"
 vim.opt.pumblend = 0
 vim.opt.winblend = 0
 

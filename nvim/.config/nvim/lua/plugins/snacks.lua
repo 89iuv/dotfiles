@@ -80,7 +80,7 @@ return {
         top_down = true,
         refresh = 80,
         wo = {
-          winblend = vim.opt.winblend,
+          winblend = vim.o.winblend,
         },
       },
       terminal = {
@@ -110,11 +110,11 @@ return {
       },
       styles = {
         news = {
-          border = require("config.global").border,
+          border = vim.o.winborder,
         },
         notification = {
           wo = {
-            winblend = 0,
+            winblend = vim.o.winblend,
             wrap = true,
           },
         },

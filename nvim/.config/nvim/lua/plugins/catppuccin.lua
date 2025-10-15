@@ -21,11 +21,13 @@ return {
         StatusLine = { bg = colors.crust },
 
         -- bufferline
+        BufferLineFill = { bg = colors.mantle },
+
         BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
-        BufferlineSideBar = { fg = colors.lavender, bg = colors.base },
+        BufferlineSideBar = { fg = colors.lavender, bg = colors.mantle },
 
         BufferLineOffsetSeparator = { link = "WinSeparator" },
-        BufferLineTruncMarker = { fg = colors.surface2, bg = colors.crust },
+        BufferLineTruncMarker = { fg = colors.surface2, bg = colors.mantle },
 
         BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
         BufferLineError = { link = "BufferLineBuffer" },
@@ -71,11 +73,6 @@ return {
         NeoTreeProjectName = { fg = colors.blue },
         NeoTreeProjectPath = { link = "NeoTreeDotfile" },
 
-        -- show keys
-        SkActive = { fg = colors.mantle, bg = colors.lavender },
-        SkInactive = { fg = colors.text, bg = colors.surface0 },
-
-        -- blink
         -- blink border
         BlinkCmpMenuBorder = { fg = colors.surface2, bg = colors.mantle },
         BlinkCmpDocBorder = { link = "BlinkCmpMenuBorder" },
@@ -85,10 +82,6 @@ return {
 
         -- mini indent scope
         MiniIndentscopeSymbol = { fg = colors.surface2 },
-
-        -- fidget
-        FidgetNormal = { link = "NormalFloat" },
-        FidgetBorder = { link = "FloatBorder" },
 
         -- incline
         InclineNormal = { fg = colors.subtext0, bg = colors.mantle },
@@ -101,15 +94,12 @@ return {
         InclineFormatter = { link = "InclineNormal" },
 
         -- snacks
-        SnacksWinBar = { fg = colors.lavender },
+        SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },
+        SnacksTerminal = { bg = colors.mantle },
 
         -- trouble
-        TroubleNormal = { bg = colors.base },
+        TroubleNormal = { bg = colors.mantle },
         TroubleNormalNc = { link = "TroubleNormal" },
-
-        -- neotest
-        NeotestIndent = { link = "LineNr" },
-        NeotestExpandMarker = { link = "LineNr" },
       }
     end,
   },

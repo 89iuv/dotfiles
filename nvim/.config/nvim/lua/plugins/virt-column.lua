@@ -45,7 +45,6 @@ return {
     end
 
     --- Returns the configuration for a buffer
-    ---
     ---@param bufnr number
     ---@return virtcolumn.config.full
     ---@diagnostic disable-next-line: duplicate-set-field

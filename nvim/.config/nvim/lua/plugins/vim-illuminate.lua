@@ -7,7 +7,7 @@ return {
     large_file_overrides = {
       providers = { "lsp" },
     },
-    filetypes_denylist = require("config.global").excluded.filetype,
+    filetypes_denylist = require("config.global").special_files.excluded.filetype,
     modes_allowlist = { "n" },
   },
   config = function(_, opts)

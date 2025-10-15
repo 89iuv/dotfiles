@@ -24,7 +24,7 @@ return {
 
     -- disable mini indent scope for filetypes
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = global.excluded.filetype,
+      pattern = global.special_files.excluded.filetype,
       callback = function()
         vim.b.miniindentscope_disable = true
       end,
@@ -33,7 +33,7 @@ return {
     -- disable mini indent scope for buftypes
     vim.api.nvim_create_autocmd("BufEnter", {
       callback = function()
-        local patterns = global.excluded.buftype
+        local patterns = global.special_files.excluded.buftype
         for _, pattern in ipairs(patterns) do
           if pattern == vim.bo.buftype then
             vim.b.miniindentscope_disable = true

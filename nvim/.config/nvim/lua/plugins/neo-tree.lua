@@ -38,7 +38,7 @@ return {
     })
   end,
   opts = {
-    popup_border_style = require("config.global").border,
+    popup_border_style = vim.o.winborder,
     close_if_last_window = true,
     event_handlers = {
       {
@@ -100,7 +100,7 @@ return {
       width = 40, -- Applies to left and right positions
       auto_expand_width = false,
       mappings = {
-        ["<S-l>"] = "refresh", -- disable keymap as it conflicts with barbar
+        ["<S-l>"] = "refresh", -- disable keymap as it conflicts with bufferline
         ["<leader>ff"] = {
           function(state)
             run_in_directory(state.tree:get_node(), Snacks.picker.files)

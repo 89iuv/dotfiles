@@ -25,6 +25,3 @@
 [submodule "catppuccin-btop/btop"]
 	path = catppuccin-btop/btop
 	url = https://github.com/catppuccin/btop.git
-[submodule "words/english-words"]
-	path = words/english-words
-	url = https://github.com/dwyl/english-words.git
