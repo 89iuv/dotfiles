@@ -38,7 +38,7 @@ return {
     })
   end,
   opts = {
-    popup_border_style = vim.o.winborder,
+    popup_border_style = vim.g.border,
     close_if_last_window = true,
     event_handlers = {
       {

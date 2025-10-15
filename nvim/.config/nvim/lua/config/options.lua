@@ -16,13 +16,13 @@ vim.g.smear_cursor_animate = true
 vim.g.mini_indentscope_animate = false
 vim.g.virt_column = false
 vim.g.image_support = true
+vim.g.border = "single"
 
 vim.g.trouble_lualine = false
 vim.g.autoformat = false
 
 vim.g.root_spec = { "lsp", { ".git", "lua", ".root" }, "cwd" }
 
-vim.opt.winborder = "single"
 vim.opt.pumblend = 0
 vim.opt.winblend = 0
 

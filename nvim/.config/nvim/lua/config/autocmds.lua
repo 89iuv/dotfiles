@@ -26,7 +26,7 @@ local old_nvim_open_win = vim.api.nvim_open_win
 vim.api.nvim_open_win = function(buffer, enter, config)
   if config.border == "rounded" then
     ---@diagnostic disable-next-line: assign-type-mismatch
-    config.border = vim.o.winborder
+    config.border = vim.g.border
   end
   return old_nvim_open_win(buffer, enter, config)
 end
@@ -37,7 +37,7 @@ local old_nvim_win_set_config = vim.api.nvim_win_set_config
 vim.api.nvim_win_set_config = function(window, config)
   if config.border == "rounded" then
     ---@diagnostic disable-next-line: assign-type-mismatch
-    config.border = vim.o.winborder
+    config.border = vim.g.border
   end
   return old_nvim_win_set_config(window, config)
 end

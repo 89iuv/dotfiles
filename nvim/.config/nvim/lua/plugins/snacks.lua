@@ -110,7 +110,7 @@ return {
       },
       styles = {
         news = {
-          border = vim.o.winborder,
+          border = vim.g.border,
         },
         notification = {
           wo = {

@@ -2,7 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
   opts = {
     preview_config = {
-      border = vim.o.winborder
+      border = vim.g.border
     },
     diff_opts = {
       linematch = 0,

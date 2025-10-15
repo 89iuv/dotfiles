@@ -5,7 +5,7 @@ return {
       diagnostics = {
         float = {
           source = true,
-          border = vim.o.winborder,
+          border = vim.g.border,
         },
         virtual_text = {
           source = true,

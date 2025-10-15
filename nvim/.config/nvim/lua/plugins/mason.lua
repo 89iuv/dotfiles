@@ -7,7 +7,7 @@ return {
     },
     ui = {
       backdrop = 60,
-      border = vim.o.winborder,
+      border = vim.g.border,
       width = 0.8,
       height = 0.8,
     },

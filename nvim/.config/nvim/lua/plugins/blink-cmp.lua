@@ -9,7 +9,7 @@ return {
         show_on_insert_on_trigger_character = false,
       },
       menu = {
-        border = vim.o.winborder,
+        border = vim.g.border,
         winblend = vim.o.winblend,
         draw = {
           columns = {
@@ -29,7 +29,7 @@ return {
       documentation = {
         auto_show = false,
         window = {
-          border = vim.o.winborder,
+          border = vim.g.border,
           winblend = vim.o.winblend,
         },
       },
@@ -63,6 +63,9 @@ return {
         "sort_text",
       },
     },
+    cmdline = {
+      enabled = false,
+    },
     keymap = {
       preset = "default",
       ["<Tab>"] = {
@@ -91,7 +94,7 @@ return {
     signature = {
       enabled = true,
       window = {
-        border = vim.o.winborder,
+        border = vim.g.border,
         winblend = vim.o.winblend,
         show_documentation = false,
       },

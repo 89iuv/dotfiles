@@ -6,7 +6,7 @@ return {
         views = {
           cmdline_popupmenu = {
             border = {
-              style = vim.o.winborder,
+              style = vim.g.border,
             },
           },
         },
@@ -16,7 +16,7 @@ return {
         views = {
           hover = {
             border = {
-              style = vim.o.winborder,
+              style = vim.g.border,
             },
           },
         },
@@ -32,22 +32,22 @@ return {
     views = {
       popup = {
         border = {
-          style = vim.o.winborder,
+          style = vim.g.border,
         },
       },
       cmdline_popup = {
         border = {
-          style = vim.o.winborder,
+          style = vim.g.border,
         },
       },
       cmdline_input = {
         border = {
-          style = vim.o.winborder,
+          style = vim.g.border,
         },
       },
       confirm = {
         border = {
-          style = vim.o.winborder,
+          style = vim.g.border,
         },
       },
     },
