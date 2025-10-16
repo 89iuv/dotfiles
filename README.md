@@ -69,7 +69,8 @@ curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
 neovim tmux btop \
-fastfetch stress
+stress hyperfine \
+fastfetch
 
 # install eza
 wget -c https://github.com/\
