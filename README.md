@@ -1,11 +1,14 @@
 # Dotfiles
 
+<!-- markdownlint-disable MD013 -->
+
 <!--toc:start-->
 - [Dotfiles](#dotfiles)
-  - [Environment](#environment)
-    - [Clone repo](#clone-repo)
   - [System](#system)
-    - [Fedora](#fedora)
+    - [Environment](#environment)
+    - [Install git](#install-git)
+    - [Clone repo](#clone-repo)
+    - [Install dependencies](#install-dependencies)
   - [Setup](#setup)
     - [Link dotfiles](#link-dotfiles)
     - [Run integration scripts](#run-integration-scripts)
@@ -19,10 +22,19 @@
     - [Update others](#update-others)
 <!--toc:end-->
 
-## Environment
+## System
 
-- Install nerd fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
+### Environment
+
+- Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
+- Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
+
+### Install git
+
+```sh
+sudo dnf group install c-development development-tools
+```
 
 ### Clone repo
 
@@ -30,36 +42,17 @@
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
 ```
 
-## System
-
-### Fedora
+### Install dependencies
 
 ```sh
-# git
-sudo dnf group install c-development development-tools
 
-# tmux dependencies
-sudo dnf install acpi xclip
-
-# TODO: find a better way to fix the clipboard issue on wsl
-sudo dnf remove xclip wl-clipboard
-
-# (Optional) btop dependencies for intel gpu
-sudo dnf install intel_gpu_top
-
-# TODO: add systemd script to do this autmatic
-# (Optional) run at every startup
-# source: https://github.com/luisbocanegra/plasma-intel-gpu-monitor?tab=readme-ov-file#requirements
-sudo setcap cap_perfmon=+ep /usr/bin/btop
-
-# enable rpm fusion free and non free
+# enable rpm fusion free
 sudo dnf install \
-https://download1.rpmfusion.org\
-/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
+# enable rpm fusion non free
 sudo dnf install \
-https://download1.rpmfusion.org\
-/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install dependencies
 sudo dnf install \
@@ -68,14 +61,12 @@ zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
-neovim tmux btop \
+tmux \
 stress hyperfine \
 fastfetch
 
 # install eza
-wget -c https://github.com/\
-eza-community/eza/releases/latest/download/\
-eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
+wget -c https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
 sudo chmod +x eza
 sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
@@ -84,7 +75,25 @@ sudo mv eza /usr/local/bin/eza
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
 
-# install kitty dependencies
+# install btop
+sudo dnf install btop
+
+# (Optional) btop dependencies for intel gpu
+sudo dnf install intel_gpu_top
+
+# (Optional) run at every startup
+# source: https://github.com/luisbocanegra/plasma-intel-gpu-monitor?tab=readme-ov-file#requirements
+# TODO: add systemd script to do this autmatic
+sudo setcap cap_perfmon=+ep /usr/bin/btop
+
+# install neovim
+sudo install neovim
+
+# fix neovim clipboard issue
+# TODO: find a better way to fix the clipboard issue on wsl
+sudo dnf remove xclip wl-clipboard
+
+# (optional) install kitty dependencies
 sudo dnf install xz
 ```
 
@@ -108,11 +117,8 @@ cd ~/.dotfiles/catppuccin-btop && ./install.sh
 ### Change shell to zsh
 
 ```sh
-which zsh > tmp.txt
-sudo sh -c "cat tmp.txt >> /etc/shells"
-chsh -s $(which zsh)
-rm tmp.txt
-zsh
+chsh -s /usr/bin/zsh
+# restart shell
 ```
 
 ## Additional
@@ -142,8 +148,7 @@ pyenv global 3
 
 ```sh
 # download
-curl -fsSL https://fnm.vercel.app/install \
-  | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install
 
 # setup
 FNM_PATH="$HOME/.fnm"
@@ -152,9 +157,6 @@ eval "$(fnm env --shell zsh)"
 
 # install
 fnm install 22
-
-# install global packages
-sudo npm install -g @mermaid-js/mermaid-cli
 ```
 
 ## Update
