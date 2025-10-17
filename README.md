@@ -157,6 +157,10 @@ eval "$(fnm env --shell zsh)"
 
 # install
 fnm install 22
+
+# install global packages
+# neovim
+npm install --global @ast-grep/cli
 ```
 
 ## Update

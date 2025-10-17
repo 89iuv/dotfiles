@@ -15,7 +15,7 @@ vim.g.snacks_animate = false
 vim.g.smear_cursor_animate = true
 vim.g.mini_indentscope_animate = false
 vim.g.virt_column = false
-vim.g.image_support = true
+vim.g.image_support = false
 vim.g.border = "single"
 
 vim.g.trouble_lualine = false
@@ -34,3 +34,9 @@ vim.opt.relativenumber = false
 vim.opt.list = true
 
 vim.opt.swapfile = false
+
+-- disable providers as they are not being used
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
