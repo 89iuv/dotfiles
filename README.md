@@ -156,7 +156,7 @@ export PATH="$HOME/.fnm:$PATH"
 eval "$(fnm env --shell zsh)"
 
 # install
-fnm install --lts
+fnm install 22
 
 # install global packages
 # neovim
