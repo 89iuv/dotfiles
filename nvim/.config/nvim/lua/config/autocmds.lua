@@ -118,7 +118,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Disable relative line number when entering insert mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "[vV\x16]:*",
+  pattern = "*:i",
   callback = function()
     if vim.wo.number == true then
       vim.wo.relativenumber = false
@@ -128,7 +128,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 
 -- Enable relative line number when exiting insert mode
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "*:[vV\x16]",
+  pattern = "i:*",
   callback = function()
     if vim.wo.number == true then
       vim.wo.relativenumber = true
