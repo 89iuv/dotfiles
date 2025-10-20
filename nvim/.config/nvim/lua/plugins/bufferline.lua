@@ -13,7 +13,8 @@ return {
       "neo-tree",
     }
     local side_bar_filetypes = {
-      "trouble",
+      trouble = "Trouble",
+      snacks_terminal = "Terminal",
     }
 
     local offsets = {}
@@ -28,10 +29,10 @@ return {
       table.insert(offsets, offset)
     end
 
-    for _, side_bar_filetype in ipairs(side_bar_filetypes) do
+    for side_bar_filetype, side_bar_title in pairs(side_bar_filetypes) do
       local offset = {
         filetype = side_bar_filetype,
-        text = "Side Bar",
+        text = side_bar_title,
         highlight = "BufferlineSideBar",
         text_align = "left",
         separator = true,
