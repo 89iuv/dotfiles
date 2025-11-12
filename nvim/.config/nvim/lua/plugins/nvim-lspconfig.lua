@@ -13,14 +13,16 @@ return {
         },
         severity_sort = true,
       },
-      capabilities = {
-        workspace = {
-          didChangeWatchedFiles = {
-            dynamicRegistration = true,
+      servers = {
+        ["*"] = {
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
+            },
           },
         },
-      },
-      servers = {
         ruff = {
           init_options = {
             settings = {
