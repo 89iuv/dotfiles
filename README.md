@@ -83,11 +83,11 @@ sudo dnf install intel_gpu_top
 
 # (Optional) run at every startup
 # source: https://github.com/luisbocanegra/plasma-intel-gpu-monitor?tab=readme-ov-file#requirements
-# TODO: add systemd script to do this autmatic
+# TODO: add systemd script to do this automatic
 sudo setcap cap_perfmon=+ep /usr/bin/btop
 
 # install neovim
-sudo install neovim
+sudo dnf install neovim
 
 # fix neovim clipboard issue
 # TODO: find a better way to fix the clipboard issue on wsl
