@@ -121,6 +121,16 @@ chsh -s /usr/bin/zsh
 # restart shell
 ```
 
+### Install tmux plugins
+
+```sh
+# start a new tmux session
+tn
+```
+
+Install plugins:
+Meta+I
+
 ## Additional
 
 ### Install Python
