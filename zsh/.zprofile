@@ -16,7 +16,10 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 # go
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+GO_PATH="/usr/local/go"
+if [ -d "$GO_PATH" ]; then
+  export PATH="$GO_PATH/bin:$PATH"
+fi
 
 # add personal scripts to path
 export PATH=$HOME/.scripts:$PATH

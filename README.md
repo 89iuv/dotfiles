@@ -177,10 +177,15 @@ npm install --global @ast-grep/cli
 
 ```sh
 # download
-curl -sS https://webi.sh/golang | sh
+wget https://go.dev/dl/go1.25.5.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.25.5.linux-amd64.tar.gz
 
 # setup
-source ~/.config/envman/PATH.env
+export PATH=$PATH:/usr/local/go/bin
+
+# clean up
+rm -rf go1.25.5.linux-amd64.tar.gz
 ```
 
 Cleanup .zshrc script
