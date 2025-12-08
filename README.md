@@ -173,6 +173,18 @@ fnm install 22
 npm install --global @ast-grep/cli
 ```
 
+### Install Go
+
+```sh
+# download
+curl -sS https://webi.sh/golang | sh
+
+# setup
+source ~/.config/envman/PATH.env
+```
+
+Cleanup .zshrc script
+
 ## Update
 
 ### Update dotfiles

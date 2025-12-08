@@ -15,6 +15,9 @@ if [ -d "$FNM_PATH" ]; then
   eval "$(fnm env --shell zsh)"
 fi
 
+# go
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # add personal scripts to path
 export PATH=$HOME/.scripts:$PATH
 
