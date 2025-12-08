@@ -182,7 +182,11 @@ sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf go1.25.5.linux-amd64.tar.gz
 
 # setup
-export PATH=$PATH:/usr/local/go/bin
+export GO_INSTALL_PATH="/usr/local/go"
+export PATH="$GO_INSTALL_PATH/bin:$PATH"
+
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH"
 
 # clean up
 rm -rf go1.25.5.linux-amd64.tar.gz
