@@ -214,8 +214,7 @@ fi
 # bat
 if type bat > /dev/null
 then
-  alias b="bat"
-  alias bp="bat -pp"
+  alias b="bat -pp"
   export BAT_THEME="Catppuccin Macchiato"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
