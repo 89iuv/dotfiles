@@ -236,6 +236,16 @@ then
   --color=border:#363A4F,label:#CAD3F5"
 fi
 
+# copilot
+if type copilot > /dev/null
+then
+  ask() {
+    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
+    copilot --model gpt-4.1 --silent --prompt "$*" | bat -pp -l markdown
+  }
+  alias '??'='noglob ask'
+fi
+
 # format the current command in neovim keybind
 bindkey '^f' edit-command-line
 

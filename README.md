@@ -152,6 +152,10 @@ eval "$(pyenv init - zsh)"
 # install
 pyenv install 3
 pyenv global 3
+
+# install tools
+# python project manager: uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### Install Nodejs
@@ -169,8 +173,11 @@ eval "$(fnm env --shell zsh)"
 fnm install 22
 
 # install global packages
-# neovim
+# neovim dependencies: ast-grep
 npm install --global @ast-grep/cli
+
+# github copilot cli
+npm install -g @github/copilot
 ```
 
 ### Install Go
