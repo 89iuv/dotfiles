@@ -10,13 +10,20 @@
   "modules": [
     "title",
     "separator",
+    // operating system
     "os",
     "host",
     "kernel",
     "uptime",
     "break",
+    // hardware info
     "cpu",
-    "gpu",
+    {
+      "type": "gpu",
+      "driverSpecific": true,
+      "detectionMethod": "vulkan",
+      "format": "{name~22,48} {dedicated-total}"
+    },
     "memory",
     "swap",
     {
@@ -25,14 +32,17 @@
     },
     "battery",
     "break",
+    // applications installed
     "packages",
     "terminal",
     "shell",
     "editor",
     "break",
+    // general information
     "datetime",
     "version",
     "break",
+    // ansi colors
     "colors"
   ]
 }

@@ -3,10 +3,15 @@
 Generate ascii art using chafa:
 
 ```sh
-chafa --view-size x25 \
--c full \
+chafa --size x23 \
+--font-ratio 0.4 \
+--colors full \
 --fg-only \
--f symbols \
+--format symbols \
 --symbols ascii \
-ayV7L50x_400x400.jpg > ~/.config/fastfetch/ascii_art.txt
+catppuccin_logo.png > ~/.dotfiles/fastfetch/.config/fastfetch/ascii_art.txt
 ```
+
+Where:
+
+- font-ratio is (width / height) of terminal line
