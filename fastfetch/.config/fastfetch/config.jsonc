@@ -12,17 +12,18 @@
     "separator",
     // operating system
     "os",
-    "host",
     "kernel",
+    "packages",
     "uptime",
     "break",
     // hardware info
     "cpu",
     {
-      "type": "gpu",
-      "driverSpecific": true,
-      "detectionMethod": "vulkan",
-      "format": "{name~22,48} {dedicated-total}"
+      "type": "gpu"
+      // TODO: check how gpu is reported on different machines
+      // "driverSpecific": true,
+      // "detectionMethod": "vulkan"
+      // "format": "{name~22,48} {dedicated-total}"
     },
     "memory",
     "swap",
@@ -33,7 +34,6 @@
     "battery",
     "break",
     // applications installed
-    "packages",
     "terminal",
     "shell",
     "editor",
@@ -41,6 +41,7 @@
     // general information
     "datetime",
     "version",
+    "locale",
     "break",
     // ansi colors
     "colors"
