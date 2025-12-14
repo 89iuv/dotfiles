@@ -5,13 +5,11 @@
 <!--toc:start-->
 - [Dotfiles](#dotfiles)
   - [System](#system)
-    - [Environment](#environment)
-    - [Dependencies](#dependencies)
+    - [Setup Environment](#setup-environment)
+    - [Install Dependencies](#install-dependencies)
   - [Setup](#setup)
-    - [Clone repo](#clone-repo)
-    - [Link dotfiles](#link-dotfiles)
-    - [Run integration scripts](#run-integration-scripts)
-    - [Change shell to zsh](#change-shell-to-zsh)
+    - [Install Dotfiles](#install-dotfiles)
+    - [Setup Shell](#setup-shell)
   - [Additional](#additional)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
@@ -24,16 +22,15 @@
 
 ## System
 
-### Environment
+### Setup Environment
 
 - Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
 - Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 
-### Dependencies
+### Install Dependencies
 
 ```sh
-
 # install development tools: git, c compiler, make, etc
 sudo dnf group install c-development development-tools
 
@@ -82,37 +79,34 @@ sudo dnf remove xclip wl-clipboard
 
 # install tmux
 sudo dnf install tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-~/.tmux/plugins/tpm/bin/install_plugins
 
+# install kitty
 # (optional) install kitty dependencies
 sudo dnf install xz
+
+# clean up
+sudo dnf clean all
 ```
 
 ## Setup
 
-### Clone repo
+### Install Dotfiles
 
 ```sh
+# clone repo
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
-```
 
-### Link dotfiles
-
-```sh
+# symlink .dotfiles
 cd ~/.dotfiles
 stow */
-```
 
-### Run integration scripts
-
-```sh
+# run integration scripts
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
 ```
 
-### Change shell to zsh
+### Setup Shell
 
 ```sh
 chsh -s /usr/bin/zsh
@@ -124,6 +118,9 @@ chsh -s /usr/bin/zsh
 ### Install Python
 
 ```sh
+# update
+sudo dnf update
+
 # dependencies
 sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
 readline-devel sqlite sqlite-devel openssl-devel tk-devel \
