@@ -3,7 +3,7 @@
 Generate ascii art using chafa:
 
 ```sh
-chafa --size x23 \
+chafa --size x22 \
 --font-ratio 0.4 \
 --colors full \
 --fg-only \

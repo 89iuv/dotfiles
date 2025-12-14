@@ -31,7 +31,6 @@
       "type": "disk",
       "folders": "/"
     },
-    "battery",
     "break",
     // applications installed
     "terminal",
@@ -41,7 +40,6 @@
     // general information
     "datetime",
     "version",
-    "locale",
     "break",
     // ansi colors
     "colors"
