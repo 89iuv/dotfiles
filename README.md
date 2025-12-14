@@ -6,16 +6,16 @@
 - [Dotfiles](#dotfiles)
   - [System](#system)
     - [Environment](#environment)
-    - [Install git](#install-git)
-    - [Clone repo](#clone-repo)
-    - [Install dependencies](#install-dependencies)
+    - [Dependencies](#dependencies)
   - [Setup](#setup)
+    - [Clone repo](#clone-repo)
     - [Link dotfiles](#link-dotfiles)
     - [Run integration scripts](#run-integration-scripts)
     - [Change shell to zsh](#change-shell-to-zsh)
   - [Additional](#additional)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
+    - [Install Go](#install-go)
   - [Update](#update)
     - [Update dotfiles](#update-dotfiles)
     - [Update integrations](#update-integrations)
@@ -30,21 +30,12 @@
 - Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 
-### Install git
+### Dependencies
 
 ```sh
+
+# install development tools: git, c compiler, make, etc
 sudo dnf group install c-development development-tools
-```
-
-### Clone repo
-
-```sh
-git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
-```
-
-### Install dependencies
-
-```sh
 
 # enable rpm fusion free
 sudo dnf install \
@@ -61,7 +52,6 @@ zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
-tmux \
 stress hyperfine \
 fastfetch
 
@@ -77,10 +67,8 @@ sudo dnf install lazygit
 
 # install btop
 sudo dnf install btop
-
 # (Optional) btop dependencies for intel gpu
 sudo dnf install intel_gpu_top
-
 # (Optional) run at every startup
 # source: https://github.com/luisbocanegra/plasma-intel-gpu-monitor?tab=readme-ov-file#requirements
 # TODO: add systemd script to do this automatic
@@ -88,16 +76,26 @@ sudo setcap cap_perfmon=+ep /usr/bin/btop
 
 # install neovim
 sudo dnf install neovim
-
-# fix neovim clipboard issue
+# workaround for neovim clipboard issue
 # TODO: find a better way to fix the clipboard issue on wsl
 sudo dnf remove xclip wl-clipboard
+
+# install tmux
+sudo dnf install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
 
 # (optional) install kitty dependencies
 sudo dnf install xz
 ```
 
 ## Setup
+
+### Clone repo
+
+```sh
+git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
+```
 
 ### Link dotfiles
 
@@ -120,16 +118,6 @@ cd ~/.dotfiles/catppuccin-btop && ./install.sh
 chsh -s /usr/bin/zsh
 # restart shell
 ```
-
-### Install tmux plugins
-
-```sh
-# start a new tmux session
-tn
-```
-
-Install plugins:
-Meta+I
 
 ## Additional
 
