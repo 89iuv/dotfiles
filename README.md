@@ -104,6 +104,8 @@ stow */
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
+cd ~/.dotfiles/nvim && ./install.sh
+cd ~/.dotfiles/tmux && ./install.sh
 ```
 
 ### Setup Shell
@@ -152,6 +154,7 @@ curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm
 # setup
 FNM_PATH="$HOME/.fnm"
 export PATH="$HOME/.fnm:$PATH"
+alias rehash='hash -r'
 eval "$(fnm env --shell zsh)"
 
 # install
@@ -202,6 +205,8 @@ git submodule update --recursive --init
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
 cd ~/.dotfiles/catppuccin-delta && ./install.sh
 cd ~/.dotfiles/catppuccin-btop && ./install.sh
+cd ~/.dotfiles/nvim && ./install.sh
+cd ~/.dotfiles/tmux && ./install.sh
 ```
 
 ### Update others
