@@ -23,6 +23,8 @@ vim.g.autoformat = false
 
 vim.g.root_spec = { "lsp", { ".git", "lua", ".root" }, "cwd" }
 
+vim.opt.shell = "/usr/sbin/zsh"
+
 vim.opt.pumblend = 0
 vim.opt.winblend = 0
 
