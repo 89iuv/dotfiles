@@ -152,7 +152,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install
 
 # setup
-FNM_PATH="$HOME/.fnm"
+export FNM_PATH="$HOME/.fnm"
 export PATH="$HOME/.fnm:$PATH"
 alias rehash='hash -r'
 eval "$(fnm env --shell zsh)"
