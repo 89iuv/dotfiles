@@ -43,7 +43,7 @@ sudo dnf install \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install dependencies
-sudo dnf install \
+sudo dnf install ps \
 git-delta \
 zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
