@@ -50,6 +50,7 @@ return {
         "yaml",
         "sh",
         "http",
+        "dockerfile",
       },
       callback = function()
         vim.b.miniindentscope_config = { options = { border = "top" } }
