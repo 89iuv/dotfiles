@@ -235,7 +235,7 @@ cd ~/.dotfiles/tmux && ./install.sh
 ### Run With Docker
 
 ```sh
-docker run --rm -it -v ./:/mnt/host -v dotfiles:/root 89iuv/dotfiles:latest zsh
+docker run --rm -it -v ./:/mnt/host -v dotfiles:/home/dev 89iuv/dotfiles:latest zsh
 ```
 
 ### Remove From Docker

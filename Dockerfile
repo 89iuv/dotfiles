@@ -43,12 +43,12 @@ RUN curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza
 RUN useradd -m dev && \
   rm -rf /home/dev/.zprofile /home/dev/.zshrc
 
+# use dev to configure home folder
+USER dev:dev
+
 # change working dir and copy files
 WORKDIR /home/dev/.dotfiles
 COPY --chown=dev:dev . .
-
-# use dev to configure home folder
-USER dev:dev
 
 # create symlinks, run integrations and setup shell
 # hadolint ignore=SC2035
@@ -94,7 +94,8 @@ RUN mkdir -p "$HOME"/.local/ && \
 USER root
 RUN chsh -s /usr/bin/zsh dev
 
-# set user, set working dir and launch shell
+# container config
 USER dev
+VOLUME [ "/home/dev" ]
 WORKDIR /mnt/host
 ENTRYPOINT [ "zsh", "--login" ]
