@@ -42,14 +42,8 @@ RUN dnf copr enable -y atim/lazygit && \
   dnf clean all
 
 # copy dotfiles
-RUN echo "debug: pwd" && pwd
-RUN echo "debug: ls" && ls
 WORKDIR /root/.dotfiles
-RUN echo "debug: pwd" && pwd
-RUN echo "debug: ls" && ls
 COPY . .
-RUN echo "debug: pwd" && pwd
-RUN echo "debug: ls" && ls
 
 # hadolint ignore=SC2287
 # hadolint ignore=SC2035
