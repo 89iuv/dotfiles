@@ -235,6 +235,12 @@ then
   --color=border:#363A4F,label:#CAD3F5"
 fi
 
+# python: uv
+if type uv > /dev/null
+then
+  eval "$(uv generate-shell-completion zsh)"
+fi
+
 # copilot
 if type copilot > /dev/null
 then
@@ -251,11 +257,11 @@ bindkey '^f' edit-command-line
 # super tab keybind
 super-tab() {
   # if suggestion is visible
-	if [[ -n "$POSTDISPLAY" ]]; then
-		zle autosuggest-accept
-	else
+  if [[ -n "$POSTDISPLAY" ]]; then
+    zle autosuggest-accept
+  else
     zle fzf-completion
-	fi
+  fi
 }
 zle -N super-tab
 

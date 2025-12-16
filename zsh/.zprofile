@@ -12,17 +12,15 @@ fi
 FNM_PATH="$HOME/.fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$HOME/.fnm:$PATH"
-  eval "$(fnm env --shell zsh)"
+  eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 # go
 GO_INSTALL_PATH="/usr/local/go"
 if [ -d "$GO_INSTALL_PATH" ]; then
   export PATH="$GO_INSTALL_PATH/bin:$PATH"
-
   export GOPATH="$HOME/.go"
   export PATH="$GOPATH/bin:$PATH"
-
 fi
 
 # add personal scripts to path

@@ -86,6 +86,7 @@ RUN dnf install -y make gcc patch zlib-devel bzip2 bzip2-devel \
 RUN curl -fsSL "https://fnm.vercel.app/install" | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install && \
   export FNM_PATH="$HOME/.fnm" && \
   export PATH="$HOME/.fnm:$PATH" && \
+  fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm && \
   fnm install 22 && \
   npm install --global @ast-grep/cli && \
   npm install -g @github/copilot && \

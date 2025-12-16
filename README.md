@@ -156,6 +156,7 @@ export FNM_PATH="$HOME/.fnm"
 export PATH="$HOME/.fnm:$PATH"
 alias rehash='hash -r'
 eval "$(fnm env --shell zsh)"
+fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm
 
 # install
 fnm install 22
@@ -185,6 +186,13 @@ export PATH="$GOPATH/bin:$PATH"
 
 # clean up
 rm -rf go1.25.5.linux-amd64.tar.gz
+```
+
+### Install Docker
+
+```sh
+# install docker completions (docker needs to be installed)
+docker completion zsh > ~/.oh-my-zsh/completions/_docker
 ```
 
 Cleanup .zshrc script
