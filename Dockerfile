@@ -33,9 +33,10 @@ RUN dnf upgrade -y && \
   readline-devel sqlite sqlite-devel openssl-devel tk-devel \
   libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2 && \
   # install docker cli
-  groupadd -g $DOCKER_GID docker && \
+  groupadd -g "$DOCKER_GID" docker && \
   dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo && \
   dnf install -y docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && \
+  mkdir -p ~/.oh-my-zsh/completions/ && \
   docker completion zsh > ~/.oh-my-zsh/completions/_docker && \
   # clean up
   dnf clean all
@@ -48,7 +49,7 @@ RUN curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza
   mv eza /usr/local/bin/eza
 
 # create dev user
-RUN useradd -ml -u $DEV_UID dev && \
+RUN useradd -ml -u "$DEV_UID" dev && \
   usermod -aG wheel,docker dev && \
   echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
   rm -rf /home/dev/.zprofile /home/dev/.zshrc

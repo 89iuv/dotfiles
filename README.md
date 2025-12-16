@@ -215,6 +215,7 @@ sudo dnf install docker-ce-cli containerd.io docker-buildx-plugin docker-compose
 sudo dnf install docker-ce
 
 # install docker completions (docker needs to be installed)
+mkdir -p ~/.oh-my-zsh/completions/
 docker completion zsh > ~/.oh-my-zsh/completions/_docker
 ```
 
