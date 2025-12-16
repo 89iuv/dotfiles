@@ -29,6 +29,9 @@ RUN dnf upgrade -y && \
   dnf install -y make gcc patch zlib-devel bzip2 bzip2-devel \
   readline-devel sqlite sqlite-devel openssl-devel tk-devel \
   libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2 && \
+  # install docker cli
+  dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo && \
+  dnf install docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && \
   # clean up
   dnf clean all
 

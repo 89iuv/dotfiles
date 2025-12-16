@@ -195,9 +195,18 @@ export PATH="$GOPATH/bin:$PATH"
 rm -rf go1.25.5.linux-amd64.tar.gz
 ```
 
-### Setup Docker
+### Install Docker
 
 ```sh
+# enable docker repo
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+
+# install docker cli
+sudo dnf install docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+#install docker engine
+sudo dnf install docker-ce
+
 # install docker completions (docker needs to be installed)
 docker completion zsh > ~/.oh-my-zsh/completions/_docker
 ```
@@ -235,7 +244,11 @@ cd ~/.dotfiles/tmux && ./install.sh
 ### Run With Docker
 
 ```sh
-docker run --rm -it -v ./:/mnt/host -v dotfiles:/home/dev 89iuv/dotfiles:latest zsh
+docker run --rm -it \
+-v ./:/mnt/host \
+-v dotfiles:/home/dev \
+-v /var/run/docker.sock:/var/run/docker.sock
+89iuv/dotfiles:latest
 ```
 
 ### Remove From Docker
