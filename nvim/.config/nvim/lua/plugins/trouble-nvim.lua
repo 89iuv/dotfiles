@@ -2,6 +2,8 @@ return {
   "folke/trouble.nvim",
   opts = {
     focus = true,
+    auto_preview = false,
+    auto_refresh = false,
     modes = {
       lsp = {
         preview = {

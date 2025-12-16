@@ -38,7 +38,7 @@ return {
           },
           separator = {
             module = "  ",
-            group = " │ ",
+            group = " | ",
           }
         }
 

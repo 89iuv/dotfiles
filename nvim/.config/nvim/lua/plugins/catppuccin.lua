@@ -100,6 +100,9 @@ return {
         -- trouble
         TroubleNormal = { bg = colors.mantle },
         TroubleNormalNc = { link = "TroubleNormal" },
+
+        -- markdown renderer
+        RenderMarkdownCode = { bg = colors_utils.darken(colors.base, 0.5, colors.mantle) }
       }
     end,
   },
