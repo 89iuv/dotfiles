@@ -8,16 +8,20 @@
     - [Setup Environment](#setup-environment)
     - [Install Dependencies](#install-dependencies)
   - [Setup](#setup)
-    - [Install Dotfiles](#install-dotfiles)
+    - [Setup Dotfiles](#setup-dotfiles)
     - [Setup Shell](#setup-shell)
-  - [Additional](#additional)
+  - [Optional](#optional)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
     - [Install Go](#install-go)
+    - [Setup Docker](#setup-docker)
   - [Update](#update)
-    - [Update dotfiles](#update-dotfiles)
-    - [Update integrations](#update-integrations)
-    - [Update others](#update-others)
+    - [Update Dotfiles](#update-dotfiles)
+    - [Update Integrations](#update-integrations)
+    - [Update Others](#update-others)
+  - [Docker](#docker)
+    - [Run With Docker](#run-with-docker)
+    - [Remove From Docker](#remove-from-docker)
 <!--toc:end-->
 
 ## System
@@ -90,7 +94,7 @@ sudo dnf clean all
 
 ## Setup
 
-### Install Dotfiles
+### Setup Dotfiles
 
 ```sh
 # clone repo
@@ -101,11 +105,11 @@ cd ~/.dotfiles
 stow */
 
 # run integration scripts
-cd ~/.dotfiles/catppuccin-bat && ./install.sh
-cd ~/.dotfiles/catppuccin-delta && ./install.sh
-cd ~/.dotfiles/catppuccin-btop && ./install.sh
-cd ~/.dotfiles/nvim && ./install.sh
-cd ~/.dotfiles/tmux && ./install.sh
+~/.dotfiles/catppuccin-bat/install.sh
+~/.dotfiles/catppuccin-delta/install.sh
+~/.dotfiles/catppuccin-btop/install.sh
+~/.dotfiles/nvim/install.sh
+~/.dotfiles/tmux/install.sh
 ```
 
 ### Setup Shell
@@ -115,7 +119,7 @@ chsh -s /usr/bin/zsh
 # restart shell
 ```
 
-## Additional
+## Optional
 
 ### Install Python
 
@@ -153,7 +157,7 @@ curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm
 
 # setup
 export FNM_PATH="$HOME/.fnm"
-export PATH="$HOME/.fnm:$PATH"
+export PATH="$FNM_PATH:$PATH"
 alias rehash='hash -r'
 eval "$(fnm env --shell zsh)"
 fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm
@@ -188,7 +192,7 @@ export PATH="$GOPATH/bin:$PATH"
 rm -rf go1.25.5.linux-amd64.tar.gz
 ```
 
-### Install Docker
+### Setup Docker
 
 ```sh
 # install docker completions (docker needs to be installed)
@@ -199,7 +203,7 @@ Cleanup .zshrc script
 
 ## Update
 
-### Update dotfiles
+### Update Dotfiles
 
 ```sh
 cd ~/.dotfiles
@@ -207,7 +211,7 @@ git pull
 git submodule update --recursive --init
 ```
 
-### Update integrations
+### Update Integrations
 
 ```sh
 cd ~/.dotfiles/catppuccin-bat && ./install.sh
@@ -217,8 +221,23 @@ cd ~/.dotfiles/nvim && ./install.sh
 cd ~/.dotfiles/tmux && ./install.sh
 ```
 
-### Update others
+### Update Others
 
 - Update tmux: ctrl+x U all
 - Update neovim: \<leader\>l U
 - Update mason: \<leader\>cm U
+
+## Docker
+
+### Run With Docker
+
+```sh
+docker run --rm -it -v ./:/mnt/host -v dotfiles:/root 89iuv/dotfiles:latest zsh
+```
+
+### Remove From Docker
+
+```sh
+docker image rm 89iuv/dotfiles:latest
+docker volume rm dotfiles
+```

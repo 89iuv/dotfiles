@@ -1,24 +1,23 @@
 # hadolint ignore=DL3007
 FROM fedora:latest
 
-VOLUME ["root"]
-
+# fail command if pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# install development-tools
+# change working dir and copy files
+WORKDIR /root/.dotfiles
+COPY . .
+
+# install dependencies
 # hadolint ignore=DL3041
 RUN dnf upgrade -y && \
+  # install development-tools
   dnf group install -y c-development development-tools && \
-  dnf clean all
-
-# enable rpm fusion
-RUN dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
+  # enable rpm fusion
+  dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
   dnf install -y "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
-  dnf clean all
-
-# install packages
-# hadolint ignore=DL3041
-RUN dnf install -y ps \
+  # install packages
+  dnf install -y ps \
   git-delta zsh zoxide bat \
   fzf ripgrep fd jq stow \
   curl wget lynx \
@@ -27,6 +26,10 @@ RUN dnf install -y ps \
   tmux neovim btop \
   stress hyperfine \
   fastfetch && \
+  # install lazygit
+  dnf copr enable -y atim/lazygit && \
+  dnf install -y lazygit && \
+  # clean up
   dnf clean all
 
 # install eza
@@ -35,38 +38,15 @@ RUN curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x
   chown root:root eza && \
   mv eza /usr/local/bin/eza
 
-# install lazygit
-# hadolint ignore=DL3041
-RUN dnf copr enable -y atim/lazygit && \
-  dnf install -y lazygit && \
-  dnf clean all
-
-# copy dotfiles
-WORKDIR /root/.dotfiles
-COPY . .
-
-# hadolint ignore=SC2287
+# create symlinks, run integrations and setup shell
 # hadolint ignore=SC2035
-RUN stow */
-
-WORKDIR /root/.dotfiles/catppuccin-bat
-RUN ./install.sh
-
-WORKDIR /root/.dotfiles/catppuccin-delta
-RUN ./install.sh
-
-WORKDIR /root/.dotfiles/catppuccin-btop
-RUN ./install.sh
-
-WORKDIR /root/.dotfiles/nvim
-RUN ./install.sh
-
-WORKDIR /root/.dotfiles/tmux
-RUN ./install.sh
-
-# setup shell and clean up
-RUN chsh -s /usr/bin/zsh && \
-  dnf clean all
+RUN stow */ && \
+  ~/.dotfiles/catppuccin-bat/install.sh && \
+  ~/.dotfiles/catppuccin-delta/install.sh && \
+  ~/.dotfiles/catppuccin-btop/install.sh && \
+  ~/.dotfiles/nvim/install.sh && \
+  ~/.dotfiles/tmux/install.sh && \
+  chsh -s /usr/bin/zsh
 
 # install python
 # hadolint ignore=DL3041
@@ -85,7 +65,7 @@ RUN dnf install -y make gcc patch zlib-devel bzip2 bzip2-devel \
 # hadolint ignore=DL3016
 RUN curl -fsSL "https://fnm.vercel.app/install" | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install && \
   export FNM_PATH="$HOME/.fnm" && \
-  export PATH="$HOME/.fnm:$PATH" && \
+  export PATH="$FNM_PATH:$PATH" && \
   mkdir ~/.oh-my-zsh/completions/ && \
   fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm && \
   fnm install 22 && \
@@ -104,3 +84,4 @@ RUN curl -sLO https://go.dev/dl/go1.25.5.linux-amd64.tar.gz && \
   rm -rf go1.25.5.linux-amd64.tar.gz
 
 WORKDIR /mnt/host
+ENTRYPOINT [ "zsh", "--login" ]
