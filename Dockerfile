@@ -31,7 +31,7 @@ RUN dnf upgrade -y && \
   libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2 && \
   # install docker cli
   dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo && \
-  dnf install docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && \
+  dnf install -y docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && \
   # clean up
   dnf clean all
 
