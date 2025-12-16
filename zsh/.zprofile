@@ -16,7 +16,7 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 # go
-GO_INSTALL_PATH="/usr/local/go"
+GO_INSTALL_PATH="$HOME/.local/go"
 if [ -d "$GO_INSTALL_PATH" ]; then
   export PATH="$GO_INSTALL_PATH/bin:$PATH"
   export GOPATH="$HOME/.go"

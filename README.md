@@ -57,10 +57,11 @@ stress hyperfine \
 fastfetch
 
 # install eza
-wget -c https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
-sudo chmod +x eza
-sudo chown root:root eza
-sudo mv eza /usr/local/bin/eza
+curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz \
+| tar xz
+chmod +x eza
+chown root:root eza
+mv eza /usr/local/bin/eza
 
 # install lazygit
 sudo dnf copr enable atim/lazygit -y
@@ -153,7 +154,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ```sh
 # download
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install
+curl -fsSL https://fnm.vercel.app/install \
+| bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install
 
 # setup
 export FNM_PATH="$HOME/.fnm"
@@ -177,12 +179,13 @@ npm install -g @github/copilot
 
 ```sh
 # download
-wget https://go.dev/dl/go1.25.5.linux-amd64.tar.gz
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf go1.25.5.linux-amd64.tar.gz
+mkdir -p "$HOME"/.local/
+curl -fsSL https://go.dev/dl/go1.25.5.linux-amd64.tar.gz \
+| tar -C "$HOME"/.local/ -xz && \
+tar -C "$HOME"/.local/ -xzf go1.25.5.linux-amd64.tar.gz
 
 # setup
-export GO_INSTALL_PATH="/usr/local/go"
+export GO_INSTALL_PATH="$HOME"/.local/go
 export PATH="$GO_INSTALL_PATH/bin:$PATH"
 
 export GOPATH="$HOME/.go"
