@@ -198,6 +198,13 @@ rm -rf go1.25.5.linux-amd64.tar.gz
 ### Install Docker
 
 ```sh
+# create a docker user group with the id of 990
+# NOTE: it is important that the GUID from the host
+# matches the one from the container
+# if you want to be able to access docker
+# from within the container without sudo
+sudo groupadd -g 1001 docker
+
 # enable docker repo
 sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 
@@ -247,7 +254,7 @@ cd ~/.dotfiles/tmux && ./install.sh
 docker run --rm -it \
 -v ./:/mnt/host \
 -v dotfiles:/home/dev \
--v /var/run/docker.sock:/var/run/docker.sock
+-v /var/run/docker.sock:/var/run/docker.sock \
 89iuv/dotfiles:latest
 ```
 
