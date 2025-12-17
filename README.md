@@ -38,6 +38,9 @@
 ### Install Dependencies
 
 ```sh
+# update installed packages and repositories
+sudo dnf update
+
 # install development tools: git, c compiler, make, etc
 sudo dnf group install c-development development-tools
 
@@ -128,9 +131,6 @@ chsh -s /usr/bin/zsh
 ### Install Python
 
 ```sh
-# update
-sudo dnf update
-
 # dependencies
 sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
 readline-devel sqlite sqlite-devel openssl-devel tk-devel \
@@ -201,13 +201,6 @@ rm -rf go1.25.5.linux-amd64.tar.gz
 ### Install Docker
 
 ```sh
-# create a docker user group with the id of 990
-# NOTE: it is important that the GUID from the host
-# matches the one from the container
-# if you want to be able to access docker
-# from within the container without sudo
-sudo groupadd -g 1001 docker
-
 # enable docker repo
 sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 
