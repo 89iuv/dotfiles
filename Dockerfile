@@ -1,8 +1,9 @@
 # hadolint ignore=DL3007
 FROM fedora:latest
 
-ARG DEV_UID=1000
-ARG DOCKER_GID=1001
+ENV DEV_UID=1000
+ENV DEV_GID=1000
+ENV DOCKER_GID=1001
 
 # fail command if pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -33,7 +34,6 @@ RUN dnf upgrade -y && \
   readline-devel sqlite sqlite-devel openssl-devel tk-devel \
   libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2 && \
   # install docker cli
-  groupadd -g "$DOCKER_GID" docker && \
   dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo && \
   dnf install -y docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && \
   mkdir -p ~/.oh-my-zsh/completions/ && \
@@ -48,14 +48,15 @@ RUN curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza
   chown root:root eza && \
   mv eza /usr/local/bin/eza
 
-# create dev user
-RUN useradd -ml -u "$DEV_UID" dev && \
+# allow wheel group to use sudo without password and create dev user
+RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
+  useradd -ml dev && \
   usermod -aG wheel,docker dev && \
-  echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
-  rm -rf /home/dev/.zprofile /home/dev/.zshrc
+  rm -rf /home/dev/.zprofile /home/dev/.zshrc && \
+  chsh -s /usr/bin/zsh dev
 
 # use dev to configure home folder
-USER dev:dev
+USER dev
 
 # change working dir and copy files
 WORKDIR /home/dev/.dotfiles
@@ -80,16 +81,18 @@ RUN curl -fsSL https://pyenv.run | bash && \
   curl -fsSL https://astral.sh/uv/install.sh | sh
 
 # install nodejs: fnm, node22, ast-grep/cli, copilot
-# hadolint ignore=DL3016
+# hadolint ignore=DL3016,DL3004
 RUN curl -fsSL https://fnm.vercel.app/install \
   | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install && \
   export FNM_PATH="$HOME/.fnm" && \
   export PATH="$FNM_PATH:$PATH" && \
   mkdir ~/.oh-my-zsh/completions/ && \
   fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm && \
-  fnm install 22
-  # npm install --global @ast-grep/cli && \
-  # npm install -g @github/copilot
+  fnm install 22 && \
+  # TODO: remove this from global install
+  # and remove DL3004 from ignore list
+  sudo npm install --global @ast-grep/cli && \
+  sudo npm install -g @github/copilot
 
 # install go: go1.25.5
 RUN mkdir -p "$HOME"/.local/ && \
@@ -101,12 +104,12 @@ RUN mkdir -p "$HOME"/.local/ && \
   export PATH="$GOPATH/bin:$PATH" && \
   rm -rf go1.25.5.linux-amd64.tar.gz
 
-# use root to change dev shell
-USER root
-RUN chsh -s /usr/bin/zsh dev
-
-# container config
-USER dev
+# configure current user and workspace
+WORKDIR /workspace
 VOLUME [ "/home/dev" ]
-WORKDIR /mnt/host
-ENTRYPOINT [ "zsh", "--login" ]
+ENTRYPOINT [ "zsh", "-c", "\
+  sudo groupadd -g ${DOCKER_GID} docker_host > /dev/null && \
+  sudo usermod -u ${DEV_UID} dev > /dev/null && \
+  sudo usermod -g ${DEV_GID} dev > /dev/null && \
+  sudo usermod -aG wheel,docker,docker_host dev > /dev/null && \
+  exec sudo su - dev -c 'cd /workspace; exec zsh --login'" ]

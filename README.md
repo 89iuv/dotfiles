@@ -14,7 +14,7 @@
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
     - [Install Go](#install-go)
-    - [Setup Docker](#setup-docker)
+    - [Install Docker](#install-docker)
   - [Update](#update)
     - [Update Dotfiles](#update-dotfiles)
     - [Update Integrations](#update-integrations)
@@ -28,9 +28,12 @@
 
 ### Setup Environment
 
-- Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
-- Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
-- Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
+- Install Fedora in WSL:
+  [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
+- Install NerdFonts:
+  [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
+- Configure terminal colors:
+  [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 
 ### Install Dependencies
 
@@ -253,11 +256,22 @@ cd ~/.dotfiles/tmux && ./install.sh
 
 ```sh
 docker run --rm -it \
--v ./:/mnt/host \
+-e DEV_UID=$(id -u) \
+-e DEV_GID=$(id -g) \
+-e DOCKER_GID=$(getent group docker | cut -d: -f3) \
 -v dotfiles:/home/dev \
+-v ./:/workspace \
 -v /var/run/docker.sock:/var/run/docker.sock \
 89iuv/dotfiles:latest
 ```
+
+Caveats:
+
+- the default uid is 1000 and gid is 1000
+  - when changing this values all the files previously created with this user
+    and group retain their original ownership
+- startup is slow the first time until all the needed files are created on
+  volume /home/dev
 
 ### Remove From Docker
 
