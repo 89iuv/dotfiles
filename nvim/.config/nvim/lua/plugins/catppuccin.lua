@@ -23,7 +23,7 @@ return {
         BufferlineSideBar = { fg = colors.lavender, bg = colors.mantle },
         BufferLineSeparator = { fg = colors.overlay0, bg = colors.mantle },
 
-        BufferLineIndicatorVisible = { fg = colors.lavender, bg = colors.base },
+        BufferLineIndicatorVisible = { fg = colors.lavender, bg = colors.mantle },
         BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
 
         BufferLineOffsetSeparator = { fg = colors.overlay0, bg = colors.mantle },
