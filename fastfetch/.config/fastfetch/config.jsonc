@@ -7,9 +7,16 @@
       "left": 1
     }
   },
+  "display": {
+    "separator": ": "
+  },
   "modules": [
     "title",
-    "separator",
+    {
+      "type": "separator",
+      "string": "─",
+      "outputColor": "dim_white"
+    },
     // operating system
     "os",
     "kernel",
