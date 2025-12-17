@@ -1,9 +1,13 @@
 # hadolint ignore=DL3007
 FROM fedora:latest
 
+# set environment variables
 ENV DEV_UID=1000
 ENV DEV_GID=1000
 ENV DOCKER_GID=1001
+
+# create an anonymous volume for /home/dev if it's not specified
+VOLUME [ "/home/dev" ]
 
 # fail command if pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -36,8 +40,6 @@ RUN dnf upgrade -y && \
   # install docker cli
   dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo && \
   dnf install -y docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && \
-  mkdir -p ~/.oh-my-zsh/completions/ && \
-  docker completion zsh > ~/.oh-my-zsh/completions/_docker && \
   # clean up
   dnf clean all
 
@@ -69,7 +71,10 @@ RUN stow */ && \
   ~/.dotfiles/catppuccin-delta/install.sh && \
   ~/.dotfiles/catppuccin-btop/install.sh && \
   ~/.dotfiles/nvim/install.sh && \
-  ~/.dotfiles/tmux/install.sh
+  ~/.dotfiles/tmux/install.sh && \
+  # TODO: create an integration step for docker autocomplete
+  mkdir -p ~/.oh-my-zsh/completions/ && \
+  docker completion zsh > ~/.oh-my-zsh/completions/_docker
 
 # install python: pyenv, python3, uv
 # hadolint ignore=DL3041
@@ -86,7 +91,7 @@ RUN curl -fsSL https://fnm.vercel.app/install \
   | bash -s -- --install-dir "$HOME/.fnm" --skip-shell --force-install && \
   export FNM_PATH="$HOME/.fnm" && \
   export PATH="$FNM_PATH:$PATH" && \
-  mkdir ~/.oh-my-zsh/completions/ && \
+  mkdir -p ~/.oh-my-zsh/completions/ && \
   fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm && \
   fnm install 22 && \
   # TODO: remove this from global install
@@ -104,12 +109,10 @@ RUN mkdir -p "$HOME"/.local/ && \
   export PATH="$GOPATH/bin:$PATH" && \
   rm -rf go1.25.5.linux-amd64.tar.gz
 
-# configure current user and workspace
-WORKDIR /workspace
-VOLUME [ "/home/dev" ]
+# configure current user
 ENTRYPOINT [ "zsh", "-c", "\
   sudo groupadd -g ${DOCKER_GID} docker_host > /dev/null && \
   sudo usermod -u ${DEV_UID} dev > /dev/null && \
   sudo usermod -g ${DEV_GID} dev > /dev/null && \
   sudo usermod -aG wheel,docker,docker_host dev > /dev/null && \
-  exec sudo su - dev -c 'cd /workspace; exec zsh --login'" ]
+  exec sudo su - dev"]

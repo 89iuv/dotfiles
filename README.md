@@ -260,8 +260,9 @@ docker run --rm -it \
 -e DEV_GID=$(id -g) \
 -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
 -v dotfiles:/home/dev \
--v ./:/workspace \
+-v ./:/home/dev/workspace \
 -v /var/run/docker.sock:/var/run/docker.sock \
+--detach-keys="ctrl-z,z" \
 89iuv/dotfiles:latest
 ```
 
