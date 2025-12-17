@@ -96,6 +96,9 @@ ZSH_HIGHLIGHT_STYLES[path_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
 ZSH_HIGHLIGHT_STYLES[cursor]='none'
 
+# set location and format for zsh compdump
+export ZSH_COMPDUMP=$HOME/.zcompdump-${ZSH_VERSION}
+
 source $ZSH/oh-my-zsh.sh
 
 
