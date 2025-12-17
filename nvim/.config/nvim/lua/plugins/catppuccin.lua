@@ -5,10 +5,6 @@ return {
     term_colors = true,
     auto_integrations = true,
 
-    integrations = {
-      bufferline = false, -- integration is done in LazyVim
-    },
-
     custom_highlights = function(colors)
       local colors_utils = require("catppuccin.utils.colors")
 
@@ -25,8 +21,12 @@ return {
 
         BufferlineProjectExplorer = { fg = colors.lavender, bg = colors.mantle },
         BufferlineSideBar = { fg = colors.lavender, bg = colors.mantle },
+        BufferLineSeparator = { fg = colors.overlay0, bg = colors.mantle },
 
-        BufferLineOffsetSeparator = { link = "WinSeparator" },
+        BufferLineIndicatorVisible = { fg = colors.lavender, bg = colors.base },
+        BufferLineIndicatorSelected = { fg = colors.lavender, bg = colors.base },
+
+        BufferLineOffsetSeparator = { fg = colors.overlay0, bg = colors.mantle },
         BufferLineTruncMarker = { fg = colors.surface2, bg = colors.mantle },
 
         BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
@@ -102,7 +102,7 @@ return {
         TroubleNormalNc = { link = "TroubleNormal" },
 
         -- markdown renderer
-        RenderMarkdownCode = { bg = colors_utils.darken(colors.base, 0.5, colors.mantle) }
+        RenderMarkdownCode = { bg = colors_utils.darken(colors.base, 0.5, colors.mantle) },
       }
     end,
   },
