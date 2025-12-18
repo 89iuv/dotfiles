@@ -72,9 +72,7 @@ RUN stow */ && \
   ~/.dotfiles/catppuccin-btop/install.sh && \
   ~/.dotfiles/nvim/install.sh && \
   ~/.dotfiles/tmux/install.sh && \
-  # TODO: create an integration step for docker autocomplete
-  mkdir -p ~/.oh-my-zsh/completions/ && \
-  docker completion zsh > ~/.oh-my-zsh/completions/_docker
+  ~/.dotfiles/docker/install.sh
 
 # install python: pyenv, python3, uv
 # hadolint ignore=DL3041

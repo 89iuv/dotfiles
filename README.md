@@ -7,14 +7,14 @@
   - [System](#system)
     - [Setup Environment](#setup-environment)
     - [Install Dependencies](#install-dependencies)
-  - [Setup](#setup)
-    - [Setup Dotfiles](#setup-dotfiles)
-    - [Setup Shell](#setup-shell)
-  - [Optional](#optional)
+  - [Programming](#programming)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
     - [Install Go](#install-go)
     - [Install Docker](#install-docker)
+  - [Setup](#setup)
+    - [Setup Dotfiles](#setup-dotfiles)
+    - [Setup Shell](#setup-shell)
   - [Update](#update)
     - [Update Dotfiles](#update-dotfiles)
     - [Update Integrations](#update-integrations)
@@ -99,34 +99,7 @@ sudo dnf install xz
 sudo dnf clean all
 ```
 
-## Setup
-
-### Setup Dotfiles
-
-```sh
-# clone repo
-git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
-
-# symlink .dotfiles
-cd ~/.dotfiles
-stow */
-
-# run integration scripts
-~/.dotfiles/catppuccin-bat/install.sh
-~/.dotfiles/catppuccin-delta/install.sh
-~/.dotfiles/catppuccin-btop/install.sh
-~/.dotfiles/nvim/install.sh
-~/.dotfiles/tmux/install.sh
-```
-
-### Setup Shell
-
-```sh
-chsh -s /usr/bin/zsh
-# restart shell
-```
-
-## Optional
+## Programming
 
 ### Install Python
 
@@ -198,6 +171,8 @@ export PATH="$GOPATH/bin:$PATH"
 rm -rf go1.25.5.linux-amd64.tar.gz
 ```
 
+Cleanup .zshrc script
+
 ### Install Docker
 
 ```sh
@@ -209,13 +184,35 @@ sudo dnf install docker-ce-cli containerd.io docker-buildx-plugin docker-compose
 
 #install docker engine
 sudo dnf install docker-ce
-
-# install docker completions (docker needs to be installed)
-mkdir -p ~/.oh-my-zsh/completions/
-docker completion zsh > ~/.oh-my-zsh/completions/_docker
 ```
 
-Cleanup .zshrc script
+## Setup
+
+### Setup Dotfiles
+
+```sh
+# clone repo
+git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
+
+# symlink .dotfiles
+cd ~/.dotfiles
+stow */
+
+# run integration scripts
+~/.dotfiles/catppuccin-bat/install.sh
+~/.dotfiles/catppuccin-delta/install.sh
+~/.dotfiles/catppuccin-btop/install.sh
+~/.dotfiles/nvim/install.sh
+~/.dotfiles/tmux/install.sh
+~/.dotfiles/docker/install.sh
+```
+
+### Setup Shell
+
+```sh
+chsh -s /usr/bin/zsh
+# restart shell
+```
 
 ## Update
 
@@ -230,11 +227,12 @@ git submodule update --recursive --init
 ### Update Integrations
 
 ```sh
-cd ~/.dotfiles/catppuccin-bat && ./install.sh
-cd ~/.dotfiles/catppuccin-delta && ./install.sh
-cd ~/.dotfiles/catppuccin-btop && ./install.sh
-cd ~/.dotfiles/nvim && ./install.sh
-cd ~/.dotfiles/tmux && ./install.sh
+~/.dotfiles/catppuccin-bat/install.sh
+~/.dotfiles/catppuccin-delta/install.sh
+~/.dotfiles/catppuccin-btop/install.sh
+~/.dotfiles/nvim/install.sh
+~/.dotfiles/tmux/install.sh
+~/.dotfiles/docker/install.sh
 ```
 
 ### Update Others
