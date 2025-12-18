@@ -256,20 +256,17 @@ docker run --rm -it \
 -v ./:/home/dev/workspace \
 -v /var/run/docker.sock:/var/run/docker.sock \
 --detach-keys="ctrl-z,z" \
-89iuv/dotfiles:latest
+89iuv/dotfiles
 ```
 
 Caveats:
 
-- the default uid is 1000 and gid is 1000
-  - when changing this values all the files previously created with this user
-    and group retain their original ownership
 - startup is slow the first time until all the needed files are created on
   volume /home/dev
 
 ### Remove From Docker
 
 ```sh
-docker image rm 89iuv/dotfiles:latest
 docker volume rm dotfiles
+docker image rm 89iuv/dotfiles
 ```
