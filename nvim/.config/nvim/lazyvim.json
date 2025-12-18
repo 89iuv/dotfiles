@@ -1,6 +1,7 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.luasnip",
+    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.illuminate",
     "lazyvim.plugins.extras.editor.neo-tree",
     "lazyvim.plugins.extras.formatting.black",
