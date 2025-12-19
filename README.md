@@ -164,8 +164,6 @@ export PATH="$GOPATH/bin:$PATH"
 rm -rf go1.25.5.linux-amd64.tar.gz
 ```
 
-Manual cleanup for .zshrc script
-
 ## Setup
 
 ### Setup Dotfiles
