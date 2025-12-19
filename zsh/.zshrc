@@ -200,6 +200,9 @@ then
   alias tl="tmux ls"
 fi
 
+# less
+alias m="less -ir"
+
 # zoxide
 if type zoxide > /dev/null
 then
@@ -209,15 +212,15 @@ fi
 # eza
 if type eza > /dev/null
 then
-  alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
-  alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
-  alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --icons=auto"
+  alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
+  alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
+  alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
 fi
 
 # bat
 if type bat > /dev/null
 then
-  alias b="bat -pp"
+  alias b="bat -pp --color=always"
   export BAT_THEME="Catppuccin Macchiato"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
@@ -236,6 +239,7 @@ then
   --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
   --color=selected-bg:#494D64 \
   --color=border:#363A4F,label:#CAD3F5"
+  alias f="fzf --ansi"
 fi
 
 # python: uv
