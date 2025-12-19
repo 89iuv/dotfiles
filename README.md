@@ -53,6 +53,7 @@ https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -
 
 # install dependencies
 sudo dnf install ps \
+xclip xsel wl-clipboard \
 git-delta \
 zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
@@ -234,11 +235,38 @@ docker run --rm -it \
 -e DEV_GID=$(id -g) \
 -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
 -v dotfiles:/home/dev \
--v ./:/home/dev/workspace \
+-v ./:/workspace \
 -v /var/run/docker.sock:/var/run/docker.sock \
 --detach-keys="ctrl-z,z" \
 89iuv/dotfiles
 ```
+
+Where:
+
+- --rm: will remove the container upon exit
+- -it: run the container with an interactive terminal
+- -e DEV_UID=$(id -u): set the env var DEV_UID to the host user uid, defaults
+  to 1000
+- -e DEV_GID=$(id -g): set the env var DEV_GID to the host user gid, defaults
+  to 1000
+- -e DOCKER_GID=$(getent group docker | cut -d: -f3): set the env var DOCKER_GID
+  to the host docker gid, defaults to 1001
+- -v dotfiles:/home/dev: create and mount the volume dotfiles as the dev home
+  folder
+- -v ./:/workspace: mount the current folder to /workspace folder in the
+  container
+- -v /var/run/docker.sock:/var/run/docker.sock: enable docker access from the
+  container
+- --detach-keys="ctrl-z,z": remap the docker detach keymap from Ctrl+p,Ctrl+q
+  to Ctrl+z,z
+- 89iuv/dotfiles: download and use the image 89iuv/dotfile
+
+Notes:
+
+- the container's user uid and gid need to match the host's user uid and gid in
+  order to not have permissions issues when writing files
+- the container's docker gid needs to match the host's docker gid to use docker
+  without sudo
 
 Caveats:
 

@@ -23,6 +23,7 @@ RUN dnf upgrade -y && \
   dnf install -y "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
   # install packages
   dnf install -y ps \
+  xclip xsel wl-clipboard \
   git-delta zsh zoxide bat \
   fzf ripgrep fd jq stow \
   curl wget lynx \
