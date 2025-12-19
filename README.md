@@ -235,8 +235,8 @@ docker run --rm -it \
 -e DEV_GID=$(id -g) \
 -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
 -v dotfiles:/home/dev \
--v ./:/workspace \
 -v /var/run/docker.sock:/var/run/docker.sock \
+-v ./:/workspace \
 --detach-keys="ctrl-z,z" \
 89iuv/dotfiles
 ```
@@ -251,12 +251,12 @@ Where:
   to 1000
 - -e DOCKER_GID=$(getent group docker | cut -d: -f3): set the env var DOCKER_GID
   to the host docker gid, defaults to 1001
-- -v dotfiles:/home/dev: create and mount the volume dotfiles as the dev home
-  folder
-- -v ./:/workspace: mount the current folder to /workspace folder in the
-  container
 - -v /var/run/docker.sock:/var/run/docker.sock: enable docker access from the
   container
+- -v dotfiles:/home/dev: create and mount the volume dotfiles as the dev home
+folder
+- -v ./:/workspace: mount the current folder to /workspace folder in the
+container
 - --detach-keys="ctrl-z,z": remap the docker detach keymap from Ctrl+p,Ctrl+q
   to Ctrl+z,z
 - 89iuv/dotfiles: download and use the image 89iuv/dotfile

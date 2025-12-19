@@ -120,10 +120,13 @@ RUN rm -rf ~/.zprofile ~/.zshrc && \
   ~/.dotfiles/tmux/install.sh && \
   ~/.dotfiles/docker/install.sh
 
-# configure current user
+# configure workspace and current user
+WORKDIR /workspace
 ENTRYPOINT [ "zsh", "-c", "\
   sudo groupadd -g ${DOCKER_GID} docker_host > /dev/null && \
   sudo usermod -u ${DEV_UID} dev > /dev/null && \
   sudo usermod -g ${DEV_GID} dev > /dev/null && \
   sudo usermod -aG wheel,docker,docker_host dev > /dev/null && \
-  exec sudo su - dev"]
+  # workaround for changes made to the current user
+  # not being reflected in the current shell
+  sudo -u dev -i zsh --login -c 'cd /workspace; tmux new -A -s tmux'"]
