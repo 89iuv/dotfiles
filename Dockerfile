@@ -17,8 +17,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3041
 RUN dnf upgrade -y && \
   # enable man pages
-  sed -i 's/tsflags=nodocs/# tsflags=nodocs/' /etc/dnf/dnf.conf \
-  dnf install -y man man-pages \
+  sed -i 's/tsflags=nodocs/# tsflags=nodocs/' /etc/dnf/dnf.conf && \
+  dnf install -y man man-pages && \
   # install development-tools
   dnf group install -y c-development development-tools && \
   # enable rpm fusion
