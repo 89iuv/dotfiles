@@ -7,11 +7,12 @@
   - [System](#system)
     - [Setup Environment](#setup-environment)
     - [Install Dependencies](#install-dependencies)
+  - [Tools](#tools)
+    - [Install eza](#install-eza)
   - [Programming](#programming)
     - [Install Python](#install-python)
     - [Install Nodejs](#install-nodejs)
     - [Install Go](#install-go)
-    - [Install Docker](#install-docker)
   - [Setup](#setup)
     - [Setup Dotfiles](#setup-dotfiles)
     - [Setup Shell](#setup-shell)
@@ -47,8 +48,6 @@ sudo dnf group install c-development development-tools
 # enable rpm fusion free
 sudo dnf install \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-
-# enable rpm fusion non free
 sudo dnf install \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
@@ -59,44 +58,39 @@ zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
+tmux neovim btop \
 stress hyperfine \
 fastfetch
 
+# install lazygit
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+
+# install python: pyenv packages
+sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
+readline-devel sqlite sqlite-devel openssl-devel tk-devel \
+libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2
+
+# install docker cli
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# optional install docker engine: sudo dnf install docker-ce
+
+# clean up
+sudo dnf clean all
+```
+
+## Tools
+
+### Install eza
+
+```sh
 # install eza
 curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz \
 | tar xz
 chmod +x eza
 chown root:root eza
 mv eza /usr/local/bin/eza
-
-# install lazygit
-sudo dnf copr enable atim/lazygit -y
-sudo dnf install lazygit
-
-# install btop
-sudo dnf install btop
-# (Optional) btop dependencies for intel gpu
-sudo dnf install intel_gpu_top
-# (Optional) run at every startup
-# source: https://github.com/luisbocanegra/plasma-intel-gpu-monitor?tab=readme-ov-file#requirements
-# TODO: add systemd script to do this automatic
-sudo setcap cap_perfmon=+ep /usr/bin/btop
-
-# install neovim
-sudo dnf install neovim
-# workaround for neovim clipboard issue
-# TODO: find a better way to fix the clipboard issue on wsl
-sudo dnf remove xclip wl-clipboard
-
-# install tmux
-sudo dnf install tmux
-
-# install kitty
-# (optional) install kitty dependencies
-sudo dnf install xz
-
-# clean up
-sudo dnf clean all
 ```
 
 ## Programming
@@ -104,11 +98,6 @@ sudo dnf clean all
 ### Install Python
 
 ```sh
-# dependencies
-sudo dnf install make gcc patch zlib-devel bzip2 bzip2-devel \
-readline-devel sqlite sqlite-devel openssl-devel tk-devel \
-libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2
-
 # download
 curl -fsSL https://pyenv.run | bash
 
@@ -138,7 +127,10 @@ export FNM_PATH="$HOME/.fnm"
 export PATH="$FNM_PATH:$PATH"
 alias rehash='hash -r'
 eval "$(fnm env --shell zsh)"
-fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm
+
+# add shell completions
+mkdir -p ~/.oh-my-zsh/completions/ && \
+fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm && \
 
 # install
 fnm install 22
@@ -171,20 +163,7 @@ export PATH="$GOPATH/bin:$PATH"
 rm -rf go1.25.5.linux-amd64.tar.gz
 ```
 
-Cleanup .zshrc script
-
-### Install Docker
-
-```sh
-# enable docker repo
-sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
-
-# install docker cli
-sudo dnf install docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-#install docker engine
-sudo dnf install docker-ce
-```
+Manual cleanup for .zshrc script
 
 ## Setup
 
@@ -193,6 +172,9 @@ sudo dnf install docker-ce
 ```sh
 # clone repo
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
+
+# clean up
+rm -rf ~/.zprofile ~/.zshrc
 
 # symlink .dotfiles
 cd ~/.dotfiles
@@ -211,8 +193,9 @@ stow */
 
 ```sh
 chsh -s /usr/bin/zsh
-# restart shell
 ```
+
+Restart shell
 
 ## Update
 

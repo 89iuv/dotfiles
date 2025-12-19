@@ -12,6 +12,7 @@ VOLUME [ "/home/dev" ]
 # fail command if pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# System
 # install dependencies
 # hadolint ignore=DL3041
 RUN dnf upgrade -y && \
@@ -43,6 +44,7 @@ RUN dnf upgrade -y && \
   # clean up
   dnf clean all
 
+# Tools
 # install eza
 RUN curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz \
   | tar xz && \
@@ -50,30 +52,17 @@ RUN curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza
   chown root:root eza && \
   mv eza /usr/local/bin/eza
 
+# User
 # allow wheel group to use sudo without password and create dev user
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
   useradd -ml dev && \
   usermod -aG wheel,docker dev && \
-  rm -rf /home/dev/.zprofile /home/dev/.zshrc && \
   chsh -s /usr/bin/zsh dev
 
 # use dev to configure home folder
 USER dev
 
-# change working dir and copy files
-WORKDIR /home/dev/.dotfiles
-COPY --chown=dev:dev . .
-
-# create symlinks, run integrations and setup shell
-# hadolint ignore=SC2035
-RUN stow */ && \
-  ~/.dotfiles/catppuccin-bat/install.sh && \
-  ~/.dotfiles/catppuccin-delta/install.sh && \
-  ~/.dotfiles/catppuccin-btop/install.sh && \
-  ~/.dotfiles/nvim/install.sh && \
-  ~/.dotfiles/tmux/install.sh && \
-  ~/.dotfiles/docker/install.sh
-
+# Programming
 # install python: pyenv, python3, uv
 # hadolint ignore=DL3041
 RUN curl -fsSL https://pyenv.run | bash && \
@@ -106,6 +95,23 @@ RUN mkdir -p "$HOME"/.local/ && \
   export GOPATH="$HOME/.go" && \
   export PATH="$GOPATH/bin:$PATH" && \
   rm -rf go1.25.5.linux-amd64.tar.gz
+
+# change working dir and copy files
+WORKDIR /home/dev/.dotfiles
+COPY --chown=dev:dev . .
+
+# clean up, create symlinks, run integrations and setup shell
+# hadolint ignore=SC2035
+RUN rm -rf ~/.zprofile ~/.zshrc && \
+  # clear symlinks
+  stow */ && \
+  # run integrations
+  ~/.dotfiles/catppuccin-bat/install.sh && \
+  ~/.dotfiles/catppuccin-delta/install.sh && \
+  ~/.dotfiles/catppuccin-btop/install.sh && \
+  ~/.dotfiles/nvim/install.sh && \
+  ~/.dotfiles/tmux/install.sh && \
+  ~/.dotfiles/docker/install.sh
 
 # configure current user
 ENTRYPOINT [ "zsh", "-c", "\
