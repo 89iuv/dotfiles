@@ -1,1 +1,9 @@
-.*
+# repo
+bat/
+
+# vcs
+.gitignore
+
+# scripts
+build.sh
+install.sh

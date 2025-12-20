@@ -1,1 +1,10 @@
-.*
+# repo
+btop/
+
+# vcs
+.gitignore
+
+# scripts
+build.sh
+install.sh
+

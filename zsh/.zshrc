@@ -88,8 +88,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
 # load catppuccin theme for zsh-syntax-highlighting
-source ~/.dotfiles/catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+source $ZSH_CUSTOM/helpers/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 # custom catppuccin highlights for zsh-syntax-highlighting
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
@@ -98,11 +102,6 @@ ZSH_HIGHLIGHT_STYLES[cursor]='none'
 
 # set location and format for zsh compdump
 export ZSH_COMPDUMP=$HOME/.zcompdump-${ZSH_VERSION}
-
-source $ZSH/oh-my-zsh.sh
-
-
-# User configuration
 
 # fix for lazygit not showing correct colors
 export COLORTERM=truecolor

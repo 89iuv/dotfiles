@@ -169,20 +169,25 @@ rm -rf go1.25.5.linux-amd64.tar.gz
 ### Setup Dotfiles
 
 ```sh
-# clone repo
-git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
-
 # clean up
 rm -rf ~/.zprofile ~/.zshrc
 
-# symlink .dotfiles
+# clone repo
+git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
 cd ~/.dotfiles
+
+# build integrations
+~/.dotfiles/catppuccin-bat/build.sh
+~/.dotfiles/catppuccin-delta/build.sh
+~/.dotfiles/catppuccin-btop/build.sh
+~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
+
+# symlink integrations
 stow */
 
 # run integration scripts
 ~/.dotfiles/catppuccin-bat/install.sh
 ~/.dotfiles/catppuccin-delta/install.sh
-~/.dotfiles/catppuccin-btop/install.sh
 ~/.dotfiles/nvim/install.sh
 ~/.dotfiles/tmux/install.sh
 ~/.dotfiles/docker/install.sh
@@ -191,10 +196,9 @@ stow */
 ### Setup Shell
 
 ```sh
-chsh -s /usr/bin/zsh
+sudo chsh -s /usr/bin/zsh "$USER"
+exec zsh --login
 ```
-
-Restart shell
 
 ## Update
 
@@ -209,9 +213,18 @@ git submodule update --recursive --init
 ### Update Integrations
 
 ```sh
+# build integrations
+~/.dotfiles/catppuccin-bat/build.sh
+~/.dotfiles/catppuccin-delta/build.sh
+~/.dotfiles/catppuccin-btop/build.sh
+~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
+
+# symlink integrations
+stow */
+
+# run integration scripts
 ~/.dotfiles/catppuccin-bat/install.sh
 ~/.dotfiles/catppuccin-delta/install.sh
-~/.dotfiles/catppuccin-btop/install.sh
 ~/.dotfiles/nvim/install.sh
 ~/.dotfiles/tmux/install.sh
 ~/.dotfiles/docker/install.sh
@@ -232,7 +245,8 @@ docker run --rm -it \
 -e DEV_UID=$(id -u) \
 -e DEV_GID=$(id -g) \
 -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
--v dotfiles:/home/dev \
+-v dev_home:/home/dev \
+-v dev_home_dotfiles:/home/dev/dotfiles \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v ./:/workspace \
 --detach-keys="ctrl-z,z" \
@@ -270,6 +284,13 @@ Caveats:
 
 - startup is slow the first time until all the needed files are created on
   volume /home/dev
+
+### Update With Docker
+
+```sh
+docker image pull 89iuv/dotfiles
+docker volume rm dev_home_dotfiles
+```
 
 ### Remove From Docker
 

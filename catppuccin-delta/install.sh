@@ -2,7 +2,7 @@
 
 git config --global core.pager delta
 
-git config --global include.path "$HOME/.dotfiles/catppuccin-delta/delta/catppuccin.gitconfig"
+git config --global include.path "$HOME/.config/delta/themes/catppuccin.gitconfig"
 
 git config --global interactive.diffFilter "delta --color-only"
 

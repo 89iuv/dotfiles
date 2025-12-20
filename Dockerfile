@@ -104,19 +104,22 @@ RUN mkdir -p "$HOME"/.local/ && \
   rm -rf go1.25.5.linux-amd64.tar.gz
 
 # change working dir and copy files
-WORKDIR /home/dev/
-RUN git clone --recurse-submodules https://github.com/89iuv/dotfiles.git .dotfiles
 WORKDIR /home/dev/.dotfiles
+COPY --chown=dev:dev . .
 
 # clean up, create symlinks, run integrations and setup shell
 # hadolint ignore=SC2035
 RUN rm -rf ~/.zprofile ~/.zshrc && \
-  # clear symlinks
+  # build integrations
+  ~/.dotfiles/catppuccin-bat/build.sh && \
+  ~/.dotfiles/catppuccin-delta/build.sh && \
+  ~/.dotfiles/catppuccin-btop/build.sh && \
+  ~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh && \
+  # symlinks integrations
   stow */ && \
-  # run integrations
+  # install integrations
   ~/.dotfiles/catppuccin-bat/install.sh && \
   ~/.dotfiles/catppuccin-delta/install.sh && \
-  ~/.dotfiles/catppuccin-btop/install.sh && \
   ~/.dotfiles/nvim/install.sh && \
   ~/.dotfiles/tmux/install.sh && \
   ~/.dotfiles/docker/install.sh
