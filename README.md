@@ -210,32 +210,6 @@ git pull
 git submodule update --recursive --init
 ```
 
-### Update Integrations
-
-```sh
-# build integrations
-~/.dotfiles/catppuccin-bat/build.sh
-~/.dotfiles/catppuccin-delta/build.sh
-~/.dotfiles/catppuccin-btop/build.sh
-~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
-
-# symlink integrations
-stow */
-
-# run integration scripts
-~/.dotfiles/catppuccin-bat/install.sh
-~/.dotfiles/catppuccin-delta/install.sh
-~/.dotfiles/nvim/install.sh
-~/.dotfiles/tmux/install.sh
-~/.dotfiles/docker/install.sh
-```
-
-### Update Others
-
-- Update tmux: ctrl+x U all
-- Update neovim: \<leader\>l U
-- Update mason: \<leader\>cm U
-
 ## Docker
 
 ### Run With Docker

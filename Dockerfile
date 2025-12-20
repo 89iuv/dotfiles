@@ -120,13 +120,13 @@ RUN rm -rf ~/.zprofile ~/.zshrc && \
   ${HOME}/.dotfiles/catppuccin-delta/build.sh && \
   ${HOME}/.dotfiles/catppuccin-btop/build.sh && \
   ${HOME}/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh && \
-  ${HOME}/.dotfiles/nvim/build.sh && \
+  ${HOME}/.dotfiles/tmux/build.sh && \
   # symlinks integrations
   stow */ && \
   # install integrations
   ${HOME}/.dotfiles/catppuccin-bat/install.sh && \
   ${HOME}/.dotfiles/catppuccin-delta/install.sh && \
-  ${HOME}/.dotfiles/tmux/install.sh && \
+  ${HOME}/.dotfiles/nvim/install.sh && \
   ${HOME}/.dotfiles/docker/install.sh
 
 # configure envs, workspace and user
