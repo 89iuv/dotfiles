@@ -245,10 +245,11 @@ docker run --rm -it \
 -e DEV_UID=$(id -u) \
 -e DEV_GID=$(id -g) \
 -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
--v dev_home:/home/dev \
--v dev_home_dotfiles:/home/dev/dotfiles \
+-v code_foundry:/home/byte_crafter \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v ./:/workspace \
+-h code_foundry \
+--name code_foundry \
 --detach-keys="ctrl-z,z" \
 89iuv/dotfiles
 ```
@@ -284,13 +285,6 @@ Caveats:
 
 - startup is slow the first time until all the needed files are created on
   volume /home/dev
-
-### Update With Docker
-
-```sh
-docker image pull 89iuv/dotfiles
-docker volume rm dev_home_dotfiles
-```
 
 ### Remove From Docker
 
