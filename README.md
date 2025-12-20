@@ -3,6 +3,7 @@
 <!-- markdownlint-disable MD013 -->
 
 <!--toc:start-->
+
 - [Dotfiles](#dotfiles)
   - [System](#system)
     - [Setup Environment](#setup-environment)
@@ -20,10 +21,9 @@
     - [Update Dotfiles](#update-dotfiles)
     - [Update Integrations](#update-integrations)
     - [Update Others](#update-others)
-  - [Docker](#docker)
-    - [Run With Docker](#run-with-docker)
-    - [Remove From Docker](#remove-from-docker)
-<!--toc:end-->
+  - [Docker](#docker) - [Run With Docker](#run-with-docker) -
+  [Remove From Docker](#remove-from-docker)
+  <!--toc:end-->
 
 ## System
 
@@ -181,6 +181,7 @@ cd ~/.dotfiles
 ~/.dotfiles/catppuccin-delta/build.sh
 ~/.dotfiles/catppuccin-btop/build.sh
 ~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
+~/.dotfiles/tmux/build.sh
 
 # symlink integrations
 stow */
@@ -189,7 +190,6 @@ stow */
 ~/.dotfiles/catppuccin-bat/install.sh
 ~/.dotfiles/catppuccin-delta/install.sh
 ~/.dotfiles/nvim/install.sh
-~/.dotfiles/tmux/install.sh
 ~/.dotfiles/docker/install.sh
 ```
 
@@ -242,8 +242,8 @@ stow */
 
 ```sh
 docker run --rm -it \
--e DEV_UID=$(id -u) \
--e DEV_GID=$(id -g) \
+-e USER_UID=$(id -u) \
+-e USER_GID=$(id -g) \
 -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
 -v code_foundry:/home/byte_crafter \
 -v /var/run/docker.sock:/var/run/docker.sock \
@@ -258,20 +258,22 @@ Where:
 
 - --rm: will remove the container upon exit
 - -it: run the container with an interactive terminal
-- -e DEV_UID=$(id -u): set the env var DEV_UID to the host user uid, defaults
+- -e USER_UID=$(id -u): set the env var DEV_UID to the host user uid, defaults
   to 1000
-- -e DEV_GID=$(id -g): set the env var DEV_GID to the host user gid, defaults
+- -e USER_GID=$(id -g): set the env var DEV_GID to the host user gid, defaults
   to 1000
 - -e DOCKER_GID=$(getent group docker | cut -d: -f3): set the env var DOCKER_GID
   to the host docker gid, defaults to 1001
+- -v code_foundry:/home/byte_crafter: create and mount the volume code_foundry
+  as the byte_crafter home folder
 - -v /var/run/docker.sock:/var/run/docker.sock: enable docker access from the
   container
-- -v dotfiles:/home/dev: create and mount the volume dotfiles as the dev home
-folder
 - -v ./:/workspace: mount the current folder to /workspace folder in the
-container
-- --detach-keys="ctrl-z,z": remap the docker detach keymap from Ctrl+p,Ctrl+q
-  to Ctrl+z,z
+  container
+- -h code_foundry: set the hostname to code_foundry
+- --name code_foundry: set the container name to code_foundry
+- --detach-keys="ctrl-z,z": remap the docker detach keymap from Ctrl+p,Ctrl+q to
+  Ctrl+z,z
 - 89iuv/dotfiles: download and use the image 89iuv/dotfile
 
 Notes:
