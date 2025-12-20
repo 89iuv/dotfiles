@@ -1,10 +1,9 @@
 # repo
-btop/
+^/btop$
 
 # vcs
-.gitignore
+\.gitignore
 
 # scripts
-build.sh
-install.sh
+build\.sh
 

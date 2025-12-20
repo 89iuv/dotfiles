@@ -179,7 +179,6 @@ cd ~/.dotfiles
 ~/.dotfiles/catppuccin-delta/build.sh
 ~/.dotfiles/catppuccin-btop/build.sh
 ~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
-~/.dotfiles/tmux/build.sh
 
 # symlink integrations
 stow */
@@ -187,6 +186,7 @@ stow */
 # run integration scripts
 ~/.dotfiles/catppuccin-bat/install.sh
 ~/.dotfiles/catppuccin-delta/install.sh
+~/.dotfiles/tmux/install.sh
 ~/.dotfiles/nvim/install.sh
 ~/.dotfiles/docker/install.sh
 ```

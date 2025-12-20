@@ -1,9 +1,9 @@
 # repo
-bat/
+^/bat$
 
 # vcs
-.gitignore
+\.gitignore
 
 # scripts
-build.sh
-install.sh
+build\.sh
+install\.sh

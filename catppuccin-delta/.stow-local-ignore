@@ -1,9 +1,9 @@
 # repo
-delta/
+^/delta$
 
 # vcs
-.gitignore
+\.gitignore
 
 # scripts
-.build.sh
-.install.sh
+build\.sh
+install\.sh

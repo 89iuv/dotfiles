@@ -1,8 +1,8 @@
 # repo
-zsh-syntax-highlighting/
+^/zsh-syntax-highlighting$
 
 # vcs
-.gitignore
+\.gitignore
 
 # scripts
-build.sh
+build\.sh
