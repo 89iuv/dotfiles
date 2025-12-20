@@ -89,6 +89,7 @@ RUN curl -fsSL https://fnm.vercel.app/install \
   | bash -s -- --install-dir "${HOME}/.fnm" --skip-shell --force-install && \
   export FNM_PATH="${HOME}/.fnm" && \
   export PATH="$FNM_PATH:$PATH" && \
+# TODO: make an integration for adding completions
   mkdir -p ~/.oh-my-zsh/completions/ && \
   fnm completions --shell zsh  > ~/.oh-my-zsh/completions/_fnm && \
   fnm install 22 && \
