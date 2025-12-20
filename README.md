@@ -3,7 +3,6 @@
 <!-- markdownlint-disable MD013 -->
 
 <!--toc:start-->
-
 - [Dotfiles](#dotfiles)
   - [System](#system)
     - [Setup Environment](#setup-environment)
@@ -19,11 +18,10 @@
     - [Setup Shell](#setup-shell)
   - [Update](#update)
     - [Update Dotfiles](#update-dotfiles)
-    - [Update Integrations](#update-integrations)
-    - [Update Others](#update-others)
-  - [Docker](#docker) - [Run With Docker](#run-with-docker) -
-  [Remove From Docker](#remove-from-docker)
-  <!--toc:end-->
+  - [Docker](#docker)
+    - [Run With Docker](#run-with-docker)
+    - [Remove From Docker](#remove-from-docker)
+<!--toc:end-->
 
 ## System
 
