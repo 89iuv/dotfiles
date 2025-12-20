@@ -16,12 +16,9 @@
   - [Setup](#setup)
     - [Setup Dotfiles](#setup-dotfiles)
     - [Setup Shell](#setup-shell)
-  - [Update](#update)
-    - [Update Dotfiles](#update-dotfiles)
-  - [Docker](#docker)
-    - [Run With Docker](#run-with-docker)
-    - [Remove From Docker](#remove-from-docker)
-<!--toc:end-->
+  - [Docker](#docker) - [Run With Docker](#run-with-docker) -
+  [Remove From Docker](#remove-from-docker)
+  <!--toc:end-->
 
 ## System
 
@@ -198,16 +195,6 @@ sudo chsh -s /usr/bin/zsh "$USER"
 exec zsh --login
 ```
 
-## Update
-
-### Update Dotfiles
-
-```sh
-cd ~/.dotfiles
-git pull
-git submodule update --recursive --init
-```
-
 ## Docker
 
 ### Run With Docker
@@ -263,6 +250,6 @@ Caveats:
 ### Remove From Docker
 
 ```sh
-docker volume rm dotfiles
+docker volume rm code_foundry
 docker image rm 89iuv/dotfiles
 ```
