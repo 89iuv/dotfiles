@@ -16,9 +16,10 @@
   - [Setup](#setup)
     - [Setup Dotfiles](#setup-dotfiles)
     - [Setup Shell](#setup-shell)
-  - [Docker](#docker) - [Run With Docker](#run-with-docker) -
-  [Remove From Docker](#remove-from-docker)
-  <!--toc:end-->
+  - [Docker](#docker)
+    - [Run With Docker](#run-with-docker)
+    - [Remove From Docker](#remove-from-docker)
+<!--toc:end-->
 
 ## System
 
