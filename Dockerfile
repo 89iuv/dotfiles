@@ -10,9 +10,6 @@ ENV USER_UID=1000
 ENV USER_GID=1000
 ENV DOCKER_GID=1001
 
-# create an anonymous volume for home if it's not specified
-VOLUME [ ${HOME} ]
-
 # fail command if pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
