@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eo pipefail
 
 # System
 # update installed packages and repositories
@@ -32,6 +33,11 @@ sudo dnf install -y lazygit
 # install python
 sudo dnf install -y python pip uv
 
+# install python: pyenv dependencies
+sudo dnf install -y make gcc patch zlib-devel bzip2 bzip2-devel \
+  readline-devel sqlite sqlite-devel openssl-devel tk8-devel \
+  libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2 libzstd-devel
+
 # install nodejs
 sudo dnf install -y node
 
@@ -41,6 +47,8 @@ sudo dnf install -y java-latest-openjdk maven
 # install docker
 sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+mkdir -p ~/.oh-my-zsh/completions/
+docker completion zsh > ~/.oh-my-zsh/completions/_docker
 
 # clean up
 sudo dnf clean all
@@ -50,8 +58,29 @@ sudo dnf clean all
 curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz \
 | tar xz
 chmod +x eza
-chown root:root eza
+sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
+
+# install python: pyenv
+curl -fsSL https://pyenv.run | bash
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init - bash)"
+pyenv install 3
+pyenv global 3
+pyenv install 3.8.12
+
+# install nodejs: fnm
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm" --skip-shell
+export PATH="$HOME/.fnm:$PATH"
+eval "$(fnm env --use-on-cd --shell bash)"
+mkdir -p ~/.oh-my-zsh/completions/
+fnm completions --shell zsh > ~/.oh-my-zsh/completions/_fnm
+fnm install 24
+
+# install nodejs: npm: global pckages
+npm install -g @ast-grep/cli
+npm install -g @github/copilot
+npm install -g @angular/cli
 
 # Integations
 # build integrations
@@ -68,7 +97,6 @@ for path in "$HOME"/.dotfiles/*/; do stow -t "$HOME" -d "$HOME"/.dotfiles/ "$(ba
 ~/.dotfiles/catppuccin-delta/install.sh
 ~/.dotfiles/tmux/install.sh
 ~/.dotfiles/nvim/install.sh
-~/.dotfiles/docker/install.sh
 
 # User
 # change shell to zsh
