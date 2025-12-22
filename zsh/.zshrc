@@ -334,6 +334,11 @@ command_not_found_handle () {
   return 127
 }
 
+# source .zshrc_local
+if [ -f "$HOME/.zshrc_local" ]; then
+  source "$HOME"/.zshrc_local
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
