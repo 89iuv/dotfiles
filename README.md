@@ -205,11 +205,11 @@ docker run --rm -it \
 -e USER_UID=$(id -u) \
 -e USER_GID=$(id -g) \
 -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
--v code_foundry:/home/byte_crafter \
+-v dev_container:/home/dev \
 -v /var/run/docker.sock:/var/run/docker.sock \
--v ./:/workspace \
--h code_foundry \
---name code_foundry \
+-v $(pwd):/workspace \
+-h container \
+--name dev_container \
 --detach-keys="ctrl-z,z" \
 89iuv/dotfiles
 ```
@@ -224,14 +224,14 @@ Where:
   to 1000
 - -e DOCKER_GID=$(getent group docker | cut -d: -f3): set the env var DOCKER_GID
   to the host docker gid, defaults to 1001
-- -v code_foundry:/home/byte_crafter: create and mount the volume code_foundry
+- -v container:/home/byte_crafter: create and mount the volume container
   as the byte_crafter home folder
 - -v /var/run/docker.sock:/var/run/docker.sock: enable docker access from the
   container
 - -v ./:/workspace: mount the current folder to /workspace folder in the
   container
-- -h code_foundry: set the hostname to code_foundry
-- --name code_foundry: set the container name to code_foundry
+- -h container: set the hostname to container
+- --name dev_container: set the container name to container
 - --detach-keys="ctrl-z,z": remap the docker detach keymap from Ctrl+p,Ctrl+q to
   Ctrl+z,z
 - 89iuv/dotfiles: download and use the image 89iuv/dotfile
@@ -251,6 +251,6 @@ Caveats:
 ### Remove From Docker
 
 ```sh
-docker volume rm code_foundry
+docker volume rm container
 docker image rm 89iuv/dotfiles
 ```

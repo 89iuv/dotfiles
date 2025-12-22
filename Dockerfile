@@ -2,7 +2,7 @@
 FROM fedora:latest
 
 # set args
-ARG USER="byte_crafter"
+ARG USER="dev"
 ARG HOME="/home/${USER}"
 
 # set environment variables
