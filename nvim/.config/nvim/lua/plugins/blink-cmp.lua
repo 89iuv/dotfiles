@@ -52,6 +52,8 @@ return {
       },
     },
     fuzzy = {
+      -- TODO: remove this once the rust binary is downloaded in headless
+      implementation = "lua",
       max_typos = function(_)
         return 0
       end,

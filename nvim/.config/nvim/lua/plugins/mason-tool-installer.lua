@@ -1,10 +1,6 @@
 return {
   "mason-org/mason.nvim",
   opts = {
-    ensure_installed = {
-      "debugpy", -- used by lazyvim for language python
-      "lemminx",
-    },
     ui = {
       backdrop = 60,
       border = vim.g.border,

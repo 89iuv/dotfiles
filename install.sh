@@ -45,7 +45,7 @@ sudo dnf install -y node
 sudo dnf install -y java-latest-openjdk maven
 
 # install docker
-sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager addrepo --overwrite --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 mkdir -p ~/.oh-my-zsh/completions/
 docker completion zsh > ~/.oh-my-zsh/completions/_docker
@@ -62,6 +62,7 @@ sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 
 # install python: pyenv
+rm -rf "$HOME"/.pyenv
 curl -fsSL https://pyenv.run | bash
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init - bash)"
@@ -70,6 +71,7 @@ pyenv global 3
 pyenv install 3.8.12
 
 # install nodejs: fnm
+rm -rf "$HOME"/.fnm
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.fnm" --skip-shell
 export PATH="$HOME/.fnm:$PATH"
 eval "$(fnm env --use-on-cd --shell bash)"
@@ -100,7 +102,7 @@ for path in "$HOME"/.dotfiles/*/; do stow -t "$HOME" -d "$HOME"/.dotfiles/ "$(ba
 
 # User
 # change shell to zsh
-sudo chsh -s /usr/bin/zsh "$USER"
+sudo chsh -s /usr/bin/zsh "$(whoami)"
 
 # replace shell with new one
 exec zsh --login
