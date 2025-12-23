@@ -21,6 +21,7 @@ RUN \
   sed -i 's/tsflags=nodocs/# tsflags=nodocs/' /etc/dnf/dnf.conf && \
   dnf install -y man man-pages && \
   dnf reinstall -y \* && \
+  dnf install -y ps && \
   dnf clean all
 
 # User
