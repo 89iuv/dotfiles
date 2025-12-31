@@ -191,6 +191,13 @@ fi
 # A trailing space in VALUE causes the next word to be checked for alias substitution when the alias is expanded.
 alias xargs="xargs "
 
+# less
+alias m="less -ir"
+
+# clear
+alias cl="clear"
+alias clx="clear -x"
+
 # tmux
 if type tmux > /dev/null
 then
@@ -198,9 +205,6 @@ then
   alias ta="tmux attach"
   alias tl="tmux ls"
 fi
-
-# less
-alias m="less -ir"
 
 # zoxide
 if type zoxide > /dev/null
