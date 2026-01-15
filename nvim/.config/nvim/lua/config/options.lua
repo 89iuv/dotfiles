@@ -35,6 +35,9 @@ vim.opt.list = true
 
 vim.opt.swapfile = false
 
+-- languages
+vim.g.lazyvim_python_lsp = "basedpyright"
+
 -- disable providers as they are not being used
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

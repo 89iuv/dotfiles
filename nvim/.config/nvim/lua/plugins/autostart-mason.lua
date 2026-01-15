@@ -4,6 +4,7 @@ return {
   opts = {
     ensure_installed = {
       "pyright",
+      "basedpyright",
       "jdtls",
       "ruff",
       "bash-language-server",
