@@ -92,7 +92,7 @@ npm install -g @angular/cli
 ~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
 
 # symlink integrations
-for path in "$HOME"/.dotfiles/*/; do stow -t "$HOME" -d "$HOME"/.dotfiles/ "$(basename "$path")"; done
+for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfiles/ "$(basename "$path")"; done
 
 # install integrations
 ~/.dotfiles/catppuccin-bat/install.sh
