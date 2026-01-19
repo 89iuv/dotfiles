@@ -23,6 +23,16 @@ return {
             },
           },
         },
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              disableOrganizeImports = true,
+              analysis = {
+                typeCheckingMode = "off",
+              },
+            },
+          },
+        },
         ruff = {
           init_options = {
             settings = {
