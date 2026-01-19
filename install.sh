@@ -68,7 +68,6 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init - bash)"
 pyenv install 3
 pyenv global 3
-pyenv install 3.8.12
 
 # install nodejs: fnm
 rm -rf "$HOME"/.fnm
