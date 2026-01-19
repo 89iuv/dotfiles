@@ -10,6 +10,11 @@ return {
         virtual_text = {
           source = true,
           prefix = "■",
+          severity = {
+            vim.diagnostic.severity.INFO,
+            vim.diagnostic.severity.WARN,
+            vim.diagnostic.severity.ERROR,
+          },
         },
         severity_sort = true,
       },
