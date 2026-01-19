@@ -16,7 +16,10 @@ end
 local old_nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.api.nvim_buf_set_extmark = function(buffer, ns_id, line, col, opts)
-  opts.hl_mode = "combine"
+  local ns = vim.api.nvim_get_namespaces()["grug-far-namespace"]
+  if ns == ns_id then
+    opts.hl_mode = "combine"
+  end
   return old_nvim_buf_set_extmark(buffer, ns_id, line, col, opts)
 end
 
