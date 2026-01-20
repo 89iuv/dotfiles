@@ -9,12 +9,10 @@ vim.keymap.set("n", "<M-Left>", ":vertical resize -2<CR>", { silent = true, desc
 vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>", { silent = true, desc = "Increase window width" })
 
 -- Diff windows
-local wk = require("which-key")
-wk.add({ { "<leader>i", icon = { icon = "󰢪 ", color = "yellow" }, group = "diff" } })
-vim.keymap.set("n", "<leader>it", ":diffthis<CR>", { silent = true, desc = "Diff This" })
-vim.keymap.set("n", "<leader>io", ":diffoff<CR>", { silent = true, desc = "Diff Off" })
-vim.keymap.set("n", "<leader>iT", ":windo diffthis<CR>", { silent = true, desc = "Diff This on All" })
-vim.keymap.set("n", "<leader>iO", ":windo diffoff<CR>", { silent = true, desc = "Diff Off on All" })
+vim.keymap.set("n", "<leader>wa", ":diffthis<CR>", { silent = true, desc = "Add to Diff" })
+vim.keymap.set("n", "<leader>wr", ":diffoff<CR>", { silent = true, desc = "Remove from Diff" })
+vim.keymap.set("n", "<leader>wA", ":windo diffthis<CR>", { silent = true, desc = "Add all to Diff" })
+vim.keymap.set("n", "<leader>wR", ":windo diffoff<CR>", { silent = true, desc = "Remove all from Diff" })
 
 -- Incremental selection
 vim.keymap.set({"n", "x", "o"}, "<M-i>", function()
