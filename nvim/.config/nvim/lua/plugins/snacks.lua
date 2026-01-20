@@ -36,6 +36,9 @@ return {
       image = {
         enabled = vim.g.image_support,
       },
+      input = {
+        enabled = true,
+      },
       picker = {
         layout = {
           cycle = true,
@@ -120,6 +123,12 @@ return {
             winblend = vim.o.winblend,
             wrap = true,
           },
+        },
+        input = {
+          width = 30,
+          relative = "cursor",
+          row = -3,
+          col = 0,
         },
       },
       win = {
