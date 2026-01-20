@@ -1,3 +1,4 @@
+local window_width = 40
 local run_in_directory = function(state_tree_node, snacks_picker_function)
   if state_tree_node.type == "directory" then
     snacks_picker_function({
@@ -41,6 +42,22 @@ return {
     popup_border_style = vim.g.border,
     close_if_last_window = true,
     event_handlers = {
+      -- rember window size
+      {
+        event = "neo_tree_window_after_open",
+        handler = function(args)
+          local width = window_width
+          vim.api.nvim_win_set_width(args.winid, width)
+        end,
+      },
+      {
+        event = "neo_tree_window_before_close",
+        handler = function (args)
+          local width = vim.api.nvim_win_get_width(args.winid)
+          window_width = width
+        end
+      },
+      -- resize other windows
       {
         event = "neo_tree_window_after_open",
         handler = function(args)
@@ -97,7 +114,6 @@ return {
       },
     },
     window = {
-      width = 40, -- Applies to left and right positions
       auto_expand_width = false,
       mappings = {
         ["<S-l>"] = "refresh", -- disable keymap as it conflicts with bufferline
