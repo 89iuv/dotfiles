@@ -1,16 +1,3 @@
-local window_width = 40
-local run_in_directory = function(state_tree_node, snacks_picker_function)
-  if state_tree_node.type == "directory" then
-    snacks_picker_function({
-      cwd = state_tree_node:get_id(),
-    })
-  else
-    snacks_picker_function({
-      cwd = state_tree_node:get_parent_id(),
-    })
-  end
-end
-
 return {
   "nvim-neo-tree/neo-tree.nvim",
   lazy = false, -- netrw jacking does not work if plugin is lazy loaded
@@ -38,140 +25,156 @@ return {
       end,
     })
   end,
-  opts = {
-    popup_border_style = vim.g.border,
-    close_if_last_window = true,
-    event_handlers = {
-      -- rember window size
-      {
-        event = "neo_tree_window_after_open",
-        handler = function(args)
-          local width = window_width
-          vim.api.nvim_win_set_width(args.winid, width)
-        end,
-      },
-      {
-        event = "neo_tree_window_before_close",
-        handler = function (args)
-          local width = vim.api.nvim_win_get_width(args.winid)
-          window_width = width
-        end
-      },
-      -- resize other windows
-      {
-        event = "neo_tree_window_after_open",
-        handler = function(args)
-          if args.position == "left" or args.position == "right" then
-            vim.cmd("wincmd =")
-          end
-        end,
-      },
-      {
-        event = "neo_tree_window_after_close",
-        handler = function(args)
-          if args.position == "left" or args.position == "right" then
-            vim.cmd("wincmd =")
-          end
-        end,
-      },
-      {
-        event = "neo_tree_popup_input_ready",
-        handler = function(args)
-          -- map <esc> to enter normal mode (by default closes prompt)
-          vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
-        end,
-      },
-    },
-    default_component_configs = {
-      git_status = {
-        symbols = {
-          modified = "",
-        },
-      },
-      symlink_target = {
-        enabled = true,
-      },
-      container = {
-        enable_character_fade = false,
-      },
-      indent = {
-        padding = 1,
-        with_markers = true,
-        with_expanders = false,
-      },
-      name = {
-        use_git_status_colors = false,
-        right_padding = 1,
-      },
-      file_size = {
-        enabled = false,
-      },
-      type = {
-        enabled = false,
-      },
-      last_modified = {
-        enabled = false,
-      },
-    },
-    window = {
-      auto_expand_width = false,
-      mappings = {
-        ["<S-l>"] = "refresh", -- disable keymap as it conflicts with bufferline
-        ["<leader>ff"] = {
-          function(state)
-            run_in_directory(state.tree:get_node(), Snacks.picker.files)
+  opts = function(_, opts)
+    local window_width = 40
+
+    local run_in_directory = function(state_tree_node, snacks_picker_function)
+      if state_tree_node.type == "directory" then
+        snacks_picker_function({
+          cwd = state_tree_node:get_id(),
+        })
+      else
+        snacks_picker_function({
+          cwd = state_tree_node:get_parent_id(),
+        })
+      end
+    end
+
+    local new_opts = {
+      popup_border_style = vim.g.border,
+      close_if_last_window = true,
+      event_handlers = {
+        -- rember window size
+        {
+          event = "neo_tree_window_after_open",
+          handler = function(args)
+            vim.api.nvim_win_set_width(args.winid, window_width)
           end,
-          desc = "Find Files (Current Node)",
         },
-        ["<leader>sg"] = {
-          function(state)
-            run_in_directory(state.tree:get_node(), Snacks.picker.grep)
+        {
+          event = "neo_tree_window_before_close",
+          handler = function(args)
+            window_width = vim.api.nvim_win_get_width(args.winid)
           end,
-          desc = "Grep (Current Node)",
+        },
+        -- resize other windows
+        {
+          event = "neo_tree_window_after_open",
+          handler = function(args)
+            if args.position == "left" or args.position == "right" then
+              vim.cmd("wincmd =")
+            end
+          end,
+        },
+        {
+          event = "neo_tree_window_after_close",
+          handler = function(args)
+            if args.position == "left" or args.position == "right" then
+              vim.cmd("wincmd =")
+            end
+          end,
+        },
+        {
+          event = "neo_tree_popup_input_ready",
+          handler = function(args)
+            -- map <esc> to enter normal mode (by default closes prompt)
+            vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
+          end,
         },
       },
-    },
-    filesystem = {
-      group_empty_dirs = false,
-      follow_current_file = {
-        enabled = false,
-        leave_dirs_open = true,
-      },
-      filtered_items = {
-        visible = true,
-        hide_gitignored = false,
-        hide_by_name = {
-          "__pycache__",
+      default_component_configs = {
+        git_status = {
+          symbols = {
+            modified = "",
+          },
+        },
+        symlink_target = {
+          enabled = true,
+        },
+        container = {
+          enable_character_fade = false,
+        },
+        indent = {
+          padding = 1,
+          with_markers = true,
+          with_expanders = false,
+        },
+        name = {
+          use_git_status_colors = false,
+          right_padding = 1,
+        },
+        file_size = {
+          enabled = false,
+        },
+        type = {
+          enabled = false,
+        },
+        last_modified = {
+          enabled = false,
         },
       },
-      components = {
-        name = function(config, node, state)
-          local fc = require("neo-tree.sources.filesystem.components")
-          local result = fc.name(config, node, state)
-          if node:get_depth() == 1 and node.type ~= "message" then
-            local project_path = "[" .. string.sub(result.text, 1, -2) .. "]"
-            local project_name = vim.fn.fnamemodify(node.path, ":t")
-            result.text = project_name .. " " .. project_path
-            result = {
-              {
-                text = project_name,
-                highlight = "NeoTreeProjectName",
-              },
-              {
-                text = project_path,
-                highlight = "NeoTreeProjectPath",
-              },
-            }
-          end
-          return result
-        end,
+      window = {
+        auto_expand_width = false,
+        mappings = {
+          ["<S-l>"] = "refresh", -- disable keymap as it conflicts with bufferline
+          ["<leader>ff"] = {
+            function(state)
+              run_in_directory(state.tree:get_node(), Snacks.picker.files)
+            end,
+            desc = "Find Files (Current Node)",
+          },
+          ["<leader>sg"] = {
+            function(state)
+              run_in_directory(state.tree:get_node(), Snacks.picker.grep)
+            end,
+            desc = "Grep (Current Node)",
+          },
+        },
       },
-    },
-    buffers = {
-      follow_current_file = {
-        enabled = false,
-        leave_dirs_open = true,
+      filesystem = {
+        group_empty_dirs = false,
+        follow_current_file = {
+          enabled = false,
+          leave_dirs_open = true,
+        },
+        filtered_items = {
+          visible = true,
+          hide_gitignored = false,
+          hide_by_name = {
+            "__pycache__",
+          },
+        },
+        components = {
+          name = function(config, node, state)
+            local fc = require("neo-tree.sources.filesystem.components")
+            local result = fc.name(config, node, state)
+            if node:get_depth() == 1 and node.type ~= "message" then
+              local project_path = "[" .. string.sub(result.text, 1, -2) .. "]"
+              local project_name = vim.fn.fnamemodify(node.path, ":t")
+              result.text = project_name .. " " .. project_path
+              result = {
+                {
+                  text = project_name,
+                  highlight = "NeoTreeProjectName",
+                },
+                {
+                  text = project_path,
+                  highlight = "NeoTreeProjectPath",
+                },
+              }
+            end
+            return result
+          end,
+        },
       },
-    },
-  },
+      buffers = {
+        follow_current_file = {
+          enabled = false,
+          leave_dirs_open = true,
+        },
+      },
+    }
+
+    return vim.tbl_deep_extend("force", opts, new_opts)
+  end,
 }
