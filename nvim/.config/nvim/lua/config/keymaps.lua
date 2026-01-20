@@ -15,11 +15,11 @@ vim.keymap.set("n", "<leader>wA", ":windo diffthis<CR>", { silent = true, desc =
 vim.keymap.set("n", "<leader>wR", ":windo diffoff<CR>", { silent = true, desc = "Remove all from Diff" })
 
 -- Incremental selection
-vim.keymap.set({"n", "x", "o"}, "<M-i>", function()
+vim.keymap.set({"n", "x", "o"}, "<M-o>", function()
   require("flash").treesitter({
     actions = {
-      ["<M-i>"] = "next",
-      ["<M-o>"] = "prev"
+      ["<M-o>"] = "next", -- outer
+      ["<M-i>"] = "prev" -- inward
     }
   })
 end, { desc = "Treesitter incremental selection" })
