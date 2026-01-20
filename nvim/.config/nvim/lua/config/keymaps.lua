@@ -11,8 +11,10 @@ vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>", { silent = true, des
 -- Diff windows
 local wk = require("which-key")
 wk.add({ { "<leader>i", icon = { icon = "󰢪 ", color = "yellow" }, group = "diff" } })
-vim.keymap.set("n", "<leader>it", ":windo diffthis<CR>", { silent = true, desc = "Diff This on All" })
-vim.keymap.set("n", "<leader>io", ":windo diffoff<CR>", { silent = true, desc = "Diff Off on All" })
+vim.keymap.set("n", "<leader>it", ":diffthis<CR>", { silent = true, desc = "Diff This" })
+vim.keymap.set("n", "<leader>io", ":diffoff<CR>", { silent = true, desc = "Diff Off" })
+vim.keymap.set("n", "<leader>iT", ":windo diffthis<CR>", { silent = true, desc = "Diff This on All" })
+vim.keymap.set("n", "<leader>iO", ":windo diffoff<CR>", { silent = true, desc = "Diff Off on All" })
 
 -- Incremental selection
 vim.keymap.set({"n", "x", "o"}, "<M-i>", function()
