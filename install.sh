@@ -16,7 +16,7 @@ https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm 
 
 # install dependencies
 sudo dnf -y install \
-xclip xsel wl-clipboard \
+xclip xsel \
 git-delta \
 zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
