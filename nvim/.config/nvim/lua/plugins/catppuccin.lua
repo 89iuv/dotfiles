@@ -16,6 +16,8 @@ return {
         WinSeparator = { fg = colors.overlay0, bg = colors.base },
         StatusLine = { bg = colors.crust },
 
+        Folded = { bg = colors.surface0, style = { "italic" } },
+
         LspInlayHint = { fg = colors.overlay0, bg = "NONE", style = { "italic" } },
 
         -- bufferline
