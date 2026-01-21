@@ -1,6 +1,6 @@
 return {
   "b0o/incline.nvim",
-  event = "BufEnter",
+  event = "VeryLazy",
   opts = function()
     local incline = require("incline")
 
@@ -13,9 +13,8 @@ return {
       :map("<leader>ue")
 
     local opts = {
-      -- disable this if using barbar
       hide = {
-        cursorline = "focused_win",
+        cursorline = "smart",
       },
 
       window = {
@@ -39,7 +38,7 @@ return {
           separator = {
             module = "  ",
             group = " | ",
-          }
+          },
         }
 
         local function insert_separator(tbl, sep, gr)
