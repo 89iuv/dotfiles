@@ -32,7 +32,6 @@ return {
       disable_background = {},
     },
     heading = {
-      position = "inline",
       icons = {
         "█ ",
         "██ ",
