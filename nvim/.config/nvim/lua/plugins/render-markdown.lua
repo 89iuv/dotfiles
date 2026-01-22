@@ -65,8 +65,8 @@ return {
     },
     win_options = {
       conceallevel = {
-        default = 0, -- show everything (including links) when not in rendered mode
-        rendered = 3,
+        default = 0,
+        rendered = 0,
       },
     },
   },
