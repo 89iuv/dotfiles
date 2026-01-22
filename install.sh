@@ -49,6 +49,9 @@ sudo dnf config-manager addrepo --overwrite --from-repofile https://download.doc
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 mkdir -p ~/.oh-my-zsh/completions/
 docker completion zsh > ~/.oh-my-zsh/completions/_docker
+sudo usermod -aG docker "$USER"
+# this works on local and ignored in docker container
+sudo systemctl enable --now docker.service
 
 # clean up
 sudo dnf clean all
@@ -101,7 +104,7 @@ for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfile
 
 # User
 # change shell to zsh
-sudo chsh -s /usr/bin/zsh "$(whoami)"
+sudo chsh -s /usr/bin/zsh "$USER"
 
 # replace shell with new one
 exec zsh --login
