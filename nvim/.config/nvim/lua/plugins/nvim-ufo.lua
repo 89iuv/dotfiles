@@ -18,6 +18,7 @@ return {
 
         if targetWidth > curWidth + chunkWidth then
           table.insert(newVirtText, chunk)
+
         else
           chunkText = truncate(chunkText, targetWidth - curWidth)
           local hlGroup = chunk[2]
@@ -28,6 +29,7 @@ return {
           if curWidth + chunkWidth < targetWidth then
             suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
           end
+
           break
         end
 
