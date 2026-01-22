@@ -45,6 +45,8 @@ return {
       return { "treesitter", "indent" }
     end
 
+    opts.open_fold_hl_timeout = 350
+
     return opts
   end,
 }
