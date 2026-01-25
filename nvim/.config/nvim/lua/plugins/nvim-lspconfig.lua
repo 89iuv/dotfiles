@@ -28,6 +28,18 @@ return {
             },
           },
         },
+        -- fix for lua_ls server not loading
+        -- https://github.com/folke/lazydev.nvim/issues/136#issuecomment-3796597122
+        lua_ls = {
+          settings = {
+            Lua = {
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+              telemetry = { enabled = false },
+            },
+          },
+        },
         basedpyright = {
           settings = {
             basedpyright = {
