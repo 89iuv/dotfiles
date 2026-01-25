@@ -8,11 +8,14 @@ sudo dnf -y update
 # install development tools: git, c compiler, make, etc
 sudo dnf -y group install c-development development-tools
 
-# enable rpm fusion free
+# enable rpm fusion free and nonfree
 sudo dnf -y install \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm
 sudo dnf -y install \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
+
+# install multimedia: swap ffmpeg
+sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
 
 # install dependencies
 sudo dnf -y install \
