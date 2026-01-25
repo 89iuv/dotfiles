@@ -2,12 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Resize window using Meta (Alt) key
-vim.keymap.set("n", "<M-Up>", ":resize +2<CR>", { silent = true, desc = "Increase window height" })
-vim.keymap.set("n", "<M-Down>", ":resize -2<CR>", { silent = true, desc = "Decrease window height" })
-vim.keymap.set("n", "<M-Left>", ":vertical resize -2<CR>", { silent = true, desc = "Decrease window width" })
-vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>", { silent = true, desc = "Increase window width" })
-
 -- Diff windows
 vim.keymap.set("n", "<leader>wa", ":diffthis<CR>", { silent = true, desc = "Add to Diff" })
 vim.keymap.set("n", "<leader>wr", ":diffoff<CR>", { silent = true, desc = "Remove from Diff" })
