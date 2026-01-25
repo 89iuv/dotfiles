@@ -32,7 +32,8 @@ return {
         BufferLineOffsetSeparator = { fg = colors.overlay0, bg = colors.mantle },
         BufferLineTruncMarker = { fg = colors.surface2, bg = colors.mantle },
 
-        BufferLineBuffer = { fg = colors.overlay2, bg = colors.mantle },
+        BufferLineBuffer = { fg = colors.overlay0, bg = colors.mantle },
+        BufferLineBackground = { link = "BufferLineBuffer" },
         BufferLineError = { link = "BufferLineBuffer" },
         BufferLineWarning = { link = "BufferLineBuffer" },
         BufferLineInfo = { link = "BufferLineBuffer" },
@@ -44,7 +45,7 @@ return {
         BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
 
-        BufferLineBufferVisible = { fg = colors.lavender, bg = colors.mantle },
+        BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
         BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
         BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },

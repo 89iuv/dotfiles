@@ -1,13 +1,13 @@
 return {
   "akinsho/bufferline.nvim",
   event = "BufEnter",
-  enabled = true,
   keys = {
     { "<M-[>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
     { "<M-]>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     { "<M-{>", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
     { "<M-}>", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
   },
+  enabled = true,
   opts = function(_, opts)
     local project_exporer_filetypes = {
       "neo-tree",
