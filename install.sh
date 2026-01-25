@@ -92,8 +92,9 @@ npm install -g @angular/cli
 # Integations
 # build integrations
 ~/.dotfiles/catppuccin-bat/build.sh
-~/.dotfiles/catppuccin-delta/build.sh
 ~/.dotfiles/catppuccin-btop/build.sh
+~/.dotfiles/catppuccin-delta/build.sh
+~/.dotfiles/catppuccin-eza/build.sh
 ~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
 
 # symlink integrations
