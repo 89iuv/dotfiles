@@ -1,5 +1,9 @@
 return {
-  "lukas-reineke/virt-column.nvim",
+  -- fix for: https://github.com/lukas-reineke/virt-column.nvim/issues/49
+  "IronGeek/virt-column.nvim",
+  branch = "fix/off-by-one",
+
+  -- "lukas-reineke/virt-column.nvim"
   dependencies = {
     "folke/snacks.nvim",
     opts = function()
