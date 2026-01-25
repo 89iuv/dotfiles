@@ -25,3 +25,6 @@
 [submodule "catppuccin-btop/btop"]
 	path = catppuccin-btop/btop
 	url = https://github.com/catppuccin/btop.git
+[submodule "catppuccin-eza/eza"]
+	path = catppuccin-eza/eza
+	url = https://github.com/catppuccin/eza.git
