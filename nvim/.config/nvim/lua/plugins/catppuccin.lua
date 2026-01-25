@@ -45,7 +45,7 @@ return {
         BufferLineHintSelected = { link = "BufferLineBufferSelected" },
         BufferLineInfoSelected = { link = "BufferLineBufferSelected" },
 
-        BufferLineBufferVisible = { fg = colors.subtext0, bg = colors.mantle },
+        BufferLineBufferVisible = { fg = colors.text, bg = colors.mantle },
         BufferLineErrorVisible = { link = "BufferLineBufferVisible" },
         BufferLineWarningVisible = { link = "BufferLineBufferVisible" },
         BufferLineInfoVisible = { link = "BufferLineBufferVisible" },
