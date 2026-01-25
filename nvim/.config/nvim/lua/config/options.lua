@@ -11,11 +11,11 @@
 
 vim.g.animate_fps = 60
 
-vim.g.snacks_animate = false
 vim.g.smear_cursor_animate = true
 vim.g.mini_indentscope_animate = false
-vim.g.virt_column = false
+vim.g.snacks_animate = false
 vim.g.image_support = false
+vim.g.virt_column = true
 vim.g.border = "single"
 
 vim.g.trouble_lualine = false
@@ -27,15 +27,12 @@ vim.opt.pumblend = 0
 vim.opt.winblend = 0
 
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon0-blinkoff0-blinkwait0"
--- vim.opt.conceallevel = 0
-
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.relativenumber = true
 vim.opt.list = true
-
 vim.opt.swapfile = false
 
--- languages
+-- programing languages lsp
 vim.g.lazyvim_python_lsp = "basedpyright"
 
 -- disable providers as they are not being used

@@ -80,7 +80,7 @@ return {
 
     return {
       enabled = vim.g.virt_column,
-      char = { "┃", "│" },
+      char = { "│", "┃" },
       virtcolumn = "80,120",
       highlight = "VirtColumn",
       exclude = {

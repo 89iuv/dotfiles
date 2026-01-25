@@ -28,6 +28,26 @@ return {
           enabled = false,
         },
       },
+      progress = {
+        format = {
+          {
+            "{progress} ",
+            key = "progress.percentage",
+            contents = {
+              { "{data.progress.message} " },
+            },
+          },
+          { "({data.progress.percentage}%) ", hl_group = "NoiceLspProgressTitle" },
+          { "{spinner} ", hl_group = "NoiceLspProgressSpinner" },
+          { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+          { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+        },
+        format_done = {
+          { " ✓ ", hl_group = "NoiceLspProgressSpinner" },
+          { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+          { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+        },
+      },
     },
     views = {
       popup = {
@@ -48,6 +68,11 @@ return {
       confirm = {
         border = {
           style = vim.g.border,
+        },
+      },
+      mini = {
+        size = {
+          max_height = 4,
         },
       },
     },

@@ -93,14 +93,27 @@ return {
 
         InclineSeparator = { fg = colors.overlay0, bg = colors.mantle },
 
-        InclineLspIcon = { fg = colors.subtext0 },
+        InclineLspIcon = { fg = colors.lavender },
         InclineLsp = { link = "InclineNormal" },
 
-        InclineLinterIcon = { fg = colors.subtext0 },
+        InclineLinterIcon = { fg = colors.lavender },
         InclineLinter = { link = "InclineNormal" },
 
-        InclineFormatterIcon = { fg = colors.subtext0 },
+        InclineFormatterIcon = { fg = colors.lavender },
         InclineFormatter = { link = "InclineNormal" },
+
+        -- virtual columnh
+        VirtColumn = { fg = colors.surface0 },
+
+        -- noice
+        NoiceMini = { fg = colors.subtext0, bg = colors.mantle },
+
+        NoiceFormatProgressTodo = { fg = colors.lavender, bg = colors.mantle },
+        NoiceFormatProgressDone = { fg = colors.mantle, bg = colors.lavender },
+
+        NoiceLspProgressTitle = { fg = colors.subtext0, bg = colors.mantle },
+        NoiceLspProgressClient = { fg = colors.lavender, bg = colors.mantle },
+        NoiceLspProgressSpinner = { fg = colors.lavender, bg = colors.mantle },
 
         -- snacks
         SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },
