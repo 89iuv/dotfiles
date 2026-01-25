@@ -28,12 +28,13 @@ gui:
       - "#cad3f5"
     searchingActiveBorderColor:
       - "#eed49f"
+
   authorColors:
     "*": "#b7bdf8"
-  nerdFontsVersion: "3"
-  # showFileIcons: false
 
   # Window border style.
   # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
   border: single
+
+  nerdFontsVersion: "3"
   showBottomLine: true
