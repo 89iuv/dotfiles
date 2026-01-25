@@ -30,7 +30,7 @@ stress hyperfine \
 fastfetch
 
 # install lazygit
-sudo dnf copr enable -y atim/lazygit
+sudo dnf copr enable -y dejan/lazygit
 sudo dnf install -y lazygit
 
 # install python
