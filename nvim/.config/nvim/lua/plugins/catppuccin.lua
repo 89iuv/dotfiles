@@ -93,8 +93,13 @@ return {
 
         InclineSeparator = { fg = colors.overlay0, bg = colors.mantle },
 
+        InclineLspIcon = { fg = colors.peach },
         InclineLsp = { link = "InclineNormal" },
+
+        InclineLinterIcon = { fg = colors.peach },
         InclineLinter = { link = "InclineNormal" },
+
+        InclineFormatterIcon = { fg = colors.peach },
         InclineFormatter = { link = "InclineNormal" },
 
         -- snacks
