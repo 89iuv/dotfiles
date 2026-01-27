@@ -15,6 +15,8 @@ return {
     local side_bar_filetypes = {
       trouble = "Trouble",
       snacks_terminal = "Terminal",
+      help = "Help",
+      ["grug-far"] = "Search and Replace",
     }
 
     local offsets = {}

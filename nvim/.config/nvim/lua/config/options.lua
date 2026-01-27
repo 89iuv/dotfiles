@@ -40,3 +40,53 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
+
+vim.g.special_filetypes = {
+  -- default
+  "lspinfo",
+  "packer",
+  "checkhealth",
+  "help",
+  "man",
+  "gitcommit",
+  "TelescopePrompt",
+  "TelescopeResults",
+
+  -- lazy
+  "Trouble",
+  "alpha",
+  "dashboard",
+  "fzf",
+  "help",
+  "lazy",
+  "mason",
+  "neo-tree",
+  "notify",
+  "snacks_dashboard",
+  "snacks_notif",
+  "snacks_terminal",
+  "snacks_win",
+  "toggleterm",
+  "trouble",
+
+  -- custom
+  -- "markdown",
+  "snacks_picker_preview",
+  "snacks_picker_list",
+  "snacks_picker_input",
+  "snacks_input",
+  "neo-tree-popup",
+  "text",
+  "noice",
+}
+
+vim.g.special_buftypes = {
+  -- default
+  "nofile",
+  "terminal",
+  "quickfix",
+  "prompt",
+
+  -- custom
+  "help",
+}

@@ -57,6 +57,16 @@ return {
       return merge_configs("overwrite", M.config or M.default_config, M.buffer_config[bufnr])
     end
 
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(event)
+        if vim.bo[event.buf].filetype == "markdown" then
+          require("virt-column").setup_buffer(event.buf, {
+            enabled = false,
+          })
+        end
+      end,
+    })
+
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "*:n",
       callback = function(event)
@@ -88,10 +98,7 @@ return {
       virtcolumn = "80,120",
       highlight = "VirtColumn",
       exclude = {
-        filetypes = {
-          "markdown",
-          "snacks_picker_preview",
-        },
+        filetypes = vim.g.special_filetypes,
       },
     }
   end,

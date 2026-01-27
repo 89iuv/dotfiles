@@ -4,55 +4,8 @@ return {
   opts = function(_, opts)
     local mini_indentscope = require("mini.indentscope")
 
-    local excluded_filetype = {
-      -- default
-      "lspinfo",
-      "packer",
-      "checkhealth",
-      "help",
-      "man",
-      "gitcommit",
-      "TelescopePrompt",
-      "TelescopeResults",
-
-      -- lazy
-      "Trouble",
-      "alpha",
-      "dashboard",
-      "fzf",
-      "help",
-      "lazy",
-      "mason",
-      "neo-tree",
-      "notify",
-      "snacks_dashboard",
-      "snacks_notif",
-      "snacks_terminal",
-      "snacks_win",
-      "toggleterm",
-      "trouble",
-
-      -- custom
-      "markdown",
-      -- "snacks_picker_preview",
-      "snacks_picker_list",
-      "snacks_picker_input",
-      "snacks_input",
-      "neo-tree-popup",
-      "text",
-      "noice",
-    }
-
-    local excluded_buftype = {
-      -- default
-      "nofile",
-      "terminal",
-      "quickfix",
-      "prompt",
-
-      -- custom
-      "help",
-    }
+    local excluded_filetype = vim.g.special_filetypes
+    local excluded_buftype = vim.g.special_buftypes
 
     Snacks.toggle
       .new({
@@ -107,10 +60,37 @@ return {
       end,
     })
 
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(event)
+        if vim.bo[event.buf].filetype == "markdown" then
+            vim.b.miniindentscope_disable = true
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("ModeChanged", {
+      pattern = "*:n",
+      callback = function(event)
+        if vim.bo[event.buf].filetype == "markdown" then
+            vim.b.miniindentscope_disable = true
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("ModeChanged", {
+      pattern = "n:*",
+      callback = function(event)
+        if vim.bo[event.buf].filetype == "markdown" then
+            vim.b.miniindentscope_disable = false
+        end
+      end,
+    })
+
     local new_opts = {
       draw = {
-        delay = 80,
-        animation = vim.g.mini_indentscope_animate and mini_indentscope.gen_animation.linear()
+        delay = 160,
+        animation = vim.g.mini_indentscope_animate
+          and mini_indentscope.gen_animation.linear()
           or mini_indentscope.gen_animation.none(),
       },
       options = {

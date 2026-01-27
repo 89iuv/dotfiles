@@ -12,8 +12,39 @@ return {
       end,
     }):map("<leader>ug")
 
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(event)
+        if vim.bo[event.buf].filetype == "markdown" then
+          require("ibl").setup_buffer(event.buf, {
+            enabled = false,
+         })
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("ModeChanged", {
+      pattern = "*:n",
+      callback = function(event)
+        if vim.bo[event.buf].filetype == "markdown" then
+          require("ibl").setup_buffer(event.buf, {
+            enabled = false,
+         })
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("ModeChanged", {
+      pattern = "n:*",
+      callback = function(event)
+        if vim.bo[event.buf].filetype == "markdown" then
+          require("ibl").setup_buffer(event.buf, {
+            enabled = true,
+          })
+        end
+      end,
+    })
     require("ibl").setup({
-      debounce = 160,
+      debounce = 80,
       indent = {
         char = "│",
       },
@@ -24,54 +55,8 @@ return {
 
     require("ibl").overwrite({
       exclude = {
-        filetypes = {
-          -- default
-          "lspinfo",
-          "packer",
-          "checkhealth",
-          "help",
-          "man",
-          "gitcommit",
-          "TelescopePrompt",
-          "TelescopeResults",
-
-          -- lazy
-          "Trouble",
-          "alpha",
-          "dashboard",
-          "fzf",
-          "help",
-          "lazy",
-          "mason",
-          "neo-tree",
-          "notify",
-          "snacks_dashboard",
-          "snacks_notif",
-          "snacks_terminal",
-          "snacks_win",
-          "toggleterm",
-          "trouble",
-
-          -- custom
-          "markdown",
-          -- "snacks_picker_preview",
-          "snacks_picker_list",
-          "snacks_picker_input",
-          "snacks_input",
-          "neo-tree-popup",
-          "text",
-        },
-
-        buftypes = {
-          -- default
-          "nofile",
-          "terminal",
-          "quickfix",
-          "prompt",
-
-          -- custom
-          "help",
-        },
+        filetypes = vim.g.special_filetypes,
+        buftypes = vim.g.special_buftypes,
       },
     })
   end,
