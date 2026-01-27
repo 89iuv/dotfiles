@@ -56,7 +56,7 @@ return {
         modified_icon = "● ",
         left_trunc_marker = "󰁍",
         right_trunc_marker = "󰁔",
-        separator_style = { "|", "|" },
+        separator_style = { "│", "│" },
         diagnostics_indicator = function(_, _, diag)
           local icons = LazyVim.config.icons.diagnostics
           local ret = ""
