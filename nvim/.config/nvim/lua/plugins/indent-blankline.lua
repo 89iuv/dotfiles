@@ -54,7 +54,7 @@ return {
 
           -- custom
           "markdown",
-          "snacks_picker_preview",
+          -- "snacks_picker_preview",
           "snacks_picker_list",
           "snacks_picker_input",
           "snacks_input",
@@ -68,6 +68,9 @@ return {
           "terminal",
           "quickfix",
           "prompt",
+
+          -- custom
+          "help",
         },
       },
     })

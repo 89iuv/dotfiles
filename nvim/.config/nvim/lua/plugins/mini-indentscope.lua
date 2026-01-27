@@ -5,43 +5,54 @@ return {
     local mini_indentscope = require("mini.indentscope")
 
     local excluded_filetype = {
-          -- default
-          "lspinfo",
-          "packer",
-          "checkhealth",
-          "help",
-          "man",
-          "gitcommit",
-          "TelescopePrompt",
-          "TelescopeResults",
+      -- default
+      "lspinfo",
+      "packer",
+      "checkhealth",
+      "help",
+      "man",
+      "gitcommit",
+      "TelescopePrompt",
+      "TelescopeResults",
 
-          -- lazy
-          "Trouble",
-          "alpha",
-          "dashboard",
-          "fzf",
-          "help",
-          "lazy",
-          "mason",
-          "neo-tree",
-          "notify",
-          "snacks_dashboard",
-          "snacks_notif",
-          "snacks_terminal",
-          "snacks_win",
-          "toggleterm",
-          "trouble",
+      -- lazy
+      "Trouble",
+      "alpha",
+      "dashboard",
+      "fzf",
+      "help",
+      "lazy",
+      "mason",
+      "neo-tree",
+      "notify",
+      "snacks_dashboard",
+      "snacks_notif",
+      "snacks_terminal",
+      "snacks_win",
+      "toggleterm",
+      "trouble",
 
-          -- custom
-          "markdown",
-          "snacks_picker_preview",
-          "snacks_picker_list",
-          "snacks_picker_input",
-          "snacks_input",
-          "neo-tree-popup",
-          "text",
-          "noice",
-        }
+      -- custom
+      "markdown",
+      -- "snacks_picker_preview",
+      "snacks_picker_list",
+      "snacks_picker_input",
+      "snacks_input",
+      "neo-tree-popup",
+      "text",
+      "noice",
+    }
+
+    local excluded_buftype = {
+      -- default
+      "nofile",
+      "terminal",
+      "quickfix",
+      "prompt",
+
+      -- custom
+      "help",
+    }
 
     Snacks.toggle
       .new({
@@ -71,7 +82,7 @@ return {
     -- disable mini indent scope for buftypes
     vim.api.nvim_create_autocmd("BufEnter", {
       callback = function()
-        local patterns = excluded_filetype
+        local patterns = excluded_buftype
         for _, pattern in ipairs(patterns) do
           if pattern == vim.bo.buftype then
             vim.b.miniindentscope_disable = true
@@ -89,6 +100,7 @@ return {
         "sh",
         "http",
         "dockerfile",
+        "markdown",
       },
       callback = function()
         vim.b.miniindentscope_config = { options = { border = "top" } }

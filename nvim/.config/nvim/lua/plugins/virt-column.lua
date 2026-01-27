@@ -90,6 +90,7 @@ return {
       exclude = {
         filetypes = {
           "markdown",
+          "snacks_picker_preview",
         },
       },
     }
