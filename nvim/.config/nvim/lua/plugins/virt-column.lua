@@ -1,26 +1,8 @@
 return {
   -- fix for: https://github.com/lukas-reineke/virt-column.nvim/issues/49
+  -- "lukas-reineke/virt-column.nvim"
   "IronGeek/virt-column.nvim",
   branch = "fix/off-by-one",
-
-  -- "lukas-reineke/virt-column.nvim"
-  dependencies = {
-    "folke/snacks.nvim",
-    opts = function()
-      Snacks.toggle
-        .new({
-          name = "Line Column",
-          get = function()
-            return vim.g.virt_column
-          end,
-          set = function(state)
-            vim.g.virt_column = state
-            require("virt-column").update({ enabled = vim.g.virt_column })
-          end,
-        })
-        :map("<leader>uu")
-    end,
-  },
   enabled = true,
   lazy = true,
   event = function()
@@ -29,6 +11,19 @@ return {
     end
   end,
   opts = function()
+    Snacks.toggle
+      .new({
+        name = "Line Column",
+        get = function()
+          return vim.g.virt_column
+        end,
+        set = function(state)
+          vim.g.virt_column = state
+          require("virt-column").update({ enabled = vim.g.virt_column })
+        end,
+      })
+      :map("<leader>uu")
+
     -- WARN: ugly hack in order to let the buffer overwrite the config
     local M = require("virt-column.config")
     local utils = require("virt-column.utils")

@@ -17,7 +17,7 @@ return {
         if vim.bo[event.buf].filetype == "markdown" then
           require("ibl").setup_buffer(event.buf, {
             enabled = false,
-         })
+          })
         end
       end,
     })
@@ -28,7 +28,7 @@ return {
         if vim.bo[event.buf].filetype == "markdown" then
           require("ibl").setup_buffer(event.buf, {
             enabled = false,
-         })
+          })
         end
       end,
     })

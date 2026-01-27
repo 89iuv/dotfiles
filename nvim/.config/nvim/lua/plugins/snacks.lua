@@ -18,6 +18,9 @@ return {
       animate = {
         fps = vim.g.animate_fps,
       },
+      scroll = {
+        enabled = false,
+      },
       dashboard = {
         preset = {
           keys = {

@@ -12,7 +12,6 @@
 vim.g.animate_fps = 60
 
 vim.g.smear_cursor_animate = true
-vim.g.mini_indentscope_animate = false
 vim.g.snacks_animate = false
 vim.g.image_support = false
 vim.g.virt_column = true

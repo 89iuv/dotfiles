@@ -9,17 +9,12 @@ return {
 
     Snacks.toggle
       .new({
-        name = "Scope Animation",
+        name = "Indentation Scope",
         get = function()
-          return vim.g.mini_indentscope_animate
+          return vim.b.miniindentscope_disable
         end,
         set = function(state)
-          vim.g.mini_indentscope_animate = state
-          if state then
-            mini_indentscope.config.draw.animation = mini_indentscope.gen_animation.linear()
-          else
-            mini_indentscope.config.draw.animation = mini_indentscope.gen_animation.none()
-          end
+          vim.b.miniindentscope_disable = state
         end,
       })
       :map("<leader>uX")
@@ -89,9 +84,7 @@ return {
     local new_opts = {
       draw = {
         delay = 160,
-        animation = vim.g.mini_indentscope_animate
-          and mini_indentscope.gen_animation.linear()
-          or mini_indentscope.gen_animation.none(),
+        animation = mini_indentscope.gen_animation.none(),
       },
       options = {
         border = "both",
