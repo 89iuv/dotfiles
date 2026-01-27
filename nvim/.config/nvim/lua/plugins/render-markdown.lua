@@ -7,9 +7,6 @@ return {
       lsp = {
         enabled = true,
       },
-      blink = {
-        enabled = true,
-      },
     },
     anti_conceal = {
       enabled = true,

@@ -23,11 +23,6 @@ return {
       },
     },
     lsp = {
-      signature = {
-        auto_open = {
-          enabled = false,
-        },
-      },
       progress = {
         format = {
           {
@@ -47,6 +42,17 @@ return {
           { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
           { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
         },
+      },
+      override = {
+        -- override the default lsp markdown formatter with Noice
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+        -- override the lsp markdown formatter with Noice
+        ["vim.lsp.util.stylize_markdown"] = false,
+        -- override cmp documentation with Noice (needs the other options to work)
+        ["cmp.entry.get_documentation"] = false,
+      },
+      signature = {
+        enabled = false,
       },
     },
     views = {
