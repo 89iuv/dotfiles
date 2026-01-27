@@ -262,8 +262,12 @@ then
   alias '??'='noglob ask'
 fi
 
+# move word by word
+bindkey '^w' backward-kill-word
+bindkey '^f' forward-word
+
 # format the current command in neovim keybind
-bindkey '^f' edit-command-line
+bindkey '^s' edit-command-line
 
 # super tab keybind
 super-tab() {
