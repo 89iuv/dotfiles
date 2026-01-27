@@ -40,6 +40,7 @@ return {
           "snacks_input",
           "neo-tree-popup",
           "text",
+          "noice",
         }
 
     Snacks.toggle
