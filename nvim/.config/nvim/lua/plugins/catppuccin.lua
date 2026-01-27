@@ -78,11 +78,9 @@ return {
         NeoTreeProjectPath = { link = "NeoTreeDotfile" },
 
         -- blink border
-        BlinkCmpMenuBorder = { fg = colors.surface2, bg = colors.mantle },
+        BlinkCmpMenuBorder = { link = "FloatBorder" },
         BlinkCmpDocBorder = { link = "BlinkCmpMenuBorder" },
-
-        -- blink completion dictionary
-        BlinkCmpKindDict = { fg = colors.teal },
+        BlinkCmpDocSeparator = { link = "@punctuation.special.markdown" },
 
         -- mini indent scope
         MiniIndentscopeSymbol = { fg = colors.surface2 },

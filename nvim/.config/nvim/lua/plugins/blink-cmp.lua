@@ -1,5 +1,8 @@
 return {
   "saghen/blink.cmp",
+  dependencies = {
+    "folke/noice.nvim"
+  },
   opts = {
     appearance = {
       nerd_font_variant = "mono", -- mono | normal
@@ -27,7 +30,25 @@ return {
         },
       },
       documentation = {
-        auto_show = false,
+        auto_show = true,
+        treesitter_highlighting = true,
+        draw = function(opts)
+          if opts.item.client_name == "basedpyright" then
+            vim.api.nvim_buf_set_lines(opts.window.buf, 0, -1, false, {})
+
+            local noice_override = require("noice.lsp.override")
+            noice_override.stylize_markdown(opts.window.buf, {
+              opts.item.detail and opts.item.detail .. "\n---" or "",
+              opts.item.documentation.value,
+            })
+
+            vim.treesitter.start(opts.window.buf, "python")
+
+          else
+            opts.default_implementation(opts)
+
+          end
+        end,
         window = {
           border = vim.g.border,
           winblend = vim.o.winblend,
