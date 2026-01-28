@@ -14,8 +14,23 @@ https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fe
 sudo dnf -y install \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
 
-# install multimedia: swap ffmpeg
-sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
+## basic drivers and Vulkan support
+sudo dnf install -y mesa-dri-drivers mesa-vulkan-drivers vulkan-loader mesa-libGLU
+
+# replace the neutered ffmpeg with the real one
+sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
+
+# install all the GStreamer plugins
+sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} \
+  gstreamer1-plugin-openh264 gstreamer1-libav lame\* \
+  --exclude=gstreamer1-plugins-bad-free-devel
+
+# install multimedia groups
+sudo dnf group install -y multimedia
+sudo dnf group install -y sound-and-video
+
+# install VA-API stuff
+sudo dnf install -y ffmpeg-libs libva libva-utils
 
 # install dependencies
 sudo dnf -y install \
