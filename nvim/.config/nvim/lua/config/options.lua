@@ -27,7 +27,7 @@ vim.opt.winblend = 0
 
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon0-blinkoff0-blinkwait0"
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.list = true
 vim.opt.swapfile = false
 

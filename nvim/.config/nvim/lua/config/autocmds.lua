@@ -122,26 +122,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Disable relative line number when entering insert mode
-vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "*:i",
-  callback = function()
-    if vim.wo.number == true then
-      vim.wo.relativenumber = false
-    end
-  end,
-})
-
--- Enable relative line number when exiting insert mode
-vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "i:*",
-  callback = function()
-    if vim.wo.number == true then
-      vim.wo.relativenumber = true
-    end
-  end,
-})
-
 -- Change cursor type to beam on exit
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
