@@ -13,7 +13,7 @@ git config --global delta.navigate true
 git config --global delta.line-numbers true
 
 git config --global delta.commit-decoration-style "bold"
-git config --global delta.file-decoration-style "ul"
+git config --global delta.file-decoration-style "ul #939ab7"
 
 git config --global delta.hunk-header-style omit
 git config --global delta.hunk-header-decoration-style "box"
