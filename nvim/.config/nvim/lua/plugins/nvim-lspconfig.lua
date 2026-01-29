@@ -28,7 +28,7 @@ return {
             },
           },
         },
-        -- fix for lua_ls server not loading
+        -- HACK: for lua_ls server not loading
         -- https://github.com/folke/lazydev.nvim/issues/136#issuecomment-3796597122
         lua_ls = {
           settings = {
@@ -44,9 +44,9 @@ return {
         basedpyright = {
           settings = {
             basedpyright = {
-              openFilesOnly = false,
               disableOrganizeImports = true,
               analysis = {
+                diagnosticMode = "workspace",
                 typeCheckingMode = "standard",
               },
             },
