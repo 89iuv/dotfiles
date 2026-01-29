@@ -38,6 +38,10 @@ return {
                   vim.api.nvim_get_runtime_file("", true),
                 },
               },
+              hint = {
+                setType = true,
+                paramName = "All"
+              }
             },
           },
         },
