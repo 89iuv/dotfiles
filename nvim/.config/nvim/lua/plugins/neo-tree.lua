@@ -150,10 +150,14 @@ return {
         },
         filtered_items = {
           visible = true,
-          hide_gitignored = false,
-          hide_by_name = {
-            "__pycache__",
+          show_hidden_count = false,
+          hide_by_pattern = {
+            "__*__"
           },
+          never_show = {
+            "__pycache__",
+            ".pytest_cache"
+          }
         },
         components = {
           name = function(config, node, state)

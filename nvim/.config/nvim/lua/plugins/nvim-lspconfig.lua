@@ -35,7 +35,7 @@ return {
             Lua = {
               workspace = {
                 library = {
-                  vim.api.nvim_get_runtime_file("", true)
+                  vim.api.nvim_get_runtime_file("", true),
                 },
               },
             },
@@ -44,9 +44,10 @@ return {
         basedpyright = {
           settings = {
             basedpyright = {
+              openFilesOnly = false,
               disableOrganizeImports = true,
               analysis = {
-                typeCheckingMode = "off",
+                typeCheckingMode = "standard",
               },
             },
           },
@@ -72,6 +73,9 @@ return {
               },
             },
           },
+        },
+        taplo = {
+          root_markers = { ".taplo.toml", "taplo.toml", ".git", ".root" },
         },
       },
     }
