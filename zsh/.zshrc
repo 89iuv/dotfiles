@@ -265,9 +265,10 @@ fi
 # move word by word
 bindkey '^w' backward-kill-word
 bindkey '^f' forward-word
+bindkey '^b' backward-word
 
 # format the current command in neovim keybind
-bindkey '^s' edit-command-line
+bindkey '^x^e' edit-command-line
 
 # super tab keybind
 super-tab() {
