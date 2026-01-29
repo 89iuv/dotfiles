@@ -24,11 +24,22 @@ return {
       enabled = true,
     },
     code = {
+      sign = true,
+      language_icon = false,
       width = "full",
       border = "thin",
       disable_background = {},
     },
     heading = {
+      sign = true,
+      signs = {
+        "󰉫 ",
+        "󰉬 ",
+        "󰉭 ",
+        "󰉮 ",
+        "󰉯 ",
+        "󰉰 ",
+      },
       icons = {
         "█ ",
         "██ ",
