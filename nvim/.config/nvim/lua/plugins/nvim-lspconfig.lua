@@ -46,7 +46,7 @@ return {
             basedpyright = {
               disableOrganizeImports = true,
               analysis = {
-                diagnosticMode = "workspace",
+                diagnosticMode = "openFilesOnly",
                 typeCheckingMode = "standard",
               },
             },
