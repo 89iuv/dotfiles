@@ -24,14 +24,14 @@ return {
       enabled = true,
     },
     code = {
-      sign = true,
-      language_icon = false,
+      sign = false,
+      language_icon = true,
       width = "full",
       border = "thin",
       disable_background = {},
     },
     heading = {
-      sign = true,
+      sign = false,
       signs = {
         "󰉫 ",
         "󰉬 ",
