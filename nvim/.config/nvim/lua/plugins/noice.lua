@@ -77,8 +77,13 @@ return {
         },
       },
       mini = {
+        timeout = 3000,
         size = {
-          max_height = 4,
+          max_height = 5,
+        },
+        win_options = {
+          wrap = true,
+          linebreak = true,
         },
       },
     },
