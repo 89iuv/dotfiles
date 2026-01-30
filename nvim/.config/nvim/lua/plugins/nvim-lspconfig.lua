@@ -59,22 +59,7 @@ return {
         ruff = {
           init_options = {
             settings = {
-              lineLength = 120,
               configurationPreference = "filesystemFirst",
-              lint = {
-                select = {
-                  "E", -- pycodestyle
-                  "F", -- Pyflakes
-                  "UP", -- pyupgrade
-                  "B", -- flake8-bugbear
-                  "SIM", -- flake8-simplify
-                  "I", -- isort
-                },
-                ignore = {
-                  -- disabled rules
-                  "E501", -- line-to-long
-                },
-              },
             },
           },
         },
