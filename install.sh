@@ -60,7 +60,7 @@ sudo dnf install -y make gcc patch zlib-devel bzip2 bzip2-devel \
 sudo dnf install -y node
 
 # install java
-sudo dnf install -y java-latest-openjdk maven
+sudo dnf install -y java-latest-openjdk-devel maven
 
 # install docker
 sudo dnf config-manager addrepo --overwrite --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
