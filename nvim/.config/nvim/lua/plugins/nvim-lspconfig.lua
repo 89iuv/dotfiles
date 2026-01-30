@@ -39,9 +39,8 @@ return {
                 },
               },
               hint = {
-                setType = true,
-                paramName = "All"
-              }
+                paramName = "All",
+              },
             },
           },
         },
