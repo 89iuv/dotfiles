@@ -74,7 +74,7 @@ return {
     win_options = {
       conceallevel = {
         default = 0,
-        rendered = 0,
+        rendered = 2,
       },
     },
   },

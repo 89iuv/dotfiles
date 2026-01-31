@@ -11,14 +11,13 @@
 
 ## Setup System Environment
 
-- Install Fedora in WSL:
-  [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
-- Install NerdFonts:
-  [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
-- Configure terminal colors:
-  [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
+- Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
+- Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
+- Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 
 ## Install Local Dotfiles
+
+This is a __test__.
 
 ```sh
 # clone repo and run install script
