@@ -28,3 +28,6 @@
 [submodule "catppuccin-eza/eza"]
 	path = catppuccin-eza/eza
 	url = https://github.com/catppuccin/eza.git
+[submodule "catppuccin-glamour/glamour"]
+	path = catppuccin-glamour/glamour
+	url = https://github.com/catppuccin/glamour.git

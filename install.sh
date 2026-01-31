@@ -40,7 +40,7 @@ zsh zoxide bat fzf ripgrep fd jq stow \
 curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
-tmux neovim btop \
+tmux neovim btop glow \
 stress hyperfine \
 fastfetch
 
