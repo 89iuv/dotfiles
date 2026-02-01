@@ -287,9 +287,11 @@ then
     SYSTEM_PROMPT="You give a concise reply in the format of: Command: <the actual command> Where: <explain each parameter>."
     PAGER="less -irFX"; ollama run gemma3:latest "$SYSTEM_PROMPT explain the shell command $*" | g -p -
   }
+
   alias '??'='noglob ask_generic'
   alias '?s'='noglob ask_shell'
   alias '?e'='noglob ask_explain'
+
 fi
 
 # move word by word
@@ -298,7 +300,7 @@ bindkey '^f' forward-word
 bindkey '^b' backward-word
 
 # format the current command in neovim keybind
-bindkey '^x^e' edit-command-line
+bindkey '^xe' edit-command-line
 
 # super tab keybind
 super-tab() {
