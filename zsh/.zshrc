@@ -193,7 +193,7 @@ fi
 alias xargs="xargs "
 
 # less
-alias m="less -ir"
+alias m="less -irFX"
 
 # clear
 alias cl="clear"
@@ -233,6 +233,12 @@ then
   }
 fi
 
+# glow
+if type glow > /dev/null
+then
+  alias g="glow -s ~/.dotfiles/catppuccin-glamour/glamour/themes/catppuccin-macchiato.json"
+fi
+
 # fzf
 if type fzf > /dev/null
 then
@@ -253,13 +259,37 @@ then
 fi
 
 # copilot
-if type copilot > /dev/null
+if type copilot > /dev/null && type glow > /dev/null
 then
-  ask() {
+  ask_copilot() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    copilot --model gpt-4.1 --silent --prompt "$*" | bat -pp -l markdown
+    PAGER="less -irFX"; copilot --model gpt-4.1 --silent --prompt "$*" | g -p -
   }
-  alias '??'='noglob ask'
+  alias '?c'='ask_copilot'
+fi
+
+# ollama
+if type ollama > /dev/null && type glow > /dev/null && type bat > /dev/null
+then
+  ask_generic() {
+    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
+    ollama run gemma3:latest "$*" | b -l markdown | m -
+  }
+
+  ask_shell() {
+    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
+    SYSTEM_PROMPT="You give a concise reply in the format of: Command: <the actual command> Where: <explain each parameter>."
+    PAGER="less -irFX"; ollama run gemma3:latest "$SYSTEM_PROMPT How to $* in shell. " | g -p -
+  }
+
+  ask_explain() {
+    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
+    SYSTEM_PROMPT="You give a concise reply in the format of: Command: <the actual command> Where: <explain each parameter>."
+    PAGER="less -irFX"; ollama run gemma3:latest "$SYSTEM_PROMPT explain the shell command $*" | g -p -
+  }
+  alias '??'='noglob ask_generic'
+  alias '?s'='noglob ask_shell'
+  alias '?e'='noglob ask_explain'
 fi
 
 # move word by word
@@ -355,3 +385,4 @@ fi
 if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
 fi
+

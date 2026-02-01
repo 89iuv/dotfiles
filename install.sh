@@ -71,6 +71,9 @@ sudo usermod -aG docker "$USER"
 # this works on local and ignored in docker container
 sudo systemctl enable --now docker.service
 
+# install ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
 # clean up
 sudo dnf clean all
 

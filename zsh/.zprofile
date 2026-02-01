@@ -15,6 +15,12 @@ if [ -d "$FNM_PATH" ]; then
   eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
+# opencode
+export OPENCODE_PATH="$HOME/.opencode/bin"
+if [ -d "$OPENCODE_PATH" ]; then
+  export PATH="$HOME/.opencode/bin:$PATH"
+fi
+
 # add personal scripts to path
 export PATH=$HOME/.scripts:$PATH
 
