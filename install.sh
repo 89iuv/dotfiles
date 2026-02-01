@@ -73,8 +73,6 @@ sudo systemctl enable --now docker.service
 
 # install ollama
 curl -fsSL https://ollama.com/install.sh | sh
-sudo systemctl enable --now ollama.service
-ollama pull gemma3:latest
 
 # clean up
 sudo dnf clean all
