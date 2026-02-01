@@ -8,6 +8,7 @@ local neovim_header = [[
 
 return {
   "folke/snacks.nvim",
+  dependencies = { "christoomey/vim-tmux-navigator" },
   opts = function(_, opts)
     if not vim.g.image_support then
       require("snacks.image").supports_file = function()
@@ -99,6 +100,10 @@ return {
             winhighlight = "Normal:SnacksTerminal,WinBar:SnacksWinBar",
           },
           keys = {
+            nav_h = { "<C-h>", "<cmd>TmuxNavigateLeft<cr>", desc = "Go to Left Window", expr = true, mode = "t" },
+            nav_j = { "<C-j>", "<cmd>TmuxNavigateDown<cr>", desc = "Go to Lower Window", expr = true, mode = "t" },
+            nav_k = { "<C-k>", "<cmd>TmuxNavigateUp<cr>", desc = "Go to Upper Window", expr = true, mode = "t" },
+            nav_l = { "<C-l>", "<cmd>TmuxNavigateRight<cr>", desc = "Go to Right Window", expr = true, mode = "t" },
             term_normal = {
               "<esc><esc>",
               function()
