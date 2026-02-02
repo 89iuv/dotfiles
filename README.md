@@ -35,7 +35,7 @@ docker run --rm -it \
   -v "${HOME}"/.gitconfig:/home/dev/.gitconfig \
   -v "$(pwd)":/workspace \
   --hostname dark_vault \
-  --name grid_node \
+  --name node_grid \
   --gpus all \
   --detach-keys="ctrl-z,z" \
   89iuv/dotfiles
