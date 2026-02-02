@@ -72,7 +72,15 @@ sudo usermod -aG docker "$USER"
 sudo systemctl enable --now docker.service
 
 # install ollama
-curl -fsSL https://ollama.com/install.sh | sh
+curl -fsSL https://ollama.com/install.sh | bash
+# TODO: find a better way to start ollama in docker and check when it's ready
+nohup ollama serve > /dev/null 2>&1 & sleep 5
+ollama pull qwen3
+ollama create qwen3-coding -f ~/.dotfiles/ollama/modelfile
+
+# install OpenCode
+curl -fsSL https://opencode.ai/install | bash
+~/.opencode/bin/opencode run "hello"
 
 # clean up
 sudo dnf clean all
@@ -123,6 +131,9 @@ for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfile
 ~/.dotfiles/catppuccin-delta/install.sh
 ~/.dotfiles/tmux/install.sh
 ~/.dotfiles/nvim/install.sh
+
+# revert any changes done by apps starting up
+git reset --hard HEAD
 
 # User
 # change shell to zsh

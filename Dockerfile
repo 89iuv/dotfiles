@@ -49,4 +49,4 @@ ENTRYPOINT [ "zsh", "-c", "\
   sudo usermod -aG wheel,docker,docker_host ${USER} >/dev/null 2>&1; \
   # workaround for changes made to the current user
   # not being reflected in the current shell
-  sudo -u ${USER} -i zsh --login -c 'cd /workspace; tmux new -A -s tmux'"]
+  sudo -u ${USER} -i zsh --login -c 'cd /workspace; zsh --login'"]
