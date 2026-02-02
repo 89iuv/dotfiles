@@ -2,7 +2,7 @@
 FROM fedora:latest
 
 # set args
-ARG USER="dev"
+ARG USER="neon_dev"
 ARG HOME="/home/${USER}"
 
 # set environment variables
@@ -44,6 +44,7 @@ ENV HOME=${HOME}
 WORKDIR /workspace
 ENTRYPOINT [ "zsh", "-c", "\
   # start ollama server
+  mkdir -p ${HOME}/.ollama/logs; \
   nohup ollama serve > ${HOME}/.ollama/logs/server.log 2>&1 &; \
   # add docker gid provided from host
   sudo groupadd -g ${DOCKER_GID} docker_host >/dev/null 2>&1; \

@@ -34,8 +34,8 @@ docker run --rm -it \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v "${HOME}"/.gitconfig:/home/dev/.gitconfig \
   -v "$(pwd)":/workspace \
-  --hostname container \
-  --name dev_container \
+  --hostname dark_vault \
+  --name grid_node \
   --gpus all \
   --detach-keys="ctrl-z,z" \
   89iuv/dotfiles
