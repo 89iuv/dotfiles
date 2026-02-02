@@ -78,7 +78,7 @@ nohup ollama serve > /dev/null 2>&1 & sleep 5
 ollama pull qwen3
 ollama create qwen3-coding -f ~/.dotfiles/ollama/modelfile
 
-# install OpenCode
+# install opencode
 curl -fsSL https://opencode.ai/install | bash
 ~/.opencode/bin/opencode run "hello"
 

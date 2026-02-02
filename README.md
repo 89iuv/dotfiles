@@ -32,7 +32,8 @@ docker run --rm -it \
   -e USER_GID=$(id -g) \
   -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $(pwd):/workspace \
+  -v "${HOME}"/.gitconfig:/home/dev/.gitconfig
+  -v "$(pwd)":/workspace \
   -h container \
   --name dev_container \
   --detach-keys="ctrl-z,z" \

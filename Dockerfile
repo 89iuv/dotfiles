@@ -43,9 +43,15 @@ ENV USER=${USER}
 ENV HOME=${HOME}
 WORKDIR /workspace
 ENTRYPOINT [ "zsh", "-c", "\
+  # start ollama server
+  nohup ollama serve > ${HOME}/.ollama.log 2>&1; \
+  # add docker gid provided from host
   sudo groupadd -g ${DOCKER_GID} docker_host >/dev/null 2>&1; \
+  # change user uid to match the one provided from host
   sudo usermod -u ${USER_UID} ${USER} >/dev/null 2>&1; \
+  # change user gid to match the one provided from host
   sudo usermod -g ${USER_GID} ${USER} >/dev/null 2>&1; \
+  # add user to groups with sudo and docker permissions
   sudo usermod -aG wheel,docker,docker_host ${USER} >/dev/null 2>&1; \
   # workaround for changes made to the current user
   # not being reflected in the current shell
