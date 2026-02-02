@@ -17,8 +17,6 @@
 
 ## Install Local Dotfiles
 
-This is a __test__.
-
 ```sh
 # clone repo and run install script
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git ~/.dotfiles \
