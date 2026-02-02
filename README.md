@@ -32,10 +32,11 @@ docker run --rm -it \
   -e USER_GID=$(id -g) \
   -e DOCKER_GID=$(getent group docker | cut -d: -f3) \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v "${HOME}"/.gitconfig:/home/dev/.gitconfig
+  -v "${HOME}"/.gitconfig:/home/dev/.gitconfig \
   -v "$(pwd)":/workspace \
-  -h container \
+  --hostname container \
   --name dev_container \
+  --gpus all \
   --detach-keys="ctrl-z,z" \
   89iuv/dotfiles
 ```

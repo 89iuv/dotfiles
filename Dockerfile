@@ -44,7 +44,7 @@ ENV HOME=${HOME}
 WORKDIR /workspace
 ENTRYPOINT [ "zsh", "-c", "\
   # start ollama server
-  nohup ollama serve > ${HOME}/.ollama.log 2>&1; \
+  nohup ollama serve > ${HOME}/.ollama/logs/server.log 2>&1 &; \
   # add docker gid provided from host
   sudo groupadd -g ${DOCKER_GID} docker_host >/dev/null 2>&1; \
   # change user uid to match the one provided from host
