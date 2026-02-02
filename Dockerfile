@@ -43,9 +43,6 @@ ENV USER=${USER}
 ENV HOME=${HOME}
 WORKDIR /workspace
 
-# init zsh prompt
-RUN echo exit | script -qec zsh /dev/null >/dev/null
-
 # run command
 ENTRYPOINT [ "zsh", "-c", "\
   # start ollama server
