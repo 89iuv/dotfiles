@@ -103,7 +103,7 @@ nvim --headless \
 
 # HACK: fix for lazy pulling the latest plugin versions at startup
 # instead of the ones in the lock file
-git reset --hard HEAD
+git checkout HEAD -- nvim/.config/nvim/lazy-lock.json
 nvim --headless "+Lazy! restore" +qa
 
 # --- Programming ---
@@ -163,15 +163,12 @@ ollama create qwen3-coding -f ~/.dotfiles/ollama/modelfile
 
 # install opencode
 curl -fsSL https://opencode.ai/install | bash
-# HACK: run opencode so that it creates it's files
+# NOTE: refresh opencode models and create it's files for faster startup
 ~/.opencode/bin/opencode models --refresh
 
 # -- Clean up ---
 # remove or invalidate cache data
 sudo dnf clean all
-
-# revert any changes done by apps starting up
-git reset --hard HEAD
 
 # --- User config ---
 # change shell to zsh
