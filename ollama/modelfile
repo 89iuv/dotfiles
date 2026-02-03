@@ -1,7 +1,7 @@
 FROM qwen3:latest
 
-PARAMETER temperature 0.3
-PARAMETER num_ctx 20480
+PARAMETER temperature 0.2
+PARAMETER num_ctx 32768
 
 SYSTEM """
 You are a specialized AI assistant for programming tasks.
