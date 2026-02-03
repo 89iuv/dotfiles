@@ -101,6 +101,8 @@ nvim --headless \
   "+MasonToolsInstallSync" \
   +qa
 
+# HACK: fix for lazy pulling the latest plugin versions at startup
+# instead of the ones in the lock file
 git reset --hard HEAD
 nvim --headless "+Lazy! restore" +qa
 
