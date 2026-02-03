@@ -157,8 +157,8 @@ setopt HIST_REDUCE_BLANKS
 
 # zsh reduce esc key delay
 # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-# 10ms for key sequences
-KEYTIMEOUT=1
+# 1 = 10ms
+KEYTIMEOUT=4
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
