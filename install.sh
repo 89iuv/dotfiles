@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-# System
+# --- System ---
 # update installed packages and repositories
 sudo dnf -y update
 
@@ -35,18 +35,78 @@ sudo dnf install -y ffmpeg-libs libva libva-utils
 # install dependencies
 sudo dnf -y install \
 xclip xsel \
-git-delta \
-zsh zoxide bat fzf ripgrep fd jq stow \
+zsh zoxide fzf ripgrep fd jq stow \
 curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
-tmux neovim btop glow \
+btop glow \
 stress hyperfine \
 fastfetch
 
-# install lazygit
+# link dotfiles config files
+for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfiles/ "$(basename "$path")"; done
+
+# --- Tools ---
+# eza
+mkdir tmp
+cd tmp
+curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz \
+| tar xz
+chmod +x eza
+sudo chown root:root eza
+sudo mv eza /usr/local/bin/eza
+cd ..
+rm -rf tmp
+
+# lazygit
 sudo dnf copr enable -y dejan/lazygit
 sudo dnf install -y lazygit
+
+# bat
+sudo dnf -y install bat
+bat cache --build
+
+# delta
+sudo dnf -y install git-delta
+git config --global core.pager delta
+git config --global include.path "$HOME/.config/delta/themes/catppuccin.gitconfig"
+git config --global interactive.diffFilter "delta --color-only"
+git config --global delta.features catppuccin-macchiato
+git config --global delta.true-colors "always"
+git config --global delta.navigate true
+git config --global delta.line-numbers true
+git config --global delta.commit-decoration-style "bold"
+git config --global delta.file-decoration-style "ul #6e738d"
+git config --global delta.hunk-header-style omit
+git config --global delta.hunk-header-decoration-style "box"
+git config --global alias.diff-unified "-c delta.hunk-header-style=auto -c delta.line-numbers=false diff"
+git config --global alias.diff-compare "-c delta.side-by-side=true diff"
+git config --global diff.colorMoved default
+git config --global merge.conflictstyle zdiff3
+
+# tmux
+sudo dnf -y install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
+
+# neovim
+sudo dnf -y install neovim
+
+# HACK: wait for TreeSitter to finish installing
+nvim --headless \
+  "+Lazy! sync" \
+  "+lua require('blink.cmp').setup({})" \
+  "+sleep 20" \
+  "+MasonToolsInstallSync" \
+  +qa
+
+git reset --hard HEAD
+nvim --headless "+Lazy! restore" +qa
+
+# --- Programming ---
+# install java
+sudo dnf install -y java-latest-openjdk-devel maven
 
 # install python
 sudo dnf install -y python pip uv
@@ -56,43 +116,6 @@ sudo dnf install -y make gcc patch zlib-devel bzip2 bzip2-devel \
   readline-devel sqlite sqlite-devel openssl-devel tk8-devel \
   libffi-devel xz-devel libuuid-devel gdbm-libs libnsl2 libzstd-devel
 
-# install nodejs
-sudo dnf install -y node
-
-# install java
-sudo dnf install -y java-latest-openjdk-devel maven
-
-# install docker
-sudo dnf config-manager addrepo --overwrite --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-mkdir -p ~/.oh-my-zsh/completions/
-docker completion zsh > ~/.oh-my-zsh/completions/_docker
-sudo usermod -aG docker "$USER"
-# this works on local and ignored in docker container
-sudo systemctl enable --now docker.service
-
-# install ollama
-curl -fsSL https://ollama.com/install.sh | bash
-# TODO: find a better way to start ollama in docker and check when it's ready
-nohup ollama serve > /dev/null 2>&1 & sleep 5
-ollama pull qwen3
-ollama create qwen3-coding -f ~/.dotfiles/ollama/modelfile
-
-# install opencode
-curl -fsSL https://opencode.ai/install | bash
-~/.opencode/bin/opencode run "hello"
-
-# clean up
-sudo dnf clean all
-
-# Tools
-# install eza
-curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz \
-| tar xz
-chmod +x eza
-sudo chown root:root eza
-sudo mv eza /usr/local/bin/eza
-
 # install python: pyenv
 rm -rf "$HOME"/.pyenv
 curl -fsSL https://pyenv.run | bash
@@ -100,6 +123,9 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init - bash)"
 pyenv install 3
 pyenv global 3
+
+# install nodejs
+sudo dnf install -y node
 
 # install nodejs: fnm
 rm -rf "$HOME"/.fnm
@@ -115,27 +141,37 @@ npm install -g @ast-grep/cli
 npm install -g @github/copilot
 npm install -g @angular/cli
 
-# Integations
-# build integrations
-~/.dotfiles/catppuccin-bat/build.sh
-~/.dotfiles/catppuccin-btop/build.sh
-~/.dotfiles/catppuccin-delta/build.sh
-~/.dotfiles/catppuccin-eza/build.sh
-~/.dotfiles/catppuccin-zsh-syntax-highlighting/build.sh
+# --- Containers ---
+# install docker
+sudo dnf config-manager addrepo --overwrite --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+mkdir -p ~/.oh-my-zsh/completions/
+docker completion zsh > ~/.oh-my-zsh/completions/_docker
+sudo usermod -aG docker "$USER"
+sudo systemctl enable --now docker.service
 
-# symlink integrations
-for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfiles/ "$(basename "$path")"; done
+# --- Local AI ---
+# install ollama
+curl -fsSL https://ollama.com/install.sh | bash
+# HACK: wait for ollama server to start
+# on docker build, ollama server needs to be started manually
+nohup ollama serve > /dev/null 2>&1 & sleep 5
+ollama pull qwen3
+ollama create qwen3-coding -f ~/.dotfiles/ollama/modelfile
 
-# install integrations
-~/.dotfiles/catppuccin-bat/install.sh
-~/.dotfiles/catppuccin-delta/install.sh
-~/.dotfiles/tmux/install.sh
-~/.dotfiles/nvim/install.sh
+# install opencode
+curl -fsSL https://opencode.ai/install | bash
+# HACK: run opencode so that it creates it's files
+~/.opencode/bin/opencode models --refresh
+
+# -- Clean up ---
+# remove or invalidate cache data
+sudo dnf clean all
 
 # revert any changes done by apps starting up
 git reset --hard HEAD
 
-# User
+# --- User config ---
 # change shell to zsh
 sudo chsh -s /usr/bin/zsh "$USER"
 

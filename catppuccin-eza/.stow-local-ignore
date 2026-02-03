@@ -1,9 +1,0 @@
-# repo
-^/eza$
-
-# vcs
-\.gitignore
-
-# scripts
-build\.sh
-

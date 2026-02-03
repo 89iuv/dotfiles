@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # load catppuccin theme for zsh-syntax-highlighting
-source $ZSH_CUSTOM/helpers/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+source $HOME/.dotfiles/zsh-syntax-highlighting/catppuccin/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 # custom catppuccin highlights for zsh-syntax-highlighting
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
@@ -236,7 +236,7 @@ fi
 # glow
 if type glow > /dev/null
 then
-  alias g="glow -s ~/.dotfiles/catppuccin-glamour/glamour/themes/catppuccin-macchiato.json"
+  alias g="glow -s ~/.dotfiles/glamour/catppuccin/glamour/themes/catppuccin-macchiato.json"
 fi
 
 # fzf
