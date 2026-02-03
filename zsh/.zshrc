@@ -157,7 +157,7 @@ setopt HIST_REDUCE_BLANKS
 
 # zsh reduce esc key delay
 # https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-# 1 = 10ms
+# 1 = 10ms for key sequences
 KEYTIMEOUT=4
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -269,11 +269,11 @@ then
 fi
 
 # ollama
-if type ollama > /dev/null && type glow > /dev/null && type bat > /dev/null
+if type ollama > /dev/null && type glow > /dev/null
 then
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    ollama run gemma3:latest "$*" | b -l markdown | m -
+    ollama run gemma3:latest "$*" | g -p -
   }
 
   ask_shell() {
