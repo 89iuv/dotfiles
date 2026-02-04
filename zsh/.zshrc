@@ -273,19 +273,29 @@ if type ollama > /dev/null && type glow > /dev/null
 then
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    ollama run gemma3:latest "$*" | g -p -
+    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$*" | g -p -
   }
 
   ask_shell() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    SYSTEM_PROMPT="You give a concise reply in the format of: Command: <the actual command> Where: <explain each parameter>."
-    PAGER="less -irFX"; ollama run gemma3:latest "$SYSTEM_PROMPT How to $* in shell. " | g -p -
+    PROMPT="""
+    You give a concise reply in the format of:
+      Command: <<the command>>
+      Parameters: <<explain what each parameter does>>
+    How to $* in shell.
+    """
+    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$PROMPT" | g -p -
   }
 
   ask_explain() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    SYSTEM_PROMPT="You give a concise reply in the format of: Command: <the actual command> Where: <explain each parameter>."
-    PAGER="less -irFX"; ollama run gemma3:latest "$SYSTEM_PROMPT explain the shell command $*" | g -p -
+    PROMPT="""
+    You give a concise reply in the format of:
+      Description: <<short description of what the command does>>
+      Parameters: <<explain what each parameter does>>
+    Explain the shell command: $*.
+    """
+    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$PROMPT" | g -p -
   }
 
   alias '??'='noglob ask_generic'

@@ -35,7 +35,7 @@ sudo dnf install -y ffmpeg-libs libva libva-utils
 # install dependencies
 sudo dnf -y install \
 xclip xsel \
-zsh zoxide fzf ripgrep fd jq stow \
+script zoxide fzf ripgrep fd jq stow \
 curl wget lynx \
 chafa ImageMagick \
 lua luarocks compat-lua \
@@ -47,6 +47,10 @@ fastfetch
 for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfiles/ "$(basename "$path")"; done
 
 # --- Tools ---
+#  zsh
+sudo dnf -y install zsh
+echo exit | script -qec zsh /dev/null >/dev/null
+
 # eza
 mkdir tmp
 cd tmp
@@ -158,8 +162,11 @@ curl -fsSL https://ollama.com/install.sh | bash
 # HACK: wait for ollama server to start
 # on docker build, ollama server needs to be started manually
 nohup ollama serve > /dev/null 2>&1 & sleep 5
-ollama pull qwen3
-ollama create qwen3-coding -f ~/.dotfiles/ollama/modelfile
+for f in ~/.dotfiles/ollama/modelfile_*; do
+    model="${f##*/}"           # strip directory
+    model="${model#modelfile_}"  # strip prefix
+    ollama create "$model" -f "$f"
+done
 
 # install opencode
 curl -fsSL https://opencode.ai/install | bash
