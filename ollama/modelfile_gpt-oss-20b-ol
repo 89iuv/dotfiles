@@ -1,0 +1,7 @@
+FROM gpt-oss:20b
+
+PARAMETER num_ctx 65536
+
+PARAMETER temperature 1.0
+PARAMETER top_p 1.0
+PARAMETER top_k 0

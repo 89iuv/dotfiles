@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "catppuccin-macchiato",
-  "model": "ollama/qwen3-coding",
-  "default_agent": "plan",
+  "model": "ollama/gpt-oss-20b-ol:latest",
+  "default_agent": "build",
   "provider": {
     "ollama": {
       "name": "Ollama (local)",
@@ -11,10 +11,31 @@
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3-coding": {
-          "name": "qwen3-coding"
-        }
+        "gpt-oss-20b-ol:latest": {
+          "name": "gpt-oss-20b-ol:latest"
+        },
+        "qwen3-14b-q4-k-m-ol:latest": {
+          "name": "qwen3-14b-q4-k-m-ol:latest"
+        },
       }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      },
+      "enabled": true
+    },
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer {env:GITHUB_API_KEY}"
+      },
+      "enabled": true
     }
   }
 }
