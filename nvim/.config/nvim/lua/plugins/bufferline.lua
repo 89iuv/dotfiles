@@ -74,7 +74,6 @@ return {
           return vim.trim(ret)
         end,
         themable = true,
-        persist_buffer_sort = true,
         sort_by = "insert_at_end",
       },
     }
