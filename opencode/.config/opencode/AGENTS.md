@@ -1,4 +1,3 @@
-# Available MCP Servers
+# AGENTS.md
 
-Use `github` to interact with remote repos on github.com
-Use `context7` to search for documentation.
+Use bash to get the current date and time in ISO format and display it after every reply.
