@@ -1,7 +1,5 @@
 # Dotfiles
 
-<!-- markdownlint-disable MD013 -->
-
 <!--toc:start-->
 - [Dotfiles](#dotfiles)
   - [Setup System Environment](#setup-system-environment)
