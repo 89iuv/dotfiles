@@ -6,3 +6,4 @@ PARAMETER temperature 0.6
 PARAMETER min_p 0
 PARAMETER top_p 0.95
 PARAMETER top_k 20
+Parameter repeat_penalty 1.5

@@ -15,7 +15,7 @@
           "name": "gpt-oss-20b-ol:latest"
         },
         "qwen3-14b-q4-k-m-ol:latest": {
-          "name": "qwen3-14b-q4-k-m-ol:latest"
+          "name": "qwen3-14b-ol:latest"
         },
       }
     }

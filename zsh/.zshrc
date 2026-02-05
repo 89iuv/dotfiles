@@ -236,7 +236,7 @@ fi
 # glow
 if type glow > /dev/null
 then
-  alias g="glow -s ~/.dotfiles/glamour/catppuccin/glamour/themes/catppuccin-macchiato.json"
+  alias g="glow -w 80 -s ~/.dotfiles/glamour/catppuccin/glamour/themes/catppuccin-macchiato.json"
 fi
 
 # fzf
@@ -263,7 +263,7 @@ if type copilot > /dev/null && type glow > /dev/null
 then
   ask_copilot() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PAGER="less -irFX"; copilot --model gpt-4.1 --silent --prompt "$*" | g -p -
+    PAGER="less -irFX"; copilot --model "gpt-5-mini" --silent --prompt "$*" | g -p -
   }
   alias '?c'='ask_copilot'
 fi
@@ -273,7 +273,7 @@ if type ollama > /dev/null && type glow > /dev/null
 then
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$*" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap gemma3-1b-ol "$*" | g -p -
   }
 
   ask_shell() {
@@ -284,7 +284,7 @@ then
       Parameters: <<explain what each parameter does>>
     How to $* in shell.
     """
-    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap gemma3-1b-ol "$PROMPT" | g -p -
   }
 
   ask_explain() {
@@ -295,7 +295,7 @@ then
       Parameters: <<explain what each parameter does>>
     Explain the shell command: $*.
     """
-    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap gemma3-1b-ol "$PROMPT" | g -p -
   }
 
   alias '??'='noglob ask_generic'
