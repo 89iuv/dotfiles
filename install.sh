@@ -47,6 +47,10 @@ fastfetch
 for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfiles/ "$(basename "$path")"; done
 
 # --- Tools ---
+# ssh
+sudo dnf install -y sshd
+sudo systemctl enable --now sshd
+
 #  zsh
 sudo dnf -y install zsh
 echo exit | script -qec zsh /dev/null >/dev/null
