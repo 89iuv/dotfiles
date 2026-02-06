@@ -1,3 +1,6 @@
-# AGENTS.md
+# Instructions
 
-Use bash to get the current date and time in ISO format and display it after every reply.
+## Tools
+
+- when you need to search docs, use `context7` tools
+- when you need to search a github repo, use `github` tools
