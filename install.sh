@@ -167,11 +167,10 @@ curl -fsSL https://ollama.com/download/ollama-linux-amd64.tar.zst \
 sudo useradd -r -s /bin/false -U -m -d /usr/share/ollama ollama
 sudo usermod -a -G ollama "$(whoami)"
 sudo cp ~/.dotfiles/ollama/ollama.service /etc/systemd/system/
-sudo systemctl daemon-reload
 sudo systemctl enable --now ollama.service
 # HACK: wait for ollama server to start
 # on docker build, ollama server needs to be started manually
-nohup ollama serve > /dev/null 2>&1 & sleep 5
+nohup /usr/sbin/ollama serve > /dev/null 2>&1 & sleep 5
 ollama create -f ~/.dotfiles/ollama/modelfile_gpt-oss-20b-ol gpt-oss-20b-ol
 ollama rm gpt-oss:20b
 
