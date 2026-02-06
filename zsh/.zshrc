@@ -259,21 +259,21 @@ then
 fi
 
 # copilot
-if type copilot > /dev/null && type glow > /dev/null
+if type copilot > /dev/null && type bat > /dev/null
 then
   ask_copilot() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PAGER="less -irFX"; copilot --model "gpt-5-mini" --silent --prompt "$*" | g -p -
+    copilot --model "gpt-5-mini" --silent --prompt "$*"
   }
   alias '?c'='ask_copilot'
 fi
 
 # ollama
-if type ollama > /dev/null && type glow > /dev/null
+if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
 then
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PAGER="less -irFX"; ollama run --nowordwrap gemma3-1b-ol "$*" | g -p -
+    ollama run --think=high gpt-oss-20b-ol "$*"
   }
 
   ask_shell() {
@@ -284,7 +284,7 @@ then
       Parameters: <<explain what each parameter does>>
     How to $* in shell.
     """
-    PAGER="less -irFX"; ollama run --nowordwrap gemma3-1b-ol "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$PROMPT" | g -p -
   }
 
   ask_explain() {
@@ -295,7 +295,7 @@ then
       Parameters: <<explain what each parameter does>>
     Explain the shell command: $*.
     """
-    PAGER="less -irFX"; ollama run --nowordwrap gemma3-1b-ol "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$PROMPT" | g -p -
   }
 
   alias '??'='noglob ask_generic'

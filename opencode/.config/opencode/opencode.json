@@ -11,12 +11,7 @@
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "gpt-oss-20b-ol:latest": {
-          "name": "gpt-oss-20b-ol:latest"
-        },
-        "qwen3-14b-ol:latest": {
-          "name": "qwen3-14b-ol:latest"
-        }
+        "gpt-oss-20b-ol:latest": {}
       }
     }
   },

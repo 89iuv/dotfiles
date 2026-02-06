@@ -1,3 +1,0 @@
-FROM gemma3:1b-it-q8_0
-
-PARAMETER temperature 0.2

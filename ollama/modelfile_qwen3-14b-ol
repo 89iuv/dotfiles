@@ -1,9 +1,0 @@
-FROM qwen3:14b-q4_K_M
-
-PARAMETER num_ctx 32768
-
-PARAMETER temperature 0.6
-PARAMETER min_p 0
-PARAMETER top_p 0.95
-PARAMETER top_k 20
-PARAMETER repeat_penalty 1.5
