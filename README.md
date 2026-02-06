@@ -11,6 +11,7 @@
 
 - Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
 - Install Nvidia Container Toolkit in Fedora: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+- Disable Windows Path in WSL: [Stack Overflow](https://stackoverflow.com/questions/51336147/how-to-remove-the-win10s-path-from-wsl/51345880#51345880)
 - Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 

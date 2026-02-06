@@ -162,7 +162,13 @@ sudo systemctl enable --now docker.service
 
 # --- Local AI ---
 # install ollama
-curl -fsSL https://ollama.com/install.sh | bash
+curl -fsSL https://ollama.com/download/ollama-linux-amd64.tar.zst \
+    | sudo tar x --zstd -C /usr
+sudo useradd -r -s /bin/false -U -m -d /usr/share/ollama ollama
+sudo usermod -a -G ollama "$(whoami)"
+sudo cp ~/.dotfiles/ollama/ollama.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now ollama.service
 # HACK: wait for ollama server to start
 # on docker build, ollama server needs to be started manually
 nohup ollama serve > /dev/null 2>&1 & sleep 5
