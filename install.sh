@@ -166,11 +166,8 @@ curl -fsSL https://ollama.com/install.sh | bash
 # HACK: wait for ollama server to start
 # on docker build, ollama server needs to be started manually
 nohup ollama serve > /dev/null 2>&1 & sleep 5
-for f in ~/.dotfiles/ollama/modelfile_*; do
-    model="${f##*/}"           # strip directory
-    model="${model#modelfile_}"  # strip prefix
-    ollama create "$model" -f "$f"
-done
+ollama create -f ~/.dotfiles/ollama/modelfile_gpt-oss-20b-ol gpt-oss-20b-ol
+ollama rm gpt-oss:20b
 
 # install opencode
 curl -fsSL https://opencode.ai/install | bash
