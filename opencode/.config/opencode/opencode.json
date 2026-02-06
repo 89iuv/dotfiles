@@ -17,19 +17,32 @@
   },
   "mcp": {
     "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      },
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "{env:CONTEXT7_API_KEY}"
+      ],
       "enabled": true
     },
+    "wikipedia": {
+      "type": "local",
+      // NOTE: set WIKIPEDIA_ACCESS_TOKEN environment variable
+      "command": ["uvx", "wikipedia-mcp"]
+    },
     "github": {
-      "type": "remote",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        "Authorization": "Bearer {env:GITHUB_API_KEY}"
-      },
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN={env:GITHUB_API_KEY}",
+        "ghcr.io/github/github-mcp-server"
+      ],
       "enabled": true
     }
   }
