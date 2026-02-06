@@ -31,6 +31,7 @@ vim.opt.relativenumber = false
 vim.opt.breakindent = true
 vim.opt.list = true
 vim.opt.swapfile = false
+vim.opt.undofile = true
 
 -- programing languages lsp
 vim.g.lazyvim_python_lsp = "basedpyright"
