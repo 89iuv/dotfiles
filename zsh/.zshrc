@@ -263,7 +263,7 @@ if type copilot > /dev/null && type bat > /dev/null
 then
   ask_copilot() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    copilot --model "gpt-5-mini" --silent --prompt "$*"
+    copilot --model "gpt-5-mini" --silent --prompt "$*" | b -l markdown | m
   }
   alias '?c'='ask_copilot'
 fi
@@ -273,7 +273,7 @@ if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
 then
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    ollama run --think=high gpt-oss-20b-ol "$*"
+    ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$*" | b -l markdown | m
   }
 
   ask_shell() {
