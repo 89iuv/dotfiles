@@ -301,7 +301,36 @@ then
   alias '??'='noglob ask_generic'
   alias '?s'='noglob ask_shell'
   alias '?e'='noglob ask_explain'
+fi
 
+# opencode
+if type opencode > /dev/null
+then
+  opencode() {
+    # disable output from &
+    set +m
+
+    if (($(pgrep -c opencode) == 0 ))
+    then
+      echo "Loading ollama model gpt-oss-20b-ol in memory"
+      curl -s -o /dev/null http://localhost:11434/api/generate \
+        -d '{"model": "gpt-oss-20b-ol", "keep_alive": -1}' &
+      curl_pid="$!"
+    fi
+
+    command opencode "$@"
+
+    if (($(pgrep -c opencode) == 0 ))
+    then
+      echo "Unloading ollama model gpt-oss-20b-ol from memory"
+      wait "$curl_pid" > /dev/null 2>&1
+      curl -s -o /dev/null http://localhost:11434/api/generate \
+        -d '{"model": "gpt-oss-20b-ol", "keep_alive": 0}'
+    fi
+
+    # enable output from &
+    set -m
+  }
 fi
 
 # move word by word
