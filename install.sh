@@ -174,6 +174,22 @@ curl -fsSL https://opencode.ai/install | bash
 # NOTE: refresh opencode models and create it's files for faster startup
 ~/.opencode/bin/opencode models --refresh
 
+# --- Servers ---
+sudo dnf install -y nginx openssl htpasswd
+sudo systemctl enable -now nginx.service
+
+export OLLAMA_API_KEY=$(openssl rand -hex 32)
+envsubst '${OLLAMA_API_KEY}' < ~/.dotfiles/nginx/conf.d/reverse_proxy_template.conf > reverse_proxy.conf
+sudo cp reverse_proxy.conf /etc/nginx/conf.d/reverse_proxy.conf
+rm -rf reverse_proxy.conf
+echo "$OLLAMA_API_KEY"
+sudo systemctl restart nginx.service
+
+# sudo cp ~/.dotfiles/nginx/conf.d/reverse_proxy.conf /etc/nginx/conf.d/
+# sudo htpassword valiuv
+# use echo -n "username:password" | base64
+sudo systemctl restart nginx.service
+
 # -- Clean up ---
 # remove or invalidate cache data
 sudo dnf clean all

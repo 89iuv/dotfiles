@@ -5,10 +5,13 @@
   "default_agent": "build",
   "provider": {
     "ollama": {
-      "name": "Ollama (local)",
+      "name": "Ollama (private)",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://localhost:11434/v1"
+        "baseURL": "http://{env:OLLAMA_HOST}:{env:OLLAMA_PORT}/v1",
+        "headers": {
+          "Authorization": "Bearer {env:OLLAMA_API_KEY}"
+        },
       },
       "models": {
         "gpt-oss-20b-ol:latest": {}
