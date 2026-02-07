@@ -38,7 +38,7 @@ git clone --recurse-submodules https://github.com/89iuv/dotfiles.git ~/.dotfiles
 docker build -t 89iuv/dotfiles .
 ```
 
-### Run With Docker
+### Run with Docker
 
 ```sh
 docker run --rm -it \

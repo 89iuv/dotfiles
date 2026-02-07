@@ -27,6 +27,7 @@ return {
       "json-lsp",
       "taplo",
       "eslint_d",
+      "harper_ls",
     },
   },
 }
