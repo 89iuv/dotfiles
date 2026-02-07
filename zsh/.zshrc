@@ -303,6 +303,40 @@ then
   alias '?e'='noglob ask_explain'
 fi
 
+# opencode
+if type opencode > /dev/null
+then
+  opencode() {
+    # disable output from &
+    set +m
+
+    if (($(pgrep -c opencode) == 0 ))
+    then
+      echo "Loading ollama model in memory"
+      curl -sS -o /dev/null \
+        $OLLAMA_WEB_URL/api/generate \
+        -H "Authorization: Bearer ${OLLAMA_API_KEY}" \
+        -d '{"model": "gpt-oss-20b-ol", "keep_alive": -1}' &
+      curl_pid="$!"
+    fi
+
+    command opencode "$@"
+
+    if (($(pgrep -c opencode) == 0 ))
+    then
+      echo "Unloading ollama model from memory"
+      wait "$curl_pid" > /dev/null 2>&1
+      curl -sS -o /dev/null \
+        $OLLAMA_WEB_URL/api/generate \
+        -H "Authorization: Bearer ${OLLAMA_API_KEY}" \
+        -d '{"model": "gpt-oss-20b-ol", "keep_alive": 0}'
+    fi
+
+    # enable output from &
+    set -m
+  }
+fi
+
 # move word by word
 bindkey '^w' backward-kill-word
 bindkey '^f' forward-word

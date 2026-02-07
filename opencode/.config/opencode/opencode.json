@@ -3,12 +3,15 @@
   "theme": "catppuccin-macchiato",
   "model": "ollama/gpt-oss-20b-ol:latest",
   "default_agent": "build",
+  "permission": {
+    "webfetch": "deny"
+  },
   "provider": {
     "ollama": {
       "name": "Ollama (private)",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://{env:OLLAMA_HOST}:{env:OLLAMA_PORT}/v1",
+        "baseURL": "{env:OLLAMA_WEB_URL}/v1",
         "headers": {
           "Authorization": "Bearer {env:OLLAMA_API_KEY}"
         },

@@ -2,9 +2,9 @@
 
 ## Git
 
-- when using git commit supply the message in the format: <type>(<scope>): <subject>
+- use the conventional commits specification to format the git commit message
 
 ## Tools
 
-- when you need to search docs, use `context7` tools
-- when you need to search a github repo, use `github` tools
+- use `context7` tools to search for documentation and manuals
+- use `github` tools to interact with github.com
