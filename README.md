@@ -1,13 +1,20 @@
 # Dotfiles
 
 <!--toc:start-->
+
 - [Dotfiles](#dotfiles)
-  - [Setup System Environment](#setup-system-environment)
-  - [Install Local Dotfiles](#install-local-dotfiles)
-  - [Run With Docker](#run-with-docker)
+  - [Local](#local)
+    - [Setup System Environment](#setup-system-environment)
+    - [Install Local Dotfiles](#install-local-dotfiles)
+  - [Docker](#docker)
+    - [Build Docker Image](#build-docker-image)
+    - [Run With Docker](#run-with-docker)
+
 <!--toc:end-->
 
-## Setup System Environment
+## Local
+
+### Setup System Environment
 
 - Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
 - Install Nvidia Container Toolkit in Fedora: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
@@ -15,7 +22,7 @@
 - Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 
-## Install Local Dotfiles
+### Install Local Dotfiles
 
 ```sh
 # clone repo and run install script
@@ -23,7 +30,15 @@ git clone --recurse-submodules https://github.com/89iuv/dotfiles.git ~/.dotfiles
   && ~/.dotfiles/install.sh
 ```
 
-## Run With Docker
+## Docker
+
+### Build Docker Image
+
+```sh
+docker build -t 89iuv/dotfiles .
+```
+
+### Run With Docker
 
 ```sh
 docker run --rm -it \
