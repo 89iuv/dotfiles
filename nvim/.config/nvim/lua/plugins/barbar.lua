@@ -60,9 +60,6 @@ return {
         ["neo-tree"] = {
           text = "Project Explorer",
         },
-        ["trouble"] = {
-          text = "Trouble",
-        },
       },
 
       insert_at_end = true,
@@ -73,7 +70,7 @@ return {
       maximum_length = 30,
       minimum_length = 0,
 
-      no_name_title = "No Name",
+      no_name_title = "[No Name]",
     }
   end,
 }
