@@ -316,7 +316,7 @@ then
       curl -sS -o /dev/null \
         $OLLAMA_WEB_URL/api/generate \
         -H "Authorization: Bearer ${OLLAMA_API_KEY}" \
-        -d '{"model": "gpt-oss-20b-ol", "keep_alive": -1}' &
+        -d '{"model": "gpt-oss-20b-ol", "keep_alive": "30m"}' &
       curl_pid="$!"
     fi
 
