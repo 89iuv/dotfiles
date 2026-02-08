@@ -9,6 +9,9 @@ local neovim_header = [[
 return {
   "folke/snacks.nvim",
   dependencies = { "christoomey/vim-tmux-navigator" },
+  keys = {
+    { "<leader>sz", function() Snacks.picker.spelling({ layout = { preset = "select" }}) end, desc = "Spell check"}
+  },
   opts = function(_, opts)
     if not vim.g.image_support then
       require("snacks.image").supports_file = function()
