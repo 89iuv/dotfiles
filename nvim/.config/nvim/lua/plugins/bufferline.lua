@@ -7,7 +7,7 @@ return {
     { "<M-{>", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
     { "<M-}>", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
   },
-  enabled = true,
+  enabled = false,
   opts = function(_, opts)
     local project_exporer_filetypes = {
       "neo-tree",
@@ -72,7 +72,6 @@ return {
           return vim.trim(ret)
         end,
         themable = true,
-        persist_buffer_sort = true,
         sort_by = "insert_at_end",
       },
     }

@@ -19,6 +19,42 @@ return {
         Folded = { fg = colors.overlay0, bg = colors.surface0, style = { "italic" } },
         LspInlayHint = { fg = colors.overlay0, bg = "NONE", style = { "italic" } },
 
+         -- barbar
+        BufferOffset = { fg = colors.lavender, bg = colors.mantle },
+        BufferScrollArrow = { fg = colors.surface0, bg = colors.mantle },
+        BufferTabpageFill = { fg = colors.crust, bg = colors.mantle },
+
+        -- barbar current
+        BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
+        BufferCurrentMod = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
+        BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
+        BufferCurrentBtn = { bg = colors.base, fg = colors.red },
+        BufferCurrentSign = { bg = colors.mantle, fg = colors.overlay0 },
+
+        -- barbar visible
+        BufferVisible = { bg = colors.mantle, fg = colors.text },
+        BufferVisibleMod = { bg = colors.mantle, fg = colors.subtext1 },
+        BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
+        BufferVisibleBtn = { bg = colors.mantle, fg = colors.overlay2 },
+        BufferVisibleSign = { bg = colors.mantle, fg = colors.overlay0 },
+
+        BufferVisibleError = { bg = colors.mantle, fg = colors.red },
+        BufferVisibleWarn = { bg = colors.mantle, fg = colors.yellow },
+        BufferVisibleInfo = { bg = colors.mantle, fg = colors.sky },
+        BufferVisibleHint = { bg = colors.mantle, fg = colors.teal },
+
+        -- barbar inactive
+        BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveMod = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
+        BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay2 },
+        BufferInactiveSign = { bg = colors.mantle, fg = colors.overlay0 },
+
+        BufferInactiveError = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.5, colors.mantle) },
+        BufferInactiveWarn = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.5, colors.mantle) },
+        BufferInactiveInfo = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.5, colors.mantle) },
+        BufferInactiveHint = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.5, colors.mantle) },
+
         -- bufferline
         BufferLineFill = { bg = colors.mantle },
 
