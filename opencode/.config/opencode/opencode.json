@@ -3,38 +3,52 @@
   "theme": "catppuccin-macchiato",
   "model": "ollama/gpt-oss-20b-ol:latest",
   "default_agent": "build",
+  "permission": {
+    "webfetch": "deny"
+  },
   "provider": {
     "ollama": {
-      "name": "Ollama (local)",
+      "name": "Ollama (private)",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://localhost:11434/v1"
+        "baseURL": "{env:OLLAMA_WEB_URL}/v1",
+        "headers": {
+          "Authorization": "Bearer {env:OLLAMA_API_KEY}"
+        },
       },
       "models": {
-        "gpt-oss-20b-ol:latest": {
-          "name": "gpt-oss-20b-ol:latest"
-        },
-        "qwen3-14b-q4-k-m-ol:latest": {
-          "name": "qwen3-14b-q4-k-m-ol:latest"
-        },
+        "gpt-oss-20b-ol:latest": {}
       }
     }
   },
   "mcp": {
     "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      },
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "{env:CONTEXT7_API_KEY}"
+      ],
       "enabled": true
     },
+    "wikipedia": {
+      "type": "local",
+      // NOTE: set WIKIPEDIA_ACCESS_TOKEN environment variable
+      "command": ["uvx", "wikipedia-mcp"]
+    },
     "github": {
-      "type": "remote",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        "Authorization": "Bearer {env:GITHUB_API_KEY}"
-      },
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN={env:GITHUB_API_KEY}",
+        "ghcr.io/github/github-mcp-server"
+      ],
       "enabled": true
     }
   }

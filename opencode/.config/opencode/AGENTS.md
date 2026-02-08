@@ -1,4 +1,10 @@
-# Available MCP Servers
+# Instructions
 
-Use `github` to interact with remote repos on github.com
-Use `context7` to search for documentation.
+## Git
+
+- use the conventional commits specification to format the git commit message
+
+## Tools
+
+- use `context7` tools to search for documentation and manuals
+- use `github` tools to interact with github.com

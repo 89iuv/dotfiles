@@ -236,7 +236,7 @@ fi
 # glow
 if type glow > /dev/null
 then
-  alias g="glow -s ~/.dotfiles/glamour/catppuccin/glamour/themes/catppuccin-macchiato.json"
+  alias g="glow -w 80 -s ~/.dotfiles/glamour/catppuccin/glamour/themes/catppuccin-macchiato.json"
 fi
 
 # fzf
@@ -259,21 +259,21 @@ then
 fi
 
 # copilot
-if type copilot > /dev/null && type glow > /dev/null
+if type copilot > /dev/null && type bat > /dev/null
 then
   ask_copilot() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PAGER="less -irFX"; copilot --model gpt-4.1 --silent --prompt "$*" | g -p -
+    copilot --model "gpt-5-mini" --silent --prompt "$*" | b -l markdown | m
   }
   alias '?c'='ask_copilot'
 fi
 
 # ollama
-if type ollama > /dev/null && type glow > /dev/null
+if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
 then
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$*" | g -p -
+    ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$*" | b -l markdown | m
   }
 
   ask_shell() {
@@ -284,7 +284,7 @@ then
       Parameters: <<explain what each parameter does>>
     How to $* in shell.
     """
-    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$PROMPT" | g -p -
   }
 
   ask_explain() {
@@ -295,13 +295,46 @@ then
       Parameters: <<explain what each parameter does>>
     Explain the shell command: $*.
     """
-    PAGER="less -irFX"; ollama run gemma3-1b-it-q8-0 "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$PROMPT" | g -p -
   }
 
   alias '??'='noglob ask_generic'
   alias '?s'='noglob ask_shell'
   alias '?e'='noglob ask_explain'
+fi
 
+# opencode
+if type opencode > /dev/null
+then
+  opencode() {
+    # disable output from &
+    set +m
+
+    if (($(pgrep -c opencode) == 0 ))
+    then
+      echo "Loading ollama model in memory"
+      curl -sS -o /dev/null \
+        $OLLAMA_WEB_URL/api/generate \
+        -H "Authorization: Bearer ${OLLAMA_API_KEY}" \
+        -d '{"model": "gpt-oss-20b-ol", "keep_alive": "30m"}' &
+      curl_pid="$!"
+    fi
+
+    command opencode "$@"
+
+    if (($(pgrep -c opencode) == 0 ))
+    then
+      echo "Unloading ollama model from memory"
+      wait "$curl_pid" > /dev/null 2>&1
+      curl -sS -o /dev/null \
+        $OLLAMA_WEB_URL/api/generate \
+        -H "Authorization: Bearer ${OLLAMA_API_KEY}" \
+        -d '{"model": "gpt-oss-20b-ol", "keep_alive": 0}'
+    fi
+
+    # enable output from &
+    set -m
+  }
 fi
 
 # move word by word

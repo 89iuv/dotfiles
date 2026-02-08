@@ -35,7 +35,7 @@ return {
             Lua = {
               workspace = {
                 library = {
-                  vim.api.nvim_get_runtime_file("", true),
+                  vim.env.VIMRUNTIME
                 },
               },
               hint = {
@@ -64,6 +64,20 @@ return {
         },
         taplo = {
           root_markers = { ".taplo.toml", "taplo.toml", ".git", ".root" },
+        },
+        harper_ls = {
+          settings = {
+            ["harper-ls"] = {
+              linters = {
+                SentenceCapitalization = false,
+                OrthographicConsistency = false,
+                SpellCheck = false,
+              },
+              codeActions = {
+                ForceStable = false,
+              },
+            },
+          },
         },
       },
     }

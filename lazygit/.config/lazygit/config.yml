@@ -1,6 +1,6 @@
 git:
   pagers:
-    - pager: delta --paging=never --hunk-header-style=omit
+    - pager: delta --paging=never
 
   mainBranches:
     - master
@@ -10,7 +10,7 @@ git:
 gui:
   theme:
     activeBorderColor:
-      - "#f5a97f"
+      - "#eed49f"
       - bold
     inactiveBorderColor:
       - "#a5adcb"
@@ -21,7 +21,7 @@ gui:
     cherryPickedCommitBgColor:
       - "#494d64"
     cherryPickedCommitFgColor:
-      - "#f5a97f"
+      - "#eed49f"
     unstagedChangesColor:
       - "#ed8796"
     defaultFgColor:

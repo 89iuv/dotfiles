@@ -47,6 +47,10 @@ fastfetch
 for path in "$HOME"/.dotfiles/*/; do stow --adopt -t "$HOME" -d "$HOME"/.dotfiles/ "$(basename "$path")"; done
 
 # --- Tools ---
+# ssh
+sudo dnf install -y sshd
+sudo systemctl enable --now sshd
+
 #  zsh
 sudo dnf -y install zsh
 echo exit | script -qec zsh /dev/null >/dev/null
@@ -73,16 +77,16 @@ bat cache --build
 # delta
 sudo dnf -y install git-delta
 git config --global core.pager delta
-git config --global include.path "$HOME/.config/delta/themes/catppuccin.gitconfig"
 git config --global interactive.diffFilter "delta --color-only"
+git config --global include.path "$HOME/.config/delta/themes/catppuccin.gitconfig"
 git config --global delta.features catppuccin-macchiato
 git config --global delta.true-colors "always"
-git config --global delta.navigate true
 git config --global delta.line-numbers true
 git config --global delta.commit-decoration-style "bold"
+git config --global delta.file-style "#b8c0e0"
 git config --global delta.file-decoration-style "ul #6e738d"
 git config --global delta.hunk-header-style omit
-git config --global delta.hunk-header-decoration-style "box"
+git config --global delta.hunk-header-decoration-style "ul #6e738d"
 git config --global alias.diff-unified "-c delta.hunk-header-style=auto -c delta.line-numbers=false diff"
 git config --global alias.diff-compare "-c delta.side-by-side=true diff"
 git config --global diff.colorMoved default
@@ -158,20 +162,33 @@ sudo systemctl enable --now docker.service
 
 # --- Local AI ---
 # install ollama
-curl -fsSL https://ollama.com/install.sh | bash
+curl -fsSL https://ollama.com/install.sh | sh
 # HACK: wait for ollama server to start
 # on docker build, ollama server needs to be started manually
 nohup ollama serve > /dev/null 2>&1 & sleep 5
-for f in ~/.dotfiles/ollama/modelfile_*; do
-    model="${f##*/}"           # strip directory
-    model="${model#modelfile_}"  # strip prefix
-    ollama create "$model" -f "$f"
-done
+ollama create -f ~/.dotfiles/ollama/modelfile_gpt-oss-20b-ol gpt-oss-20b-ol
+ollama rm gpt-oss:20b
 
 # install opencode
 curl -fsSL https://opencode.ai/install | bash
 # NOTE: refresh opencode models and create it's files for faster startup
 ~/.opencode/bin/opencode models --refresh
+
+# --- Servers ---
+sudo dnf install -y nginx openssl htpasswd
+sudo systemctl enable -now nginx.service
+
+export OLLAMA_API_KEY=$(openssl rand -hex 32)
+envsubst '${OLLAMA_API_KEY}' < ~/.dotfiles/nginx/conf.d/reverse_proxy_template.conf > reverse_proxy.conf
+sudo cp reverse_proxy.conf /etc/nginx/conf.d/reverse_proxy.conf
+rm -rf reverse_proxy.conf
+echo "$OLLAMA_API_KEY"
+sudo systemctl restart nginx.service
+
+# sudo cp ~/.dotfiles/nginx/conf.d/reverse_proxy.conf /etc/nginx/conf.d/
+# sudo htpassword valiuv
+# use echo -n "username:password" | base64
+sudo systemctl restart nginx.service
 
 # -- Clean up ---
 # remove or invalidate cache data
