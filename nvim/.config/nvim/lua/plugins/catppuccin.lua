@@ -38,7 +38,7 @@ return {
         BufferVisible = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
         BufferVisibleMod = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
         BufferVisibleModBtn = { bg = colors.base, fg = colors.peach },
-        BufferVisibleBtn = { bg = colors.base, fg = colors.overlay2 },
+        BufferVisibleBtn = { bg = colors.base, fg = colors.red },
         BufferVisibleSign = { bg = colors.mantle, fg = colors.lavender },
 
         BufferVisibleError = { bg = colors.base, fg = colors.red },
@@ -50,7 +50,7 @@ return {
         BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveMod = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
-        BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay2 },
+        BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay0 },
         BufferInactiveSign = { bg = colors.mantle, fg = colors.overlay0 },
 
         BufferInactiveError = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.5, colors.mantle) },
