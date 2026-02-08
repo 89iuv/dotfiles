@@ -65,20 +65,6 @@ return {
         taplo = {
           root_markers = { ".taplo.toml", "taplo.toml", ".git", ".root" },
         },
-        harper_ls = {
-          settings = {
-            ["harper-ls"] = {
-              linters = {
-                SentenceCapitalization = false,
-                OrthographicConsistency = false,
-                SpellCheck = false,
-              },
-              codeActions = {
-                ForceStable = false,
-              },
-            },
-          },
-        },
       },
     }
 
