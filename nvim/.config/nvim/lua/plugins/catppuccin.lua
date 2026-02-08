@@ -21,7 +21,7 @@ return {
 
          -- barbar
         BufferOffset = { fg = colors.lavender, bg = colors.mantle },
-        BufferScrollArrow = { fg = colors.surface0, bg = colors.mantle },
+        BufferScrollArrow = { fg = colors.surface2, bg = colors.mantle },
         BufferTabpageFill = { fg = colors.crust, bg = colors.mantle },
 
         -- barbar current

@@ -37,7 +37,7 @@ return {
       highlight_alternate = false,
 
       icons = {
-        button = "",
+        button = "󰅖 ",
         modified = { button = "●" },
         pinned = { button = "󰐃", filename = true },
         diagnostics = {
