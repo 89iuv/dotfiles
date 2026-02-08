@@ -4,8 +4,6 @@ return {
   keys = {
     { "<M-[>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
     { "<M-]>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-    { "H", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-    { "L", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     { "<M-{>", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
     { "<M-}>", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
   },
