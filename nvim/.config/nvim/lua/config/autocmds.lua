@@ -122,6 +122,63 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Store watchers per buffer
+local watchers = {}
+
+local function on_change(bufnr, _, fname, _)
+  -- Trigger checktime so Vim reloads if needed
+  vim.api.nvim_command("checktime")
+
+  -- Debounce: restart watcher
+  local w = watchers[bufnr]
+  if w then
+    w:stop()
+    w:start(fname, {}, vim.schedule_wrap(function(...)
+      on_change(bufnr, ...)
+    end))
+  end
+end
+
+local function watch_file(bufnr, fname)
+  -- Normalize path
+  local fullpath = vim.fn.fnamemodify(fname, ":p")
+
+  -- Create watcher for this buffer if missing
+  if not watchers[bufnr] then
+    watchers[bufnr] = vim.uv.new_fs_event()
+  end
+
+  local w = watchers[bufnr]
+
+  w:start(fullpath, {}, vim.schedule_wrap(function(...)
+    on_change(bufnr, ...)
+  end))
+end
+
+-- Start watching when a file buffer is read
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function(args)
+    local bufnr = args.buf
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+
+    if fname ~= "" then
+      watch_file(bufnr, fname)
+    end
+  end,
+})
+
+-- Clean up watcher when buffer is wiped
+vim.api.nvim_create_autocmd("BufWipeout", {
+  callback = function(args)
+    local bufnr = args.buf
+    local w = watchers[bufnr]
+    if w then
+      w:stop()
+      watchers[bufnr] = nil
+    end
+  end,
+})
+
 -- Change cursor type to beam on exit
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
