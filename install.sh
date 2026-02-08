@@ -163,11 +163,11 @@ sudo systemctl enable --now docker.service
 # --- Local AI ---
 # install ollama
 curl -fsSL https://ollama.com/install.sh | sh
-# HACK: wait for ollama server to start
-# on docker build, ollama server needs to be started manually
-nohup ollama serve > /dev/null 2>&1 & sleep 5
 ollama create -f ~/.dotfiles/ollama/modelfile_gpt-oss-20b-ol gpt-oss-20b-ol
 ollama rm gpt-oss:20b
+sudo cp ollama/override.conf /etc/systemd/system/ollama.service.d/
+sudo systemctl daemon-reload
+sudo systemctl restart ollama.service
 
 # install opencode
 curl -fsSL https://opencode.ai/install | bash
