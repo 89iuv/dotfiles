@@ -9,7 +9,7 @@ return {
     { "<M-{>", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
     { "<M-}>", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
   },
-  enabled = true,
+  enabled = false,
   opts = function(_, opts)
     local project_exporer_filetypes = {
       "neo-tree",

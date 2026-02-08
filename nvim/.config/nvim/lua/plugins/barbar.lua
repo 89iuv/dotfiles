@@ -26,7 +26,7 @@ return {
     vim.g.barbar_auto_setup = false
   end,
   lazy = false,
-  enabled = false,
+  enabled = true,
   opts = function()
     local lazy_icons = LazyVim.config.icons.diagnostics
     return {
