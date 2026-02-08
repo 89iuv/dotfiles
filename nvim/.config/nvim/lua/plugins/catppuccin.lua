@@ -29,19 +29,22 @@ return {
         BufferCurrentMod = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
         BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
         BufferCurrentBtn = { bg = colors.base, fg = colors.red },
-        BufferCurrentSign = { bg = colors.mantle, fg = colors.overlay0 },
+        BufferCurrentSign = { bg = colors.mantle, fg = colors.lavender },
 
         -- barbar visible
-        BufferVisible = { bg = colors.mantle, fg = colors.text },
-        BufferVisibleMod = { bg = colors.mantle, fg = colors.subtext1 },
-        BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
-        BufferVisibleBtn = { bg = colors.mantle, fg = colors.overlay2 },
-        BufferVisibleSign = { bg = colors.mantle, fg = colors.overlay0 },
+        -- NOTE: used same style as current to workaroud the bug
+        -- where the buffer is not displayed asa current but it is displayed as visible
+        -- when splitting a window or switching from a floating window back to the buffer window
+        BufferVisible = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
+        BufferVisibleMod = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
+        BufferVisibleModBtn = { bg = colors.base, fg = colors.peach },
+        BufferVisibleBtn = { bg = colors.base, fg = colors.overlay2 },
+        BufferVisibleSign = { bg = colors.mantle, fg = colors.lavender },
 
-        BufferVisibleError = { bg = colors.mantle, fg = colors.red },
-        BufferVisibleWarn = { bg = colors.mantle, fg = colors.yellow },
-        BufferVisibleInfo = { bg = colors.mantle, fg = colors.sky },
-        BufferVisibleHint = { bg = colors.mantle, fg = colors.teal },
+        BufferVisibleError = { bg = colors.base, fg = colors.red },
+        BufferVisibleWarn = { bg = colors.base, fg = colors.yellow },
+        BufferVisibleInfo = { bg = colors.base, fg = colors.sky },
+        BufferVisibleHint = { bg = colors.base, fg = colors.teal },
 
         -- barbar inactive
         BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },

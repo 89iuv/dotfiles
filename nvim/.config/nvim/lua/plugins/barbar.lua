@@ -46,7 +46,7 @@ return {
           [vim.diagnostic.severity.INFO] = { enabled = true, icon = lazy_icons.Info },
           [vim.diagnostic.severity.HINT] = { enabled = true, icon = lazy_icons.Hint },
         },
-        separator_at_end = true,
+        separator_at_end = false,
         separator = { left = "│", right = "" },
         inactive = {
           separator = { left = "│", right = "" },
