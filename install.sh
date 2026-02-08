@@ -175,20 +175,21 @@ curl -fsSL https://opencode.ai/install | bash
 ~/.opencode/bin/opencode models --refresh
 
 # --- Servers ---
-sudo dnf install -y nginx openssl htpasswd
+sudo dnf install -y nginx openssl
 sudo systemctl enable -now nginx.service
 
+# we can create and initialize on same line without any issues
+# shellcheck disable=SC2155
 export OLLAMA_API_KEY=$(openssl rand -hex 32)
+
+# we need to pass the environment variable as is to the script
+# shellcheck disable=SC2016
 envsubst '${OLLAMA_API_KEY}' < ~/.dotfiles/nginx/conf.d/reverse_proxy_template.conf > reverse_proxy.conf
+
 sudo cp reverse_proxy.conf /etc/nginx/conf.d/reverse_proxy.conf
 rm -rf reverse_proxy.conf
+sudo systemctl restart nginx.service
 echo "$OLLAMA_API_KEY"
-sudo systemctl restart nginx.service
-
-# sudo cp ~/.dotfiles/nginx/conf.d/reverse_proxy.conf /etc/nginx/conf.d/
-# sudo htpassword valiuv
-# use echo -n "username:password" | base64
-sudo systemctl restart nginx.service
 
 # -- Clean up ---
 # remove or invalidate cache data
