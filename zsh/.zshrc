@@ -276,7 +276,7 @@ then
 
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$*" | b -l markdown | m
+    ollama run --nowordwrap --hidethinking --think=low gpt-oss:20b "$*" | b -l markdown | m
   }
 
   ask_shell() {
@@ -287,7 +287,7 @@ then
       Parameters: <<explain what each parameter does>>
     How to $* in shell.
     """
-    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss:20b "$PROMPT" | g -p -
   }
 
   ask_explain() {
@@ -298,7 +298,7 @@ then
       Parameters: <<explain what each parameter does>>
     Explain the shell command: $*.
     """
-    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss-20b-ol "$PROMPT" | g -p -
+    PAGER="less -irFX"; ollama run --nowordwrap --hidethinking --think=low gpt-oss:20b "$PROMPT" | g -p -
   }
 
   alias '??'='noglob ask_generic'
@@ -319,7 +319,7 @@ then
       curl -sS -o /dev/null \
         $OLLAMA_WEB_URL/api/generate \
         -H "Authorization: Bearer ${OLLAMA_API_KEY}" \
-        -d '{"model": "gpt-oss-20b-ol", "keep_alive": "2h"}' &
+        -d '{"model": "gpt-oss:20b", "keep_alive": "2h"}' &
       curl_pid="$!"
     fi
 
@@ -332,7 +332,7 @@ then
       curl -sS -o /dev/null \
         $OLLAMA_WEB_URL/api/generate \
         -H "Authorization: Bearer ${OLLAMA_API_KEY}" \
-        -d '{"model": "gpt-oss-20b-ol", "keep_alive": 0}'
+        -d '{"model": "gpt-oss:20b", "keep_alive": 0}'
     fi
 
     # enable output from &
