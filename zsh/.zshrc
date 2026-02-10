@@ -271,9 +271,6 @@ fi
 # ollama
 if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
 then
-  # set ollama host as it is not running on the default port
-  export OLLAMA_HOST=http://localhost:11433
-
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
     ollama run --nowordwrap --hidethinking --think=low gpt-oss:20b "$*" | b -l markdown
