@@ -2,6 +2,7 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "catppuccin-macchiato",
   "model": "ollama/gpt-oss:20b",
+  "small_model": "ollama/gpt-oss:20b",
   "default_agent": "plan",
   "permission": {
     "webfetch": "ask",
@@ -9,6 +10,7 @@
     "wikipedia*": "ask",
     "github*": "ask",
   },
+  "enabled_providers": ["ollama"],
   "provider": {
     "ollama": {
       "name": "Ollama (private)",
