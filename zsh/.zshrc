@@ -217,7 +217,7 @@ then
   alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
-  alias ls="eza -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
+  alias ls="eza -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
 fi
 
 # bat
