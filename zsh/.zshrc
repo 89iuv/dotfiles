@@ -95,6 +95,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# cursor
+_set_vert_cursor() {
+  echo -ne '\e[6 q'
+}
+precmd_functions+=(_set_vert_cursor)
+
 # fix for lazygit not showing correct colors
 export COLORTERM=truecolor
 export XDG_CONFIG_HOME="$HOME/.config"
