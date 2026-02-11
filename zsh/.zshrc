@@ -95,21 +95,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# load catppuccin theme for zsh-syntax-highlighting
-# source $HOME/.dotfiles/zsh-syntax-highlighting/catppuccin/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
-
-# custom catppuccin highlights for zsh-syntax-highlighting
-# ZSH_HIGHLIGHT_STYLES[path_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
-# ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
-# ZSH_HIGHLIGHT_STYLES[cursor]='none'
-
 # fix for lazygit not showing correct colors
 export COLORTERM=truecolor
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # zsh-history-substring-search
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=#11111b,bg=#f38ba8"
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=#11111b,bg=#f5c2e7"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=0,bg=5"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=0,bg=1"
 
@@ -133,15 +123,15 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
+# Turn off autocomplete beeps
+unsetopt LIST_BEEP
+
 # zsh history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt EXTENDED_HISTORY
-
 setopt SHARE_HISTORY
-# unsetopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
-
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -218,20 +208,19 @@ fi
 # bat
 if type bat > /dev/null
 then
-  # export BAT_THEME="Catppuccin Macchiato"
   export BAT_THEME="base16"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
   help() {
     "$@" --help 2>&1 | bat --plain --language=help
   }
+
   alias cat="bat -pp --color=always"
 fi
 
 # glow
 if type glow > /dev/null
 then
-  # alias glow="glow -w 80 -s ~/.dotfiles/glamour/catppuccin/glamour/themes/catppuccin-macchiato.json"
   alias glow="glow -w 80"
 fi
 
@@ -239,12 +228,6 @@ fi
 if type fzf > /dev/null
 then
   source <(fzf --zsh)
-  # export FZF_DEFAULT_OPTS=" \
-  # --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
-  # --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
-  # --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
-  # --color=selected-bg:#494D64 \
-  # --color=border:#6E738D,label:#CAD3F5"
   alias fzf="fzf --ansi"
 fi
 
@@ -299,11 +282,6 @@ then
   alias '?e'='noglob ask_explain'
 fi
 
-# move word by word
-bindkey '^w' backward-kill-word
-bindkey '^f' forward-word
-bindkey '^b' backward-word
-
 # format the current command in neovim keybind
 bindkey '^xe' edit-command-line
 
@@ -326,12 +304,13 @@ bindkey '^I' super-tab
 bindkey '^ ' autosuggest-fetch
 bindkey "^[" autosuggest-clear
 
-# zsh-history-substring-search keybindings
+# zsh-history-substring-search keybindings hjkl
 bindkey "^p" history-substring-search-up
 bindkey "^n" history-substring-search-down
 
-# Turn off autocomplete beeps
-unsetopt LIST_BEEP
+# zsh-history-substring-search keybindings arrow keys
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # jump strainght to the first completion on tab key press
 setopt menu_complete
@@ -357,4 +336,3 @@ fi
 if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
 fi
-
