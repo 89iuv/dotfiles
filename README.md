@@ -19,8 +19,13 @@
 ## Repo
 
 ```sh
-# isntall git
+# install git
 sudo dnf install -y git
+
+# global config
+git config --global pull.rebase true
+git config --global diff.colorMoved default
+git config --global merge.conflictstyle zdiff3
 
 # clone repo and run install script
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git ~/.dotfiles
