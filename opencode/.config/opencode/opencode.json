@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "catppuccin-macchiato",
+  "theme": "system",
   "model": "ollama/gpt-oss:20b",
   "small_model": "ollama/gpt-oss:20b",
   "default_agent": "plan",

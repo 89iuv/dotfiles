@@ -26,11 +26,10 @@
     // hardware info
     "cpu",
     {
-      "type": "gpu"
-      // TODO: check how gpu is reported on different machines
-      // "driverSpecific": true,
-      // "detectionMethod": "vulkan"
-      // "format": "{name~22,48} {dedicated-total}"
+      "type": "gpu",
+      "format": "{name} {dedicated-total}",
+      "driverSpecific": true,
+      "detectionMethod": "vulkan"
     },
     "memory",
     "swap",

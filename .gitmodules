@@ -13,30 +13,3 @@
 [submodule "zsh-syntax-highlighting/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = zsh-syntax-highlighting/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "catppuccin-bat/bat"]
-	path = bat/catppuccin/bat
-	url = https://github.com/catppuccin/bat.git
-[submodule "catppuccin-zsh-syntax-highlighting/zsh-syntax-highlighting"]
-	path = zsh-syntax-highlighting/catppuccin/zsh-syntax-highlighting
-	url = https://github.com/catppuccin/zsh-syntax-highlighting.git
-[submodule "catppuccin-delta/delta"]
-	path = delta/catppuccin/delta
-	url = https://github.com/catppuccin/delta.git
-[submodule "catppuccin-btop/btop"]
-	path = btop/catppuccin/btop
-	url = https://github.com/catppuccin/btop.git
-[submodule "catppuccin-eza/eza"]
-	path = eza/catppuccin/eza
-	url = https://github.com/catppuccin/eza.git
-[submodule "catppuccin-glamour/glamour"]
-	path = glamour/catppuccin/glamour
-	url = https://github.com/catppuccin/glamour.git
-[submodule "lazygit/catppuccin"]
-	path = lazygit/catppuccin/lazygit
-	url = https://github.com/catppuccin/lazygit.git
-[submodule "fzf/catppuccin/fzf"]
-	path = fzf/catppuccin/fzf
-	url = https://github.com/catppuccin/fzf.git
-[submodule "windows-terminal/catppuccin/windows-terminal"]
-	path = windows-terminal/catppuccin/windows-terminal
-	url = https://github.com/catppuccin/windows-terminal.git

@@ -95,30 +95,16 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# load catppuccin theme for zsh-syntax-highlighting
-source $HOME/.dotfiles/zsh-syntax-highlighting/catppuccin/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
-
-# custom catppuccin highlights for zsh-syntax-highlighting
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
-ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
-ZSH_HIGHLIGHT_STYLES[cursor]='none'
-
 # fix for lazygit not showing correct colors
 export COLORTERM=truecolor
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# cursor
-_set_vert_cursor() {
-  echo -ne '\e[6 q'
-}
-precmd_functions+=(_set_vert_cursor)
-
 # zsh-history-substring-search
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=#11111b,bg=#f38ba8"
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=#11111b,bg=#f5c2e7"
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=0,bg=5"
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=0,bg=1"
 
 # zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c7086"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # This speeds up pasting w/ autosuggest
@@ -137,15 +123,15 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
 
+# Turn off autocomplete beeps
+unsetopt LIST_BEEP
+
 # zsh history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt EXTENDED_HISTORY
-
 setopt SHARE_HISTORY
-# unsetopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
-
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -213,41 +199,36 @@ fi
 # eza
 if type eza > /dev/null
 then
-  alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
-  alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
-  alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
-  alias ls="eza -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
+  alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=never"
+  alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=never"
+  alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=never"
+  alias ls="eza -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=never"
 fi
 
 # bat
 if type bat > /dev/null
 then
-  export BAT_THEME="Catppuccin Macchiato"
+  export BAT_THEME="base16"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
   help() {
     "$@" --help 2>&1 | bat --plain --language=help
   }
+
   alias cat="bat -pp --color=always"
 fi
 
 # glow
 if type glow > /dev/null
 then
-  alias glow="glow -w 80 -s ~/.dotfiles/glamour/catppuccin/glamour/themes/catppuccin-macchiato.json"
+  alias glow="glow -w 80"
 fi
 
 # fzf
 if type fzf > /dev/null
 then
   source <(fzf --zsh)
-  export FZF_DEFAULT_OPTS=" \
-  --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
-  --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
-  --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
-  --color=selected-bg:#494D64 \
-  --color=border:#6E738D,label:#CAD3F5"
-  alias f="fzf --ansi"
+  alias fzf="fzf --ansi"
 fi
 
 # python: uv
@@ -301,11 +282,6 @@ then
   alias '?e'='noglob ask_explain'
 fi
 
-# move word by word
-bindkey '^w' backward-kill-word
-bindkey '^f' forward-word
-bindkey '^b' backward-word
-
 # format the current command in neovim keybind
 bindkey '^xe' edit-command-line
 
@@ -328,12 +304,13 @@ bindkey '^I' super-tab
 bindkey '^ ' autosuggest-fetch
 bindkey "^[" autosuggest-clear
 
-# zsh-history-substring-search keybindings
+# zsh-history-substring-search keybindings hjkl
 bindkey "^p" history-substring-search-up
 bindkey "^n" history-substring-search-down
 
-# Turn off autocomplete beeps
-unsetopt LIST_BEEP
+# zsh-history-substring-search keybindings arrow keys
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # jump strainght to the first completion on tab key press
 setopt menu_complete
@@ -342,41 +319,6 @@ setopt menu_complete
 bindkey -M menuselect "^p" reverse-menu-complete
 bindkey -M menuselect "^n" menu-complete
 bindkey -M menuselect "^[" undo
-
-# run command on new line and show execution time
-run() {
-  clear
-
-  # catppuccin colors
-  PINK='\033[38;2;245;194;231m'
-  RED='\033[38;2;243;139;168m'
-  MAROON='\033[38;2;235;160;172m'
-  BLUE='\033[38;2;137;180;250m'
-  TEXT='\033[38;2;205;214;244m'
-
-  echo -e "${BLUE}[Running]${TEXT} ${MAROON}$(pwd) $@${TEXT}"
-
-  start_time=$(date +%s%3N)
-  "$@"
-  exit_code=$?
-  end_time=$(date +%s%3N)
-  elapsed_time=$((end_time - start_time))
-
-  exit_code_color=""
-  if [ $exit_code -ne 0 ]
-  then
-    exit_code_color="${RED}"
-  else
-    exit_code_color="${PINK}"
-  fi
-
-  seconds=$((elapsed_time / 1000))
-  milliseconds=$((elapsed_time % 1000))
-  time_str="${seconds}.${milliseconds}"
-
-  echo ""
-  echo "${BLUE}[Done]${TEXT} ${MAROON}exited with${TEXT} ${exit_code_color}code=$exit_code${TEXT} ${MAROON}in${TEXT} ${time_str} ${MAROON}seconds${TEXT}"
-}
 
 command_not_found_handle () {
   echo "zsh: command not found: $1" >&2
@@ -394,4 +336,3 @@ fi
 if [[ -n "$ZSH_DEBUG" ]]; then
   zprof
 fi
-

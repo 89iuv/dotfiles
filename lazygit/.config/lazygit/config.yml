@@ -1,6 +1,6 @@
 git:
-  pagers:
-    - pager: delta --paging=never
+  # pagers:
+  #   - pager: delta --paging=never
 
   mainBranches:
     - master
@@ -8,33 +8,9 @@ git:
     - develop
 
 gui:
-  theme:
-    activeBorderColor:
-      - "#eed49f"
-      - bold
-    inactiveBorderColor:
-      - "#a5adcb"
-    optionsTextColor:
-      - "#8aadf4"
-    selectedLineBgColor:
-      - "#363a4f"
-    cherryPickedCommitBgColor:
-      - "#494d64"
-    cherryPickedCommitFgColor:
-      - "#eed49f"
-    unstagedChangesColor:
-      - "#ed8796"
-    defaultFgColor:
-      - "#cad3f5"
-    searchingActiveBorderColor:
-      - "#eed49f"
-
-  authorColors:
-    "*": "#b7bdf8"
-
   # Window border style.
   # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
   border: single
 
-  nerdFontsVersion: "3"
+  nerdFontsVersion: ""
   showBottomLine: true
