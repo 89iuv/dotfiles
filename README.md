@@ -24,6 +24,7 @@ sudo dnf install -y git
 
 # clone repo and run install script
 git clone --recurse-submodules https://github.com/89iuv/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 ```
 
 ## System
@@ -38,10 +39,9 @@ sudo dnf -y group install c-development development-tools
 # install dependencies
 sudo dnf -y install \
   xclip xsel \
-  script zoxide fzf bat ripgrep fd jq stow \
+  script zoxide fzf bat glow ripgrep fd jq stow \
   curl wget lynx \
   chafa ImageMagick \
-  btop glow \
   stress hyperfine \
   fastfetch
 ```
@@ -56,8 +56,8 @@ sudo systemctl enable --now sshd
 
 # zsh
 sudo dnf -y install zsh
-echo exit | script -qec zsh /dev/null >/dev/null
 stow ohmyzsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting powerlevel10k zsh
+echo exit | script -qec zsh /dev/null >/dev/null
 
 # eza
 mkdir tmp
@@ -69,6 +69,10 @@ sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 cd ..
 rm -rf tmp
+
+# btop
+sudo dnf install -y btop
+stow btop
 
 # lazygit
 sudo dnf copr enable -y dejan/lazygit
@@ -155,7 +159,7 @@ echo "$OLLAMA_API_KEY"
 sudo dnf clean all
 
 # change shell to zsh
-sudo chsh -s $(which zsh) "$USER"
+sudo chsh -s $(which zsh) $(whoami)
 
 # replace shell with new one
 exec zsh --login
