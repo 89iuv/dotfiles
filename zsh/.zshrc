@@ -193,11 +193,7 @@ fi
 alias xargs="xargs "
 
 # less
-alias m="less -irFX"
-
-# clear
-alias cl="clear"
-alias clx="clear -x"
+alias less="less -irFX"
 
 # tmux
 if type tmux > /dev/null
@@ -211,6 +207,8 @@ fi
 if type zoxide > /dev/null
 then
   eval "$(zoxide init zsh)"
+  alias cd="z"
+  alias cdi="zi"
 fi
 
 # eza
@@ -219,18 +217,19 @@ then
   alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
+  alias ls="eza -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
 fi
 
 # bat
 if type bat > /dev/null
 then
-  alias b="bat -pp --color=always"
   export BAT_THEME="Catppuccin Macchiato"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
   help() {
     "$@" --help 2>&1 | bat --plain --language=help
   }
+  alias cat="bat -pp --color=always"
 fi
 
 # glow
