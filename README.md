@@ -42,8 +42,7 @@ sudo dnf -y install \
   script zoxide fzf bat glow ripgrep fd jq stow \
   curl wget lynx \
   chafa ImageMagick \
-  stress hyperfine \
-  fastfetch
+  stress hyperfine
 ```
 
 ## Tools
@@ -69,6 +68,10 @@ sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 cd ..
 rm -rf tmp
+
+# fastfetch
+sudo dnf -y install fastfetch
+stow fastfetch
 
 # btop
 sudo dnf install -y btop
