@@ -1,16 +1,17 @@
 git:
-  # pagers:
-  #   - pager: delta --paging=never
-
   mainBranches:
     - master
     - main
     - develop
 
 gui:
+  theme:
+    selectedLineBgColor:
+      - "black"
+
   # Window border style.
   # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
   border: single
 
-  nerdFontsVersion: ""
+  nerdFontsVersion: "3"
   showBottomLine: true
