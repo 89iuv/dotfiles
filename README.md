@@ -23,7 +23,7 @@
 sudo dnf install -y git
 
 # global config
-git config --global pull.rebase true
+git config --global pull.rebase false
 git config --global diff.colorMoved default
 git config --global merge.conflictstyle zdiff3
 
