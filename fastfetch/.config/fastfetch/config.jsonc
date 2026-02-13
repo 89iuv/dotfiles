@@ -27,7 +27,7 @@
     "cpu",
     {
       "type": "gpu",
-      "format": "{name} {dedicated-total}",
+      "format": "{name}",
       "driverSpecific": true,
       "detectionMethod": "vulkan"
     },
