@@ -69,7 +69,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
 
-stow ohmyzsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting powerlevel10k zsh
+stow zsh
 echo exit | script -qec zsh /dev/null >/dev/null
 
 # eza
