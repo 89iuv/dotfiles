@@ -9,7 +9,7 @@ chafa --size x22 \
 --fg-only \
 --format symbols \
 --symbols ascii \
-catppuccin_logo.png > ~/.dotfiles/fastfetch/.config/fastfetch/ascii_art.txt
+image.png > ~/.dotfiles/fastfetch/.config/fastfetch/ascii_art.txt
 ```
 
 Where:
