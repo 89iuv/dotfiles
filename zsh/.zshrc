@@ -86,7 +86,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
+plugins=(
+  zsh-autosuggestions 
+  zsh-history-substring-search 
+  zsh-syntax-highlighting 
+  ohmyzsh-full-autoupdate
+)
 
 # set location and format for zsh compdump
 export ZSH_COMPDUMP=$HOME/.zcompdump-${ZSH_VERSION}
