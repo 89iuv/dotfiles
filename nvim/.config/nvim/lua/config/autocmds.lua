@@ -178,10 +178,3 @@ vim.api.nvim_create_autocmd("BufWipeout", {
     end
   end,
 })
-
--- Change cursor type to beam on exit
-vim.api.nvim_create_autocmd("VimLeave", {
-  callback = function()
-    vim.opt.guicursor = "a:ver25"
-  end,
-})
