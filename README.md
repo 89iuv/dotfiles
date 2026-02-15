@@ -109,10 +109,6 @@ stow lazygit
 # tmux
 sudo dnf -y install tmux
 stow tmux
-
-# neovim
-sudo dnf -y install neovim
-stow nvim
 ```
 
 ## Coding
