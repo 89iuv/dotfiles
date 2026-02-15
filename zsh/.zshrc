@@ -124,6 +124,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-delete-char)
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-kill-word)
 
 # Turn off autocomplete beeps
 unsetopt LIST_BEEP
