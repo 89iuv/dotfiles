@@ -7,8 +7,6 @@
   "permission": {
     "webfetch": "ask",
     "context7*": "ask",
-    "wikipedia*": "ask",
-    "github*": "ask",
   },
   "enabled_providers": ["ollama"],
   "provider": {
@@ -19,7 +17,7 @@
         "baseURL": "{env:OLLAMA_WEB_URL}/v1",
         "headers": {
           "Authorization": "Bearer {env:OLLAMA_API_KEY}"
-        },
+        }
       },
       "models": {
         "gpt-oss:20b": {
@@ -37,24 +35,6 @@
         "@upstash/context7-mcp",
         "--api-key",
         "{env:CONTEXT7_API_KEY}"
-      ],
-      "enabled": true
-    },
-    "wikipedia": {
-      "type": "local",
-      // NOTE: set WIKIPEDIA_ACCESS_TOKEN environment variable
-      "command": ["uvx", "wikipedia-mcp"]
-    },
-    "github": {
-      "type": "local",
-      "command": [
-        "docker",
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN={env:GITHUB_API_KEY}",
-        "ghcr.io/github/github-mcp-server"
       ],
       "enabled": true
     }
