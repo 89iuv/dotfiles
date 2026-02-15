@@ -92,22 +92,17 @@ sudo mv eza /usr/local/bin/eza
 cd ..
 rm -rf tmp
 
-# fastfetch
-sudo dnf -y install fastfetch
-stow fastfetch
-
 # btop
 sudo dnf install -y btop
 stow btop
 
-# lazygit
-sudo dnf copr enable -y dejan/lazygit
-sudo dnf install -y lazygit
-stow lazygit
-
 # tmux
 sudo dnf -y install tmux
 stow tmux
+
+# fastfetch
+sudo dnf -y install fastfetch
+stow fastfetch
 ```
 
 ## Coding
