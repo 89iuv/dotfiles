@@ -13,9 +13,8 @@
 ## Environment
 
 - Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
-- Install Nvidia Container Toolkit in Fedora: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-- Install NerdFonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
-- Configure terminal colors: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
+- Install Nvidia Container Toolkit: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+- Install Nerd Fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 
 ## Repo
 
@@ -28,8 +27,8 @@ git config --global pull.rebase false
 git config --global diff.colorMoved default
 git config --global merge.conflictstyle zdiff3
 
-# clone repo and run install script
-git clone --recurse-submodules https://github.com/89iuv/dotfiles.git ~/.dotfiles
+# clone repo
+git clone https://github.com/89iuv/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
@@ -44,10 +43,10 @@ sudo dnf -y group install c-development development-tools
 
 # install dependencies
 sudo dnf -y install \
-  xclip xsel \
+  xsel \
   script zoxide fzf bat glow ripgrep fd jq stow \
-  curl wget lynx \
-  chafa ImageMagick \
+  curl wget \
+  chafa \
   stress hyperfine
 ```
 
@@ -57,12 +56,12 @@ sudo dnf -y install \
 # ssh
 sudo dnf install -y sshd
 sudo systemctl enable --now sshd
-# TODO: harden ssh connection
 
 # zsh
 sudo dnf -y install zsh
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+  "" --unattended
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
   "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
@@ -114,27 +113,24 @@ stow tmux
 ## Coding
 
 ```sh
-# install java
+# java
 sudo dnf install -y java-latest-openjdk-devel maven
 
-# install python
+# python
 sudo dnf install -y python pip uv
 
-# install nodejs
+# nodejs
 sudo dnf install -y node
-
-# install nodejs: npm: global pckages
-npm install -g @ast-grep/cli
 npm install -g @github/copilot
 
-# install lua
+# lua
 sudo dnf install -y lua luarocks compat-lua
 ```
 
 ## Containers
 
 ```sh
-# install docker
+# docker
 sudo dnf config-manager addrepo --overwrite --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 mkdir -p ~/.oh-my-zsh/completions/
@@ -146,18 +142,18 @@ sudo systemctl enable --now docker.service
 ## Local AI
 
 ```sh
-# install ollama
+# ollama
 curl -fsSL https://ollama.com/install.sh | sh
 ollama create -f ~/.dotfiles/ollama/modelfile_gpt-oss-20b-ol gpt-oss:20b
 sudo cp ollama/override.conf /etc/systemd/system/ollama.service.d/
 sudo systemctl daemon-reload
 sudo systemctl restart ollama.service
 
-# install opencode
+# opencode
 curl -fsSL https://opencode.ai/install | bash
 ~/.opencode/bin/opencode models --refresh
 
-# install nginx
+# nginx
 sudo dnf install -y nginx openssl
 sudo systemctl enable --now nginx.service
 
