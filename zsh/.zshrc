@@ -154,11 +154,11 @@ KEYTIMEOUT=4
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -183,14 +183,6 @@ alias xargs="xargs "
 # less
 alias less="less -irFX"
 
-# tmux
-if type tmux > /dev/null
-then
-  alias tn="tmux new -A -s tmux"
-  alias ta="tmux attach"
-  alias tl="tmux ls"
-fi
-
 # zoxide
 if type zoxide > /dev/null
 then
@@ -206,6 +198,13 @@ then
   alias la="eza -la -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias ll="eza -l -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias ls="eza -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
+fi
+
+# fzf
+if type fzf > /dev/null
+then
+  source <(fzf --zsh)
+  alias fzf="fzf --ansi"
 fi
 
 # bat
@@ -227,11 +226,12 @@ then
   alias glow="glow -w 80"
 fi
 
-# fzf
-if type fzf > /dev/null
+# tmux
+if type tmux > /dev/null
 then
-  source <(fzf --zsh)
-  alias fzf="fzf --ansi"
+  alias tn="tmux new -A -s tmux"
+  alias ta="tmux attach"
+  alias tl="tmux ls"
 fi
 
 # python: uv
