@@ -12,9 +12,12 @@
 
 ## Environment
 
-- Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
-- Install Nvidia Container Toolkit: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-- Install Nerd Fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
+- Install Fedora in WSL:
+  [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
+- Install Nvidia Container Toolkit:
+  [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+- Install Nerd Fonts:
+  [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 
 ## Repo
 
