@@ -204,7 +204,7 @@ fi
 if type fzf > /dev/null
 then
   source <(fzf --zsh)
-  alias fzf="fzf --ansi"
+  export FZF_DEFAULT_OPTS="--color=base16 --ansi"
 fi
 
 # bat
