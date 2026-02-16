@@ -8,7 +8,7 @@
   - [Coding](#coding)
   - [Containers](#containers)
   - [Local AI](#local-ai)
-  - [Clean up](#clean-up)
+  - [Clean Up](#clean-up)
 
 ## Environment
 
@@ -166,7 +166,7 @@ sudo systemctl restart nginx.service
 echo "$OLLAMA_API_KEY"
 ```
 
-## Clean up
+## Clean Up
 
 ```sh
 # remove or invalidate cache data

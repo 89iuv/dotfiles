@@ -97,10 +97,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# fix for lazygit not showing correct colors
-export COLORTERM=truecolor
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # zsh-history-substring-search
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=0,bg=5"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=0,bg=1"
@@ -287,7 +283,7 @@ then
   alias '?e'='noglob ask_explain'
 fi
 
-# format the current command in neovim keybind
+# format the current line in an editor
 bindkey '^xe' edit-command-line
 
 # super tab keybind
