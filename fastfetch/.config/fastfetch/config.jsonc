@@ -1,8 +1,6 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "source": "~/.config/fastfetch/ascii_art.txt",
-    "type": "file-raw",
     "padding": {
       "left": 1
     }
@@ -38,14 +36,10 @@
       "folders": "/"
     },
     "break",
-    // applications installed
-    "terminal",
-    "shell",
-    "editor",
-    "break",
     // general information
     "datetime",
     "version",
+    "locale",
     "break",
     // ansi colors
     "colors"
