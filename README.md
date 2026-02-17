@@ -49,8 +49,8 @@ sudo dnf -y install \
   xsel \
   script zoxide fzf bat glow ripgrep fd jq stow \
   curl wget \
-  btop \
-  stress hyperfine
+  stress hyperfine \
+  nvim
 ```
 
 ## Tools
@@ -99,6 +99,10 @@ rm -rf tmp
 sudo dnf -y install tmux
 stow tmux
 
+# btop
+sudo dnf -y install btop
+stow btop
+
 # fastfetch
 sudo dnf -y install fastfetch
 stow fastfetch
@@ -146,6 +150,7 @@ sudo systemctl restart ollama.service
 # opencode
 curl -fsSL https://opencode.ai/install | bash
 ~/.opencode/bin/opencode models --refresh
+stow opencode
 
 # nginx
 sudo dnf install -y nginx openssl
