@@ -50,6 +50,7 @@ sudo dnf -y install \
   script zoxide fzf bat glow ripgrep fd jq stow \
   curl wget \
   chafa \
+  btop \
   stress hyperfine
 ```
 
@@ -94,10 +95,6 @@ sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 cd ..
 rm -rf tmp
-
-# btop
-sudo dnf install -y btop
-stow btop
 
 # tmux
 sudo dnf -y install tmux
