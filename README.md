@@ -140,25 +140,25 @@ sudo systemctl enable --now docker.service
 ## Local AI
 
 ```sh
-# ollama
+# --- ollama ---
 curl -fsSL https://ollama.com/install.sh | sh
 ollama create -f ~/.dotfiles/ollama/modelfile_gpt-oss-20b-ol gpt-oss:20b
 sudo cp ollama/override.conf /etc/systemd/system/ollama.service.d/
 sudo systemctl daemon-reload
 sudo systemctl restart ollama.service
 
-# opencode
-curl -fsSL https://opencode.ai/install | bash
-~/.opencode/bin/opencode models --refresh
-stow opencode
-
-# nginx
+# --- nginx ---
 sudo dnf install -y nginx openssl
 sudo systemctl enable --now nginx.service
 
 # we can create and initialize on same line without any issues
 # shellcheck disable=SC2155
-export OLLAMA_API_KEY=$(openssl rand -hex 32)
+OLLAMA_API_KEY=$(openssl rand -hex 32)
+echo "# ollama" >> ~/.zshrc_local
+echo "export OLLAMA_WEB_URL="http://localhost:11435"" >> ~/.zshrc_local
+echo "export OLLAMA_API_KEY=$OLLAMA_API_KEY" >> ~/.zshrc_local
+echo "" >> ~/.zshrc_local
+source ~/.zshrc_local
 
 # we need to pass the environment variable as is to the script
 # shellcheck disable=SC2016
@@ -167,7 +167,16 @@ envsubst '${OLLAMA_API_KEY}' < ~/.dotfiles/nginx/conf.d/reverse_proxy_template.c
 sudo cp reverse_proxy.conf /etc/nginx/conf.d/reverse_proxy.conf
 rm -rf reverse_proxy.conf
 sudo systemctl restart nginx.service
-echo "$OLLAMA_API_KEY"
+
+# --- opencode --- 
+curl -fsSL https://opencode.ai/install | bash
+~/.opencode/bin/opencode models --refresh
+stow opencode
+
+# mcp servers keys
+# echo "# context7" >> ~/.zshrc_local
+# echo "export CONTEXT7_API_KEY=<your_api_key>" >> ~/.zshrc_local
+# source ~/.zshrc_local
 ```
 
 ## Clean Up
