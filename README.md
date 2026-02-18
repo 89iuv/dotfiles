@@ -154,12 +154,11 @@ sudo systemctl enable --now nginx.service
 # we can create and initialize on same line without any issues
 # shellcheck disable=SC2155
 OLLAMA_API_KEY=$(openssl rand -hex 32)
-cat <<EOF >> ~/.zshrc_local
+command cat <<EOF >> ~/.zshrc_local
 # ollama
 export OLLAMA_WEB_URL="http://localhost:11435"
 export OLLAMA_API_KEY=$OLLAMA_API_KEY
 EOF
-
 
 # we need to pass the environment variable as is to the script
 # shellcheck disable=SC2016
@@ -172,13 +171,13 @@ sudo systemctl restart nginx.service
 # --- opencode --- 
 # setup mcp keys
 # NOTE: replace <your_api_key> with the mcp api key
-cat <<EOF >> ~/.zshrc_local
+command cat <<EOF >> ~/.zshrc_local
 # context7
 export CONTEXT7_API_KEY=<your_api_key>
 EOF
 
 # setup path
-cat <<EOF >> ~/.zprofile_local
+command cat <<'EOF' >> ~/.zprofile_local
 # opencode
 export OPENCODE_PATH="$HOME/.opencode/bin"
 if [ -d "$OPENCODE_PATH" ]; then
