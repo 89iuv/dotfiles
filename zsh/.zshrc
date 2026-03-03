@@ -239,10 +239,11 @@ fi
 # copilot
 if type copilot > /dev/null && type bat > /dev/null
 then
+  COPILOT_MODEL="gpt-5-mini"
   ask_copilot() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    copilot --model "gpt-5-mini" --silent --prompt "$*" \
-      | bat --style=plain --paging=never --language markdown
+    copilot --model "$COPILOT_MODEL" --silent --prompt "$*" \
+      | bat --style=plain --paging=never --color="always" --language markdown
   }
   alias '?c'='ask_copilot'
 fi
@@ -250,10 +251,12 @@ fi
 # ollama
 if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
 then
+  OLLAMA_MODEL="qwen3.5:9b"
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    ollama run --nowordwrap --hidethinking --think=high gpt-oss:20b "$*" \
-      | bat --style=plain --paging=never --language markdown
+    PROMPT="$*"
+    ollama run --nowordwrap --hidethinking "$OLLAMA_MODEL" "$PROMPT" \
+      | bat --style=plain --paging=never --color="always" --language markdown
   }
 
   ask_shell() {
@@ -264,7 +267,7 @@ then
       Parameters: <<explain what each parameter does>>
     How to $* in shell.
     """
-    ollama run --nowordwrap --hidethinking --think=low gpt-oss:20b "$PROMPT" | glow -
+    ollama run --nowordwrap --think="false" "$OLLAMA_MODEL" "$PROMPT" | glow -
   }
 
   ask_explain() {
@@ -275,7 +278,7 @@ then
       Parameters: <<explain what each parameter does>>
     Explain the shell command: $*.
     """
-    ollama run --nowordwrap --hidethinking --think=low gpt-oss:20b "$PROMPT" | glow -
+    ollama run --nowordwrap --think="false" "$OLLAMA_MODEL" "$PROMPT" | glow -
   }
 
   alias '??'='noglob ask_generic'
