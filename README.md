@@ -142,7 +142,10 @@ sudo systemctl enable --now docker.service
 ```sh
 # --- ollama ---
 curl -fsSL https://ollama.com/install.sh | sh
+
 ollama create -f ~/.dotfiles/ollama/modelfile_gpt-oss-20b-ol gpt-oss:20b
+ollama create -f ~/.dotfiles/ollama/modelfile_qwen3.5-9b-ol qwen3.5:9b
+
 sudo cp ollama/override.conf /etc/systemd/system/ollama.service.d/
 sudo systemctl daemon-reload
 sudo systemctl restart ollama.service

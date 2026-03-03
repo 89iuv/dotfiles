@@ -1,7 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "ollama-private/gpt-oss:20b",
-  "small_model": "ollama-private/gpt-oss:20b",
   "default_agent": "plan",
   "permission": {
     "webfetch": "ask",
@@ -21,6 +19,9 @@
       "models": {
         "gpt-oss:20b": {
           "name": "gpt-oss:20b"
+        },
+        "qwen3.5:9b": {
+          "name": "qwen3.5:9b"
         }
       }
     }
