@@ -17,9 +17,6 @@
         }
       },
       "models": {
-        "gpt-oss:20b": {
-          "name": "gpt-oss:20b"
-        },
         "qwen3.5:9b": {
           "name": "qwen3.5:9b"
         }
