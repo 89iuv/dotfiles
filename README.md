@@ -85,8 +85,10 @@ echo exit | script -qec zsh /dev/null >/dev/null
 # eza
 mkdir tmp
 cd tmp
+
 curl -fsSL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz \
-| tar xz
+  | tar xz
+
 chmod +x eza
 sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
