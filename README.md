@@ -50,7 +50,8 @@ sudo dnf -y install \
   script zoxide fzf bat glow ripgrep fd jq stow \
   curl wget \
   stress hyperfine \
-  nvim
+  nvim \
+  chafa
 ```
 
 ## Tools
