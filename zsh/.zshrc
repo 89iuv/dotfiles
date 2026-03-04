@@ -252,6 +252,7 @@ fi
 if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
 then
   OLLAMA_MODEL="qwen3.5:9b"
+  
   ask_generic() {
     # NOTE: wrap your query in '' so that no globing or variable expantion takes place
     PROMPT="$*"
