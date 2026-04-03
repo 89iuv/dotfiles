@@ -1,11 +1,11 @@
--- Set terminal true colors
-vim.opt.termguicolors = true
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Set terminal true colors
+vim.opt.termguicolors = true
 
 -- Make line numbers default
 vim.o.number = true
@@ -72,4 +72,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
 })
-
