@@ -236,18 +236,6 @@ then
   eval "$(uv generate-shell-completion zsh)"
 fi
 
-# copilot
-if type copilot > /dev/null && type bat > /dev/null
-then
-  COPILOT_MODEL="gpt-5-mini"
-  ask_copilot() {
-    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    copilot --model "$COPILOT_MODEL" --silent --prompt "$*" \
-      | bat --style=plain --paging=never --color="always" --language markdown
-  }
-  alias '?c'='ask_copilot'
-fi
-
 # ollama
 if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
 then

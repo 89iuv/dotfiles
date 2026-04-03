@@ -47,7 +47,6 @@ sudo dnf -y install \
   script zoxide fzf bat glow ripgrep fd jq stow \
   curl wget \
   stress hyperfine \
-  nvim \
   chafa
 ```
 
@@ -99,6 +98,10 @@ rm -rf tmp
 sudo dnf -y install tmux
 stow tmux
 
+# nvim
+sudo dnf -y install neovim
+stow nvim
+
 # btop
 sudo dnf -y install btop
 stow btop
@@ -119,7 +122,6 @@ sudo dnf install -y python pip uv
 
 # nodejs
 sudo dnf install -y node
-npm install -g @github/copilot
 
 # lua
 sudo dnf install -y lua luarocks compat-lua
