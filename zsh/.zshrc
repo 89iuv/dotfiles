@@ -236,45 +236,6 @@ then
   eval "$(uv generate-shell-completion zsh)"
 fi
 
-# ollama
-if type ollama > /dev/null && type bat > /dev/null && type glow > /dev/null
-then
-  OLLAMA_MODEL="qwen3.5:9b"
-  
-  ask_generic() {
-    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PROMPT="$*"
-    ollama run --nowordwrap --hidethinking "$OLLAMA_MODEL" "$PROMPT" \
-      | bat --style=plain --paging=never --color="always" --language markdown
-  }
-
-  ask_shell() {
-    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PROMPT="""
-    You give a concise reply in the format of:
-      Command: <<the command>>
-      Parameters: <<explain what each parameter does>>
-    How to $* in shell.
-    """
-    ollama run --nowordwrap --think="false" "$OLLAMA_MODEL" "$PROMPT" | glow -
-  }
-
-  ask_explain() {
-    # NOTE: wrap your query in '' so that no globing or variable expantion takes place
-    PROMPT="""
-    You give a concise reply in the format of:
-      Description: <<short description of what the command does>>
-      Parameters: <<explain what each parameter does>>
-    Explain the shell command: $*.
-    """
-    ollama run --nowordwrap --think="false" "$OLLAMA_MODEL" "$PROMPT" | glow -
-  }
-
-  alias '??'='noglob ask_generic'
-  alias '?s'='noglob ask_shell'
-  alias '?e'='noglob ask_explain'
-fi
-
 # format the current line in an editor
 bindkey '^xe' edit-command-line
 
