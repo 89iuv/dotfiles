@@ -129,6 +129,9 @@ sudo dnf install -y lua luarocks compat-lua
 ## Containers
 
 ```sh
+# hadolint
+sudo dnf install -y hadolint
+
 # docker
 sudo dnf config-manager addrepo --overwrite --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
