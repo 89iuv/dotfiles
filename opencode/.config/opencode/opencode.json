@@ -20,6 +20,9 @@
         },
         "qwen/qwen3.5-9b": {
           "name": "qwen/qwen3.5-9b"
+        },
+        "qwen/qwen3.5-35b-a3b": {
+          "name": "qwen/qwen3.5-35b-a3b"
         }
       }
     }
