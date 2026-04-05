@@ -6,6 +6,7 @@
   - [System](#system)
   - [Tools](#tools)
   - [Coding](#coding)
+  - [AI](#ai)
   - [Containers](#containers)
   - [Clean Up](#clean-up)
 
@@ -124,6 +125,30 @@ sudo dnf install -y node
 
 # lua
 sudo dnf install -y lua luarocks compat-lua
+```
+
+## AI
+
+```sh
+# NOTE: replace <your_api_key> with the mcp api key
+ZCAT_LLM=<your_api_key>
+CONTEXT7_API_KEY=<your_api_key>
+
+# setup zcat api key
+command cat <<EOF >> ~/.zshrc_local
+# context7
+export ZCAT_LLM=$ZCAT_LLM
+EOF
+
+# setup context7 api key
+command cat <<EOF >> ~/.zshrc_local
+# context7
+export CONTEXT7_API_KEY=$CONTEXT7_API_KEY
+EOF
+
+# opencode
+curl -fsSL https://opencode.ai/install | bash
+stow opencode
 ```
 
 ## Containers
