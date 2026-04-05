@@ -131,13 +131,13 @@ sudo dnf install -y lua luarocks compat-lua
 
 ```sh
 # NOTE: replace <your_api_key> with the mcp api key
-ZCAT_LLM=<your_api_key>
+ZCAT_LLM_KEY=<your_api_key>
 CONTEXT7_API_KEY=<your_api_key>
 
 # setup zcat api key
 command cat <<EOF >> ~/.zshrc_local
 # context7
-export ZCAT_LLM=$ZCAT_LLM
+export ZCAT_LLM_KEY=$ZCAT_LLM_KEY
 EOF
 
 # setup context7 api key

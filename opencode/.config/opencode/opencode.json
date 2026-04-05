@@ -12,7 +12,7 @@
       "name": "Zcat LLM",
       "options": {
         "baseURL": "https://zcat.go.ro/v1",
-        "apiKey": "{env:ZCAT_LLM}"
+        "apiKey": "{env:ZCAT_LLM_KEY}"
       },
       "models": {
         "openai/gpt-oss-20b": {
