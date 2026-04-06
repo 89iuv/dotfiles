@@ -27,6 +27,7 @@
       }
     }
   },
+  "model": "zcat_llm/qwen/qwen3.5-9b",
   "mcp": {
     "context7": {
       "type": "local",
