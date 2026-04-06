@@ -93,9 +93,20 @@ plugins=(
   zsh-syntax-highlighting 
 )
 
+# load catppuccin theme for zsh-syntax-highlighting
+source $HOME/.dotfiles/catppuccin/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+
+# custom catppuccin highlights for zsh-syntax-highlighting
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=ZSH_HIGHLIGHT_STYLES[path]
+ZSH_HIGHLIGHT_STYLES[cursor]='none'
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# fix for delta not showing correct colors
+export COLORTERM=truecolor
 
 # zsh-history-substring-search
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=0,bg=5"
@@ -200,13 +211,14 @@ fi
 if type fzf > /dev/null
 then
   source <(fzf --zsh)
+  source ~/.dotfiles/catppuccin/fzf/themes/catppuccin-fzf-macchiato.sh
   export FZF_DEFAULT_OPTS="--color=base16 --ansi"
 fi
 
 # bat
 if type bat > /dev/null
 then
-  export BAT_THEME="base16"
+  export BAT_THEME="Catppuccin Macchiato"
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
   help() {
@@ -214,12 +226,6 @@ then
   }
 
   alias cat="bat -pp --color=always"
-fi
-
-# glow
-if type glow > /dev/null
-then
-  alias glow="glow -w 80"
 fi
 
 # tmux
@@ -274,6 +280,43 @@ bindkey -M menuselect "^p" reverse-menu-complete
 bindkey -M menuselect "^n" menu-complete
 bindkey -M menuselect "^[" undo
 
+# run command on new line and show execution time
+run() {
+  clear
+
+  # catppuccin colors
+  PINK='\033[38;2;245;194;231m'
+  RED='\033[38;2;243;139;168m'
+  MAROON='\033[38;2;235;160;172m'
+  BLUE='\033[38;2;137;180;250m'
+  TEXT='\033[38;2;205;214;244m'
+
+  echo -e "${BLUE}[Running]${TEXT} ${MAROON}$(pwd) $@${TEXT}"
+
+  start_time=$(date +%s%3N)
+  "$@"
+  exit_code=$?
+  end_time=$(date +%s%3N)
+  elapsed_time=$((end_time - start_time))
+
+  exit_code_color=""
+  if [ $exit_code -ne 0 ]
+  then
+    exit_code_color="${RED}"
+  else
+    exit_code_color="${PINK}"
+  fi
+
+  seconds=$((elapsed_time / 1000))
+  milliseconds=$((elapsed_time % 1000))
+  time_str="${seconds}.${milliseconds}"
+
+  echo ""
+  echo "${BLUE}[Done]${TEXT} ${MAROON}exited with${TEXT} ${exit_code_color}code=$exit_code${TEXT} ${MAROON}in${TEXT} ${time_str} ${MAROON}seconds${TEXT}"
+}
+
+# overwrite command not fould handler
+# and do not search for missing package
 command_not_found_handle () {
   echo "zsh: command not found: $1" >&2
   return 127

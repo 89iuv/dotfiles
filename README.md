@@ -13,8 +13,9 @@
 ## Environment
 
 - Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
-- Install Nvidia Container Toolkit: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+- Install Catppuccin Theme: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 - Install Nerd Fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
+- Install Nvidia Container Toolkit: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
 ## Repo
 
@@ -22,13 +23,8 @@
 # install git
 sudo dnf install -y git
 
-# global config
-git config --global pull.rebase false
-git config --global diff.colorMoved default
-git config --global merge.conflictstyle zdiff3
-
 # clone repo
-git clone https://github.com/89iuv/dotfiles.git ~/.dotfiles
+git clone --recurse-submodules https://github.com/89iuv/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
@@ -44,7 +40,7 @@ sudo dnf -y group install c-development development-tools
 # install dependencies
 sudo dnf -y install \
   xsel \
-  script zoxide fzf bat glow ripgrep fd jq stow \
+  script zoxide fzf bat ripgrep fd jq stow \
   curl wget \
   stress hyperfine \
   chafa
@@ -93,6 +89,33 @@ sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 cd ..
 rm -rf tmp
+
+stow eza
+
+# git-delta
+sudo dnf install -y git-delta
+
+git config --global core.pager delta
+git config --global include.path "$HOME/.dotfiles/catppuccin/delta/catppuccin.gitconfig"
+
+git config --global delta.features catppuccin-macchiato
+git config --global delta.true-colors "always"
+git config --global delta.line-numbers true
+
+git config --global delta.commit-decoration-style "bold"
+
+git config --global delta.file-style "#b7bdf8"
+git config --global delta.file-decoration-style "ul #b7bdf8"
+
+git config --global delta.hunk-header-style omit
+git config --global delta.hunk-header-decoration-style "ul #6e738d"
+
+git config --global diff.colorMoved default
+git config --global merge.conflictstyle zdiff3
+git config --global interactive.diffFilter "delta --color-only"
+
+git config --global alias.diff-unified "-c delta.hunk-header-style=auto -c delta.line-numbers=false diff"
+git config --global alias.diff-compare "-c delta.hunk-header-style=omit -c delta.side-by-side=true diff"
 
 # tmux
 sudo dnf -y install tmux

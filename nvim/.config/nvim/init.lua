@@ -23,9 +23,9 @@ vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 vim.o.breakindent = true
 
 -- Configure indent to 2 spaces
-vim.opt.tabstop = 2        -- Number of visual spaces per TAB
-vim.opt.shiftwidth = 2     -- Number of spaces for autoindent
-vim.opt.expandtab = true   -- Convert TABs to spaces
+vim.opt.tabstop = 2      -- Number of visual spaces per TAB
+vim.opt.shiftwidth = 2   -- Number of spaces for autoindent
+vim.opt.expandtab = true -- Convert TABs to spaces
 
 -- Enable undo/redo changes even after closing and reopening a file
 vim.o.undofile = true
@@ -76,4 +76,30 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
+})
+
+-- [[ Install `lazy.nvim` plugin manager ]]
+--    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then error('Error cloning lazy.nvim:\n' .. out) end
+end
+
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
+
+-- [[ Configure and install plugins ]]
+require('lazy').setup({
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({})
+      vim.cmd.colorscheme "catppuccin-macchiato"
+    end
+  }
 })

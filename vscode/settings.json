@@ -1,0 +1,101 @@
+{
+    "json.schemaDownload.trustedDomains": {
+        "https://aka.ms/terminal-profiles-schema": true,
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://esm.sh/gh/catppuccin/vscode%40catppuccin-vsc-v3.18.1/packages/catppuccin-vsc/schemas/colorOverrides.schema.json": true,
+        "https://esm.sh/gh/catppuccin/vscode%40catppuccin-vsc-v3.18.1/packages/catppuccin-vsc/schemas/customUIColors.schema.json": true,
+        "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://models.dev/model-schema.json": true,
+        "https://opencode.ai/config.json": true,
+        "https://opencode.ai/tui.json": true,
+        "https://raw.githubusercontent.com/": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://www.schemastore.org/": true
+    },
+
+    "workbench.colorTheme": "Catppuccin Macchiato",
+
+    "catppuccin.accentColor": "lavender",
+    "catppuccin.workbenchMode": "default",
+    "catppuccin.extraBordersEnabled": true,
+    "catppuccin.italicKeywords": false,
+
+    "catppuccin.customUIColors": {
+        "macchiato": {
+            "tab.border": "surface0",
+            "sideBarSectionHeader.border": "surface0",
+            "editorRuler.foreground": "surface0",
+            "terminal.background": "mantle",
+            "minimap.background": "base",
+            "panel.background": "mantle",
+            "panel.border": "surface0"
+        }
+    },
+
+    "editor.semanticHighlighting.enabled": true,
+
+    "window.zoomLevel": 1,
+    "files.autoSave": "afterDelay",
+    "remote.autoForwardPorts": false,
+    "telemetry.telemetryLevel": "off",
+    
+    "git.confirmSync": false,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.experimental.showMoves": true,
+        
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.list.smoothScrolling": true,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.tree.indent": 14,
+    
+    "editor.stickyScroll.enabled": false,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Jetbrains Mono, Symbols Nerd Font Mono",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 1.6,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.guides.highlightActiveIndentation": "always",
+    
+    "terminal.integrated.minimumContrastRatio": 1,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.lineHeight": 1.2,  
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.toggleSidebarVisibility"
+    ],
+    
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    
+    "python.analysis.inlayHints.callArgumentNames": "partial",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.variableTypes": true,
+
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.wordWrap": "off"
+    } 
+}
