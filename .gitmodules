@@ -1,18 +1,18 @@
 [submodule "catppuccin/btop"]
 	path = catppuccin/btop
-	url = git@github.com:catppuccin/btop.git
+	url = https://github.com/catppuccin/btop
 [submodule "catppuccin/eza"]
 	path = catppuccin/eza
-	url = git@github.com:catppuccin/eza.git
+	url = https://github.com/catppuccin/eza
 [submodule "catppuccin/fzf"]
 	path = catppuccin/fzf
 	url = https://github.com/catppuccin/fzf
 [submodule "catppuccin/zsh-syntax-highlighting"]
 	path = catppuccin/zsh-syntax-highlighting
-	url = git@github.com:catppuccin/zsh-syntax-highlighting.git
+	url = https://github.com/catppuccin/zsh-syntax-highlighting
 [submodule "catppuccin/delta"]
 	path = catppuccin/delta
-	url = git@github.com:catppuccin/delta.git
+	url = https://github.com/catppuccin/delta
 [submodule "catppuccin/windows-terminal"]
 	path = catppuccin/windows-terminal
-	url = git@github.com:catppuccin/windows-terminal.git
+	url = https://github.com/catppuccin/windows-terminal
