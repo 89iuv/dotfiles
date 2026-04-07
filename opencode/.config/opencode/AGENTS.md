@@ -6,4 +6,5 @@
 
 ## Tools
 
-- use `context7` tools to search for documentation and manuals
+- use `context7` tool to search for documentation and manuals
+- use `playwright` tool to interact with a browser and navigate to webpages

@@ -3,22 +3,21 @@
   "default_agent": "run",
   "permission": {
     "webfetch": "deny",
-    "context7*": "ask",
-    "playwright": "ask"
+    "websearch": "deny"
   },
   "agent": {
     "run": {
       "mode": "primary",
-      "description": "Ai agent that can run terminal commands",
-      "prompt": "You give short and concise answers.",
+      "description": "A multi purpose AI agent.",
+      "prompt": "You are a versatile AI assistant. Handle coding, writing, research, troubleshooting, and anything else asked. Dive deep when needed but keep answers concise.",
       "color": "warning",
       "permission": {
         "*": "deny",
         "bash": "allow",
-        "read": "allow",
         "edit": "allow",
-        "context7": "ask",
-        "playwright": "ask"
+        "read": "allow",
+        "context7_*": "allow",
+        "playwright_*": "allow"
       }
     }
   },
@@ -35,10 +34,10 @@
         "openai/gpt-oss-20b": {
           "name": "openai/gpt-oss-20b",
           "variants": {
-            "high":{
+            "high": {
               "reasoningEffort": "high"
             },
-            "low":{
+            "low": {
               "reasoningEffort": "low"
             }
           }
@@ -48,6 +47,12 @@
         },
         "qwen/qwen3.5-35b-a3b": {
           "name": "qwen/qwen3.5-35b-a3b"
+        },
+        "google/gemma-4-26b-a4b": {
+          "name": "google/gemma-4-26b-a4b"
+        },
+        "google/gemma-4-e4b": {
+          "name": "google/gemma-4-e4b"
         }
       }
     }
@@ -67,8 +72,10 @@
     "playwright": {
       "type": "local",
       "command": [
-        "npx",
-        "@playwright/mcp@latest",
+        "npx", 
+        "@playwright/mcp@latest", 
+        "--isolated", 
+        "--sandbox"
       ],
       "enabled": true
     }
