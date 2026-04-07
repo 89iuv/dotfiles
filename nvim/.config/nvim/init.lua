@@ -93,13 +93,15 @@ rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      require("catppuccin").setup({})
-      vim.cmd.colorscheme "catppuccin-macchiato"
-    end
+  spec = {
+    {
+      "catppuccin/nvim",
+      name = "catppuccin",
+      priority = 1000,
+      config = function()
+        require("catppuccin").setup({})
+        vim.cmd.colorscheme "catppuccin-macchiato"
+      end
+    }
   }
 })
