@@ -1,16 +1,16 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "question",
+  "default_agent": "run",
   "permission": {
     "webfetch": "deny",
     "context7*": "ask",
     "playwright": "ask"
   },
   "agent": {
-    "question": {
+    "run": {
       "mode": "primary",
-      "description": "Answers user questions.",
-      "prompt": "Provide a short and concise answer.",
+      "description": "Ai agent that can run terminal commands",
+      "prompt": "You give short and concise answers.",
       "color": "warning",
       "permission": {
         "*": "deny",
