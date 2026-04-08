@@ -17,7 +17,6 @@
         "edit": "allow",
         "read": "allow",
         "glob": "allow",
-        "list": "allow",
         "context7_*": "allow",
         "playwright_*": "allow"
       }
