@@ -23,7 +23,7 @@ Use `git push` to push canges to remote repo.
 
 ## Notes
 
-### Conventional Commit Message Rule
+### Conventional Commit Message Rules
 
 Format:
 
@@ -31,20 +31,20 @@ Format:
 
 - type: scan the changed files and infer:
 
-| Signal                                | Type            |
-| ------------------------------------- | --------------- |
-| Only new feature files                | `feat`          |
-| Bug-fix files or issue references     | `fix`           |
-| Test files only                       | `test`          |
-| Docs / README / comments              | `docs`          |
-| Config / tooling / CI changes         | `chore` or `ci` |
-| Code restructure, no behaviour change | `refactor`      |
-| Style / formatting only               | `style`         |
-| Performance improvement               | `perf`          |
+| Signal                                | Type       |
+| ------------------------------------- | ---------- |
+| Only new feature files                | `feat`     |
+| Bug-fix files or issue references     | `fix`      |
+| Test files only                       | `test`     |
+| Docs / README / comments              | `docs`     |
+| Config / tooling / CI changes         | `chore`    |
+| Code restructure, no behaviour change | `refactor` |
+| Style / formatting only               | `style`    |
+| Performance improvement               | `perf`     |
 
 - scope: the module, package, or area affected (e.g. auth, api, cli) — omit if
   repo-wide
-- summary: imperative mood, lowercase, no trailing period, ≤ 72 characters
+- summary: imperative mood, lowercase, no trailing period
 
 Examples:
 
