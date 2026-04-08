@@ -44,6 +44,7 @@ Format:
 
 - scope: the module, package, or area affected (e.g. auth, api, cli) — omit if
   repo-wide
+  
 - summary: imperative mood, lowercase, no trailing period
 
 Examples:
