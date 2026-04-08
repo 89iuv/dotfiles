@@ -16,8 +16,8 @@ Use this skill when asked to: `git commit and push`.
 Use `git status` to check for repo changes, abort if no changes are detected.
 Use `git add .` to add all files to staging.
 
-Generate a commit message using the Conventional Commit Message Rules.
-Use `git commit -m"<message>"` to commit changes to local repo.
+Generate a commit message using the **Conventional Commit Message Rules** and
+use `git commit -m"<message>"` to commit the changes to the local repo.
 
 Use `git push` to push canges to remote repo.
 
