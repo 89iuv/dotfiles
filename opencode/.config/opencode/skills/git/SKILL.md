@@ -1,38 +1,30 @@
 ---
 name: git
-description: commit local change and push to remote
+description: commit and push
 ---
 
 # Git Commit and Push Skill
 
+You have permission to use git for commit and push to remote repository.
+
 ## Workflow
 
-### Step 1
+Use `git status` to check for repo changes, abort if no changes are detected.
+Use `git add .` to add all files to staging.
 
-use `git status` to check for repo changes
+Generate a commit message using the Conventional Commit Message Rules.
+Use `git commit -m"<message>"` to commit changes to local repo.
 
-### Step 2
+Use `git push` to push canges to remote repo.
 
-use `git add .` to add all files to staging
 
-### Step 3
-
-Generate a commit message using the Conventional Commit Rules
-use `git commit -m"<message>"` to commit changes to local repo
-
-### Step 4
-
-use `git push` to push commits to remote repo
-
-## Notes
-
-### Conventional Commit Message
+## Conventional Commit Message Rules
 
 Format:
 
 `<type>(<optional scope>): <short imperative summary>`
 
-Rules:
+Where:
 
 - type: one of feat | fix | docs | style | refactor | perf | test | chore | ci | build | revert
 - scope: the module, package, or area affected (e.g. auth, api, cli) — omit if repo-wide
