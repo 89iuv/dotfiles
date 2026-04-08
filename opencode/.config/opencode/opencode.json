@@ -13,6 +13,7 @@
       "color": "warning",
       "permission": {
         "*": "deny",
+        "skill": "allow",
         "bash": "allow",
         "edit": "allow",
         "read": "allow",
