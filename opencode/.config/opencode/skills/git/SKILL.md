@@ -21,7 +21,6 @@ Use `git commit -m"<message>"` to commit changes to local repo.
 
 Use `git push` to push canges to remote repo.
 
-
 ## Notes
 
 ### Conventional Commit Message Rule
@@ -30,10 +29,21 @@ Format:
 
 `<type>(<optional scope>): <short imperative summary>`
 
-Where:
+- type: scan the changed files and infer:
 
-- type: one of feat | fix | docs | style | refactor | perf | test | chore | ci | build | revert
-- scope: the module, package, or area affected (e.g. auth, api, cli) — omit if repo-wide
+| Signal                                | Type            |
+| ------------------------------------- | --------------- |
+| Only new feature files                | `feat`          |
+| Bug-fix files or issue references     | `fix`           |
+| Test files only                       | `test`          |
+| Docs / README / comments              | `docs`          |
+| Config / tooling / CI changes         | `chore` or `ci` |
+| Code restructure, no behaviour change | `refactor`      |
+| Style / formatting only               | `style`         |
+| Performance improvement               | `perf`          |
+
+- scope: the module, package, or area affected (e.g. auth, api, cli) — omit if
+  repo-wide
 - summary: imperative mood, lowercase, no trailing period, ≤ 72 characters
 
 Examples:
