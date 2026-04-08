@@ -7,6 +7,10 @@ description: commit and push
 
 You have permission to use git for commit and push to remote repository.
 
+## Triggers
+
+Use this skill when asked to: `git commit and push`.
+
 ## Workflow
 
 Use `git status` to check for repo changes, abort if no changes are detected.
@@ -18,7 +22,9 @@ Use `git commit -m"<message>"` to commit changes to local repo.
 Use `git push` to push canges to remote repo.
 
 
-## Conventional Commit Message Rules
+## Notes
+
+### Conventional Commit Message Rule
 
 Format:
 
