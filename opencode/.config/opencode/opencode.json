@@ -16,6 +16,9 @@
         "bash": "allow",
         "edit": "allow",
         "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "list": "allow",
         "context7_*": "allow",
         "playwright_*": "allow"
       }
