@@ -5,24 +5,6 @@
     "webfetch": "deny",
     "websearch": "deny"
   },
-  "agent": {
-    "run": {
-      "mode": "primary",
-      "description": "A multi purpose AI agent.",
-      "prompt": "You are a versatile AI assistant. Handle coding, writing, research, troubleshooting, and anything else asked. Dive deep when needed but keep answers concise.",
-      "color": "warning",
-      "permission": {
-        "*": "deny",
-        "skill": "allow",
-        "bash": "allow",
-        "edit": "allow",
-        "read": "allow",
-        "glob": "allow",
-        "context7_*": "allow",
-        "playwright_*": "allow"
-      }
-    }
-  },
   "enabled_providers": ["zcat_llm"],
   "provider": {
     "zcat_llm": {
