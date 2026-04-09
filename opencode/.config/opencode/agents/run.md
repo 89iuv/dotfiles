@@ -4,11 +4,15 @@ mode: primary
 color: warning
 permission:
   "*": deny
-  skill: allow
   bash: allow
   edit: allow
   read: allow
+  grep: allow
   glob: allow
+  list: allow
+  skill: allow
+  todowrite: allow
+  question: allow
   "context7_*": allow
 ---
 
