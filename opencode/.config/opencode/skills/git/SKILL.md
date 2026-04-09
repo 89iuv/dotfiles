@@ -5,50 +5,93 @@ description: commit and push
 
 # Git Commit and Push Skill
 
-You have permission to use git for commit and push to remote repository.
+You have permission to use git for committing and pushing to remote repositories.
 
-## Triggers
+## Trigger Conditions
 
-Use this skill when asked to: `git commit and push`.
+Use this skill when explicitly asked to:
+- "commit and push"
+- "git commit"
+- "push changes"
+- "create a commit"
 
-## Workflow
+## Pre-commit Checks
 
-Use `git status` to check for repo changes, abort if no changes are detected.
-Use `git add .` to add all files to staging.
+Before proceeding, ALWAYS:
+1. Run `git status` to inspect the repository state
+2. Abort if NO changes are detected (no modified, added, or deleted files)
+3. Abort if there are uncommitted changes already staged (warn user first)
+4. Identify the current branch using `git branch --show-current`
 
-Generate a commit message using the **Conventional Commit Message Rules** and
-use `git commit -m"<message>"` to commit the changes to the local repo.
+## File Staging
 
-Use `git push` to push canges to remote repo.
+Use `git add .` to stage all changes, OR:
+- Use `git add <specific-files>` if only certain files should be committed
+- Review staged files with `git diff --cached` before committing
 
-## Notes
+## Commit Message Generation
 
-**Conventional Commit Message Rules**
+Generate commit messages following **Conventional Commits** format:
+`<type>(<scope>): <imperative-mood-summary>`
 
-Format:
+### Type Selection Rules
 
-`<type>(<optional scope>): <short imperative summary>`
+Scan changed files and determine type using this PRIORITY ORDER:
 
-- type: scan the changed files and infer:
+1. **fix** - Bug fixes, error corrections, or issue references (highest priority)
+2. **feat** - New features or functionality
+3. **refactor** - Code restructuring without behavior changes
+4. **perf** - Performance improvements
+5. **style** - Formatting, linting, missing semicolons (no logic changes)
+6. **docs** - Documentation, README, comments
+7. **test** - Test files only
+8. **chore** - Config, tooling, dependencies, CI/CD (lowest priority)
 
-| Signal                                | Type       |
-| ------------------------------------- | ---------- |
-| Only new feature files                | `feat`     |
-| Bug-fix files or issue references     | `fix`      |
-| Test files only                       | `test`     |
-| Docs / README / comments              | `docs`     |
-| Config / tooling / CI changes         | `chore`    |
-| Code restructure, no behaviour change | `refactor` |
-| Style / formatting only               | `style`    |
-| Performance improvement               | `perf`     |
+### Scope Guidelines
 
-- scope: the module, package, or area affected (e.g. auth, api, cli) — omit if
-  repo-wide
+- Use scope for: module names, package names, feature areas (e.g., `auth`, `api`, `cli`)
+- Omit scope when: changes span multiple areas or repo-wide
 
-- summary: imperative mood, lowercase, no trailing period
+### Summary Format
 
-Examples:
+- Use imperative mood: "add" not "added" or "adds"
+- Lowercase first letter
+- No trailing period
+- Keep under 50 characters when possible
 
-`feat(auth): add OAuth2 login support`
-`fix(api): return 404 instead of 500 for missing resources`
-`chore: update dependencies to latest patch versions`
+### Examples
+
+```
+feat(auth): add OAuth2 login support
+fix(api): return 404 for missing resources
+refactor(parser): extract validation logic
+docs(readme): update installation instructions
+chore(deps): bump lodash to 4.17.21
+```
+
+## Commit Execution
+
+1. Generate the commit message based on rules above
+2. Run: `git commit -m "<message>"`
+3. Verify commit succeeded by checking return code
+
+## Push Execution
+
+After successful commit:
+1. Run: `git push`
+2. If first-time push to new branch, use: `git push -u origin <branch-name>`
+3. Handle authentication errors gracefully (prompt user for credentials if needed)
+
+## Error Handling
+
+- **No changes**: Abort with message "No changes to commit"
+- **Git errors**: Report specific error message, do not retry blindly
+- **Push failures**: Check for conflicts, suggest `git pull --rebase` if applicable
+- **Hook failures**: Report pre-commit hook errors, do not bypass (`--no-verify`)
+
+## Safety Guidelines
+
+- NEVER use `--force` or `--force-with-lease` unless explicitly requested
+- NEVER bypass hooks with `--no-verify` unless explicitly requested
+- ALWAYS confirm before pushing to shared/production branches
+- Prefer descriptive commit messages over vague ones like "update" or "fix"
