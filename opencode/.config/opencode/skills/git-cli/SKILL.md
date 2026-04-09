@@ -1,5 +1,5 @@
 ---
-name: git
+name: git-cli
 description: commit and push
 ---
 
