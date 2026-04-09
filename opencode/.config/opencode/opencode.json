@@ -58,16 +58,6 @@
         "{env:CONTEXT7_API_KEY}"
       ],
       "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "npx", 
-        "@playwright/mcp@latest", 
-        "--isolated", 
-        "--sandbox"
-      ],
-      "enabled": true
     }
   }
 }

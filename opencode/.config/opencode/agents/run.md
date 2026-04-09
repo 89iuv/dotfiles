@@ -10,7 +10,6 @@ permission:
   read: allow
   glob: allow
   "context7_*": allow
-  "playwright_*": allow
 ---
 
 # Multi‑Purpose Coding Agent with Tool‑Use & Function‑Calling
