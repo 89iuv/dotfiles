@@ -145,6 +145,8 @@ sudo dnf install -y python pip uv
 
 # nodejs
 sudo dnf install -y node
+sudo npm install -g @playwright/cli@latest
+
 
 # lua
 sudo dnf install -y lua luarocks compat-lua
