@@ -1,6 +1,6 @@
 ---
 name: git-cli
-description: commit and push
+description: Check local changes, generate commit message dn commit local changes, push commits to remote repo.
 ---
 
 # Git Commit and Push Skill
