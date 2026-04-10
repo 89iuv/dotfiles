@@ -27,6 +27,7 @@
     "catppuccin.customUIColors": {
         "macchiato": {
             "tab.border": "surface0",
+            "tab.unfocusedInactiveBackground": "mantle",
             "sideBarSectionHeader.border": "surface0",
             "editorRuler.foreground": "surface0",
             "terminal.background": "mantle",
