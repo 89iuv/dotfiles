@@ -32,15 +32,15 @@
         "qwen/qwen3.5-35b-a3b": {
           "name": "qwen/qwen3.5-35b-a3b"
         },
+        "unsloth/qwen3.5-35b-a3b": {
+          "name": "unsloth/qwen3.5-35b-a3b"
+        },
         "google/gemma-4-26b-a4b": {
           "name": "google/gemma-4-26b-a4b"
         },
-        "google/gemma-4-e4b": {
-          "name": "google/gemma-4-e4b"
-        },
         "zai-org/glm-4.7-flash": {
           "name": "zai-org/glm-4.7-flash"
-        },
+        }
       }
     }
   },

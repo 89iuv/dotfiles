@@ -11,8 +11,6 @@ permission:
   glob: allow
   list: allow
   skill: allow
-  todowrite: allow
-  question: allow
   "context7_*": allow
 ---
 
