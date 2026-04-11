@@ -1,5 +1,5 @@
 ---
-name: git-cli
+name: git
 description:
   Check local changes, generate commit message and commit local changes, push
   commits to remote repo.

@@ -1,5 +1,5 @@
 ---
-name: ctx7-cli
+name: ctx7
 description: >-
   Retrieves up-to-date documentation, API references, and code examples for any
   developer technology. Use this skill whenever the user asks about a specific

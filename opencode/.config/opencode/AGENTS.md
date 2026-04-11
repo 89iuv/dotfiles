@@ -14,6 +14,6 @@ operating in this environment.
 
 ## Skill Usage
 
-- use `git-cli` skill for any git operations
-- use `ctx7-cli` skill to search documentation
+- use `git` skill for any git operations
+- use `ctx7` skill to search documentation
 - use `playwright-cli` skill to interact with browser
