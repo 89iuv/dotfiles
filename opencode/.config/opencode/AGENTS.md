@@ -38,3 +38,9 @@ operating in this environment.
    - Use `&&` for dependent operations (must succeed sequentially)
    - Use `;` for sequential operations where failure doesn't matter
    - Avoid newlines to separate commands
+
+## Skill Usage Guidelines
+
+- use `git-cli` skill for any git operations
+- use `ctx7-cli` skill to search for documentation and manuals
+- use `playwright-cli` skill to interact with browser
