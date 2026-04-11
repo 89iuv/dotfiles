@@ -5,6 +5,14 @@
     "webfetch": "deny",
     "websearch": "deny"
   },
+  "agent": {
+    "title": {
+      "disable": false,
+      "options": {
+        "reasoningEffort": "none",
+      }
+    }
+  },
   "enabled_providers": ["zcat_llm"],
   "provider": {
     "zcat_llm": {
