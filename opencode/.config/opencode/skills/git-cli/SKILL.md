@@ -31,9 +31,9 @@ Use `git add .` to stage all changes, OR:
 
 ## Commit Message Generation
 
-1. Generate commit messages following **Conventional Commits** format:
+- Generate commit messages following **Conventional Commits** format:
 `<type>(<scope>): <imperative-mood-summary>`
-2. Ask for permmission to continue using the generated commit message.
+- Ask for permmission to continue using the generated commit message.
 
 ### Type Selection Rules
 

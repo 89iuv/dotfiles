@@ -10,7 +10,6 @@ permission:
   grep: allow
   glob: allow
   skill: allow
-  "context7_*": allow
 ---
 
 # Multi‑Purpose Coding Agent with CLI Focus
