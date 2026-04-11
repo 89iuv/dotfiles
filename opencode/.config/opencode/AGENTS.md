@@ -12,6 +12,11 @@ operating in this environment.
 3. **Clear Communication**: Explain what you're doing and why before executing
 4. **Iterative Approach**: Start simple, verify, then expand
 
+## Tool Usage
+
+- always make the tool call outside of the thinking block
+- never make the tool call inside the thinking block
+
 ## Skill Usage
 
 - use `git` skill for any git operations
