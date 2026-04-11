@@ -9,7 +9,7 @@
     "title": {
       "disable": false,
       "options": {
-        "reasoningEffort": "none",
+        "reasoningEffort": "none"
       }
     }
   },
@@ -47,19 +47,6 @@
           "name": "zai-org/glm-4.7-flash"
         }
       }
-    }
-  },
-  "mcp": {
-    "context7": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@upstash/context7-mcp",
-        "--api-key",
-        "{env:CONTEXT7_API_KEY}"
-      ],
-      "enabled": false
     }
   }
 }
