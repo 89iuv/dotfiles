@@ -59,7 +59,7 @@
         "--api-key",
         "{env:CONTEXT7_API_KEY}"
       ],
-      "enabled": true
+      "enabled": false
     }
   }
 }
