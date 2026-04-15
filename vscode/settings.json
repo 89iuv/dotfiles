@@ -18,7 +18,6 @@
     },
 
     "workbench.colorTheme": "Catppuccin Macchiato",
-
     "catppuccin.accentColor": "lavender",
     "catppuccin.workbenchMode": "default",
     "catppuccin.extraBordersEnabled": true,
@@ -77,6 +76,8 @@
     "terminal.integrated.commandsToSkipShell": [
         "workbench.action.toggleSidebarVisibility"
     ],
+
+    "chat.disableAIFeatures": true,
     
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff"
@@ -98,5 +99,6 @@
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.wordWrap": "off"
-    } 
+    }
+    
 }
