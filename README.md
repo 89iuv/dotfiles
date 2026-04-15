@@ -39,6 +39,7 @@ sudo dnf -y group install c-development development-tools
 
 # install dependencies
 sudo dnf -y install \
+  wol \
   xsel \
   script zoxide fzf bat ripgrep fd jq stow \
   curl wget \
