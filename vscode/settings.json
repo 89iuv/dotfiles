@@ -32,7 +32,8 @@
             "terminal.background": "mantle",
             "minimap.background": "base",
             "panel.background": "mantle",
-            "panel.border": "surface0"
+            "panel.border": "surface0",
+            "multiDiffEditor.headerBackground":"base"
         }
     },
 
