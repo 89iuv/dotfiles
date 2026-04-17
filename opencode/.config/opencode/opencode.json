@@ -40,6 +40,9 @@
         "qwen/qwen3.5-35b-a3b": {
           "name": "qwen/qwen3.5-35b-a3b"
         },
+        "qwen/qwen3.6-35b-a3b": {
+          "name": "qwen/qwen3.6-35b-a3b"
+        },
         "google/gemma-4-26b-a4b": {
           "name": "google/gemma-4-26b-a4b"
         },
