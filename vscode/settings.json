@@ -48,6 +48,8 @@
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.experimental.showMoves": true,
         
+    "workbench.editor.openPositioning": "last",
+    "workbench.editor.enablePreview": false,
     "workbench.tree.enableStickyScroll": false,
     "workbench.list.smoothScrolling": true,
     "workbench.tree.renderIndentGuides": "always",
