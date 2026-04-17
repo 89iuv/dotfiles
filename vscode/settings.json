@@ -23,8 +23,11 @@
     "catppuccin.extraBordersEnabled": true,
     "catppuccin.italicKeywords": false,
 
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "catppuccin-icons.hidesExplorerArrows": false,
+
     "catppuccin.customUIColors": {
-        "macchiato": {
+        "all": {
             "tab.border": "surface0",
             "tab.unfocusedInactiveBackground": "mantle",
             "sideBarSectionHeader.border": "surface0",
