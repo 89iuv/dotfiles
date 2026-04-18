@@ -30,13 +30,22 @@
         "all": {
             "tab.border": "surface0",
             "tab.unfocusedInactiveBackground": "mantle",
+            
             "sideBarSectionHeader.border": "surface0",
-            "editorRuler.foreground": "surface0",
-            "terminal.background": "mantle",
+            "list.focusAndSelectionOutline": "accent",
+            "list.focusOutline":"accent",
+            
             "minimap.background": "base",
+            "editorRuler.foreground": "surface0",
+            "multiDiffEditor.headerBackground":"base",
+
+            "keybindingLabel.background": "base",
+            "keybindingLabel.foreground": "subtext0",
+            
             "panel.background": "mantle",
             "panel.border": "surface0",
-            "multiDiffEditor.headerBackground":"base"
+            "terminal.background": "mantle"
+                        
         }
     },
 

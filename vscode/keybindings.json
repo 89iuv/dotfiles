@@ -1,0 +1,12 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+k ctrl+m",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    }
+]
