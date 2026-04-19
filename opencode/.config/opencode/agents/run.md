@@ -10,6 +10,9 @@ permission:
   grep: allow
   glob: allow
   skill: allow
+  question: allow
+  todowrite: allow
+  task: allow
 ---
 
 # Multi‑Purpose Coding Agent with CLI Focus
