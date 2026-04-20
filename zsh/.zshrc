@@ -201,7 +201,7 @@ fi
 # eza
 if type eza > /dev/null
 then
-  alias l="eza -la -a -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
+  alias l="eza -la -a -g -s Name --git --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias la="eza -la -g -s Name --git --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias ll="eza -l -g -s Name --git --group-directories-first --time-style=long-iso --color=always --icons=always"
   alias ls="eza -g -s Name --group-directories-first --time-style=long-iso --color=always --icons=always"
