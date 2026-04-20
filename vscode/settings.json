@@ -49,6 +49,16 @@
         }
     },
 
+    "workbench.tree.enableStickyScroll": false,
+    "editor.stickyScroll.enabled": false,
+    "terminal.integrated.stickyScroll.enabled": false,
+
+    "workbench.list.smoothScrolling": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "explicit",
+    "editor.cursorBlinking": "smooth",
+    "terminal.integrated.smoothScrolling": true,
+
     "window.zoomLevel": 1,
     "remote.autoForwardPorts": false,
     "telemetry.telemetryLevel": "off",
@@ -60,18 +70,15 @@
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.experimental.showMoves": true,
 
-    "workbench.editor.openPositioning": "last",
     "workbench.editor.enablePreview": false,
-    "workbench.tree.enableStickyScroll": false,
-    "workbench.list.smoothScrolling": true,
+    "workbench.editor.openPositioning": "last",
+
     "workbench.tree.renderIndentGuides": "always",
     "workbench.tree.indent": 14,
 
     "editor.semanticHighlighting.enabled": true,
-    "editor.stickyScroll.enabled": false,
-    "editor.smoothScrolling": true,
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.cursorBlinking": "smooth",
+    "editor.renderWhitespace": "trailing",
+    "editor.guides.highlightActiveIndentation": "always",
     "editor.fontLigatures": true,
     "editor.fontFamily": "Jetbrains Mono, Symbols Nerd Font Mono",
     "editor.fontSize": 13,
@@ -80,12 +87,8 @@
         80,
         120
     ],
-    "editor.guides.highlightActiveIndentation": "always",
-    "editor.renderWhitespace": "trailing",
 
     "terminal.integrated.minimumContrastRatio": 1,
-    "terminal.integrated.stickyScroll.enabled": false,
-    "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.fontSize": 13,
     "terminal.integrated.lineHeight": 1.2,
@@ -103,6 +106,7 @@
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.pytestParameters": true,
     "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.completeFunctionParens": true,
 
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
