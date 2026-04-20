@@ -41,7 +41,11 @@
           "name": "qwen/qwen3.5-35b-a3b"
         },
         "qwen/qwen3.6-35b-a3b": {
-          "name": "qwen/qwen3.6-35b-a3b"
+          "name": "qwen/qwen3.6-35b-a3b",
+          "limit": {
+            "context": 81920,
+            "output": 32768
+          }
         },
         "google/gemma-4-26b-a4b": {
           "name": "google/gemma-4-26b-a4b"
