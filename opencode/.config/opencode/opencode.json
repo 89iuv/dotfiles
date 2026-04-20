@@ -13,7 +13,7 @@
       }
     }
   },
-  "enabled_providers": ["zcat_llm"],
+  "enabled_providers": ["zcat_llm", "github-copilot"],
   "provider": {
     "zcat_llm": {
       "npm": "@ai-sdk/openai-compatible",
@@ -25,6 +25,10 @@
       "models": {
         "openai/gpt-oss-20b": {
           "name": "openai/gpt-oss-20b",
+          "limit": {
+            "context": 49152,
+            "output": 8192
+          },
           "variants": {
             "high": {
               "reasoningEffort": "high"
@@ -34,25 +38,13 @@
             }
           }
         },
-        "qwen/qwen3.5-9b": {
-          "name": "qwen/qwen3.5-9b"
-        },
-        "qwen/qwen3.5-35b-a3b": {
-          "name": "qwen/qwen3.5-35b-a3b"
-        },
         "qwen/qwen3.6-35b-a3b": {
           "name": "qwen/qwen3.6-35b-a3b",
           "limit": {
-            "context": 131072,
-            "output": 32768
+            "context": 81920,
+            "output": 16384
           }
         },
-        "google/gemma-4-26b-a4b": {
-          "name": "google/gemma-4-26b-a4b"
-        },
-        "zai-org/glm-4.7-flash": {
-          "name": "zai-org/glm-4.7-flash"
-        }
       }
     }
   }
