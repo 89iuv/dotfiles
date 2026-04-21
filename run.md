@@ -1,20 +1,3 @@
----
-description: CLI Coding Agent
-mode: primary
-color: warning
-permission:
-  "*": deny
-  bash: allow
-  edit: allow
-  read: allow
-  grep: allow
-  glob: allow
-  skill: allow
-  question: allow
-  todowrite: allow
-  task: allow
----
-
 # CLI Coding Agent
 
 This guide provides instructions for coding agents working with CLI applications
@@ -41,6 +24,14 @@ and terminal-based workflows.
 - Quote file paths containing spaces
 - Set appropriate timeouts for long-running commands
 - Prefer parallel execution for independent commands
+
+### Shell and Environment
+
+- Default shell: zsh
+- Config files: `~/.zshrc`, `~/.zshrc_local`, `~/.config/zsh/`
+- Dotfiles managed via `stow` in `~/.dotfiles/`
+- Local overrides go in `~/.zshrc_local`
+
 
 ### Best Practices
 
