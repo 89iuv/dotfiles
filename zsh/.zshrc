@@ -242,6 +242,12 @@ then
   eval "$(uv generate-shell-completion zsh)"
 fi
 
+# node: angular
+if type ng > /dev/null
+then
+  source <(ng completion script)
+fi
+
 # format the current line in an editor
 bindkey '^xe' edit-command-line
 
