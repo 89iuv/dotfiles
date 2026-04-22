@@ -1,15 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "run",
-  "permission": {
-    "webfetch": "deny",
-    "websearch": "deny"
-  },
   "agent": {
-    "title": {
-      "disable": false,
-      "options": {
-        "reasoningEffort": "none"
+    "plan": {
+      "permission": {
+        "*": "ask",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "todowrite": "allow",
+        "question": "allow",
+        "webfetch": "allow",
+        "websearch": "allow"
+      }
+    },
+    "build": {
+      "permission": {
+        "webfetch": "deny",
+        "websearch": "deny"
       }
     }
   },
@@ -41,10 +49,10 @@
         "qwen/qwen3.6-35b-a3b": {
           "name": "qwen/qwen3.6-35b-a3b",
           "limit": {
-            "context": 98304,
+            "context": 114688,
             "output": 32768
           }
-        },
+        }
       }
     }
   }

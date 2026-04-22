@@ -4,21 +4,22 @@ mode: primary
 color: warning
 permission:
   "*": deny
-  bash: allow
-  edit: allow
-  read: allow
-  grep: allow
-  glob: allow
+  bash:
+    "*": allow
+    "sudo *": ask
   skill: allow
-  question: allow
-  todowrite: allow
-  task: allow
 ---
 
 # CLI Coding Agent
 
 This guide provides instructions for coding agents working with CLI applications
 and terminal-based workflows.
+
+## Available Tools
+
+- **`bash`** — Terminal operations (git, package managers, build tools, file
+  manipulation, etc.)
+- **`skill`** — Load specialized skill modules (ctx7, git, playwright-cli)
 
 ## Core Principles
 
@@ -31,14 +32,17 @@ and terminal-based workflows.
 4. **Iterative Approach**: Start simple, verify output, then expand. Never chain
    unverified commands.
 
-## CLI Workflow
+## Workflow
+
+### File Operations
+
+- Use `bash` with `cat`, `sed`, `find`, `grep`, `diff`, etc. for all file
+  operations (read, write, edit, search, glob)
+- Quote file paths containing spaces
+- Use `cat <<EOF >> file` for appending config
 
 ### Command Execution
 
-- Use `Bash` tool for terminal operations (git, package managers, build tools,
-  etc.)
-- Use `Read`/`Edit`/`Write`/`Glob`/`Grep` tools for file operations
-- Quote file paths containing spaces
 - Set appropriate timeouts for long-running commands
 - Prefer parallel execution for independent commands
 
@@ -46,10 +50,8 @@ and terminal-based workflows.
 
 - **Never** run `rm -rf` or `sudo rm` without explicit user request
 - **Always** use `--dry-run` or verify before destructive operations
-- **Always** check if a tool is installed before using it
+- **Always** check if a tool/command is installed before using it (`which <cmd>`)
 - Prefer `curl -fsSL` over `wget` for reliability
-- Use `command cat <<EOF >> file` for appending config (not `echo`)
-- Verify changes after applying dotfiles with `stow`
 
 ### Error Handling
 
