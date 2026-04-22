@@ -1,7 +1,7 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Set terminal true colors
 vim.opt.termguicolors = true
@@ -10,10 +10,10 @@ vim.opt.termguicolors = true
 vim.o.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Sync clipboard between OS and Neovim
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -31,7 +31,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -45,10 +45,10 @@ vim.o.splitbelow = true
 
 -- Show non-printable characters
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-vim.o.inccommand = 'split'
+vim.o.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.o.cursorline = true

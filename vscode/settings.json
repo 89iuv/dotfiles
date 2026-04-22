@@ -79,6 +79,7 @@
     "editor.semanticHighlighting.enabled": true,
     "editor.renderWhitespace": "trailing",
     "editor.guides.highlightActiveIndentation": "always",
+    "editor.showFoldingControls": "always",
     "editor.fontLigatures": true,
     "editor.fontFamily": "Jetbrains Mono, Symbols Nerd Font Mono",
     "editor.fontSize": 13,
@@ -98,6 +99,11 @@
     ],
 
     "chat.disableAIFeatures": true,
+
+    "cSpell.enabledFileTypes":{
+        "*": false,
+        "markdown": true
+    },
 
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff"
@@ -119,6 +125,10 @@
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.wordWrap": "off"
+    },
+
+    "Lua.format.defaultConfig": {
+        "quote_style": "double"
     }
 
 }
