@@ -88,9 +88,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   ohmyzsh-full-autoupdate
-  zsh-autosuggestions 
-  zsh-history-substring-search 
-  zsh-syntax-highlighting 
+  zsh-autosuggestions
+  zsh-history-substring-search
+  zsh-syntax-highlighting
 )
 
 # load catppuccin theme for zsh-syntax-highlighting
