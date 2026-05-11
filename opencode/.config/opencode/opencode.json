@@ -2,6 +2,11 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "run",
   "agent": {
+     "title": {
+      "options": {
+        "reasoningEffort": "none",
+      }
+    },
     "plan": {
       "permission": {
         "*": "ask",
