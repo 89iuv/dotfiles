@@ -99,6 +99,7 @@
     ],
 
     "chat.disableAIFeatures": false,
+    "chat.agent.enabled": false,
     "mermaidChart.showGenerateDiagramCodeLens": false,
 
     "cSpell.enabledFileTypes":{
