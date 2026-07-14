@@ -63,8 +63,8 @@
     "remote.autoForwardPorts": false,
     "telemetry.telemetryLevel": "off",
 
-    "files.autoSave": "afterDelay",
-    "files.trimTrailingWhitespace": false,
+    "files.autoSave": "off",
+    "files.trimTrailingWhitespace": true,
 
     "git.confirmSync": false,
     "diffEditor.hideUnchangedRegions.enabled": true,
@@ -98,7 +98,8 @@
         "workbench.action.toggleSidebarVisibility"
     ],
 
-    "chat.disableAIFeatures": true,
+    "chat.disableAIFeatures": false,
+    "mermaidChart.showGenerateDiagramCodeLens": false,
 
     "cSpell.enabledFileTypes":{
         "*": false,
