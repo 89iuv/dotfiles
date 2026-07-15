@@ -12,7 +12,10 @@
     "separator": ": "
   },
   "modules": [
-    "title",
+    {
+      "type": "title",
+      "format": "{user-name>9}@{host-name}"
+    },
     {
       "type": "separator",
       "string": "─",
