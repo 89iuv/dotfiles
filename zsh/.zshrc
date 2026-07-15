@@ -248,9 +248,6 @@ then
   source <(ng completion script)
 fi
 
-# format the current line in an editor
-bindkey '^xe' edit-command-line
-
 # super tab keybind
 super-tab() {
   # if suggestion is visible
