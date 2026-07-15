@@ -14,7 +14,7 @@
   "modules": [
     {
       "type": "title",
-      "format": "{user-name>9}@{host-name}"
+      "format": "   {user-name}@{host-name}"
     },
     {
       "type": "separator",
