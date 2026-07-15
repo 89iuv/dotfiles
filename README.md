@@ -146,10 +146,10 @@ sudo dnf install -y python pip uv
 
 # nodejs
 sudo dnf install -y node
+sudo npm install -g @angular/cli
 sudo npm install -g @mermaid-js/mermaid-cli
 sudo npm install -g @playwright/cli@latest
 sudo npm install -g ctx7
-sudo npm install -g @angular/cli
 
 # lua
 sudo dnf install -y lua luarocks compat-lua
