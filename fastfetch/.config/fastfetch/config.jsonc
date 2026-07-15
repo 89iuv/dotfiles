@@ -4,22 +4,20 @@
     "source": "~/.config/fastfetch/ascii_art.txt",
     "type": "file-raw",
     "padding": {
-      "left": 1,
-      "right": 1
+      "left": 0,
+      "right": 2
     }
   },
   "display": {
     "separator": ": "
   },
   "modules": [
-    {
-      "type": "title",
-      "format": "   {user-name}@{host-name}"
-    },
+    "title",
     {
       "type": "separator",
       "string": "─",
-      "outputColor": "dim_white"
+      "outputColor": "dim_white",
+      "times": 40
     },
     // operating system
     "os",

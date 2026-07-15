@@ -10,5 +10,6 @@ chafa \
   --format symbols \
   --symbols ascii \
   --fg-only \
+  --polite on \
   image.png > ~/.dotfiles/fastfetch/.config/fastfetch/ascii_art.txt
 ```
