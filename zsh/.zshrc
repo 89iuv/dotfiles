@@ -212,7 +212,7 @@ if type fzf > /dev/null
 then
   source <(fzf --zsh)
   source ~/.dotfiles/catppuccin/fzf/themes/catppuccin-fzf-macchiato.sh
-  export FZF_DEFAULT_OPTS="--color=base16 --ansi"
+  export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi"
 fi
 
 # bat
