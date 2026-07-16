@@ -32,6 +32,6 @@ if [ "$FORMAT" = "roman" ] && [ ${#ID} -gt 1 ]; then
 else
   for ((i = 0; i < ${#ID}; i++)); do
     DIGIT=${ID:i:1}
-    echo -n "${format:DIGIT:1} "
+    echo -n "${format:${DIGIT}:1} "
   done
 fi
