@@ -12,7 +12,13 @@ vim.opt.swapfile = false
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
+vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.wrap = false
+
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldmethod = "expr"
+vim.wo.foldlevel = 99
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -39,8 +45,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- [[ Plugins Loading ]]
 vim.pack.add({
-  { src = 'https://github.com/catppuccin/nvim' },
+  { src = "https://github.com/catppuccin/nvim" },
   { src = "https://github.com/sphamba/smear-cursor.nvim" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
 -- [[ Plugins Config ]]
@@ -51,7 +58,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
   end,
 })
 
-require('smear_cursor').setup({
+require("smear_cursor").setup({
   hide_target_hack = false,
   cursor_color = "none",
 
@@ -72,3 +79,9 @@ require('smear_cursor').setup({
 
   max_length = 25,
 })
+
+require("nvim-treesitter").install({
+  "lua",
+  "bash"
+})
+

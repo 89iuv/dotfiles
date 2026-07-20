@@ -123,6 +123,7 @@ sudo dnf -y install tmux
 stow tmux
 
 # nvim
+sudo dnf -y install tree-sitter-cli
 sudo dnf -y install neovim
 stow nvim
 
