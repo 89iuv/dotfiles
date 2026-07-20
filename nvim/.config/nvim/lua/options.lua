@@ -18,11 +18,6 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.wrap = false
 
--- Folding: use treesitter for fold expressions, keep all folds open by default
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.wo.foldmethod = "expr"
-vim.wo.foldlevel = 99
-
 -- Indentation: 2-space tabs, smart/auto indent, break indentation
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
