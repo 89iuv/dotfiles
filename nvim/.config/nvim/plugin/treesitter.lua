@@ -3,6 +3,6 @@ vim.pack.add({
 })
 
 require("nvim-treesitter").install({
-  "lua",
   "bash",
+  "lua",
 })
