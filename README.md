@@ -200,7 +200,11 @@ sudo systemctl enable --now docker.service
 ```sh
 # remove or invalidate cache data
 sudo dnf clean all
+```
 
+## Update Shell
+
+```sh
 # change shell to zsh
 sudo chsh -s $(which zsh) $(whoami)
 
