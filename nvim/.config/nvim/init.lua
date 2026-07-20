@@ -4,27 +4,30 @@ vim.g.maplocalleader = " "
 
 -- [[ Core options ]]
 vim.opt.termguicolors = true
-vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
-vim.o.undofile = true
+vim.opt.clipboard = "unnamedplus"
 
-vim.o.cursorline = true
-vim.o.number = true
-vim.o.signcolumn = "yes"
+vim.opt.undofile = true
+vim.opt.swapfile = false
+
+vim.opt.cursorline = true
+vim.opt.number = true
+vim.opt.signcolumn = "yes"
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-vim.o.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.o.foldlevel = 99
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.breakindent = true
 
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-vim.o.splitright = true
-vim.o.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
-vim.o.mouse = "a"
+vim.opt.mouse = "a"
 
 -- [[ Keymaps ]]
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
