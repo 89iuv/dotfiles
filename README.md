@@ -8,6 +8,7 @@
   - [Coding](#coding)
   - [AI](#ai)
   - [Containers](#containers)
+  - [Wsl](#wsl)
   - [Clean Up](#clean-up)
 
 ## Environment
@@ -193,6 +194,19 @@ mkdir -p ~/.oh-my-zsh/completions/
 docker completion zsh > ~/.oh-my-zsh/completions/_docker
 sudo usermod -aG docker "$USER"
 sudo systemctl enable --now docker.service
+```
+
+## Wsl
+
+```sh
+# NOTE: replace <your_windows_user_name>
+WINDOWS_USER_NAME=<your_windows_user_name>
+
+# setup windows user name env var
+command cat <<EOF >> ~/.zshrc_local
+# windows user name
+export WINDOWS_USER_NAME=$WINDOWS_USER_NAME
+EOF
 ```
 
 ## Clean Up

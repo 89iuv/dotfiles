@@ -1,15 +1,9 @@
 # Vscode
 
-## Copy settings
+## Backup Settings
+
+Use this in linux under wsl to copy the vscode settings from windows to .dotfiles.
 
 ```sh
-WINDOWS_USER_NAME=<your_windows_user_name>
-cp /mnt/c/Users/$WINDOWS_USER_NAME/AppData/Roaming/Code/User/settings.json ~/.dotfiles/vscode/
-cp /mnt/c/Users/$WINDOWS_USER_NAME/AppData/Roaming/Code/User/keybindings.json ~/.dotfiles/vscode/
-```
-
-## Save extension
-
-```sh
-code --list-extensions > vscode/extensions.txt
+./scripts/backup.sh
 ```

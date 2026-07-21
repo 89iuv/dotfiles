@@ -84,7 +84,10 @@
     "editor.fontFamily": "Jetbrains Mono, Symbols Nerd Font Mono",
     "editor.fontSize": 13,
     "editor.lineHeight": 1.6,
-    "editor.rulers": [80, 120],
+    "editor.rulers": [
+        80,
+        120
+    ],
 
     "editor.codeActionsOnSave": {
         "source.organizeImports.ruff": "never",
@@ -105,7 +108,7 @@
     "mermaidChart.showGenerateDiagramCodeLens": false,
 
     "cSpell.allowCompoundWords": true,
-    "cSpell.enabledFileTypes": {
+    "cSpell.enabledFileTypes":{
         "*": false,
         "markdown": true
     },
@@ -142,4 +145,5 @@
         "**/__pycache__": true,
         "**/.pytest_cache": true
     }
+
 }
