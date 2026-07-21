@@ -7,4 +7,4 @@ if [ -z "$WINDOWS_USER_NAME" ]; then
 fi
 
 # Backup Windows Terminal settings to the dotfiles directory
-cp /mnt/c/Users/$WINDOWS_USER_NAME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json ~/.dotfiles/windows-terminal/config/
+cp /mnt/c/Users/"$WINDOWS_USER_NAME"/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json ~/.dotfiles/windows-terminal/config/
