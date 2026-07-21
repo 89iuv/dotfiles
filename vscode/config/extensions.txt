@@ -1,3 +1,4 @@
+Extensions installed on WSL: FedoraLinux-42:
 angular.ng-template
 arr.marksman
 catppuccin.catppuccin-vsc

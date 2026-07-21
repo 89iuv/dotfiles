@@ -137,6 +137,12 @@
         "editor.wordWrap": "off"
     },
 
+    "[lua]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+
     "Lua.format.defaultConfig": {
         "quote_style": "double"
     },
