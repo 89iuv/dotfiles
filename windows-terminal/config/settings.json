@@ -7,8 +7,7 @@
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
     "initialCols": 130,
     "initialRows": 42,
-    "keybindings": 
-    [
+    "keybindings": [
         {
             "id": "Terminal.CopyToClipboard",
             "keys": "ctrl+c"
@@ -22,20 +21,16 @@
             "keys": "alt+shift+d"
         }
     ],
-    "newTabMenu": 
-    [
+    "newTabMenu": [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
-    {
+    "profiles": {
         "defaults": {},
-        "list": 
-        [
+        "list": [
             {
-                "colorScheme": 
-                {
+                "colorScheme": {
                     "light": "Campbell"
                 },
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -61,8 +56,7 @@
                 "colorScheme": "Catppuccin Macchiato",
                 "cursorColor": null,
                 "cursorShape": "filledBox",
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.55",
                     "face": "JetBrains Mono, Symbols Nerd Font Mono"
                 },
@@ -76,8 +70,7 @@
             }
         ]
     },
-    "schemes": 
-    [
+    "schemes": [
         {
             "background": "#24273A",
             "black": "#494D64",
@@ -173,24 +166,20 @@
     ],
     "snapToGridOnResize": true,
     "theme": "Catppuccin Macchiato",
-    "themes": 
-    [
+    "themes": [
         {
             "name": "Catppuccin Macchiato",
-            "tab": 
-            {
+            "tab": {
                 "background": "#24273AFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#1E2030FF",
                 "unfocusedBackground": "#181926FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
                 "frame": null,
