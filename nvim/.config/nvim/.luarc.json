@@ -1,0 +1,4 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "workspace.library": ["/usr/share/nvim/runtime/lua"]
+}
