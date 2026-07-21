@@ -105,6 +105,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# fix for ls colors in wsl
+export LS_COLORS="ow=1;34:$LS_COLORS"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # fix for delta not showing correct colors
 export COLORTERM=truecolor
 
