@@ -160,20 +160,18 @@ sudo dnf install -y lua luarocks compat-lua
 ## AI
 
 ```sh
-# NOTE: replace <your_api_key> with the mcp api key
-ZCAT_LLM_KEY=<your_api_key>
-CONTEXT7_API_KEY=<your_api_key>
-
-# setup zcat api key
-command cat <<EOF >> ~/.zshrc_local
-# context7
-export ZCAT_LLM_KEY=$ZCAT_LLM_KEY
-EOF
-
 # setup context7 api key
+CONTEXT7_API_KEY=<your_api_key>
 command cat <<EOF >> ~/.zshrc_local
 # context7
 export CONTEXT7_API_KEY=$CONTEXT7_API_KEY
+EOF
+
+# setup zcat api key
+ZCAT_LLM_KEY=<your_api_key>
+command cat <<EOF >> ~/.zshrc_local
+# zcat_llm_key
+export ZCAT_LLM_KEY=$ZCAT_LLM_KEY
 EOF
 
 # opencode
@@ -199,10 +197,8 @@ sudo systemctl enable --now docker.service
 ## Wsl
 
 ```sh
-# NOTE: replace <your_windows_user_name>
-WINDOWS_USER_NAME=<your_windows_user_name>
-
 # setup windows user name env var
+WINDOWS_USER_NAME=<your_windows_user_name>
 command cat <<EOF >> ~/.zshrc_local
 # windows user name
 export WINDOWS_USER_NAME=$WINDOWS_USER_NAME
