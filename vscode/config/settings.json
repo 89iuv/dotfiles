@@ -92,10 +92,16 @@
     },
 
     "errorLens.gutterIconsEnabled": true,
-    "errorLens.gutterIconSet": "defaultOutline",
+
+    "errorLens.gutterIconSet": "squareRounded",
+    "errorLens.errorGutterIconColor": "#ED8796",
+    "errorLens.warningGutterIconColor": "#f5a97f",
+    "errorLens.infoGutterIconColor": "#8aadf4",
+    "errorLens.hintGutterIconColor": "#8bd5ca",
+
+    "errorLens.messageBackgroundMode": "none",
     "errorLens.messageTemplate": "$severity $message $source($code)",
     "errorLens.severityText": ["■", "■", "■", "■"],
-    "errorLens.messageBackgroundMode": "message",
 
     "todohighlight.isEnable": true,
     "todohighlight.include": [
@@ -170,6 +176,7 @@
 
     "chat.disableAIFeatures": false,
     "chat.agent.enabled": true,
+    "chat.viewSessions.orientation": "stacked",
     "mermaidChart.showGenerateDiagramCodeLens": false,
 
     "cSpell.allowCompoundWords": true,
