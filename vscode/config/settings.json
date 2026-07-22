@@ -94,12 +94,7 @@
     "errorLens.gutterIconsEnabled": true,
     "errorLens.gutterIconSet": "defaultOutline",
     "errorLens.messageTemplate": "$severity $message $source($code)",
-    "errorLens.severityText": [
-        "■",
-        "■",
-        "■",
-        "■"
-    ],
+    "errorLens.severityText": ["■", "■", "■", "■"],
     "errorLens.messageBackgroundMode": "message",
 
     "todohighlight.isEnable": true,
@@ -111,15 +106,58 @@
         "**/*.jsonc"
     ],
     "todohighlight.keywords": [
-        {"text": "NOTE:", "color": "#24273A", "backgroundColor": "#a6da95", "overviewRulerColor": "#a6da95"},
-        {"text": "TODO:", "color": "#24273A", "backgroundColor": "#8bd5ca", "overviewRulerColor": "#8bd5ca"},
-        {"text": "WARN:", "color": "#24273A", "backgroundColor": "#eed49f", "overviewRulerColor": "#eed49f"},
-        {"text": "HACK:", "color": "#24273A", "backgroundColor": "#eed49f", "overviewRulerColor": "#eed49f"},
-        {"text": "PERF:", "color": "#24273A", "backgroundColor": "#b7bdf8", "overviewRulerColor": "#b7bdf8"},
-        {"text": "TEST:", "color": "#24273A", "backgroundColor": "#f5a97f", "overviewRulerColor": "#f5a97f"},
-        {"text": "FIXME:", "color": "#24273A", "backgroundColor": "#ED8796", "overviewRulerColor": "#ED8796"},
-        {"text": "ERROR:", "color": "#24273A", "backgroundColor": "#ed8796", "overviewRulerColor": "#ed8796"}
+        {
+            "text": "NOTE:",
+            "color": "#24273A",
+            "backgroundColor": "#a6da95",
+            "overviewRulerColor": "#a6da95"
+        },
+        {
+            "text": "TODO:",
+            "color": "#24273A",
+            "backgroundColor": "#8bd5ca",
+            "overviewRulerColor": "#8bd5ca"
+        },
+        {
+            "text": "WARN:",
+            "color": "#24273A",
+            "backgroundColor": "#eed49f",
+            "overviewRulerColor": "#eed49f"
+        },
+        {
+            "text": "HACK:",
+            "color": "#24273A",
+            "backgroundColor": "#eed49f",
+            "overviewRulerColor": "#eed49f"
+        },
+        {
+            "text": "PERF:",
+            "color": "#24273A",
+            "backgroundColor": "#b7bdf8",
+            "overviewRulerColor": "#b7bdf8"
+        },
+        {
+            "text": "TEST:",
+            "color": "#24273A",
+            "backgroundColor": "#f5a97f",
+            "overviewRulerColor": "#f5a97f"
+        },
+        {
+            "text": "FIXME:",
+            "color": "#24273A",
+            "backgroundColor": "#ED8796",
+            "overviewRulerColor": "#ED8796"
+        },
+        {
+            "text": "ERROR:",
+            "color": "#24273A",
+            "backgroundColor": "#ed8796",
+            "overviewRulerColor": "#ed8796"
+        }
     ],
+
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "none",
 
     "terminal.integrated.minimumContrastRatio": 1,
     "terminal.integrated.fontLigatures.enabled": true,
