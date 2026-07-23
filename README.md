@@ -77,6 +77,7 @@ git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
 
 stow zsh
+mv ~/.zshrc ~/.zshrc.bak
 echo exit | script -qec zsh /dev/null >/dev/null
 
 # eza
@@ -211,7 +212,7 @@ EOF
 # remove or invalidate cache data
 sudo dnf clean all
 
-# change shell to zsh
+# change shell to zsh (restart may be needed)
 sudo chsh -s $(which zsh) $(whoami)
 
 # replace shell with new one
