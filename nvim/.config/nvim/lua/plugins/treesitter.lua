@@ -6,7 +6,8 @@ return {
     require("nvim-treesitter").install {
       "bash",
       "lua",
-      "python"
+      "python",
+      "xml"
     }
 
     vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
