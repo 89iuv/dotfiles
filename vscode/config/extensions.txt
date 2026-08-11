@@ -1,4 +1,5 @@
 Extensions installed on WSL: FedoraLinux-42:
+00.python-paste-pro
 angular.ng-template
 arr.marksman
 catppuccin.catppuccin-vsc

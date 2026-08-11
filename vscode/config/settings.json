@@ -177,6 +177,7 @@
     "chat.disableAIFeatures": false,
     "chat.agent.enabled": true,
     "chat.viewSessions.orientation": "stacked",
+    "chat.titleBar.openInAgentsWindow.enabled": false,
     "mermaidChart.showGenerateDiagramCodeLens": false,
 
     "cSpell.allowCompoundWords": true,
