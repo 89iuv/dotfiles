@@ -91,6 +91,7 @@
         "source.unusedImports": "never"
     },
 
+    "errorLens.onSave": true,
     "errorLens.gutterIconsEnabled": true,
 
     "errorLens.gutterIconSet": "squareRounded",
