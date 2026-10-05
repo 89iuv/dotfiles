@@ -5,7 +5,7 @@ Generate ascii art using chafa:
 ```sh
 chafa \
   --size x22 \
-  --font-ratio 0.4 \
+  --font-ratio 0.44 \
   --colors full \
   --format symbols \
   --symbols ascii \
