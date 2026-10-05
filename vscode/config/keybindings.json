@@ -1,12 +1,15 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+k ctrl+m",
-        "command": "workbench.action.toggleMaximizedPanel"
+        "key": "ctrl+t e",
+        "command": "errorLens.toggle"
     },
     {
-        "key": "ctrl+b",
-        "command": "-markdown.extension.editing.toggleBold",
-        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+        "key": "ctrl+t s",
+        "command": "cSpell.toggleEnableSpellChecker"
+    },
+    {
+        "key": "ctrl+t t",
+        "command": "todohighlight.toggleHighlight"
     }
 ]

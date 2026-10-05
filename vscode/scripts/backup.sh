@@ -7,9 +7,12 @@ if [ -z "$WINDOWS_USER_NAME" ]; then
 	exit 1
 fi
 
-# Backup VSCode settings and keybindings to the dotfiles directory
-echo "Backing up VSCode settings and keybindings..."
+# Backup VSCode settings
+echo "Backing up VSCode settings..."
 cp /mnt/c/Users/"$WINDOWS_USER_NAME"/AppData/Roaming/Code/User/settings.json ~/.dotfiles/vscode/config/
+
+# Backup VSCode keybindings
+echo "Backing up VSCode keybindings..."
 cp /mnt/c/Users/"$WINDOWS_USER_NAME"/AppData/Roaming/Code/User/keybindings.json ~/.dotfiles/vscode/config/
 
 # Backup VSCode extensions to a text file

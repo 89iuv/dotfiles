@@ -1,96 +1,80 @@
 {
-    "json.schemaDownload.trustedDomains": {
-        "https://aka.ms/terminal-profiles-schema": true,
-        "https://developer.microsoft.com/json-schemas/": true,
-        "https://esm.sh/gh/catppuccin/vscode%40catppuccin-vsc-v3.18.1/packages/catppuccin-vsc/schemas/colorOverrides.schema.json": true,
-        "https://esm.sh/gh/catppuccin/vscode%40catppuccin-vsc-v3.18.1/packages/catppuccin-vsc/schemas/customUIColors.schema.json": true,
-        "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json": true,
-        "https://json-schema.org/": true,
-        "https://json.schemastore.org/": true,
-        "https://models.dev/model-schema.json": true,
-        "https://opencode.ai/config.json": true,
-        "https://opencode.ai/tui.json": true,
-        "https://raw.githubusercontent.com/": true,
-        "https://raw.githubusercontent.com/devcontainers/spec/": true,
-        "https://raw.githubusercontent.com/microsoft/vscode/": true,
-        "https://schemastore.azurewebsites.net/": true,
-        "https://www.schemastore.org/": true
-    },
-
+    // vscode
     "workbench.colorTheme": "Catppuccin Macchiato",
-    "catppuccin.accentColor": "lavender",
-    "catppuccin.workbenchMode": "default",
-    "catppuccin.extraBordersEnabled": true,
-    "catppuccin.italicKeywords": false,
-
     "workbench.iconTheme": "catppuccin-macchiato",
-    "catppuccin-icons.hidesExplorerArrows": false,
-
-    "catppuccin.customUIColors": {
-        "all": {
-            "tab.border": "surface0",
-            "tab.unfocusedInactiveBackground": "mantle",
-            "sideBarSectionHeader.border": "surface0",
-
-            "list.focusAndSelectionOutline": "accent",
-            "list.focusOutline": "accent",
-
-            "minimap.background": "base",
-            "editorRuler.foreground": "surface0",
-            "multiDiffEditor.headerBackground": "base",
-
-            "keybindingLabel.background": "base",
-            "keybindingLabel.foreground": "subtext0",
-
-            "panel.background": "mantle",
-            "panel.border": "surface0",
-
-            "terminal.background": "mantle"
-        }
-    },
-
-    "workbench.tree.enableStickyScroll": false,
-    "editor.stickyScroll.enabled": false,
-    "terminal.integrated.stickyScroll.enabled": false,
-
+    "workbench.experimental.modernUI": true,
     "workbench.list.smoothScrolling": true,
+    "workbench.editor.openPositioning": "last",
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.tree.indent": 16,
+
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 1,
+
+    "editor.semanticHighlighting.enabled": true,
+
     "editor.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": "explicit",
     "editor.cursorBlinking": "smooth",
+    "editor.renderWhitespace": "trailing",
+
+    "editor.fontFamily": "Jetbrains Mono, Symbols Nerd Font Mono",
+    "editor.fontLigatures": true,
+    "editor.guides.highlightActiveIndentation": "always",
+    "editor.showFoldingControls": "always",
+    "editor.rulers": [80, 120],
+
     "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.minimumContrastRatio": 1,
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.gpuAcceleration": "off", //fixes issues with ligatures
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.scrollback": 100000,
 
-    "window.zoomLevel": 1,
-    "remote.autoForwardPorts": false,
-    "telemetry.telemetryLevel": "off",
-
-    "files.autoSave": "off",
     "files.trimTrailingWhitespace": true,
 
     "git.confirmSync": false,
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.experimental.showMoves": true,
 
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.openPositioning": "last",
+    "remote.autoForwardPorts": false,
+    "telemetry.telemetryLevel": "off",
 
-    "workbench.tree.renderIndentGuides": "always",
-    "workbench.tree.indent": 14,
+    // themes
+    "catppuccin.accentColor": "lavender",
+    "catppuccin.extraBordersEnabled": true,
+    "catppuccin-icons.hidesExplorerArrows": true,
 
-    "editor.semanticHighlighting.enabled": true,
-    "editor.renderWhitespace": "trailing",
-    "editor.guides.highlightActiveIndentation": "always",
-    "editor.showFoldingControls": "always",
-    "editor.fontLigatures": true,
-    "editor.fontFamily": "Jetbrains Mono, Symbols Nerd Font Mono",
-    "editor.fontSize": 13,
-    "editor.lineHeight": 1.6,
-    "editor.rulers": [80, 120],
+    "catppuccin.customUIColors": {
+        "all": {
+            "list.focusAndSelectionOutline": "accent",
+            "list.focusOutline": "accent",
 
-    "editor.codeActionsOnSave": {
-        "source.organizeImports.ruff": "never",
-        "source.unusedImports": "never"
+            "editorGroupHeader.tabsBackground": "mantle",
+            "tab.border": "surface0",
+            "tab.unfocusedInactiveBackground": "mantle",
+
+            "minimap.background": "base",
+            "editorRuler.foreground": "surface0",
+
+            "panel.background": "mantle",
+            "panel.border": "surface0",
+
+            "terminal.background": "mantle",
+            "terminal.border": "surface0",
+
+            "keybindingLabel.background": "surface0",
+            "keybindingLabel.foreground": "subtext0"
+        }
     },
 
+    // spell check
+    "cSpell.enabled": true,
+    "cSpell.allowCompoundWords": true,
+
+    // error lens
+    "errorLens.enabled": true,
+    "errorLens.enabledDiagnosticLevels": ["error", "warning"],
     "errorLens.onSave": true,
     "errorLens.gutterIconsEnabled": true,
 
@@ -99,104 +83,112 @@
     "errorLens.warningGutterIconColor": "#f5a97f",
     "errorLens.infoGutterIconColor": "#8aadf4",
     "errorLens.hintGutterIconColor": "#8bd5ca",
-
-    "errorLens.messageBackgroundMode": "none",
-    "errorLens.messageTemplate": "$severity $message $source($code)",
     "errorLens.severityText": ["■", "■", "■", "■"],
+    "errorLens.messageBackgroundMode": "none",
 
+    "errorLens.messageTemplate": "$severity $source($code) $message",
+    "errorLens.removeLinebreaks": true,
+    "errorLens.replaceLinebreaksSymbol": " -> ",
+
+    // todo highlight v2
     "todohighlight.isEnable": true,
     "todohighlight.include": [
         "**/*.sh",
         "**/*.lua",
-        "**/*.md",
         "**/*.py",
+        "**/*.md",
+        "**/*.json",
         "**/*.jsonc"
     ],
     "todohighlight.keywords": [
         {
             "text": " NOTE:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#a6da95",
             "overviewRulerColor": "#a6da95"
         },
         {
             "text": " TODO:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#8bd5ca",
             "overviewRulerColor": "#8bd5ca"
         },
         {
             "text": " WARN:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#eed49f",
             "overviewRulerColor": "#eed49f"
         },
         {
             "text": " HACK:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#eed49f",
             "overviewRulerColor": "#eed49f"
         },
         {
             "text": " PERF:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#b7bdf8",
             "overviewRulerColor": "#b7bdf8"
         },
         {
             "text": " TEST:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#f5a97f",
             "overviewRulerColor": "#f5a97f"
         },
         {
             "text": " FIXME:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#ED8796",
             "overviewRulerColor": "#ED8796"
         },
         {
             "text": " ERROR:",
-            "color": "#24273A",
+            "color": "#181926",
             "backgroundColor": "#ed8796",
             "overviewRulerColor": "#ed8796"
         }
     ],
 
+    // prettier
     "prettier.tabWidth": 4,
     "prettier.trailingComma": "none",
 
-    "terminal.integrated.minimumContrastRatio": 1,
-    "terminal.integrated.fontLigatures.enabled": true,
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.lineHeight": 1.2,
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.commandsToSkipShell": [
-        "workbench.action.toggleSidebarVisibility"
-    ],
-
-    "chat.disableAIFeatures": false,
-    "chat.agent.enabled": true,
-    "chat.viewSessions.orientation": "stacked",
-    "chat.titleBar.openInAgentsWindow.enabled": false,
-    "mermaidChart.showGenerateDiagramCodeLens": false,
-
-    "cSpell.allowCompoundWords": true,
-    "cSpell.enabledFileTypes": {
-        "*": false,
-        "markdown": true
-    },
-
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff"
-    },
-
+    // python
+    "python.analysis.typeCheckingMode": "basic",
     "python.analysis.inlayHints.callArgumentNames": "partial",
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.pytestParameters": true,
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.completeFunctionParens": true,
     "python.analysis.autoImportCompletions": true,
+
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
+    },
+
+    // ruff
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+
+    // json
+    "json.schemaDownload.trustedDomains": {
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://raw.githubusercontent.com/catppuccin/vscode/catppuccin-vsc-v3.19.0/packages/catppuccin-vsc/schemas/colorOverrides.schema.json": true,
+        "https://raw.githubusercontent.com/catppuccin/vscode/catppuccin-vsc-v3.19.0/packages/catppuccin-vsc/schemas/customUIColors.schema.json": true,
+        "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/main/schema/markdownlint-cli2-config-schema.json": true,
+        "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.41.1/schema/markdownlint-config-schema.json": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://spec.openapis.org/": true,
+        "https://www.schemastore.org/": true
+    },
 
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -206,13 +198,9 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
+    // markdown
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.wordWrap": "off"
-    },
-
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.pytest_cache": true
     }
 }

@@ -1,6 +1,5 @@
-Extensions installed on WSL: FedoraLinux-42:
+Extensions installed on WSL: FedoraLinux-44:
 00.python-paste-pro
-angular.ng-template
 arr.marksman
 catppuccin.catppuccin-vsc
 catppuccin.catppuccin-vsc-icons
@@ -8,9 +7,7 @@ charliermarsh.ruff
 davidanson.vscode-markdownlint
 esbenp.prettier-vscode
 exiasr.hadolint
-formulahendry.code-runner
-mermaidchart.vscode-mermaid-chart
-ms-azuretools.vscode-containers
+jgclark.vscode-todo-highlight
 ms-python.debugpy
 ms-python.python
 ms-python.vscode-pylance
@@ -20,5 +17,4 @@ sumneko.lua
 tamasfe.even-better-toml
 timonwong.shellcheck
 usernamehw.errorlens
-wayou.vscode-todo-highlight
 yzhang.markdown-all-in-one
