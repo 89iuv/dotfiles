@@ -40,7 +40,7 @@
     "remote.autoForwardPorts": false,
     "telemetry.telemetryLevel": "off",
 
-    // themes
+    // catppuccin
     "catppuccin.accentColor": "lavender",
     "catppuccin.extraBordersEnabled": true,
     "catppuccin-icons.hidesExplorerArrows": true,
