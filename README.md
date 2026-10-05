@@ -14,9 +14,10 @@
 ## Environment
 
 - Install Fedora in WSL: [Fedora WSL Documentation](https://docs.fedoraproject.org/en-US/cloud/wsl/)
-- Install Catppuccin Theme: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
-- Install Nerd Fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
 - Install Nvidia Container Toolkit: [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+- Install Nerd Fonts: [Nerdfonts Download](https://www.nerdfonts.com/font-downloads)
+- Install Jetbrains Mono Font: [Jetbrains Mono Font Download](https://www.jetbrains.com/lp/mono/)
+- Install Catppuccin Theme: [Catppuccin Terminal Ports](https://catppuccin.com/ports/?q=terminal)
 
 ## Repo
 
@@ -76,8 +77,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
 git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
 
-stow zsh
 mv ~/.zshrc ~/.zshrc.bak
+stow zsh
 echo exit | script -qec zsh /dev/null >/dev/null
 
 # eza
@@ -178,8 +179,10 @@ sudo dnf install -y hadolint
 # docker
 sudo dnf config-manager addrepo --overwrite --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 mkdir -p ~/.oh-my-zsh/completions/
 docker completion zsh > ~/.oh-my-zsh/completions/_docker
+
 sudo usermod -aG docker "$USER"
 sudo systemctl enable --now docker.service
 ```
