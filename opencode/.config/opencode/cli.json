@@ -10,5 +10,9 @@
   },
   "session": {
     "thinking": "show"
+  },
+  "cursor": {
+    "style": "block",
+    "blinking": false
   }
 }
