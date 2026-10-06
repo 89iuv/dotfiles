@@ -6,9 +6,9 @@
   - [System](#system)
   - [Tools](#tools)
   - [Coding](#coding)
-  - [AI](#ai)
   - [Containers](#containers)
   - [Wsl](#wsl)
+  - [AI](#ai)
   - [Clean Up](#clean-up)
 
 ## Environment
@@ -144,18 +144,6 @@ sudo dnf install -y node
 sudo dnf install -y lua luarocks compat-lua
 ```
 
-## AI
-
-```sh
-# opencode
-curl -fsSL https://opencode.ai/v2/install | bash
-stow opencode
-
-# setup zcat api key
-$ZCAT_LLM_KEY=<your_zcat_llm_key>
-echo "$ZCAT_LLM_KEY" > "$HOME/.config/opencode/secrets.txt"
-```
-
 ## Containers
 
 ```sh
@@ -182,6 +170,24 @@ command cat <<EOF >> ~/.zshrc_local
 # windows user name
 export WINDOWS_USER_NAME=$WINDOWS_USER_NAME
 EOF
+```
+
+## AI
+
+```sh
+# setup zcat api key
+mkdir -p "$HOME/.config/opencode"
+ZCAT_LLM_KEY=<your_zcat_llm_key>
+echo "$ZCAT_LLM_KEY" > "$HOME/.config/opencode/secrets.txt"
+
+# opencode
+curl -fsSL https://opencode.ai/v2/install | bash
+
+# workaround for opencode not working well with symlinks
+# https://github.com/anomalyco/opencode/pull/45071
+# stow opencode
+cp ~/.dotfiles/opencode/.config/opencode/cli.json ~/.config/opencode/cli.json
+cp ~/.dotfiles/opencode/.config/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
 ```
 
 ## Clean Up
