@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$PATH
 
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+
 # add personal scripts to path
 export PATH=$HOME/.scripts:$PATH
 

@@ -1,0 +1,38 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "agent": {
+        "title": {
+            "options": {
+                "reasoningEffort": "none"
+            }
+        },
+        "plan": {
+            "permission": {
+                "read": "allow",
+                "grep": "allow",
+                "glob": "allow",
+                "todowrite": "allow",
+                "question": "allow",
+                "webfetch": "allow",
+                "websearch": "allow",
+                "*": "ask",
+            }
+        },
+        "build": {
+            "permission": {
+                "webfetch": "deny",
+                "websearch": "deny"
+            }
+        }
+    },
+    "providers": {
+        "lmstudio": {
+            "env": ["ZCAT_LLM_KEY"],
+            "name": "Zcat LLM",
+            "settings": {
+                "baseURL": "https://zcat.go.ro/v1",
+                "apiKey": "{file:./secrets.txt}"
+            }
+        }
+    }
+}

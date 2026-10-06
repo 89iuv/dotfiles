@@ -139,10 +139,6 @@ sudo dnf install -y python pip uv
 
 # nodejs
 sudo dnf install -y node
-sudo npm install -g @angular/cli
-sudo npm install -g @mermaid-js/mermaid-cli
-sudo npm install -g @playwright/cli@latest
-sudo npm install -g ctx7
 
 # lua
 sudo dnf install -y lua luarocks compat-lua
@@ -151,23 +147,13 @@ sudo dnf install -y lua luarocks compat-lua
 ## AI
 
 ```sh
-# setup context7 api key
-CONTEXT7_API_KEY=<your_api_key>
-command cat <<EOF >> ~/.zshrc_local
-# context7
-export CONTEXT7_API_KEY=$CONTEXT7_API_KEY
-EOF
+# opencode
+curl -fsSL https://opencode.ai/v2/install | bash
+stow opencode
 
 # setup zcat api key
-ZCAT_LLM_KEY=<your_api_key>
-command cat <<EOF >> ~/.zshrc_local
-# zcat_llm_key
-export ZCAT_LLM_KEY=$ZCAT_LLM_KEY
-EOF
-
-# opencode
-curl -fsSL https://opencode.ai/install | bash
-stow opencode
+$ZCAT_LLM_KEY=<your_zcat_llm_key>
+echo "$ZCAT_LLM_KEY" > "$HOME/.config/opencode/secrets.txt"
 ```
 
 ## Containers
