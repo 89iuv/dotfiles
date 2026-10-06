@@ -186,8 +186,8 @@ curl -fsSL https://opencode.ai/v2/install | bash
 # workaround for opencode not working well with symlinks
 # https://github.com/anomalyco/opencode/pull/45071
 # stow opencode
-cp ~/.dotfiles/opencode/.config/opencode/cli.json ~/.config/opencode/cli.json
-cp ~/.dotfiles/opencode/.config/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
+cp -f ~/.dotfiles/opencode/.config/opencode/cli.json ~/.config/opencode/cli.json
+cp -f ~/.dotfiles/opencode/.config/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
 ```
 
 ## Clean Up
