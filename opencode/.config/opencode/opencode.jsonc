@@ -19,7 +19,7 @@
           "name": "Qwen 3.6 35B A3B",
           "limit": {
             "context": 131072,
-            "output": 32000
+            "output": 32768
           }
         },
         "qwen/qwen3-4b-2507": {
@@ -27,7 +27,7 @@
           "limit": {
             "context": 8192,
             "output": 2048
-          },
+          }
         }
       }
     }
