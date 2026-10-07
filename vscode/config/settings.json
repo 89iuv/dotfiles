@@ -100,7 +100,7 @@
     "todohighlight.isEnable": true,
     "todohighlight.enableDiagnostics": false,
     "todohighlight.include": [
-        // hiden files
+        // hidden files
         "**/.*/**/*.sh",
         "**/.*/**/*.lua",
         "**/.*/**/*.py",
@@ -116,38 +116,30 @@
         "**/*.json",
         "**/*.jsonc"
     ],
+    "todohighlight.defaultStyle": {
+        "borderRadius": "2px",
+        "color": "#181926"
+    },
     "todohighlight.keywords": [
         {
-            "text": " NOTE:",
+            "text": "NOTE:",
             "diagnosticSeverity": "none",
-            "borderRadius": "2px",
-            "color": "#181926",
-            "backgroundColor": "#a6da95",
-            "overviewRulerColor": "#a6da95"
+            "backgroundColor": "#a6da95"
         },
         {
-            "text": " TODO:",
+            "text": "TODO:",
             "diagnosticSeverity": "information",
-            "borderRadius": "2px",
-            "color": "#181926",
-            "backgroundColor": "#8bd5ca",
-            "overviewRulerColor": "#8bd5ca"
+            "backgroundColor": "#8bd5ca"
         },
         {
-            "text": " WARN:",
+            "text": "WARN:",
             "diagnosticSeverity": "warning",
-            "borderRadius": "2px",
-            "color": "#181926",
-            "backgroundColor": "#eed49f",
-            "overviewRulerColor": "#eed49f"
+            "backgroundColor": "#eed49f"
         },
         {
-            "text": " ERROR:",
+            "text": "ERROR:",
             "diagnosticSeverity": "error",
-            "borderRadius": "2px",
-            "color": "#181926",
-            "backgroundColor": "#ed8796",
-            "overviewRulerColor": "#ed8796"
+            "backgroundColor": "#ed8796"
         }
     ],
 
