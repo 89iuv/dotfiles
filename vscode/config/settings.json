@@ -40,6 +40,8 @@
     "remote.autoForwardPorts": false,
     "telemetry.telemetryLevel": "off",
 
+    "chat.viewSessions.orientation": "stacked",
+
     // catppuccin
     "catppuccin.accentColor": "lavender",
     "catppuccin.extraBordersEnabled": true,
@@ -95,6 +97,15 @@
     // todo highlight v2
     "todohighlight.isEnable": true,
     "todohighlight.include": [
+        // hiden files
+        "**/.*/**/*.sh",
+        "**/.*/**/*.lua",
+        "**/.*/**/*.py",
+        "**/.*/**/*.md",
+        "**/.*/**/*.json",
+        "**/.*/**/*.jsonc",
+
+        // normal files
         "**/*.sh",
         "**/*.lua",
         "**/*.py",
