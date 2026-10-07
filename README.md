@@ -170,9 +170,14 @@ sudo systemctl enable --now docker.service
 curl -fsSL https://opencode.ai/v2/install | bash
 stow opencode
 
-# setup zcat api key
+# setup zcat llm key env var
 ZCAT_LLM_KEY=<your_zcat_llm_key>
-echo "$ZCAT_LLM_KEY" > "$HOME/.config/opencode/secrets.txt"
+command cat <<EOF >> ~/.zshrc_local
+# zcat llm key
+export ZCAT_LLM_KEY=$ZCAT_LLM_KEY
+EOF
+
+# NOTE: use `opencode service stop && opencode` to reload the config
 ```
 
 ## Wsl

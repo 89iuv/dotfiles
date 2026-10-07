@@ -12,7 +12,7 @@
       "package": "@opencode/ai/providers/openai-compatible",
       "settings": {
         "baseURL": "https://zcat.go.ro/v1",
-        "apiKey": "{file:./secrets.txt}"
+        "apiKey": "{env:ZCAT_LLM_KEY}"
       },
       "models": {
         "qwen/qwen3.6-35b-a3b": {
