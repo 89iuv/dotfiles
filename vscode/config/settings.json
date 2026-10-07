@@ -45,8 +45,6 @@
     // catppuccin
     "catppuccin.accentColor": "lavender",
     "catppuccin.extraBordersEnabled": true,
-    "catppuccin-icons.hidesExplorerArrows": true,
-
     "catppuccin.customUIColors": {
         "all": {
             "list.focusAndSelectionOutline": "accent",
@@ -69,6 +67,8 @@
             "keybindingLabel.foreground": "subtext0"
         }
     },
+
+    "catppuccin-icons.hidesExplorerArrows": true,
 
     // spell check
     "cSpell.enabled": true,
