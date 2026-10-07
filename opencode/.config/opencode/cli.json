@@ -1,19 +1,15 @@
 {
   "$schema": "https://opencode.ai/v2/cli.json",
   "theme": {
-    "name": "catppuccin-macchiato",
-    "mode": "system"
+    "name": "catppuccin-macchiato"
   },
   "tabs": {
-    "layout": "horizontal",
-    "mode": "auto"
+    "mode": "off"
   },
   "session": {
-    "thinking": "show",
-    "permissions": "prompt"
+    "thinking": "show"
   },
   "cursor": {
-    "style": "block",
     "blinking": false
   }
 }
