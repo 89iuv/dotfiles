@@ -7,8 +7,8 @@
   - [Tools](#tools)
   - [Coding](#coding)
   - [Containers](#containers)
-  - [Wsl](#wsl)
   - [AI](#ai)
+  - [Wsl](#wsl)
   - [Clean Up](#clean-up)
 
 ## Environment
@@ -78,6 +78,8 @@ git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
 
 mv ~/.zshrc ~/.zshrc.bak
+touch ~/.dotfiles/zsh/.zshrc_local ~/.dotfiles/zsh/.zprofile_local
+
 stow zsh
 echo exit | script -qec zsh /dev/null >/dev/null
 
@@ -161,6 +163,18 @@ sudo usermod -aG docker "$USER"
 sudo systemctl enable --now docker.service
 ```
 
+## AI
+
+```sh
+# opencode
+curl -fsSL https://opencode.ai/v2/install | bash
+stow opencode
+
+# setup zcat api key
+ZCAT_LLM_KEY=<your_zcat_llm_key>
+echo "$ZCAT_LLM_KEY" > "$HOME/.config/opencode/secrets.txt"
+```
+
 ## Wsl
 
 ```sh
@@ -170,24 +184,6 @@ command cat <<EOF >> ~/.zshrc_local
 # windows user name
 export WINDOWS_USER_NAME=$WINDOWS_USER_NAME
 EOF
-```
-
-## AI
-
-```sh
-# setup zcat api key
-mkdir -p "$HOME/.config/opencode"
-ZCAT_LLM_KEY=<your_zcat_llm_key>
-echo "$ZCAT_LLM_KEY" > "$HOME/.config/opencode/secrets.txt"
-
-# opencode
-curl -fsSL https://opencode.ai/v2/install | bash
-
-# workaround for opencode not working well with symlinks
-# https://github.com/anomalyco/opencode/pull/45071
-# stow opencode
-cp -f ~/.dotfiles/opencode/.config/opencode/cli.json ~/.config/opencode/cli.json
-cp -f ~/.dotfiles/opencode/.config/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
 ```
 
 ## Clean Up

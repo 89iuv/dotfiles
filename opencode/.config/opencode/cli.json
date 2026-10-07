@@ -6,10 +6,11 @@
   },
   "tabs": {
     "layout": "horizontal",
-    "mode": "off"
+    "mode": "auto"
   },
   "session": {
-    "thinking": "show"
+    "thinking": "show",
+    "permissions": "prompt"
   },
   "cursor": {
     "style": "block",
