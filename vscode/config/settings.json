@@ -77,8 +77,6 @@
     // error lens
     "errorLens.enabled": true,
     "errorLens.enabledDiagnosticLevels": ["error", "warning"],
-    "errorLens.onSave": true,
-    "errorLens.onSaveUpdateOnActiveEditorChange": true,
     "errorLens.ignoreDirty": true,
     "errorLens.gutterIconsEnabled": true,
 
