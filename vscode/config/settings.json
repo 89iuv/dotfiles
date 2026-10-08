@@ -15,7 +15,7 @@
 
     "editor.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": "explicit",
-    "editor.cursorBlinking": "smooth",
+    "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "trailing",
 
     "editor.fontFamily": "JetBrains Mono, Symbols Nerd Font Mono",
