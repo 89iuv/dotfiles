@@ -18,7 +18,7 @@
     "editor.cursorBlinking": "smooth",
     "editor.renderWhitespace": "trailing",
 
-    "editor.fontFamily": "Jetbrains Mono, Symbols Nerd Font Mono",
+    "editor.fontFamily": "JetBrains Mono, Symbols Nerd Font Mono",
     "editor.fontLigatures": true,
     "editor.guides.highlightActiveIndentation": "always",
     "editor.showFoldingControls": "always",
@@ -27,7 +27,7 @@
     "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.minimumContrastRatio": 1,
     "terminal.integrated.fontLigatures.enabled": true,
-    "terminal.integrated.gpuAcceleration": "off", //fixes issues with ligatures
+    "terminal.integrated.gpuAcceleration": "off", // fixes issues with ligatures
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.scrollback": 100000,
 
@@ -50,12 +50,25 @@
             "list.focusAndSelectionOutline": "accent",
             "list.focusOutline": "accent",
 
-            "editorGroupHeader.tabsBackground": "mantle",
-            "tab.border": "surface0",
-            "tab.unfocusedInactiveBackground": "mantle",
+            "tree.indentGuidesStroke": "overlay0",
+            "tree.inactiveIndentGuidesStroke": "surface0",
 
             "minimap.background": "base",
+
+            "editorGroupHeader.tabsBackground": "mantle",
+            "editorStickyScroll.shadow": "mantle",
+            "editorLineNumber.foreground": "overlay0",
             "editorRuler.foreground": "surface0",
+
+            "editorIndentGuide.activeBackground": "overlay0",
+            "editorIndentGuide.background": "surface0",
+
+            "editorInlayHint.foreground": "overlay0",
+            "editorInlayHint.parameterForeground": "overlay0",
+            "editorInlayHint.typeForeground": "overlay0",
+
+            "tab.border": "surface0",
+            "tab.unfocusedInactiveBackground": "mantle",
 
             "panel.background": "mantle",
             "panel.border": "surface0",
@@ -65,6 +78,12 @@
 
             "keybindingLabel.background": "surface0",
             "keybindingLabel.foreground": "subtext0"
+        }
+    },
+
+    "editor.tokenColorCustomizations": {
+        "[Catppuccin Macchiato]": {
+            "comments": "#8087a2" // overlay1
         }
     },
 
@@ -127,7 +146,7 @@
         {
             "text": "TODO:",
             "diagnosticSeverity": "information",
-            "backgroundColor": "#8bd5ca"
+            "backgroundColor": "#8aadf4"
         },
         {
             "text": "WARN:",
