@@ -1,9 +1,16 @@
 {
+    // performance
+    "workbench.list.smoothScrolling": true,
+
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "explicit",
+
+    "terminal.integrated.smoothScrolling": true,
+
     // vscode
     "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.experimental.modernUI": true,
-    "workbench.list.smoothScrolling": true,
     "workbench.editor.openPositioning": "last",
     "workbench.tree.renderIndentGuides": "always",
     "workbench.tree.indent": 16,
@@ -13,8 +20,6 @@
 
     "editor.semanticHighlighting.enabled": true,
 
-    "editor.smoothScrolling": true,
-    "editor.cursorSmoothCaretAnimation": "explicit",
     "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "trailing",
 
@@ -24,7 +29,6 @@
     "editor.showFoldingControls": "always",
     "editor.rulers": [80, 120],
 
-    "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.minimumContrastRatio": 1,
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.gpuAcceleration": "off", // fixes issues with ligatures
