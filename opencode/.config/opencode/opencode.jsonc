@@ -1,5 +1,7 @@
 {
-  "$schema": "https://opencode.ai/config.json",
+  // Disabled schema as it is not valid for v2
+  // https://github.com/anomalyco/opencode/issues/43748
+  // "$schema": "https://opencode.ai/config.json",
   "model": "zcat-llm/qwen/qwen3.6-35b-a3b",
   "agents": {
     "title": {
