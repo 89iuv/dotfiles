@@ -115,7 +115,7 @@
     "errorLens.severityText": ["■", "■", "■", "■"],
     "errorLens.messageBackgroundMode": "none",
 
-    "errorLens.messageTemplate": "$severity $source($code) $message",
+    "errorLens.messageTemplate": "$severity $source($code): $message",
     "errorLens.removeLinebreaks": true,
     "errorLens.replaceLinebreaksSymbol": " -> ",
 
