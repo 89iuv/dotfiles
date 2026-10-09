@@ -7,7 +7,7 @@
   - [Tools](#tools)
   - [Coding](#coding)
   - [Containers](#containers)
-  - [AI](#ai)
+  - [Ai](#ai)
   - [Wsl](#wsl)
   - [Clean Up](#clean-up)
 
@@ -163,19 +163,15 @@ sudo usermod -aG docker "$USER"
 sudo systemctl enable --now docker.service
 ```
 
-## AI
+## Ai
 
 ```sh
 # opencode
 curl -fsSL https://opencode.ai/v2/install | bash
 stow opencode
 
-# setup zcat llm key env var
-ZCAT_LLM_KEY=<your_zcat_llm_key>
-command cat <<EOF >> ~/.zshrc_local
-# zcat llm key
-export ZCAT_LLM_KEY=$ZCAT_LLM_KEY
-EOF
+# setup api keys
+echo "export ZCAT_LLM_KEY=<replace_with_key>" > ~/.zshrc_local
 
 # NOTE: use `opencode service stop && opencode` to reload the config
 ```
@@ -184,11 +180,7 @@ EOF
 
 ```sh
 # setup windows user name env var
-WINDOWS_USER_NAME=<your_windows_user_name>
-command cat <<EOF >> ~/.zshrc_local
-# windows user name
-export WINDOWS_USER_NAME=$WINDOWS_USER_NAME
-EOF
+echo "export WINDOWS_USER_NAME=<replace_with_windows_user_name>" > ~/.zshrc_local
 ```
 
 ## Clean Up

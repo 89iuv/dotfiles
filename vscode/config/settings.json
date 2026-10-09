@@ -30,6 +30,7 @@
     "terminal.integrated.gpuAcceleration": "off", // fixes issues with ligatures
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.scrollback": 100000,
+    "terminal.integrated.initialHint": false,
 
     "files.trimTrailingWhitespace": true,
 
@@ -41,6 +42,7 @@
     "telemetry.telemetryLevel": "off",
 
     "chat.viewSessions.orientation": "stacked",
+    "chat.titleBar.openInAgentsWindow.enabled": false,
 
     // catppuccin
     "catppuccin.accentColor": "lavender",

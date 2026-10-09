@@ -3,9 +3,37 @@
   "model": "zcat-llm/qwen/qwen3.6-35b-a3b",
   "agents": {
     "title": {
-      "model": "zcat-llm/qwen/qwen3-4b-2507"
+      "model": "zcat-llm/qwen/qwen3.6-35b-a3b#no-thinking"
+    },
+    "explore": {
+      "permissions": [
+        { "action": "shell", "resource": "*", "effect": "deny" },
+        { "action": "execute", "resource": "*", "effect": "deny" }
+      ]
+    },
+    "plan": {
+      "permissions": [
+        { "action": "shell", "resource": "*", "effect": "deny" },
+        { "action": "execute", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "general", "effect": "deny" }
+      ]
+    },
+    "build": {
+      "permissions": [
+        { "action": "external_directory", "resource": "*", "effect": "ask" },
+        { "action": "shell", "resource": "sudo *", "effect": "ask" },
+        { "action": "shell", "resource": "su *", "effect": "ask" },
+        { "action": "shell", "resource": "git commit *", "effect": "ask" },
+        { "action": "shell", "resource": "git push *", "effect": "ask" },
+        { "action": "shell", "resource": "curl *", "effect": "ask" },
+        { "action": "shell", "resource": "wget *", "effect": "ask" },
+        { "action": "webfetch", "resource": "*", "effect": "deny" },
+        { "action": "execute", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "general", "effect": "deny" }
+      ]
     }
   },
+  "websearch": false,
   "providers": {
     "zcat-llm": {
       "name": "Zcat LLM",
@@ -20,14 +48,15 @@
           "limit": {
             "context": 131072,
             "output": 32768
-          }
-        },
-        "qwen/qwen3-4b-2507": {
-          "name": "Qwen 3 4B 2507",
-          "limit": {
-            "context": 8192,
-            "output": 2048
-          }
+          },
+          "variants": [
+            {
+              "id": "no-thinking",
+              "settings": {
+                "reasoningEffort": "none"
+              }
+            }
+          ]
         }
       }
     }

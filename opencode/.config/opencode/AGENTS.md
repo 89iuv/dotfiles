@@ -1,4 +1,12 @@
-# Conventional Commits
+# AGENTS
+
+- [AGENTS](#agents)
+  - [Git](#git)
+    - [Types](#types)
+    - [Rules](#rules)
+    - [Examples](#examples)
+
+## Git
 
 When generating commit messages, always use
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format:
@@ -11,7 +19,7 @@ When generating commit messages, always use
 [optional footer(s)]
 ```
 
-## Types
+### Types
 
 | Type       | Description                                             |
 | ---------- | ------------------------------------------------------- |
@@ -27,7 +35,7 @@ When generating commit messages, always use
 | `chore`    | Other changes that don't modify src or test files       |
 | `revert`   | Reverts a previous commit                               |
 
-## Rules
+### Rules
 
 - The `<description>` must be lowercase, concise, and imperative (e.g., "add
   validation" not "added validation").
@@ -37,7 +45,7 @@ When generating commit messages, always use
 - Separate subject from body with a blank line.
 - Use the footer for issue references (e.g., `Closes #123`, `Refs #456`).
 
-## Examples
+### Examples
 
 ```text
 feat(auth): add OAuth2 login support
