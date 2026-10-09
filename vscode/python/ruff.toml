@@ -1,0 +1,23 @@
+preview = true
+output-prefer-rule-codes = true
+fix = false
+
+line-length = 120
+indent-width = 4
+
+[lint]
+select = [
+    "E",   # pycodestyle (PEP 8) errors
+    "W",   # pycodestyle (PEP 8) warnings
+    "F",   # pyflakes (finds common mistakes)
+    "B",   # flake8-bugbear (finds common design flaws and subtle bugs)
+    "UP",  # pyupgrade (modernizes syntax for your target Python version)
+    "SIM", # flake8-simplify (helps you write cleaner, less deeply-nested code)
+    "PT",  # flake8-pytest-style (enforces pytest best practices)
+    "I",   # isort (automatically sorts and groups your imports)
+]
+ignore = [
+    "PT003", # pytest-extraneous-scope-function
+    "PT001", # pytest-fixture-incorrect-parentheses-style
+    "PT023", # pytest-incorrect-mark-parentheses-style
+]
