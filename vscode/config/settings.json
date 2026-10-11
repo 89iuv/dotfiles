@@ -11,9 +11,10 @@
     "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.experimental.modernUI": true,
-    "workbench.editor.openPositioning": "last",
     "workbench.tree.renderIndentGuides": "always",
     "workbench.tree.indent": 16,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.openPositioning": "last",
 
     "window.titleBarStyle": "custom",
     "window.zoomLevel": 1,
@@ -107,6 +108,7 @@
 
     "errorLens.excludeBySource": ["TODO Highlight"],
 
+    "errorLens.fontStyleItalic": true,
     "errorLens.gutterIconSet": "squareRounded",
     "errorLens.errorGutterIconColor": "#ED8796",
     "errorLens.warningGutterIconColor": "#f5a97f",
@@ -115,7 +117,12 @@
     "errorLens.severityText": ["■", "■", "■", "■"],
     "errorLens.messageBackgroundMode": "none",
 
-    "errorLens.messageTemplate": "$severity $source($code): $message",
+    "errorLens.messageTemplate": "$severity $code: $message",
+    "errorLens.replace": [
+        { "matcher": "\\[hadolint\\] (error|warning|information|hint): (.*)", "message": "$2" }, // hadolint
+        { "matcher": "MD\\d\\d\\d\\/.*?: (.*)", "message": "$1" }, // markdownlint
+        { "matcher": "(.*)\n\nhelp:.*", "message": "$1" } // python
+    ],
     "errorLens.removeLinebreaks": true,
     "errorLens.replaceLinebreaksSymbol": " -> ",
 
@@ -167,7 +174,7 @@
     ],
 
     // prettier
-    "prettier.tabWidth": 4,
+    "prettier.tabWidth": 2,
     "prettier.trailingComma": "none",
 
     // python
