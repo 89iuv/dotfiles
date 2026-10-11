@@ -14,7 +14,7 @@ ENV USER_GID=1000
 # use the latest version when installing packages
 # hadolint ignore=DL3041
 RUN dnf upgrade -y \
-    && dnf install -y curl node python pip uv java-latest-openjdk-devel maven \
+    && dnf install -y git curl node python pip uv java-latest-openjdk-devel maven \
     && dnf clean all
 
 # User
