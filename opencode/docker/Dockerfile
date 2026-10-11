@@ -39,4 +39,3 @@ ENTRYPOINT [ "bash", "-c", "\
   sudo usermod -u ${USER_UID} ${USER} >/dev/null 2>&1; \
   sudo usermod -g ${USER_GID} ${USER} >/dev/null 2>&1; \
   ~/.opencode/bin/opencode"]
-

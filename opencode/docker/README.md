@@ -7,7 +7,7 @@
 ## Build docker image
 
 ```sh
-docker build -t opencode ./docker
+docker build -t opencode .
 ```
 
 ## Run docker image
