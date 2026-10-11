@@ -5,7 +5,6 @@
   - [Repo](#repo)
   - [System](#system)
   - [Tools](#tools)
-- [Test](#test)
   - [Coding](#coding)
   - [Containers](#containers)
   - [Ai](#ai)
@@ -131,7 +130,6 @@ sudo dnf -y install fastfetch
 stow fastfetch
 ```
 
-# Test
 ## Coding
 
 ```sh
