@@ -13,5 +13,12 @@
   "tabs": {
     "layout": "vertical",
     "mode": "off"
+  },
+  "prompt": {
+    "paste": "full"
+  },
+  "attention": {
+    "notifications": true,
+    "sound": true
   }
 }
