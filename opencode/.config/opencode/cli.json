@@ -3,13 +3,15 @@
   "theme": {
     "name": "catppuccin-macchiato"
   },
-  "tabs": {
-    "mode": "off"
-  },
   "session": {
-    "thinking": "show"
+    "thinking": "show",
+    "verbosity": "high"
   },
-  "cursor": {
-    "blinking": false
+  "debug": {
+    "devtools": false
+  },
+  "tabs": {
+    "layout": "vertical",
+    "mode": "off"
   }
 }

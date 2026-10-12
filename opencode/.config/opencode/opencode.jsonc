@@ -71,5 +71,10 @@
         }
       }
     }
+  },
+  "experimental": {
+    "policies": [
+      { "action": "provider.use", "resource": "opencode", "effect": "deny" }
+    ]
   }
 }
