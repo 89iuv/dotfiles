@@ -96,6 +96,13 @@
 
     "catppuccin-icons.hidesExplorerArrows": true,
 
+    // custom ui style
+      "custom-ui-style.stylesheet": {
+        "*": {
+            "border-radius": "0px !important"
+        }
+    },
+
     // spell check
     "cSpell.enabled": true,
     "cSpell.allowCompoundWords": true,
