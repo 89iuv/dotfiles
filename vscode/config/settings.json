@@ -32,7 +32,7 @@
 
     "terminal.integrated.minimumContrastRatio": 1,
     "terminal.integrated.fontLigatures.enabled": true,
-    "terminal.integrated.gpuAcceleration": "off", // fixes issues with ligatures
+    "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.scrollback": 100000,
     "terminal.integrated.initialHint": false,

@@ -1,4 +1,3 @@
-Extensions installed on WSL: FedoraLinux-44:
 00.python-paste-pro
 arr.marksman
 catppuccin.catppuccin-vsc
