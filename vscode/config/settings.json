@@ -97,11 +97,11 @@
     "catppuccin-icons.hidesExplorerArrows": true,
 
     // custom ui style
-      "custom-ui-style.stylesheet": {
+    "custom-ui-style.stylesheet": {
         "*": {
             "border-radius": "0px !important"
         },
-        ".badge-content": {
+        "[class*='badge']": {
             "border-radius": "20px !important"
         }
     },
