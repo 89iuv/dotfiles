@@ -2,11 +2,11 @@
   // Disabled schema as it is not valid for v2
   // https://github.com/anomalyco/opencode/issues/43748
   // "$schema": "https://opencode.ai/config.json",
-  "model": "zcat-llm/swift-1.5-qwen3.8-27b-gsq-rco",
+  "model": "zcat-llm/qwen3.8-27b-gsq-rco",
   "websearch": false,
   "agents": {
     "title": {
-      "model": "zcat-llm/swift-1.5-qwen3.8-27b-gsq-rco#no-thining"
+      "model": "zcat-llm/qwen3.8-27b-gsq-rco#no-thinking"
     },
     "explore": {
       "permissions": [
@@ -45,16 +45,25 @@
         "apiKey": "{env:ZCAT_LLM_KEY}"
       },
       "models": {
-        "swift-1.5-qwen3.8-27b-gsq-rco": {
-          "name": "Swift 1.5 Qwen 3.8 27B GSQ RCO",
+        "qwen3.8-27b-gsq-rco": {
+          "name": "Qwen 3.8 27B GSQ RCO",
           "limit": {
             "context": 98304
           },
+          "settings": {
+            "reasoningEffort": "high"
+          },
           "variants": [
             {
-              "id": "no-thining",
+              "id": "no-thinking",
               "settings": {
                 "reasoningEffort": "none"
+              }
+            },
+            {
+              "id": "thinking",
+              "settings": {
+                "reasoningEffort": "high"
               }
             }
           ]
