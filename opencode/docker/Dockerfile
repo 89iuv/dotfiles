@@ -17,6 +17,11 @@ RUN dnf upgrade -y \
     && dnf install -y git curl node python pip uv java-latest-openjdk-devel maven \
     && dnf clean all
 
+# install latest version of opencode globally using npm
+# hadolint ignore=DL3016
+RUN npm install -g @opencode/cli@latest \
+    && npm cache clean --force
+
 # User
 # allow wheel group to use sudo without password and create dev user
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
@@ -24,10 +29,6 @@ RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
   usermod -aG wheel ${USER}
 
 USER ${USER}
-
-# use multiple runs to take advantage of docker layer caching
-# hadolint ignore=DL4006
-RUN curl -fsSL https://opencode.ai/v2/install | bash
 
 # fix for permission issues when mounting volumes under ~/.local
 RUN mkdir -p ~/.local
@@ -38,4 +39,4 @@ ENTRYPOINT [ "bash", "-c", "\
   # change the user and group IDs of the dev user to match the provided environment variables
   sudo usermod -u ${USER_UID} ${USER} >/dev/null 2>&1; \
   sudo usermod -g ${USER_GID} ${USER} >/dev/null 2>&1; \
-  ~/.opencode/bin/opencode"]
+  opencode"]

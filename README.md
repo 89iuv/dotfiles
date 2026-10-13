@@ -167,7 +167,7 @@ sudo systemctl enable --now docker.service
 
 ```sh
 # opencode
-curl -fsSL https://opencode.ai/v2/install | bash
+sudo npm install -g @opencode/cli@latest
 stow opencode
 
 # setup api keys
