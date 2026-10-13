@@ -170,6 +170,9 @@ sudo systemctl enable --now docker.service
 sudo npm install -g @opencode/cli@latest
 stow opencode
 
+mkdir -p ~/.oh-my-zsh/completions/
+opencode --completions zsh > ~/.oh-my-zsh/completions/_opencode
+
 # setup api keys
 echo "export ZCAT_LLM_KEY=<replace_with_key>" > ~/.zshrc_local
 
