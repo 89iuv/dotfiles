@@ -47,7 +47,7 @@
       "models": {
         "qwen3.8-27b": {
           "modelID": "qwen3.8-27b-gsq-rco",
-          "name": "Qwen 3.8 27B",
+          "name": "Qwen 3.8 27B GSQ RCO",
           "limit": {
             "context": 98304
           },
