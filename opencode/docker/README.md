@@ -20,7 +20,6 @@ docker run --rm -it \
 -e USER_GID=$(id -g) \
 -e ZCAT_LLM_KEY \
 -v ~/.dotfiles/opencode/.config/opencode:/home/dev/.config/opencode \
--v ~/.local/share/opencode:/home/dev/.local/share/opencode \
 -v $(pwd):/workspace \
 opencode:latest
 
@@ -34,7 +33,6 @@ docker run --rm -it \
 -e USER_GID=$(id -g) \
 -e ZCAT_LLM_KEY \
 -v ~/.dotfiles/opencode/.config/opencode:/home/dev/.config/opencode \
--v ~/.local/share/opencode:/home/dev/.local/share/opencode \
 -v ~/.ssh:/home/dev/.ssh \
 -v ~/.gitconfig:/home/dev/.gitconfig \
 -v $(pwd):/workspace \

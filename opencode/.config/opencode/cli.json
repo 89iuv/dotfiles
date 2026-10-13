@@ -7,15 +7,10 @@
     "thinking": "show",
     "verbosity": "high"
   },
-  "debug": {
-    "devtools": false
-  },
   "prompt": {
     "paste": "full"
   },
-  "attention": {
-    "notifications": true,
-    "sound": true,
-    "volume": 0.6
+  "mini": {
+    "work_spinner": "density-wave"
   }
 }
