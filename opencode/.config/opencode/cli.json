@@ -17,5 +17,6 @@
     "notifications": true,
     "sound": true,
     "volume": 1
-  }
+  },
+  "animations": false
 }
