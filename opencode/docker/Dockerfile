@@ -11,6 +11,9 @@ ENV USER_UID=1000
 # use group id from env or 1000 as default
 ENV USER_GID=1000
 
+# opencode env configuration
+ENV OPENCODE_CLI_CONFIG_CONTENT='{ "attention": { "notifications": false, "sound": false } }'
+
 # use the latest version when installing packages
 # hadolint ignore=DL3041
 RUN dnf upgrade -y \
@@ -22,7 +25,6 @@ RUN dnf upgrade -y \
 RUN npm install -g @opencode/cli@latest \
     && npm cache clean --force
 
-# User
 # allow wheel group to use sudo without password and create dev user
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
   useradd -ml ${USER} && \
@@ -35,6 +37,7 @@ RUN mkdir -p ~/.local
 
 WORKDIR /workspace
 
+# pass JSON configuration to the OpenCode CLI via environment variable
 ENTRYPOINT [ "bash", "-c", "\
   # change the user and group IDs of the dev user to match the provided environment variables
   sudo usermod -u ${USER_UID} ${USER} >/dev/null 2>&1; \

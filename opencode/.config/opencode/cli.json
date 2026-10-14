@@ -12,5 +12,10 @@
   },
   "mini": {
     "work_spinner": "density-wave"
+  },
+  "attention": {
+    "notifications": true,
+    "sound": true,
+    "volume": 1
   }
 }
