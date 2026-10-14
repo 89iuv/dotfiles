@@ -18,5 +18,8 @@
     "sound": true,
     "volume": 1
   },
-  "animations": false
+  "animations": true,
+  "tabs": {
+    "mode": "off"
+  }
 }
