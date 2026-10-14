@@ -1,7 +1,9 @@
 ---
-name: Conventional Commits
-description: Use when writing, reviewing, or amending git commit messages to ensure they follow the Conventional Commits 1.0.0 format
+name: commit
+description: Use when generating git commit messages
 ---
+
+# Commit Message
 
 When generating commit messages, always use the
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format:
