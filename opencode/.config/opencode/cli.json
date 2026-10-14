@@ -4,8 +4,7 @@
     "name": "catppuccin-macchiato"
   },
   "session": {
-    "thinking": "show",
-    "verbosity": "high"
+    "thinking": "show"
   },
   "prompt": {
     "paste": "full"

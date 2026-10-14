@@ -1,8 +1,8 @@
 ---
-description: show the current diffs, then stage, commit, and push the changes
+description: Show the current diffs, then stage, commit, and push the changes
 ---
 
-# Commit and push the current changes
+# Show diff then commit and push the current changes
 
 !`git status --short && git diff --stat && git diff && git diff --cached`
 
