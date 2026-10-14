@@ -24,7 +24,11 @@
     "build": {
       "permissions": [
         { "action": "external_directory", "resource": "*", "effect": "ask" },
-        { "action": "external_directory", "resource": "/tmp/opencode/*", "effect": "allow" },
+        {
+          "action": "external_directory",
+          "resource": "/tmp/opencode/*",
+          "effect": "allow"
+        },
         { "action": "shell", "resource": "sudo *", "effect": "ask" },
         { "action": "shell", "resource": "su *", "effect": "ask" },
         { "action": "shell", "resource": "git commit *", "effect": "ask" },
@@ -49,13 +53,30 @@
         "qwen3.8-27b-gsq-rco": {
           "name": "Qwen 3.8 27B GSQ RCO",
           "limit": {
-            "context": 98304
+            "context": 98304,
+            "output": 32768
+          },
+          "body": {
+            "temperature": 1.0,
+            "top_p": 0.95,
+            "top_k": 20,
+            "min_p": 0.0,
+            "presence_penalty": 0.0,
+            "repetition_penalty": 1.0
           },
           "variants": [
             {
               "id": "no-thinking",
               "settings": {
                 "reasoningEffort": "none"
+              },
+              "body": {
+                "temperature": 0.7,
+                "top_p": 0.80,
+                "top_k": 20,
+                "min_p": 0.0,
+                "presence_penalty": 1.5,
+                "repetition_penalty": 1.0
               }
             }
           ]
