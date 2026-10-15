@@ -4,7 +4,7 @@ description: Show the current diffs, then stage, commit, and push the changes
 
 # Show diff then commit and push the current changes
 
-!`git status --short && git diff --stat && git diff && git diff --cached`
+!`git status && git diff`
 
 If there are no changes, stop and say the working tree is clean. Otherwise you
 must commit and push the changes. Do the following:
