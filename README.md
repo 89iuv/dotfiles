@@ -174,7 +174,7 @@ mkdir -p ~/.oh-my-zsh/completions/
 opencode --completions zsh > ~/.oh-my-zsh/completions/_opencode
 
 # setup api keys
-echo "export ZCAT_LLM_KEY=<replace_with_key>" > ~/.zshrc_local
+echo "export ZCAT_LLM_KEY=<replace_with_key>" >> ~/.zshrc_local
 
 # NOTE: use `opencode service stop && opencode` to reload the config
 ```
@@ -183,7 +183,7 @@ echo "export ZCAT_LLM_KEY=<replace_with_key>" > ~/.zshrc_local
 
 ```sh
 # setup windows user name env var
-echo "export WINDOWS_USER_NAME=<replace_with_windows_user_name>" > ~/.zshrc_local
+echo "export WINDOWS_USER_NAME=<replace_with_windows_user_name>" >> ~/.zshrc_local
 ```
 
 ## Clean Up
