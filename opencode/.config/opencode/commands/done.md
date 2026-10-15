@@ -4,7 +4,7 @@ description: Check diffs, stage, commit and push
 
 # Check diffs, stage, commit and push
 
-!`git status && git diff`
+!`git status && git diff --stat && git diff --cached --stat`
 
 If there are no changes, stop and say the working tree is clean. Otherwise do
 the following:
