@@ -1,8 +1,10 @@
 ---
-description: Commit and push
+description: Check diffs, stage, commit and push
 ---
 
-# Commit and push
+# Check diffs, stage, commit and push
+
+!`git status && git diff`
 
 If there are no changes, stop and say the working tree is clean. Otherwise do
 the following:
