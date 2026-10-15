@@ -3,7 +3,7 @@ name: commit
 description: Use when generating git commit messages
 ---
 
-# Commit Message
+# Conventional Commits Message
 
 When generating commit messages, always use the
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format:

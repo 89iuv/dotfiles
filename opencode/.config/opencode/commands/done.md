@@ -1,13 +1,11 @@
 ---
-description: Show the current diffs, then stage, commit, and push the changes
+description: Commit and push
 ---
 
-# Show diff then commit and push the current changes
+# Commit and push
 
-!`git status && git diff`
-
-If there are no changes, stop and say the working tree is clean. Otherwise you
-must commit and push the changes. Do the following:
+If there are no changes, stop and say the working tree is clean. Otherwise do
+the following:
 
 1. Stage all changes with `git add -A`.
 2. Write a Conventional Commits message describing the changes (lowercase
