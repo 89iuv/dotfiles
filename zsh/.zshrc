@@ -129,6 +129,9 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(backward-kill-word)
 # Turn off autocomplete beeps
 unsetopt LIST_BEEP
 
+# Turn off auto cd based on folder name
+unsetopt autocd
+
 # zsh history
 HISTSIZE=1000000
 SAVEHIST=1000000
