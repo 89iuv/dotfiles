@@ -88,32 +88,32 @@ sudo dnf install -y eza
 stow eza
 
 # git
-git config set --global init.defaultBranch master
+git config set --global init.defaultBranch main
 
 # git-delta
 sudo dnf install -y git-delta
 
-git config --global core.pager delta
-git config --global include.path "$HOME/.dotfiles/catppuccin/delta/catppuccin.gitconfig"
+git config set --global core.pager delta
+git config set --global include.path "$HOME/.dotfiles/catppuccin/delta/catppuccin.gitconfig"
 
-git config --global delta.features catppuccin-macchiato
-git config --global delta.true-colors "always"
-git config --global delta.line-numbers true
+git config set --global delta.features catppuccin-macchiato
+git config set --global delta.true-colors "always"
+git config set --global delta.line-numbers true
 
-git config --global delta.commit-decoration-style "bold"
+git config set --global delta.commit-decoration-style "bold"
 
-git config --global delta.file-style "#b7bdf8"
-git config --global delta.file-decoration-style "ul #b7bdf8"
+git config set --global delta.file-style "#b7bdf8"
+git config set --global delta.file-decoration-style "ul #b7bdf8"
 
-git config --global delta.hunk-header-style omit
-git config --global delta.hunk-header-decoration-style "ul #6e738d"
+git config set --global delta.hunk-header-style omit
+git config set --global delta.hunk-header-decoration-style "ul #6e738d"
 
-git config --global diff.colorMoved default
-git config --global merge.conflictstyle zdiff3
-git config --global interactive.diffFilter "delta --color-only"
+git config set --global diff.colorMoved default
+git config set --global merge.conflictstyle zdiff3
+git config set --global interactive.diffFilter "delta --color-only"
 
-git config --global alias.diff-unified "-c delta.hunk-header-style=auto -c delta.line-numbers=false diff"
-git config --global alias.diff-compare "-c delta.hunk-header-style=omit -c delta.side-by-side=true diff"
+git config set --global alias.diff-unified "-c delta.hunk-header-style=auto -c delta.line-numbers=false diff"
+git config set --global alias.diff-compare "-c delta.hunk-header-style=omit -c delta.side-by-side=true diff"
 
 # tmux
 sudo dnf -y install tmux
