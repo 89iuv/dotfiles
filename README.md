@@ -87,6 +87,9 @@ echo exit | script -qec zsh /dev/null >/dev/null
 sudo dnf install -y eza
 stow eza
 
+# git
+git config set --global init.defaultBranch master
+
 # git-delta
 sudo dnf install -y git-delta
 

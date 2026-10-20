@@ -43,5 +43,8 @@
   },
   "policies": [
     { "action": "provider.use", "resource": "opencode", "effect": "deny" }
-  ]
+  ],
+  "experimental": {
+    "todo": true
+  }
 }
