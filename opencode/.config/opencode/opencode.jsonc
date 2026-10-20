@@ -16,6 +16,7 @@
         { "action": "shell", "resource": "su *", "effect": "ask" },
         { "action": "shell", "resource": "git commit *", "effect": "ask" },
         { "action": "shell", "resource": "git push *", "effect": "ask" },
+        { "action": "shell", "resource": "git -C *", "effect": "ask" },
         { "action": "shell", "resource": "curl *", "effect": "ask" },
         { "action": "shell", "resource": "wget *", "effect": "ask" },
         { "action": "webfetch", "resource": "*", "effect": "deny" }
