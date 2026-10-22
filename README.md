@@ -89,6 +89,7 @@ stow eza
 
 # git
 git config set --global init.defaultBranch main
+git config set --global push.autoSetupRemote true
 git config set --global pull.rebase true
 
 git config set --global rebase.autoStash true
