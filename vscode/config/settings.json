@@ -8,7 +8,7 @@
     "terminal.integrated.smoothScrolling": true,
 
     // vscode
-    "workbench.colorTheme": "Catppuccin Macchiato",
+     "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.experimental.modernUI": true,
     "workbench.tree.renderIndentGuides": "always",
@@ -67,13 +67,22 @@
             "editorGroupHeader.tabsBackground": "mantle",
             "editorStickyScroll.shadow": "mantle",
 
-            "editor.foldBackground": "surface0",
-            "editor.foldPlaceholderForeground": "blue",
+            "editor.foldBackground": "#7dc4e440", // sapphire 25%
+            "editor.foldPlaceholderForeground": "sapphire",
 
             "editorLineNumber.foreground": "overlay0",
             "editorIndentGuide.activeBackground": "overlay0",
             "editorIndentGuide.background": "surface1",
             "editorRuler.foreground": "surface0",
+
+            "editorInlayHint.foreground": "subtext0",
+            "editorInlayHint.background": "#5b607840", // surface2 25%
+
+            "editorInlayHint.typeForeground": "subtext0",
+            "editorInlayHint.typeBackground": "#5b607840", // surface2 25%
+
+            "editorInlayHint.parameterForeground": "subtext0",
+            "editorInlayHint.parameterBackground": "#5b607840", // surface2 25%
 
             "panel.background": "mantle",
             "panel.border": "surface0",
@@ -146,22 +155,22 @@
         {
             "text": "NOTE:",
             "diagnosticSeverity": "none",
-            "backgroundColor": "#a6da95"
+            "backgroundColor": "#a6da95BF" // 50%
         },
         {
             "text": "TODO:",
             "diagnosticSeverity": "information",
-            "backgroundColor": "#8aadf4"
+            "backgroundColor": "#8aadf4BF" // 50%
         },
         {
             "text": "WARN:",
             "diagnosticSeverity": "warning",
-            "backgroundColor": "#eed49f"
+            "backgroundColor": "#eed49fBF" // 50%
         },
         {
             "text": "ERROR:",
             "diagnosticSeverity": "error",
-            "backgroundColor": "#ed8796"
+            "backgroundColor": "#ed8796BF" // 50%
         }
     ],
 
