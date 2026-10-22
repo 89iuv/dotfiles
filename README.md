@@ -89,6 +89,11 @@ stow eza
 
 # git
 git config set --global init.defaultBranch main
+git config set --global pull.rebase true
+
+git config set --global rebase.autoStash true
+git config set --global merge.autoStash true
+
 
 # git-delta
 sudo dnf install -y git-delta
