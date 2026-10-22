@@ -43,11 +43,10 @@
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.experimental.showMoves": true,
 
+    "chat.titleBar.openInAgentsWindow.enabled": false,
+    "chat.viewSessions.orientation": "stacked",
     "remote.autoForwardPorts": false,
     "telemetry.telemetryLevel": "off",
-
-    "chat.viewSessions.orientation": "stacked",
-    "chat.titleBar.openInAgentsWindow.enabled": false,
 
     // catppuccin
     "catppuccin.accentColor": "lavender",
@@ -58,24 +57,23 @@
             "list.focusOutline": "accent",
 
             "tree.indentGuidesStroke": "overlay0",
-            "tree.inactiveIndentGuidesStroke": "surface0",
+            "tree.inactiveIndentGuidesStroke": "surface1",
+
+            "tab.border": "surface0",
+            "tab.unfocusedInactiveBackground": "mantle",
 
             "minimap.background": "base",
 
             "editorGroupHeader.tabsBackground": "mantle",
             "editorStickyScroll.shadow": "mantle",
+
+            "editor.foldBackground": "surface0",
+            "editor.foldPlaceholderForeground": "blue",
+
             "editorLineNumber.foreground": "overlay0",
-            "editorRuler.foreground": "surface0",
-
             "editorIndentGuide.activeBackground": "overlay0",
-            "editorIndentGuide.background": "surface0",
-
-            "editorInlayHint.foreground": "overlay0",
-            "editorInlayHint.parameterForeground": "overlay0",
-            "editorInlayHint.typeForeground": "overlay0",
-
-            "tab.border": "surface0",
-            "tab.unfocusedInactiveBackground": "mantle",
+            "editorIndentGuide.background": "surface1",
+            "editorRuler.foreground": "surface0",
 
             "panel.background": "mantle",
             "panel.border": "surface0",
@@ -85,12 +83,6 @@
 
             "keybindingLabel.background": "surface0",
             "keybindingLabel.foreground": "subtext0"
-        }
-    },
-
-    "editor.tokenColorCustomizations": {
-        "[Catppuccin Macchiato]": {
-            "comments": "#8087a2" // overlay1
         }
     },
 
