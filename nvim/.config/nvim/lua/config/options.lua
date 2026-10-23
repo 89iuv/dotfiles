@@ -15,8 +15,11 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars:append({ tab = "» ", trail = "·", nbsp = "␣" })
+vim.opt.fillchars:append({ eob = " " })
 vim.opt.wrap = false
+
+vim.opt.laststatus = 3
 
 -- Indentation: 2-space tabs, smart/auto indent, break indentation
 vim.opt.tabstop = 2
