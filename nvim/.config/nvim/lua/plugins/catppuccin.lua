@@ -12,7 +12,10 @@ return {
             return {
               normal = {
                 c = { bg = colors.crust },
-              }
+              },
+              inactive = {
+                c = { bg = colors.crust },
+              },
             }
           end,
         },
@@ -22,20 +25,15 @@ return {
         local colors_utils = require("catppuccin.utils.colors")
 
         return {
-          -- catppuccin
-          FloatBorder = { fg = colors.lavender, bg = colors.mantle },
-          FloatTitle = { fg = colors.lavender, bg = colors.mantle },
+          -- neovim
+          FloatBorder = { fg = colors.overlay0, bg = colors.mantle },
 
           WinSeparator = { fg = colors.surface0, bg = colors.base },
-          StatusLine = { bg = colors.crust },
-
-          Folded = { fg = colors.overlay0, bg = colors.surface0, style = { "italic" } },
-          LspInlayHint = { fg = colors.overlay0, bg = "NONE", style = { "italic" } },
-
           LineNr = { fg = colors.overlay0 },
 
           -- neotree
-          NeoTreeWinSeparator = { fg = colors.surface0, bg = colors.mantle },
+          NeoTreeWinSeparator = { fg = colors.surface0, bg = colors.base },
+          NeoTreeIndentMarker = { fg = colors.surface1 },
 
           NeoTreeDotfile = { fg = colors.overlay0 },
           NeoTreeProjectName = { fg = colors.blue },
@@ -51,21 +49,32 @@ return {
           BufferCurrentMod = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
           BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
           BufferCurrentBtn = { bg = colors.base, fg = colors.red },
-          BufferCurrentSign = { bg = colors.mantle, fg = colors.surface0 },
-          BufferCurrentSignRight = { bg = colors.mantle, fg = colors.surface0 },
+          BufferCurrentSign = { bg = colors.base, fg = colors.lavender },
+
+          BufferCurrentError = { bg = colors.base, fg = colors.red },
+          BufferCurrentWarn = { bg = colors.base, fg = colors.yellow },
+          BufferCurrentInfo = { bg = colors.base, fg = colors.sky },
+          BufferCurrentHint = { bg = colors.base, fg = colors.teal },
+
+          BufferCurrentADDED = { bg = colors.base, fg = colors.green },
+          BufferCurrentCHANGED = { bg = colors.base, fg = colors.peach },
+          BufferCurrentDELETED = { bg = colors.base, fg = colors.maroon },
 
           -- barbar visible
           BufferVisible = { bg = colors.mantle, fg = colors.text },
-          BufferVisibleMod = { bg = colors.mantle, fg = colors.text},
+          BufferVisibleMod = { bg = colors.mantle, fg = colors.text },
           BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
           BufferVisibleBtn = { bg = colors.mantle, fg = colors.text },
           BufferVisibleSign = { bg = colors.mantle, fg = colors.surface0 },
-          BufferVisibleSignRight = { bg = colors.mantle, fg = colors.surface0 },
 
-          BufferVisibleError = { bg = colors.base, fg = colors.red },
-          BufferVisibleWarn = { bg = colors.base, fg = colors.yellow },
-          BufferVisibleInfo = { bg = colors.base, fg = colors.sky },
-          BufferVisibleHint = { bg = colors.base, fg = colors.teal },
+          BufferVisibleError = { bg = colors.mantle, fg = colors.red },
+          BufferVisibleWarn = { bg = colors.mantle, fg = colors.yellow },
+          BufferVisibleInfo = { bg = colors.mantle, fg = colors.sky },
+          BufferVisibleHint = { bg = colors.mantle, fg = colors.teal },
+
+          BufferVisibleADDED = { bg = colors.mantle, fg = colors.green },
+          BufferVisibleCHANGED = { bg = colors.mantle, fg = colors.peach },
+          BufferVisibleDELETED = { bg = colors.mantle, fg = colors.maroon },
 
           -- barbar inactive
           BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },
@@ -73,12 +82,23 @@ return {
           BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
           BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay0 },
           BufferInactiveSign = { bg = colors.mantle, fg = colors.surface0 },
-          BufferInactiveSignRight = { bg = colors.mantle, fg = colors.surface0 },
 
           BufferInactiveError = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.5, colors.mantle) },
           BufferInactiveWarn = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.5, colors.mantle) },
           BufferInactiveInfo = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.5, colors.mantle) },
           BufferInactiveHint = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.5, colors.mantle) },
+
+          BufferInactiveADDED = { bg = colors.mantle, fg = colors_utils.darken(colors.green, 0.5, colors.mantle) },
+          BufferInactiveCHANGED = { bg = colors.mantle, fg = colors_utils.darken(colors.peach, 0.5, colors.mantle) },
+          BufferInactiveDELETED = { bg = colors.mantle, fg = colors_utils.darken(colors.maroon, 0.5, colors.mantle) },
+
+          -- whichkey
+          WhKeyIcon = { style = {} },
+
+          -- blink border
+          BlinkCmpMenuBorder = { link = "FloatBorder" },
+          BlinkCmpDocBorder = { link = "BlinkCmpMenuBorder" },
+
         }
       end
     })
