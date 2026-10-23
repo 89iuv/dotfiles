@@ -10,10 +10,13 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.undofile = true
 vim.opt.swapfile = false
 
+-- Line numbers: enable absolute and relative line numbers, set number column width
+vim.opt.number = true
+vim.opt.relativenumber = false
+
 -- UI: show cursor line, line numbers, sign column, invisible characters, no wrap
 vim.opt.cursorline = true
-vim.opt.number = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 vim.opt.list = true
 vim.opt.listchars:append({ tab = "» ", trail = "·", nbsp = "␣" })
 vim.opt.fillchars:append({ eob = " " })

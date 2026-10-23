@@ -1,5 +1,9 @@
 return {
   "romgrk/barbar.nvim",
+  dependencies = {
+    "lewis6991/gitsigns.nvim",
+    "echasnovski/mini.icons"
+  },
   keys = {
     -- Move to previous/next
     { "<S-h>", "<Cmd>BufferPrevious<CR>", desc = "Prev Buffer" },
@@ -23,7 +27,8 @@ return {
   lazy = false,
   enabled = true,
   opts = function()
-    -- local lazy_icons = LazyVim.config.icons.diagnostics
+    local icons = require("config.global").icons
+
     return {
       animation = false,
       auto_hide = false,
@@ -32,9 +37,20 @@ return {
       highlight_alternate = false,
 
       icons = {
-        button = "󰅖 ",
-        modified = { button = "● " },
+        button = "󰖭 ",
+        modified = { button = "󰐕 " },
         pinned = { button = "󰐃", filename = true },
+        gitsigns = {
+          added = { enabled = true, icon = icons.git.added },
+          changed = { enabled = true, icon =icons.git.modified },
+          deleted = { enabled = true, icon = icons.git.removed },
+        },
+        diagnostics = {
+          [vim.diagnostic.severity.HINT] = { enabled = true, icon = icons.diagnostics.hint .. " " },
+          [vim.diagnostic.severity.INFO] = { enabled = true, icon = icons.diagnostics.info .. " "  },
+          [vim.diagnostic.severity.WARN] = { enabled = true, icon = icons.diagnostics.warn .. " " },
+          [vim.diagnostic.severity.ERROR] = { enabled = true, icon = icons.diagnostics.error .. " " },
+        },
         separator_at_end = false,
         separator = { left = "│", right = "" },
         inactive = {
