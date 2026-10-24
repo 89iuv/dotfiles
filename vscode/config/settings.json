@@ -8,25 +8,26 @@
     "terminal.integrated.smoothScrolling": true,
 
     // vscode
-     "workbench.colorTheme": "Catppuccin Macchiato",
+    "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.experimental.modernUI": true,
     "workbench.tree.renderIndentGuides": "always",
     "workbench.tree.indent": 16,
+    "workbench.editor.decorations.colors": false,
     "workbench.editor.empty.hint": "hidden",
     "workbench.editor.openPositioning": "last",
 
     "window.titleBarStyle": "custom",
     "window.zoomLevel": 1,
 
-    "editor.semanticHighlighting.enabled": true,
-
-    "editor.cursorBlinking": "solid",
-    "editor.renderWhitespace": "trailing",
+    "explorer.decorations.colors": false,
 
     "editor.fontFamily": "JetBrains Mono, Symbols Nerd Font Mono",
     "editor.fontLigatures": true,
+    "editor.cursorBlinking": "solid",
+    "editor.renderWhitespace": "trailing",
     "editor.guides.highlightActiveIndentation": "always",
+    "editor.semanticHighlighting.enabled": true,
     "editor.showFoldingControls": "always",
     "editor.rulers": [80, 120],
 
