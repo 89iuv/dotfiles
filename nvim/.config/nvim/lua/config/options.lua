@@ -5,6 +5,7 @@ vim.g.maplocalleader = " "
 -- Color & clipboard: enable true colors and share clipboard with OS
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.termsync = true
 
 -- Persistence: save undo history across sessions, disable swap files
 vim.opt.undofile = true

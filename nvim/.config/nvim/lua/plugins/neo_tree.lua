@@ -10,6 +10,7 @@ return {
   keys = {
     { "<leader>et", "<cmd>Neotree toggle<CR>", desc = "NeoTree Toggle" },
     { "<leader>er", "<cmd>Neotree reveal<CR>", desc = "NeoTree Reveal" },
+    { "<leader>ef", "<cmd>Neotree focus<CR>", desc = "NeoTree Focus" },
   },
   config = function()
     local run_in_directory = function(state_tree_node, fzf_picker_function)
@@ -46,7 +47,7 @@ return {
         indent = {
           padding = 1,
           with_expanders = false,
-          with_markers = false,
+          with_markers = true,
         },
         name = {
           use_git_status_colors = false,
@@ -63,6 +64,7 @@ return {
         },
       },
       window = {
+        position = "left",
         auto_expand_width = false,
         mappings = {
           ["<S-l>"] = "refresh", -- disable keymap as it conflicts with bufferline

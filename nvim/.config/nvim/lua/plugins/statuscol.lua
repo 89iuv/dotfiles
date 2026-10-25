@@ -33,31 +33,28 @@ return {
       relculright = true,
       ft_ignore = { "neo-tree" },
       segments = {
-        -- Column 1: gitsigns
         {
           sign = {
             namespace = { "gitsigns.*" },
             maxwidth = 1,
-            colwidth = 2,
-            auto = false,
+            colwidth = 1,
+            auto = true,
           },
           click = "v:lua.ScSa",
         },
-        -- Column 2: diagnostics
         {
           sign = {
             namespace = { ".*" },
             maxwidth = 1,
-            colwidth = 2,
+            colwidth = 1,
             auto = false,
           },
           click = "v:lua.ScSa",
         },
-        -- Line numbers (same as the default gutter), followed by a space
         {
           text = { line_number, " " },
           click = "v:lua.ScLa",
-        },
+        }
       },
     })
   end,

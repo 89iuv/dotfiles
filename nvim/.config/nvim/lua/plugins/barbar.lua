@@ -52,9 +52,9 @@ return {
           [vim.diagnostic.severity.ERROR] = { enabled = true, icon = icons.diagnostics.error .. " " },
         },
         separator_at_end = false,
-        separator = { left = "│", right = "" },
+        separator = { left = "", right = " " },
         inactive = {
-          separator = { left = "│", right = "" },
+          separator = { left = "", right = " " },
         },
         scroll = {
           left = "<",
@@ -64,6 +64,8 @@ return {
       sidebar_filetypes = {
         ["neo-tree"] = {
           text = "Project Explorer",
+          separator = "│",
+          align = "left"
         },
       },
 

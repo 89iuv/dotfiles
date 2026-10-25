@@ -23,16 +23,17 @@ return {
 
       custom_highlights = function(colors)
         local colors_utils = require("catppuccin.utils.colors")
+        local barbar_background = require("catppuccin.utils.colors").darken(colors.mantle, 0.5, colors.crust)
 
         return {
           -- neovim
           FloatBorder = { fg = colors.overlay0, bg = colors.mantle },
 
-          WinSeparator = { fg = colors.surface0, bg = colors.base },
+          WinSeparator = { fg = colors.crust, bg = colors.base },
           LineNr = { fg = colors.overlay0 },
 
           -- neotree
-          NeoTreeWinSeparator = { fg = colors.surface0, bg = colors.base },
+          NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
           NeoTreeIndentMarker = { fg = colors.surface1 },
 
           NeoTreeDotfile = { fg = colors.overlay0 },
@@ -40,16 +41,16 @@ return {
           NeoTreeProjectPath = { link = "NeoTreeDotfile" },
 
           -- barbar
-          BufferOffset = { fg = colors.lavender, bg = colors.mantle },
-          BufferScrollArrow = { fg = colors.surface2, bg = colors.mantle },
-          BufferTabpageFill = { fg = colors.crust, bg = colors.mantle },
+          BufferOffset = { bg = colors.mantle },
+          BufferScrollArrow = { fg = colors.lavender, bg = barbar_background },
+          BufferTabpageFill = { bg = barbar_background },
 
           -- barbar current
           BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
           BufferCurrentMod = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
           BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
           BufferCurrentBtn = { bg = colors.base, fg = colors.red },
-          BufferCurrentSign = { bg = colors.base, fg = colors.lavender },
+          BufferCurrentSign = { bg = barbar_background, fg = colors.lavender },
 
           BufferCurrentError = { bg = colors.base, fg = colors.red },
           BufferCurrentWarn = { bg = colors.base, fg = colors.yellow },
@@ -61,36 +62,56 @@ return {
           BufferCurrentDELETED = { bg = colors.base, fg = colors.maroon },
 
           -- barbar visible
-          BufferVisible = { bg = colors.mantle, fg = colors.text },
-          BufferVisibleMod = { bg = colors.mantle, fg = colors.text },
-          BufferVisibleModBtn = { bg = colors.mantle, fg = colors.peach },
-          BufferVisibleBtn = { bg = colors.mantle, fg = colors.text },
-          BufferVisibleSign = { bg = colors.mantle, fg = colors.surface0 },
+          BufferVisible = { bg = barbar_background, fg = colors.text },
+          BufferVisibleMod = { bg = barbar_background, fg = colors.text },
+          BufferVisibleModBtn = { bg = barbar_background, fg = colors.peach },
+          BufferVisibleBtn = { bg = barbar_background, fg = colors.text },
+          BufferVisibleSign = { bg = barbar_background, fg = colors.surface0 },
 
-          BufferVisibleError = { bg = colors.mantle, fg = colors.red },
-          BufferVisibleWarn = { bg = colors.mantle, fg = colors.yellow },
-          BufferVisibleInfo = { bg = colors.mantle, fg = colors.sky },
-          BufferVisibleHint = { bg = colors.mantle, fg = colors.teal },
+          BufferVisibleError = { bg = barbar_background, fg = colors.red },
+          BufferVisibleWarn = { bg = barbar_background, fg = colors.yellow },
+          BufferVisibleInfo = { bg = barbar_background, fg = colors.sky },
+          BufferVisibleHint = { bg = barbar_background, fg = colors.teal },
 
-          BufferVisibleADDED = { bg = colors.mantle, fg = colors.green },
-          BufferVisibleCHANGED = { bg = colors.mantle, fg = colors.peach },
-          BufferVisibleDELETED = { bg = colors.mantle, fg = colors.maroon },
+          BufferVisibleADDED = { bg = barbar_background, fg = colors.green },
+          BufferVisibleCHANGED = { bg = barbar_background, fg = colors.peach },
+          BufferVisibleDELETED = { bg = barbar_background, fg = colors.maroon },
 
           -- barbar inactive
-          BufferInactive = { bg = colors.mantle, fg = colors.overlay0 },
-          BufferInactiveMod = { bg = colors.mantle, fg = colors.overlay0 },
-          BufferInactiveModBtn = { bg = colors.mantle, fg = colors.peach },
-          BufferInactiveBtn = { bg = colors.mantle, fg = colors.overlay0 },
-          BufferInactiveSign = { bg = colors.mantle, fg = colors.surface0 },
+          BufferInactive = { bg = barbar_background, fg = colors.overlay0 },
+          BufferInactiveMod = { bg = barbar_background, fg = colors.overlay0 },
+          BufferInactiveModBtn = { bg = barbar_background, fg = colors.peach },
+          BufferInactiveBtn = { bg = barbar_background, fg = colors.overlay0 },
+          BufferInactiveSign = { bg = barbar_background, fg = colors.surface0 },
 
-          BufferInactiveError = { bg = colors.mantle, fg = colors_utils.darken(colors.red, 0.5, colors.mantle) },
-          BufferInactiveWarn = { bg = colors.mantle, fg = colors_utils.darken(colors.yellow, 0.5, colors.mantle) },
-          BufferInactiveInfo = { bg = colors.mantle, fg = colors_utils.darken(colors.sky, 0.5, colors.mantle) },
-          BufferInactiveHint = { bg = colors.mantle, fg = colors_utils.darken(colors.teal, 0.5, colors.mantle) },
-
-          BufferInactiveADDED = { bg = colors.mantle, fg = colors_utils.darken(colors.green, 0.5, colors.mantle) },
-          BufferInactiveCHANGED = { bg = colors.mantle, fg = colors_utils.darken(colors.peach, 0.5, colors.mantle) },
-          BufferInactiveDELETED = { bg = colors.mantle, fg = colors_utils.darken(colors.maroon, 0.5, colors.mantle) },
+          BufferInactiveError = {
+            bg = barbar_background,
+            fg = colors_utils.darken(colors.red, 0.5, barbar_background)
+          },
+          BufferInactiveWarn = {
+            bg = barbar_background,
+            fg = colors_utils.darken(colors.yellow, 0.5, barbar_background)
+          },
+          BufferInactiveInfo = {
+            bg = barbar_background,
+            fg = colors_utils.darken(colors.sky, 0.5, barbar_background)
+          },
+          BufferInactiveHint = {
+            bg = barbar_background,
+            fg = colors_utils.darken(colors.teal, 0.5, barbar_background)
+          },
+          BufferInactiveADDED = {
+            bg = barbar_background,
+            fg = colors_utils.darken(colors.green, 0.5, barbar_background)
+          },
+          BufferInactiveCHANGED = {
+            bg = barbar_background,
+            fg = colors_utils.darken(colors.peach, 0.5, barbar_background)
+          },
+          BufferInactiveDELETED = {
+            bg = barbar_background,
+            fg = colors_utils.darken(colors.maroon, 0.5, barbar_background)
+          },
 
           -- whichkey
           WhKeyIcon = { style = {} },
@@ -98,6 +119,10 @@ return {
           -- blink border
           BlinkCmpMenuBorder = { link = "FloatBorder" },
           BlinkCmpDocBorder = { link = "BlinkCmpMenuBorder" },
+
+          -- blink indent
+          BlinkIndent = { fg = colors.surface1 },
+          BlinkIndentScope = { fg = colors.overlay0 },
 
         }
       end
