@@ -4,7 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "echasnovski/mini.icons",
-    "ibhagwan/fzf-lua"
+    "ibhagwan/fzf-lua",
   },
   lazy = false,
   keys = {
@@ -26,6 +26,14 @@ return {
     end
 
     require("neo-tree").setup({
+      event_handlers = {
+        {
+          event = "neo_tree_buffer_enter",
+          handler = function()
+            vim.opt_local.foldcolumn = "0"
+          end,
+        },
+      },
       close_if_last_window = true,
       enable_git_status = true,
       sources = { "filesystem" },
