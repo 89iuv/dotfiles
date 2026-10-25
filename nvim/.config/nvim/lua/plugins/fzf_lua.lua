@@ -2,9 +2,19 @@ return {
   "ibhagwan/fzf-lua",
   dependencies = { "echasnovski/mini.icons" },
   keys = {
+    -- find
     { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
-    { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
-    { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" }
+    { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+
+    -- search
+    { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
+    { "<leader>sg", "<cmd>FzfLua grep_cword<cr>", desc = "Grep Current Word", mode = "v" },
+
+    -- lsp
+    { "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code Actions" },
+    { "gd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
+    { "gD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
+    { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
   },
   config = function()
     local builtin = require("fzf-lua.previewer.builtin")
@@ -29,18 +39,29 @@ return {
     end
 
     require("fzf-lua").setup({
+      file_icon_padding = "",
       fzf_colors = true,
       winopts = {
-        backdrop = 100,
+        backdrop = 60,
+        height = 0.80,
+        width = 0.80,
+        row = 0.50,
+        col = 0.50,
         border = "single",
         preview = {
           border = "single",
-        }
+        },
       },
       files = {
-        previewer = { _ctor = function() return FileOnlyPreviewer end },
+        previewer = {
+          _ctor = function()
+            return FileOnlyPreviewer
+          end,
+        },
         cwd_prompt = false,
-      }
+      },
     })
+
+    require("fzf-lua").register_ui_select()
   end,
 }

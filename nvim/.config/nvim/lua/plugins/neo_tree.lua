@@ -78,7 +78,7 @@ return {
             function(state)
               run_in_directory(state.tree:get_node(), require("fzf-lua").live_grep)
             end,
-            desc = "Grep (Current Node)",
+            desc = "Live Grep (Current Node)",
           },
         },
       },

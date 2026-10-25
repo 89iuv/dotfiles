@@ -19,6 +19,10 @@ return {
             }
           end,
         },
+        illuminate = {
+          enabled = true,
+          lsp = false
+        }
       },
 
       custom_highlights = function(colors)
@@ -31,6 +35,8 @@ return {
 
           WinSeparator = { fg = colors.crust, bg = colors.base },
           LineNr = { fg = colors.overlay0 },
+
+		  FoldColumn = { fg = colors.overlay1 },
 
           -- neotree
           NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
@@ -86,48 +92,52 @@ return {
 
           BufferInactiveError = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.red, 0.5, barbar_background)
+            fg = colors_utils.darken(colors.red, 0.5, barbar_background),
           },
           BufferInactiveWarn = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.yellow, 0.5, barbar_background)
+            fg = colors_utils.darken(colors.yellow, 0.5, barbar_background),
           },
           BufferInactiveInfo = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.sky, 0.5, barbar_background)
+            fg = colors_utils.darken(colors.sky, 0.5, barbar_background),
           },
           BufferInactiveHint = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.teal, 0.5, barbar_background)
+            fg = colors_utils.darken(colors.teal, 0.5, barbar_background),
           },
           BufferInactiveADDED = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.green, 0.5, barbar_background)
+            fg = colors_utils.darken(colors.green, 0.5, barbar_background),
           },
           BufferInactiveCHANGED = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.peach, 0.5, barbar_background)
+            fg = colors_utils.darken(colors.peach, 0.5, barbar_background),
           },
           BufferInactiveDELETED = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.maroon, 0.5, barbar_background)
+            fg = colors_utils.darken(colors.maroon, 0.5, barbar_background),
           },
 
           -- whichkey
           WhKeyIcon = { style = {} },
 
-          -- blink border
+          -- blink
           BlinkCmpMenuBorder = { link = "FloatBorder" },
           BlinkCmpDocBorder = { link = "BlinkCmpMenuBorder" },
 
+          BlinkCmpSource = { fg = colors.subtext1, bg = colors.mantle },
+
           -- blink indent
-          BlinkIndent = { fg = colors.surface1 },
+          BlinkIndent = { fg = colors.surface0 },
           BlinkIndentScope = { fg = colors.overlay0 },
 
+          -- virtual column
+          VirtColumn = { fg = colors.surface0 }
         }
-      end
+      end,
     })
 
-    vim.cmd.colorscheme "catppuccin-macchiato"
+    vim.cmd.colorscheme("catppuccin-macchiato")
   end,
 }

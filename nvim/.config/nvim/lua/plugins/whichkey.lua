@@ -5,9 +5,11 @@ return {
   config = function()
     require("which-key").setup({
       spec = {
-        { "<leader>e", desc = "Explorer", icon = MiniIcons.get("default", "directory") },
+        { "<leader>e", desc = "Explorer", icon = "󰉋 " },
         { "<leader>b", desc = "Buffer" },
+        { "<leader>c", desc = "Code", mode = { "n", "x" } },
         { "<leader>f", desc = "Find" },
+        { "<leader>s", desc = "Search", mode = { "n", "v" } },
         {
           "<leader>w",
           function()

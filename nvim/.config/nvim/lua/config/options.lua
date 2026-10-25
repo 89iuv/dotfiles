@@ -20,15 +20,35 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:2"
 vim.opt.list = true
 vim.opt.listchars:append({ tab = "» ", trail = "·", nbsp = "␣" })
+
 vim.opt.fillchars:append({ eob = " " })
+
+-- Folds
+vim.o.foldenable = true
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+
+vim.opt.fillchars:append({
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+})
+
+-- Text
 vim.opt.wrap = false
 
+-- Status Line
 vim.opt.laststatus = 3
 
--- Indentation: 2-space tabs, smart/auto indent, break indentation
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+-- Indentation
+vim.opt.tabstop = 4 -- number of spaces to render a tab
+
+vim.opt.expandtab = false -- converts tab keypress into space char
+vim.opt.softtabstop = 2 -- number of space for tab and backspace keypress in insert mode
+vim.opt.shiftwidth = 2 -- number of spaces to for indentation << >>, enter to new line, and autoindent
+
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.breakindent = true

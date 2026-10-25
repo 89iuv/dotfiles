@@ -1,6 +1,11 @@
 return {
-  'luukvbaal/statuscol.nvim',
+  "luukvbaal/statuscol.nvim",
   config = function()
+    local builtin = require("statuscol.builtin")
+
+    vim.o.foldenable = true
+    vim.o.foldcolumn = "1" -- statuscol needs this nonzero to show fold info
+
     local function line_number(args)
       local nu = vim.wo[args.win].number
       local rnu = vim.wo[args.win].relativenumber
@@ -28,8 +33,7 @@ return {
       return string.format(" " .. "%" .. width .. "d", n)
     end
 
-    require('statuscol').setup({
-      -- configuration goes here, for example:
+    require("statuscol").setup({
       relculright = true,
       ft_ignore = { "neo-tree" },
       segments = {
@@ -54,7 +58,11 @@ return {
         {
           text = { line_number, " " },
           click = "v:lua.ScLa",
-        }
+        },
+        {
+          text = { builtin.foldfunc, " " },
+          click = "v:lua.ScFa",
+        },
       },
     })
   end,

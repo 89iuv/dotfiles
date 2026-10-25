@@ -77,7 +77,19 @@ return {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
 
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = {
+      implementation = "prefer_rust_with_warning",
+    },
+
+    signature = {
+      enabled = true,
+      window = {
+        border = "single",
+        winblend = 0,
+        show_documentation = false,
+      },
+    },
+
   },
   opts_extend = { "sources.default" }
 }
