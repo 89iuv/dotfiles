@@ -5,6 +5,7 @@ return {
     -- find
     { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
     { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Buffers" },
 
     -- search
     { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
@@ -15,6 +16,9 @@ return {
     { "gd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
     { "gD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
     { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
+
+    -- git
+    { "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "Status" },
   },
   config = function()
     local builtin = require("fzf-lua.previewer.builtin")
@@ -29,6 +33,7 @@ return {
     end
 
     function FileOnlyPreviewer:parse_entry(entry_str)
+      ---@diagnostic disable-next-line: undefined-field
       local entry = FileOnlyPreviewer.super.parse_entry(self, entry_str)
       if entry then
         -- Dropping bufnr makes populate_preview_buf take the
@@ -41,9 +46,9 @@ return {
     require("fzf-lua").setup({
       file_icon_padding = "",
       fzf_colors = true,
-	  fzf_opts = {
-		["--cycle"] = "",
-	  },
+      fzf_opts = {
+        ["--cycle"] = "",
+      },
       winopts = {
         backdrop = 60,
         height = 0.80,
@@ -54,6 +59,11 @@ return {
         preview = {
           border = "single",
         },
+        layout = "reverse",
+        treesitter = {
+          enabled = true,
+          path_shorten = true,
+        },
       },
       files = {
         previewer = {
@@ -63,13 +73,13 @@ return {
         },
         cwd_prompt = false,
       },
-	  grep = {
+      grep = {
         previewer = {
           _ctor = function()
             return FileOnlyPreviewer
           end,
         },
-	  },
+      },
       lsp = {
         code_actions = {
           previewer = false,

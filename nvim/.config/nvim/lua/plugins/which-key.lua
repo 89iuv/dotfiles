@@ -8,7 +8,8 @@ return {
         { "<leader>e", desc = "Explorer", icon = "󰉋 " },
         { "<leader>b", desc = "Buffer" },
         { "<leader>c", desc = "Code", mode = { "n", "x" } },
-		{ "<leader>h", desc = "Hunk", icon = "󰘬", mode = { "n", "x" } },
+		{ "<leader>h", desc = "Hunk", icon = "", mode = { "n", "x" } },
+		{ "<leader>g", desc = "Git", icon = "󰊢", mode = { "n", "x" } },
         { "<leader>f", desc = "Find" },
         { "<leader>s", desc = "Search", mode = { "n", "v" } },
 		{ "<leader>t", desc = "Toggle" },
@@ -20,7 +21,7 @@ return {
               keys = "<c-w>"
             })
           end,
-          desc = "Window Hydra Mode"
+          desc = "Window"
         },
         {
           "<leader>W",
