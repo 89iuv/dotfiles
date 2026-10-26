@@ -22,7 +22,8 @@ return {
         illuminate = {
           enabled = true,
           lsp = false
-        }
+        },
+		dashboard = true
       },
 
       custom_highlights = function(colors)
