@@ -5,7 +5,6 @@ return {
   },
   opts = {
     ui = {
-      border = "single",
       backdrop = 60,
       width = 0.8,
       height = 0.8,

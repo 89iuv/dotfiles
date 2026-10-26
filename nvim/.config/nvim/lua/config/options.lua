@@ -16,6 +16,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- UI: show cursor line, line numbers, sign column, invisible characters, no wrap
+vim.opt.winborder = "single"
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:2"
 vim.opt.list = true

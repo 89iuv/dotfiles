@@ -9,18 +9,21 @@ return {
 
     --lsp diagnostics configuration
     vim.diagnostic.config({
+      update_in_insert = false,
       severity_sort = true,
+      underline = {
+        severity = {
+          min = vim.diagnostic.severity.WARN,
+        },
+      },
       float = {
         source = true,
-        border = "single",
       },
       virtual_text = {
         source = true,
         prefix = "■",
         severity = {
-          vim.diagnostic.severity.INFO,
-          vim.diagnostic.severity.WARN,
-          vim.diagnostic.severity.ERROR,
+          min = vim.diagnostic.severity.WARN,
         },
       },
       signs = {
@@ -42,25 +45,47 @@ return {
       })
     end, { desc = "LSP Hover Documentation" })
 
-    -- lua
-    vim.lsp.enable("lua_ls")
-
-    -- python
-    vim.lsp.config("pyright", {
-      settings = {
-        pyright = {
-          -- Using Ruff's import organizer
-          disableOrganizeImports = true,
+    --settings
+    vim.lsp.inlay_hint.enable(true)
+    vim.lsp.config("*", {
+      capabilities = {
+        workspace = {
+          didChangeWatchedFiles = { dynamicRegistration = true },
         },
-        python = {
-          analysis = {
-            -- Ignore all files for analysis to exclusively use Ruff for linting
-            ignore = { "*" },
+      },
+    })
+
+    -- lua
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          hint = {
+            enable = true, -- Core setting to turn hints on
+            arrayIndex = "Disable", -- Optional: Show index hints for arrays
           },
         },
       },
     })
-    vim.lsp.enable("pyright")
+    vim.lsp.enable("lua_ls")
+
+    -- python
+    vim.lsp.config("basedpyright", {
+      settings = {
+        basedpyright = {
+          disableOrganizeImports = true, -- Ruff does this
+        },
+      },
+    })
+    vim.lsp.enable("basedpyright")
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.name == "ruff" then
+          client.server_capabilities.hoverProvider = false
+        end
+      end,
+    })
     vim.lsp.enable("ruff")
   end,
 }

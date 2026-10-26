@@ -6,7 +6,7 @@ return {
       ensure_installed = {
         -- LSP Servers
         "lua-language-server",
-        "pyright",
+        "basedpyright",
 
         -- Formatters and Linters
         "stylua",
