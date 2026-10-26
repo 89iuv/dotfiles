@@ -12,6 +12,8 @@ return {
       large_file_overrides = {
         providers = { "lsp" },
       },
+	  filetypes_denylist = { "neo-tree" },
+	  modes_allowlist = { "n" }
     })
 
     local function map(key, dir, buffer)
