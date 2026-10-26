@@ -119,11 +119,12 @@
     "errorLens.severityText": ["■", "■", "■", "■"],
     "errorLens.messageBackgroundMode": "none",
 
-    "errorLens.messageTemplate": "$severity $code: $message",
+    "errorLens.messageTemplate": "$severity $code: $message [$source]",
     "errorLens.replace": [
-        { "matcher": "\\[hadolint\\] (error|warning|information|hint): (.*)", "message": "$2" }, // hadolint
+        { "matcher": "\\[hadolint\\] (error|warning|information|hint): (.*)", "message": "$2 [hadolint]" }, // hadolint
+        { "matcher": "\\[hadolint\\] (.*)", "message": "$1 [hadolint]" }, // hadolint
         { "matcher": "MD\\d\\d\\d\\/.*?: (.*)", "message": "$1" }, // markdownlint
-        { "matcher": "(.*)\n\nhelp:.*", "message": "$1" } // python
+        { "matcher": "(.*)\n\nhelp:.*", "message": "$1" } // ruff
     ],
     "errorLens.removeLinebreaks": true,
     "errorLens.replaceLinebreaksSymbol": " -> ",
