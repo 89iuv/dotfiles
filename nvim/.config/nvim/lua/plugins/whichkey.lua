@@ -8,8 +8,10 @@ return {
         { "<leader>e", desc = "Explorer", icon = "󰉋 " },
         { "<leader>b", desc = "Buffer" },
         { "<leader>c", desc = "Code", mode = { "n", "x" } },
+		{ "<leader>h", desc = "Hunk", icon = "󰘬", mode = { "n", "x" } },
         { "<leader>f", desc = "Find" },
         { "<leader>s", desc = "Search", mode = { "n", "v" } },
+		{ "<leader>t", desc = "Toggle" },
         {
           "<leader>w",
           function()
