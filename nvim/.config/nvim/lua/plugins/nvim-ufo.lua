@@ -4,8 +4,8 @@ return {
     "kevinhwang91/promise-async",
   },
   enabled = true,
-  opts = function(_, opts)
-    opts.fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+  opts = {
+    fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
       local suffix = (" ... [%d lines] "):format(endLnum - lnum)
       local sufWidth = vim.fn.strdisplaywidth(suffix)
@@ -18,7 +18,6 @@ return {
 
         if targetWidth > curWidth + chunkWidth then
           table.insert(newVirtText, chunk)
-
         else
           chunkText = truncate(chunkText, targetWidth - curWidth)
           local hlGroup = chunk[2]
@@ -39,14 +38,13 @@ return {
       table.insert(newVirtText, { suffix, "Folded" })
 
       return newVirtText
-    end
-
-    opts.provider_selector = function(_, _, _)
+    end,
+    provider_selector = function(_, filetype, _)
+      if filetype == "neo-tree" then
+        return ""
+      end
       return { "treesitter", "indent" }
-    end
-
-    opts.open_fold_hl_timeout = 350
-
-    return opts
-  end,
+    end,
+   open_fold_hl_timeout = 350
+  }
 }
