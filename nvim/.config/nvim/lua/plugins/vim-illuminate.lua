@@ -12,7 +12,7 @@ return {
       large_file_overrides = {
         providers = { "lsp" },
       },
-	  filetypes_denylist = { "neo-tree" },
+	  filetypes_denylist = { "neo-tree", "dashboard" },
 	  modes_allowlist = { "n" }
     })
 

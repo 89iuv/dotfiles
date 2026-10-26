@@ -12,6 +12,9 @@ return {
       char = { "│", "│" },
       virtcolumn = "80,120",
       highlight = "VirtColumn",
+      exclude = {
+        filetypes = { "dashboard" },
+      },
     }
   end,
 }

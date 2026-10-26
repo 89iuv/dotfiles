@@ -2,11 +2,7 @@ return {
   'saghen/blink.indent',
   opts = {
     blocked = {
-      -- default: 'terminal', 'quickfix', 'nofile', 'prompt'
-      -- buftypes = { 'terminal', 'quickfix', 'prompt' },
       buftypes = { include_defaults = true },
-      -- default: 'lspinfo', 'packer', 'checkhealth', 'help', 'man', 'gitcommit', 'dashboard', ''
-      -- filetypes = { 'lspinfo', 'packer', 'checkhealth', 'help', 'man', 'gitcommit', 'dashboard' },
       filetypes = { include_defaults = true },
     },
     static = {

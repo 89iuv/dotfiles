@@ -3,19 +3,21 @@ return {
   config = function()
     require("util.repo_diff").setup()
 
-    require('lualine').setup({
+    require("lualine").setup({
       options = {
         theme = "catppuccin-nvim",
         component_separators = { left = "╱", right = "│" },
         section_separators = { left = "", right = "▐" },
+        disabled_filetypes = {
+          statusline = { "dashboard" },
+        },
       },
       extensions = { "neo-tree", "fzf" },
       sections = {
         lualine_a = {
           { "mode", icon = "" },
         },
-        lualine_b = {
-        },
+        lualine_b = {},
         lualine_c = {
           {
             "branch",
@@ -30,9 +32,9 @@ return {
             symbols = {
               added = require("config.global").icons.git.added,
               modified = require("config.global").icons.git.modified,
-              removed = require("config.global").icons.git.removed
-            }
-          }
+              removed = require("config.global").icons.git.removed,
+            },
+          },
         },
         lualine_x = {
           {
@@ -43,7 +45,7 @@ return {
               error = require("config.global").icons.diagnostics_outline.error .. " ",
               warn = require("config.global").icons.diagnostics_outline.warn .. " ",
               info = require("config.global").icons.diagnostics_outline.info .. " ",
-              hint = require("config.global").icons.diagnostics_outline.hint .. " "
+              hint = require("config.global").icons.diagnostics_outline.hint .. " ",
             },
             separator = "",
             padding = { left = 0, right = 0 },
@@ -93,13 +95,11 @@ return {
             },
             separator = "",
             padding = { left = 1, right = 1 },
-          }
+          },
         },
-        lualine_y = {
-        },
-        lualine_z = {
-        }
-      }
+        lualine_y = {},
+        lualine_z = {},
+      },
     })
   end,
 }
