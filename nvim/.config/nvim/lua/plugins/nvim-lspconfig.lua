@@ -13,19 +13,32 @@ return {
       severity_sort = true,
       underline = {
         severity = {
-          min = vim.diagnostic.severity.WARN,
+          min = vim.diagnostic.severity.INFO,
         },
       },
       float = {
         source = true,
       },
       virtual_text = {
-        source = true,
+        source = false, -- it is handeled in the format function
         prefix = "■",
         severity = {
           min = vim.diagnostic.severity.WARN,
         },
+        format = function(diagnostic)
+          local code = diagnostic.code
+		  local message = string.match(diagnostic.message, "^[^\r\n]*")
+		  local source = diagnostic.source
+
+		  local text = ""
+		  text = code ~= nil and text .. code .. ": " or ""
+		  text = message ~= nil and text .. message or ""
+		  text = source ~= nil and text .. " [".. source .."]" or ""
+
+		  return text
+        end,
       },
+
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
