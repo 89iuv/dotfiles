@@ -53,12 +53,6 @@ return {
           use_git_status_colors = false,
           right_padding = 1,
         },
-        file_size = {
-          enabled = false,
-        },
-        type = {
-          enabled = false,
-        },
       },
       window = {
         position = "left",
@@ -66,8 +60,12 @@ return {
         mappings = {
           ["h"] = "close_node",
           ["l"] = "open",
-          ["L"] = function() vim.cmd("normal! 5zlg0") end,
-          ["H"] = function() vim.cmd("normal! 5zhg0") end,
+          ["L"] = function()
+            vim.cmd("normal! 5zlg0")
+          end,
+          ["H"] = function()
+            vim.cmd("normal! 5zhg0")
+          end,
           ["<leader>ff"] = {
             ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
@@ -117,6 +115,21 @@ return {
           end,
         },
       },
+	  event_handlers = {
+      {
+        event = "neo_tree_window_after_open",
+        handler = function()
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            if vim.bo[buf].filetype == "dashboard" then
+              vim.api.nvim_win_call(win, function()
+                vim.cmd("enew")
+              end)
+            end
+          end
+        end,
+      },
+    },
     })
   end,
 }
