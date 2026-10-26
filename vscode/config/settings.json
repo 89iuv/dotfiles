@@ -198,7 +198,7 @@
         "editor.defaultFormatter": "charliermarsh.ruff"
     },
 
-    "ruff.configuration": "~/.dotfiles/vscode/python/ruff.toml",
+    "ruff.configuration": "~/.dotfiles/templates/ruff.toml",
 
     // json
     "json.schemaDownload.trustedDomains": {

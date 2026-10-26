@@ -86,6 +86,14 @@ return {
         end
       end,
     })
+    vim.lsp.config("ruff", {
+      init_options = {
+        settings = {
+          configuration = vim.fn.expand("~/.dotfiles/templates/ruff.toml"),
+          configurationPreference = "filesystemFirst",
+        },
+      },
+    })
     vim.lsp.enable("ruff")
   end,
 }
