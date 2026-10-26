@@ -41,6 +41,9 @@ return {
     require("fzf-lua").setup({
       file_icon_padding = "",
       fzf_colors = true,
+	  fzf_opts = {
+		["--cycle"] = "",
+	  },
       winopts = {
         backdrop = 60,
         height = 0.80,
