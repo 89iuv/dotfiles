@@ -33,10 +33,6 @@ return {
       },
     })
 
-    -- lsp server configuration
-    vim.lsp.enable("lua_ls")
-    vim.lsp.enable("pyright")
-
     -- keymaps
     vim.keymap.set("n", "K", function()
       vim.lsp.buf.hover({
@@ -45,5 +41,26 @@ return {
         border = "single",
       })
     end, { desc = "LSP Hover Documentation" })
+
+    -- lua
+    vim.lsp.enable("lua_ls")
+
+    -- python
+    vim.lsp.config("pyright", {
+      settings = {
+        pyright = {
+          -- Using Ruff's import organizer
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            -- Ignore all files for analysis to exclusively use Ruff for linting
+            ignore = { "*" },
+          },
+        },
+      },
+    })
+    vim.lsp.enable("pyright")
+    vim.lsp.enable("ruff")
   end,
 }
