@@ -59,22 +59,24 @@ return {
         type = {
           enabled = false,
         },
-        last_modified = {
-          enabled = false,
-        },
       },
       window = {
         position = "left",
         auto_expand_width = false,
         mappings = {
-          ["<S-l>"] = "refresh", -- disable keymap as it conflicts with bufferline
+          ["h"] = "close_node",
+          ["l"] = "open",
+          ["L"] = function() vim.cmd("normal! 5zlg0") end,
+          ["H"] = function() vim.cmd("normal! 5zhg0") end,
           ["<leader>ff"] = {
+            ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
               run_in_directory(state.tree:get_node(), require("fzf-lua").files)
             end,
             desc = "Find Files (Current Node)",
           },
           ["<leader>sg"] = {
+            ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
               run_in_directory(state.tree:get_node(), require("fzf-lua").live_grep)
             end,
