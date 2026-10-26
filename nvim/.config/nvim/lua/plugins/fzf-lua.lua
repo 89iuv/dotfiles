@@ -60,6 +60,18 @@ return {
         },
         cwd_prompt = false,
       },
+	  grep = {
+        previewer = {
+          _ctor = function()
+            return FileOnlyPreviewer
+          end,
+        },
+	  },
+      lsp = {
+        code_actions = {
+          previewer = false,
+        },
+      },
     })
 
     require("fzf-lua").register_ui_select()
