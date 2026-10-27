@@ -16,10 +16,10 @@ return {
     { "<M-}>", "<Cmd>BufferMoveNext<CR>", desc = "Move buffer next" },
 
     -- Close buffers
-    { "<leader>bq", "<Cmd>BufferClose<CR>", desc = "Delete Buffer" },
-    { "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Delete Other Buffers" },
-    { "<leader>bl", "<Cmd>BufferCloseBuffersLeft<CR>", desc = "Delete Buffers to the Left" },
-    { "<leader>br", "<Cmd>BufferCloseBuffersRight<CR>", desc = "Delete Buffers to the Right" },
+    { "<leader>bq", "<Cmd>BufferClose<CR>", desc = "Close Buffer" },
+    { "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close Other Buffers" },
+    { "<leader>bl", "<Cmd>BufferCloseBuffersLeft<CR>", desc = "Close Buffers to the Left" },
+    { "<leader>br", "<Cmd>BufferCloseBuffersRight<CR>", desc = "Close Buffers to the Right" },
   },
   init = function()
     vim.g.barbar_auto_setup = false

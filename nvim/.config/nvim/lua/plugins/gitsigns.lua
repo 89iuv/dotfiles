@@ -90,6 +90,7 @@ return {
         end, { desc = "Reset hunk (visual selection)" })
 
         map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "Stage buffer" })
+        map('n', '<leader>hU', gitsigns.reset_buffer_index, { desc = 'Unstage Buffer' })
         map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "Reset buffer" })
         map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview hunk" })
         map("n", "<leader>hi", gitsigns.preview_hunk_inline, { desc = "Preview hunk inline" })
