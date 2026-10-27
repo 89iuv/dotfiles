@@ -34,8 +34,9 @@ return {
           desc = "Window Hydra Mode",
         },
       },
+      { "<leader>x", desc = "Diagnostics" },
       preset = "helix",
-      delay  = 350,
+      delay = 350,
       win = {
         border = "single",
       },
