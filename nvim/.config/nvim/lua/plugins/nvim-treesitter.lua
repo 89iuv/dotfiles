@@ -15,7 +15,9 @@ return {
       "markdown",
       "markdown_inline",
 
-      "html"
+      "html",
+      "javascript",
+      "typescript"
     }
   end
 }

@@ -69,6 +69,7 @@ return {
         end
       end,
     })
+
     return {
       enabled = true,
       char = { "│", "│" },

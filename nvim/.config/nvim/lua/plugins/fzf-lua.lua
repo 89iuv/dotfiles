@@ -53,7 +53,6 @@ return {
           border = "single",
           layout = "flex",
         },
-        layout = "reverse",
         treesitter = {
           enabled = true,
           path_shorten = true,

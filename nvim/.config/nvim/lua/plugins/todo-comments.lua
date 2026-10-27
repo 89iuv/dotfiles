@@ -1,29 +1,39 @@
 return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    signs = true,
-    keywords = {
-      -- NOTE: test note
-      NOTE = { icon = "󰌵 " },
+  config = function()
+    vim.keymap.set("n", "]t", function()
+      require("todo-comments").jump_next()
+    end, { desc = "Next todo comment" })
 
-      -- TODO: test todo
-      TODO = { icon = "󰸞 " },
+    vim.keymap.set("n", "[t", function()
+      require("todo-comments").jump_prev()
+    end, { desc = "Previous todo comment" })
 
-      -- WARN: test warn
-      WARN = { icon = "󱈸 " },
+    require("todo-comments").setup({
+      signs = true,
+      keywords = {
+        -- NOTE: test note
+        NOTE = { icon = "󰌵 " },
 
-      -- HACK: test hack
-      HACK = { icon = "󰈸 " },
+        -- TODO: test todo
+        TODO = { icon = "󰸞 " },
 
-      -- PERF: test perf
-      PERF = { icon = "󰉁 " },
+        -- WARN: test warn
+        WARN = { icon = "󱈸 " },
 
-      -- TEST: tst test
-      TEST = { icon = "󰙨 " },
+        -- HACK: test hack
+        HACK = { icon = "󰈸 " },
 
-      -- FIX: test fix
-      FIX = { icon = "󰃤 " },
-    },
-  },
+        -- PERF: test perf
+        PERF = { icon = "󰉁 " },
+
+        -- TEST: tst test
+        TEST = { icon = "󰙨 " },
+
+        -- FIX: test fix
+        FIX = { icon = "󰃤 " },
+      },
+    })
+  end,
 }

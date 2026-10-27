@@ -43,7 +43,16 @@ return {
             namespace = { "gitsigns.*" },
             maxwidth = 1,
             colwidth = 1,
-            auto = true,
+            auto = false,
+          },
+          click = "v:lua.ScSa",
+        },
+        {
+          sign = {
+            namespace = { "diagnostic", },
+            maxwidth = 1,
+            colwidth = 2,
+            auto = false,
           },
           click = "v:lua.ScSa",
         },
@@ -58,20 +67,9 @@ return {
         },
         {
           sign = {
-            namespace = {
-              "diagnostic/signs",
-            },
-            maxwidth = 1,
-            colwidth = 1,
-            auto = false,
-          },
-          click = "v:lua.ScSa",
-        },
-        {
-          sign = {
             name = { ".*" },
             maxwidth = 1,
-            colwidth = 1,
+            colwidth = 2,
             auto = true,
           },
           click = "v:lua.ScSa",
@@ -80,7 +78,7 @@ return {
           sign = {
             namespace = { ".*" },
             maxwidth = 1,
-            colwidth = 1,
+            colwidth = 2,
             auto = true,
           },
           click = "v:lua.ScSa",

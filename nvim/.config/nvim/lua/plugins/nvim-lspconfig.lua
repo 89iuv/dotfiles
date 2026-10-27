@@ -17,19 +17,17 @@ return {
       return orig_open_floating_preview(contents, syntax, opts, ...)
     end
 
-    local group = vim.api.nvim_create_augroup("DiagnosticsInsertToggle", { clear = true })
-
-    vim.api.nvim_create_autocmd("InsertEnter", {
-      group = group,
-      callback = function(args)
-        vim.diagnostic.enable(false, { bufnr = args.buf })
+    vim.api.nvim_create_autocmd("ModeChanged", {
+      pattern = "*:n",
+      callback = function(event)
+        vim.diagnostic.enable(true, { bufnr = event.buf })
       end,
     })
 
-    vim.api.nvim_create_autocmd("InsertLeave", {
-      group = group,
-      callback = function(args)
-        vim.diagnostic.enable(true, { bufnr = args.buf })
+    vim.api.nvim_create_autocmd("ModeChanged", {
+      pattern = "n:*",
+      callback = function(event)
+        vim.diagnostic.enable(false, { bufnr = event.buf })
       end,
     })
 
