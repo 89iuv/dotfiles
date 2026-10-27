@@ -18,7 +18,8 @@ return {
     { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
 
     -- git
-    { "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "Status" },
+    { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
+    { "<leader>gb", "<cmd>FzfLua git_bcommits<cr>", desc = "Buffer Commits" },
   },
   config = function()
     local builtin = require("fzf-lua.previewer.builtin")
@@ -58,6 +59,7 @@ return {
         border = "single",
         preview = {
           border = "single",
+          layout = "flex",
         },
         layout = "reverse",
         treesitter = {

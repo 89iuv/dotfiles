@@ -16,7 +16,8 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- UI: show cursor line, line numbers, sign column, invisible characters, no wrap
-vim.opt.winborder = "single"
+-- Good idea, lazy does not play nice with this setting
+-- vim.opt.winborder = "single"
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:2"
 vim.opt.list = true
@@ -46,7 +47,7 @@ vim.opt.laststatus = 3
 -- Indentation
 vim.opt.tabstop = 4 -- number of spaces to render a tab
 
-vim.opt.expandtab = false -- converts tab keypress into space char
+vim.opt.expandtab = true -- converts tab keypress into space char
 vim.opt.softtabstop = 2 -- number of space for tab and backspace keypress in insert mode
 vim.opt.shiftwidth = 2 -- number of spaces to for indentation << >>, enter to new line, and autoindent
 
