@@ -60,12 +60,6 @@ return {
         mappings = {
           ["h"] = "close_node",
           ["l"] = "open",
-          ["L"] = function()
-            vim.cmd("normal! 5zlg0")
-          end,
-          ["H"] = function()
-            vim.cmd("normal! 5zhg0")
-          end,
           ["<leader>ff"] = {
             ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
