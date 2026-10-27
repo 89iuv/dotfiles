@@ -3,7 +3,7 @@ return {
   opts = {
     blocked = {
       buftypes = { include_defaults = true },
-      filetypes = { include_defaults = true },
+      filetypes = { include_defaults = true, "markdown" },
     },
     static = {
       enabled = true,

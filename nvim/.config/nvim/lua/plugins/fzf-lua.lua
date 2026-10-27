@@ -19,7 +19,7 @@ return {
     { "gs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Buffer Symbols" },
 
     -- diagnostics
-    { "xb", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },
+    { "<leader>xb", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },
 
     -- git
     { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },

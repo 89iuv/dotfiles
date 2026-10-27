@@ -4,13 +4,20 @@ return {
   config = function()
     require("mason-tool-installer").setup({
       ensure_installed = {
-        -- LSP Servers
+        -- lua
         "lua-language-server",
-        "basedpyright",
-
-        -- Formatters and Linters
         "stylua",
+
+        -- python
+        "basedpyright",
         "ruff",
+
+        -- markdown
+        "marksman",
+        "markdownlint-cli2",
+        "markdown-toc",
+        "prettier"
+
       },
     })
   end,

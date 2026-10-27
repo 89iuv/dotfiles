@@ -1,5 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "mfussenegger/nvim-lint",
+    "stevearc/conform.nvim",
+  },
   config = function()
     local git_state = { branch = "", dirty = false, ahead = 0, behind = 0 }
 
@@ -132,19 +136,7 @@ return {
           },
           {
             function()
-              local bufnr = vim.api.nvim_get_current_buf()
-              local clients = vim.lsp.get_clients({ bufnr = bufnr })
-
-              if #clients == 0 then
-                return ""
-              end
-
-              local names = {}
-              for _, client in ipairs(clients) do
-                table.insert(names, client.name)
-              end
-
-              return table.concat(names, "  ")
+              return vim.bo.filetype
             end,
             separator = "",
             padding = { left = 1, right = 1 },

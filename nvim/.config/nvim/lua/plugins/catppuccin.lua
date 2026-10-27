@@ -139,6 +139,7 @@ return {
 
           -- virtual column
           VirtColumn = { fg = colors.surface0 },
+
         }
       end,
     })

@@ -17,6 +17,22 @@ return {
       return orig_open_floating_preview(contents, syntax, opts, ...)
     end
 
+    local group = vim.api.nvim_create_augroup("DiagnosticsInsertToggle", { clear = true })
+
+    vim.api.nvim_create_autocmd("InsertEnter", {
+      group = group,
+      callback = function(args)
+        vim.diagnostic.enable(false, { bufnr = args.buf })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("InsertLeave", {
+      group = group,
+      callback = function(args)
+        vim.diagnostic.enable(true, { bufnr = args.buf })
+      end,
+    })
+
     -- load icons from global config
     local icons = require("config.global").icons
 
@@ -121,5 +137,10 @@ return {
       },
     })
     vim.lsp.enable("ruff")
+
+    -- markdown
+    vim.lsp.enable("markdownlint-cli2")
+    -- vim.lsp.enable("markdown-toc")
+    vim.lsp.enable("marksman")
   end,
 }

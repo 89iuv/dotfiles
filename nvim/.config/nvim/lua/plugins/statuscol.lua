@@ -49,10 +49,39 @@ return {
         },
         {
           sign = {
-            namespace = { ".*" },
+            name = { "todo%-sign" },
+            maxwidth = 1,
+            colwidth = 1,
+            auto = true,
+          },
+          click = "v:lua.ScSa",
+        },
+        {
+          sign = {
+            namespace = {
+              "diagnostic/signs",
+            },
             maxwidth = 1,
             colwidth = 1,
             auto = false,
+          },
+          click = "v:lua.ScSa",
+        },
+        {
+          sign = {
+            name = { ".*" },
+            maxwidth = 1,
+            colwidth = 1,
+            auto = true,
+          },
+          click = "v:lua.ScSa",
+        },
+        {
+          sign = {
+            namespace = { ".*" },
+            maxwidth = 1,
+            colwidth = 1,
+            auto = true,
           },
           click = "v:lua.ScSa",
         },
