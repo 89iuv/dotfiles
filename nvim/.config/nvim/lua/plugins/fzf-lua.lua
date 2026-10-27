@@ -24,27 +24,15 @@ return {
     -- git
     { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
     { "<leader>gc", "<cmd>FzfLua git_bcommits<cr>", desc = "Buffer Commits" },
+    { "<leader>gh", "<cmd>FzfLua git_hunks<cr>", desc = "Buffer Hunks" },
   },
   config = function()
     local builtin = require("fzf-lua.previewer.builtin")
 
-    -- Previewer that only reads files from disk, ignoring open buffers
-    local FileOnlyPreviewer = builtin.buffer_or_file:extend()
-
-    function FileOnlyPreviewer:new(o, opts, fzf_win)
-      FileOnlyPreviewer.super.new(self, o, opts, fzf_win)
-      setmetatable(self, FileOnlyPreviewer)
-      return self
-    end
-
-    function FileOnlyPreviewer:parse_entry(entry_str)
-      ---@diagnostic disable-next-line: undefined-field
-      local entry = FileOnlyPreviewer.super.parse_entry(self, entry_str)
-      if entry then
-        -- Dropping bufnr makes populate_preview_buf take the
-        -- "read file from disk" branch instead of reusing the loaded buffer
-        entry.bufnr = nil
-      end
+    local orig_parse_entry = builtin.buffer_or_file.parse_entry
+    builtin.buffer_or_file.parse_entry = function(self, entry_str)
+      local entry = orig_parse_entry(self, entry_str)
+      entry.bufnr = nil -- force the "load file into scratch buffer" path
       return entry
     end
 
@@ -72,26 +60,9 @@ return {
         },
       },
       files = {
-        previewer = {
-          _ctor = function()
-            return FileOnlyPreviewer
-          end,
-        },
         cwd_prompt = false,
       },
-      grep = {
-        previewer = {
-          _ctor = function()
-            return FileOnlyPreviewer
-          end,
-        },
-      },
       lsp = {
-        previewer = {
-          _ctor = function()
-            return FileOnlyPreviewer
-          end,
-        },
         code_actions = {
           previewer = false,
         },
