@@ -16,10 +16,14 @@ return {
     { "gd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
     { "gD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
     { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
+    { "gs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Buffer Symbols" },
+
+    -- diagnostics
+    { "xb", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },
 
     -- git
     { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
-    { "<leader>gb", "<cmd>FzfLua git_bcommits<cr>", desc = "Buffer Commits" },
+    { "<leader>gc", "<cmd>FzfLua git_bcommits<cr>", desc = "Buffer Commits" },
   },
   config = function()
     local builtin = require("fzf-lua.previewer.builtin")
@@ -83,6 +87,11 @@ return {
         },
       },
       lsp = {
+        previewer = {
+          _ctor = function()
+            return FileOnlyPreviewer
+          end,
+        },
         code_actions = {
           previewer = false,
         },
