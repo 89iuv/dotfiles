@@ -4,6 +4,19 @@ return {
     "mason-org/mason.nvim",
   },
   config = function()
+    -- override for window border
+    -- Intercept LSP floating windows to force borders natively in Neovim 0.11+ / 0.12
+    local orig_open_floating_preview = vim.lsp.util.open_floating_preview
+
+    ---@diagnostic disable-next-line: duplicate-set-field
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+      opts = opts or {}
+      -- Only enforce "rounded" if no specific border has been explicitly defined
+      opts.border = opts.border or "single"
+
+      return orig_open_floating_preview(contents, syntax, opts, ...)
+    end
+
     -- load icons from global config
     local icons = require("config.global").icons
 
@@ -18,6 +31,7 @@ return {
       },
       float = {
         source = true,
+        border = "single",
       },
       virtual_text = {
         source = false, -- it is handeled in the format function
@@ -27,18 +41,17 @@ return {
         },
         format = function(diagnostic)
           local code = diagnostic.code
-		  local message = string.match(diagnostic.message, "^[^\r\n]*")
-		  local source = diagnostic.source
+          local message = string.match(diagnostic.message, "^[^\r\n]*")
+          local source = diagnostic.source
 
-		  local text = ""
-		  text = code ~= nil and text .. code .. ": " or ""
-		  text = message ~= nil and text .. message or ""
-		  text = source ~= nil and text .. " [".. source .."]" or ""
+          local text = ""
+          text = code ~= nil and text .. code .. ": " or ""
+          text = message ~= nil and text .. message or ""
+          text = source ~= nil and text .. " [" .. source .. "]" or ""
 
-		  return text
+          return text
         end,
       },
-
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
