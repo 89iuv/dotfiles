@@ -29,8 +29,7 @@ vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy" })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lazy",
-    callback = function(event)
-      vim.keymap.set("n", "<Esc>", "<cmd>q<CR>", { buffer = event.buf, silent = true })
-    end,
+  callback = function(event)
+    vim.keymap.set("n", "<Esc>", "<cmd>q<CR>", { buffer = event.buf, silent = true })
+  end,
 })
-
