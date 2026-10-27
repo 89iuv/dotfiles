@@ -1,7 +1,58 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
-    require("util.repo_diff").setup()
+    local git_state = { branch = "", dirty = false, ahead = 0, behind = 0 }
+
+    local function refresh_git()
+      vim.system(
+        { "git", "status", "--porcelain=v2", "--branch" },
+        { text = true, cwd = vim.fn.getcwd() },
+        function(res)
+          local s = { branch = "", dirty = false, ahead = 0, behind = 0 }
+          if res.code == 0 then
+            for line in res.stdout:gmatch("[^\n]+") do
+              local head = line:match("^# branch%.head (.+)")
+              if head then
+                s.branch = head
+              else
+                local a, b = line:match("^# branch%.ab %+(%d+) %-(%d+)")
+                if a then
+                  s.ahead, s.behind = tonumber(a), tonumber(b)
+                elseif line:sub(1, 1) ~= "#" then
+                  s.dirty = true
+                end
+              end
+            end
+          end
+          git_state = s
+          vim.schedule(function()
+            require("lualine").refresh()
+          end)
+        end
+      )
+    end
+
+    vim.api.nvim_create_autocmd(
+      { "VimEnter", "BufEnter", "BufWritePost", "FocusGained", "DirChanged", "ShellCmdPost" },
+      { callback = refresh_git }
+    )
+
+    local function branch()
+      if git_state.branch == "" then
+        return ""
+      end
+      local out = git_state.branch
+      if git_state.dirty then
+        out = out .. "*"
+      end
+      if git_state.behind > 0 then
+        out = out .. " ↓" .. git_state.behind
+      end
+      if git_state.ahead > 0 then
+        out = out .. " ↑" .. git_state.ahead
+      end
+      return out
+    end
 
     require("lualine").setup({
       options = {
@@ -20,23 +71,11 @@ return {
         lualine_b = {},
         lualine_c = {
           {
-            "branch",
+            branch,
             icon = "󰘬",
             separator = "",
-            padding = { left = 1, right = 0 },
+            padding = { left = 1, right = 1 },
           },
-          {
-            "diff",
-            colored = false,
-            source = require("util.repo_diff").source,
-            symbols = {
-              added = require("config.global").icons.git.added,
-              modified = require("config.global").icons.git.modified,
-              removed = require("config.global").icons.git.removed,
-            },
-          },
-        },
-        lualine_x = {
           {
             "diagnostics",
             sources = { "nvim_workspace_diagnostic" },
@@ -47,17 +86,12 @@ return {
               info = require("config.global").icons.diagnostics_outline.info .. " ",
               hint = require("config.global").icons.diagnostics_outline.hint .. " ",
             },
+            always_visible = false,
             separator = "",
-            padding = { left = 0, right = 0 },
+            padding = { left = 1, right = 1 },
           },
-          {
-            "lsp_status",
-            icon = "",
-            symbols = {
-              done = "󰄬 ",
-            },
-            padding = { left = 0, right = 1 },
-          },
+        },
+        lualine_x = {
           {
             function()
               local line = vim.fn.line(".")
@@ -93,6 +127,25 @@ return {
               dos = "crlf",
               mac = "cr",
             },
+            separator = "",
+            padding = { left = 1, right = 1 },
+          },
+          {
+            function()
+              local bufnr = vim.api.nvim_get_current_buf()
+              local clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+              if #clients == 0 then
+                return ""
+              end
+
+              local names = {}
+              for _, client in ipairs(clients) do
+                table.insert(names, client.name)
+              end
+
+              return table.concat(names, "  ")
+            end,
             separator = "",
             padding = { left = 1, right = 1 },
           },
