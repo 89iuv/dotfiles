@@ -1,6 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
-  dependencies = { "echasnovski/mini.icons" },
+  depenencies = { "echasnovski/mini.icons" },
   keys = {
     -- find
     { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
@@ -9,7 +9,6 @@ return {
 
     -- search
     { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
-    { "<leader>sg", "<cmd>FzfLua grep_cword<cr>", desc = "Grep Current Word", mode = "v" },
 
     -- lsp
     { "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code Actions" },
@@ -41,6 +40,7 @@ return {
       fzf_colors = true,
       fzf_opts = {
         ["--cycle"] = "",
+        ["--tiebreak"] = "begin,length",
       },
       winopts = {
         backdrop = 60,
@@ -52,14 +52,17 @@ return {
         preview = {
           border = "single",
           layout = "flex",
+          flip_columns = 120,
         },
-        treesitter = {
-          enabled = true,
-          path_shorten = true,
-        },
+      },
+      defaults = {
+        formatter = "path.filename_first",
       },
       files = {
         cwd_prompt = false,
+      },
+      oldfiles = {
+        cwd_only = true,
       },
       lsp = {
         code_actions = {
