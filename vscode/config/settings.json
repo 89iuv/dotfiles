@@ -68,22 +68,22 @@
             "editorGroupHeader.tabsBackground": "mantle",
             "editorStickyScroll.shadow": "mantle",
 
-            "editor.foldBackground": "#7dc4e440", // sapphire 25%
-            "editor.foldPlaceholderForeground": "sapphire",
+            "editor.foldBackground": "surface1",
+            "editor.foldPlaceholderForeground": "surface1",
 
             "editorLineNumber.foreground": "overlay0",
             "editorIndentGuide.activeBackground": "overlay0",
             "editorIndentGuide.background": "surface0",
             "editorRuler.foreground": "surface0",
 
-            "editorInlayHint.foreground": "subtext0",
-            "editorInlayHint.background": "#5b607840", // surface2 25%
+            "editorInlayHint.foreground": "overlay0",
+            "editorInlayHint.background": "#363a4f80", // surface0 50%
 
-            "editorInlayHint.typeForeground": "subtext0",
-            "editorInlayHint.typeBackground": "#5b607840", // surface2 25%
+            "editorInlayHint.typeForeground": "overlay0",
+            "editorInlayHint.typeBackground": "#363a4f80", // surface0 50%
 
-            "editorInlayHint.parameterForeground": "subtext0",
-            "editorInlayHint.parameterBackground": "#5b607840", // surface2 25%
+            "editorInlayHint.parameterForeground": "overlay0",
+            "editorInlayHint.parameterBackground": "#363a4f80", // surface0 50%
 
             "panel.background": "mantle",
             "panel.border": "surface0",

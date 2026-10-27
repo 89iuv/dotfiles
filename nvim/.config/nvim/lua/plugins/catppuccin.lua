@@ -21,9 +21,9 @@ return {
         },
         illuminate = {
           enabled = true,
-          lsp = false
+          lsp = false,
         },
-		dashboard = true
+        dashboard = true,
       },
 
       custom_highlights = function(colors)
@@ -37,7 +37,11 @@ return {
           WinSeparator = { fg = colors.crust, bg = colors.base },
           LineNr = { fg = colors.overlay0 },
 
-		  FoldColumn = { fg = colors.overlay1 },
+          FoldColumn = { fg = colors.overlay1 },
+          LspInlayHint = {
+            fg = colors.overlay0,
+            bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.5, colors.base),
+          },
 
           -- neotree
           NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
@@ -134,7 +138,7 @@ return {
           BlinkIndentScope = { fg = colors.overlay0 },
 
           -- virtual column
-          VirtColumn = { fg = colors.surface0 }
+          VirtColumn = { fg = colors.surface0 },
         }
       end,
     })
