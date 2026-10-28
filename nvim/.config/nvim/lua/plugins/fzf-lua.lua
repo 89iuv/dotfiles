@@ -16,6 +16,8 @@ return {
     { "gD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
     { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
     { "gs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Buffer Symbols" },
+    { "gi", "<cmd>FzfLua lsp_incoming_calls<cr>", desc = "Incoming Calls" },
+    { "go", "<cmd>FzfLua lsp_outgoing_calls<cr>", desc = "Outgoing Calls" },
 
     -- diagnostics
     { "<leader>xb", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },

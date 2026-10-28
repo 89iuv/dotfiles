@@ -4,19 +4,6 @@ return {
     "mason-org/mason.nvim",
   },
   config = function()
-    -- override for window border
-    -- Intercept LSP floating windows to force borders natively in Neovim 0.11+ / 0.12
-    local orig_open_floating_preview = vim.lsp.util.open_floating_preview
-
-    ---@diagnostic disable-next-line: duplicate-set-field
-    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-      opts = opts or {}
-      -- Only enforce "rounded" if no specific border has been explicitly defined
-      opts.border = opts.border or "single"
-
-      return orig_open_floating_preview(contents, syntax, opts, ...)
-    end
-
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "*:n",
       callback = function(event)
@@ -84,9 +71,15 @@ return {
         border = "single",
       })
     end, { desc = "LSP Hover Documentation" })
+    vim.keymap.set("i", "<C-S>", function()
+      vim.lsp.buf.signature_help({
+        max_height = 20,
+        max_width = 80,
+        border = "single",
+      })
+    end, { desc = "LSP Signature Help" })
 
     --settings
-    vim.lsp.inlay_hint.enable(true)
     vim.lsp.config("*", {
       capabilities = {
         workspace = {
@@ -94,6 +87,7 @@ return {
         },
       },
     })
+    vim.lsp.inlay_hint.enable(true)
 
     -- lua
     vim.lsp.config("lua_ls", {
@@ -113,19 +107,16 @@ return {
       settings = {
         basedpyright = {
           disableOrganizeImports = true, -- Ruff does this
+          analysis = {
+            typeCheckingMode = "standard",
+            -- Ignore all files for analysis to exclusively use Ruff for linting
+            ignore = { "*" },
+          },
         },
       },
     })
     vim.lsp.enable("basedpyright")
 
-    vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client.name == "ruff" then
-          client.server_capabilities.hoverProvider = false
-        end
-      end,
-    })
     vim.lsp.config("ruff", {
       init_options = {
         settings = {
@@ -135,6 +126,14 @@ return {
       },
     })
     vim.lsp.enable("ruff")
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.name == "ruff" then
+          client.server_capabilities.hoverProvider = false
+        end
+      end,
+    })
 
     -- markdown
     vim.lsp.enable("markdownlint-cli2")
