@@ -119,30 +119,6 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=0,bg=1'
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_HISTORY_IGNORE='cd *'
-
-# style for the character under the cursor
-ZSH_AUTOSUGGEST_FIRST_CHAR_STYLE='fg=15'
-
-# keep copies of the plugin's original functions
-functions -c _zsh_autosuggest_highlight_apply _zsh_autosuggest_highlight_apply_orig
-functions -c _zsh_autosuggest_highlight_reset _zsh_autosuggest_highlight_reset_orig
-
-_zsh_autosuggest_highlight_apply() {
-  _zsh_autosuggest_highlight_apply_orig "$@"
-  if (( $#POSTDISPLAY )); then
-    typeset -g _MY_FIRST_CHAR_HL="$#BUFFER $(( $#BUFFER + 1 )) $ZSH_AUTOSUGGEST_FIRST_CHAR_STYLE"
-    region_highlight+=("$_MY_FIRST_CHAR_HL")
-  fi
-}
-
-_zsh_autosuggest_highlight_reset() {
-  _zsh_autosuggest_highlight_reset_orig "$@"
-  if [[ -n "$_MY_FIRST_CHAR_HL" ]]; then
-    region_highlight=("${(@)region_highlight:#$_MY_FIRST_CHAR_HL}")
-    unset _MY_FIRST_CHAR_HL
-  fi
-}
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
