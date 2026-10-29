@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "zcat-llm/qwen3.8-27b-gsq-rco",
   "websearch": false,
   "permissions": [
     { "action": "shell", "resource": "*", "effect": "deny" },
