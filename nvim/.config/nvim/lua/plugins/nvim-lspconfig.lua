@@ -46,9 +46,9 @@ return {
           local source = diagnostic.source
 
           local text = ""
-          text = code ~= nil and text .. code .. ": " or ""
-          text = message ~= nil and text .. message or ""
-          text = source ~= nil and text .. " [" .. source .. "]" or ""
+          text = code ~= nil and text .. code .. ": " or text
+          text = message ~= nil and text .. message or text
+          text = source ~= nil and text .. " [" .. source .. "]" or text
 
           return text
         end,
@@ -137,7 +137,9 @@ return {
 
     -- markdown
     vim.lsp.enable("markdownlint-cli2")
-    -- vim.lsp.enable("markdown-toc")
     vim.lsp.enable("marksman")
+
+    -- json
+    vim.lsp.enable("jsonls")
   end,
 }

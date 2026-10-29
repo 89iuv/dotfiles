@@ -16,8 +16,10 @@ return {
         "marksman",
         "markdownlint-cli2",
         "markdown-toc",
-        "prettier"
+        "prettier",
 
+        -- json
+        "json-lsp",
       },
     })
   end,
