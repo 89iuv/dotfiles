@@ -9,15 +9,21 @@ return {
 
     -- search
     { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
+    { "<leader>sb", "<cmd>FzfLua lines<cr>", desc = "Buffer Lines" },
+    { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
+    { "<leader>sM", "<cmd>FzfLua man_pages<cr>", desc = "Man Pages" },
+    { "<leader>sH", "<cmd>FzfLua highlights<cr>", desc = "Highlight Groups" },
 
     -- lsp
-    { "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code Actions" },
-    { "gd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
-    { "gD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
-    { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
-    { "gs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Buffer Symbols" },
-    { "gi", "<cmd>FzfLua lsp_incoming_calls<cr>", desc = "Incoming Calls" },
-    { "go", "<cmd>FzfLua lsp_outgoing_calls<cr>", desc = "Outgoing Calls" },
+    { "gra", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code Actions" },
+    { "gri", "<cmd>FzfLua lsp_implementations<cr>", desc = "Implementation" },
+    { "grr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
+    { "grt", "<cmd>FzfLua lsp_typedefs<cr>", desc = "Type Definition" },
+    { "grd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
+    { "grD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
+    { "grs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Buffer Symbols" },
+    { "gri", "<cmd>FzfLua lsp_incoming_calls<cr>", desc = "Incoming Calls" },
+    { "gro", "<cmd>FzfLua lsp_outgoing_calls<cr>", desc = "Outgoing Calls" },
 
     -- diagnostics
     { "<leader>xb", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },

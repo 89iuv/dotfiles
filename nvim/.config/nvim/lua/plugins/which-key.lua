@@ -5,6 +5,7 @@ return {
   config = function()
     require("which-key").setup({
       spec = {
+        { "gr", desc = "Lsp", icon = "" },
         { "<leader>e", desc = "Explorer", icon = "󰉋 " },
         { "<leader>b", desc = "Buffer" },
         { "<leader>c", desc = "Code", mode = { "n", "x" } },
