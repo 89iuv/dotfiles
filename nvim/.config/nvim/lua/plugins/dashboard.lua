@@ -20,6 +20,7 @@ return {
         statusline = false,
       },
       config = {
+        vertical_center = true,
         header = vim.split(logo, "\n"),
         -- stylua: ignore
 		center = {
