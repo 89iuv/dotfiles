@@ -40,7 +40,7 @@ return {
           FoldColumn = { fg = colors.overlay1 },
           LspInlayHint = {
             fg = colors.overlay0,
-            bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.5, colors.base),
+            bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.25, colors.base),
           },
 
           -- neotree
