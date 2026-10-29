@@ -1,5 +1,7 @@
 return {
-  "romgrk/barbar.nvim",
+  "89iuv/barbar.nvim",
+  -- use fork until PR: https://github.com/romgrk/barbar.nvim/pull/671 is merged
+  -- "romgrk/barbar.nvim",
   dependencies = {
     "lewis6991/gitsigns.nvim",
     "echasnovski/mini.icons"

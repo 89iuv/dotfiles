@@ -44,7 +44,7 @@ return {
           },
 
           -- neotree
-          NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
+          NeoTreeWinSeparator = { fg = colors.surface0, bg = colors.mantle },
           NeoTreeIndentMarker = { fg = colors.surface1 },
 
           NeoTreeDotfile = { fg = colors.overlay0 },
@@ -53,6 +53,7 @@ return {
 
           -- barbar
           BufferOffset = { bg = colors.mantle },
+          BufferOffsetSeparator = { link = "NeoTreeWinSeparator" },
           BufferScrollArrow = { fg = colors.lavender, bg = barbar_background },
           BufferTabpageFill = { bg = barbar_background },
 
