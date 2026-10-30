@@ -142,6 +142,10 @@ return {
           -- virtual column
           VirtColumn = { fg = colors.surface0 },
 
+          -- trouble
+
+          TroubleNormal = { bg = colors.mantle }
+
         }
       end,
     })

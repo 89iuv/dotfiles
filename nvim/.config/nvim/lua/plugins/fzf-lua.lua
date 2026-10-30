@@ -64,7 +64,7 @@ return {
         preview = {
           border = "single",
           layout = "flex",
-          flip_columns = 120,
+          flip_columns = 100,
         },
       },
       defaults = {

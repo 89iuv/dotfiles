@@ -69,6 +69,11 @@ return {
           separator = "│",
           align = "left"
         },
+        ["trouble"] = {
+          text = "Trouble",
+          separator = "│",
+          align = "left"
+        },
       },
 
       insert_at_end = true,
