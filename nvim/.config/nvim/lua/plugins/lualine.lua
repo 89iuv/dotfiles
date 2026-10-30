@@ -3,6 +3,7 @@ return {
   dependencies = {
     "mfussenegger/nvim-lint",
     "stevearc/conform.nvim",
+    "lewis6991/gitsigns.nvim",
   },
   config = function()
     local git_state = { branch = "", dirty = false, ahead = 0, behind = 0 }
@@ -61,8 +62,8 @@ return {
     require("lualine").setup({
       options = {
         theme = "catppuccin-nvim",
-        component_separators = { left = "╱", right = "│" },
-        section_separators = { left = "", right = "▐" },
+        component_separators = { left = "╱", right = "" },
+        section_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "dashboard" },
         },
@@ -72,14 +73,15 @@ return {
         lualine_a = {
           { "mode", icon = "" },
         },
-        lualine_b = {},
-        lualine_c = {
+        lualine_b = {
           {
             branch,
             icon = "󰘬",
             separator = "",
             padding = { left = 1, right = 1 },
           },
+        },
+        lualine_c = {
           {
             "diagnostics",
             sources = { "nvim_workspace_diagnostic" },
@@ -90,7 +92,7 @@ return {
               info = require("config.global").icons.diagnostics_outline.info .. " ",
               hint = require("config.global").icons.diagnostics_outline.hint .. " ",
             },
-            always_visible = false,
+            always_visible = true,
             separator = "",
             padding = { left = 1, right = 1 },
           },
@@ -109,6 +111,8 @@ return {
             separator = "",
             padding = { left = 1, right = 1 },
           },
+        },
+        lualine_y = {
           {
             function()
               return "Spaces:" .. vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
@@ -134,16 +138,15 @@ return {
             separator = "",
             padding = { left = 1, right = 1 },
           },
+        },
+        lualine_z = {
           {
-            function()
-              return vim.bo.filetype
-            end,
+            "filetype",
+            colored = false,
             separator = "",
             padding = { left = 1, right = 1 },
           },
         },
-        lualine_y = {},
-        lualine_z = {},
       },
     })
   end,
