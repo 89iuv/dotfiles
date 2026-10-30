@@ -55,14 +55,14 @@ return {
           -- barbar
           BufferOffset = { bg = colors.mantle },
           BufferOffsetSeparator = { link = "NeoTreeWinSeparator" },
-          BufferScrollArrow = { fg = colors.lavender, bg = barbar_background },
+          BufferScrollArrow = { fg = colors.text, bg = barbar_background },
           BufferTabpageFill = { bg = barbar_background },
 
           -- barbar current
           BufferCurrent = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
           BufferCurrentMod = { bg = colors.base, fg = colors.lavender, style = { "bold" } },
           BufferCurrentModBtn = { bg = colors.base, fg = colors.peach },
-          BufferCurrentBtn = { bg = colors.base, fg = colors.red },
+          BufferCurrentBtn = { bg = colors.base, fg = colors.maroon },
           BufferCurrentSign = { bg = barbar_background, fg = colors.lavender },
 
           BufferCurrentError = { bg = colors.base, fg = colors.red },
@@ -71,14 +71,14 @@ return {
           BufferCurrentHint = { bg = colors.base, fg = colors.teal },
 
           BufferCurrentADDED = { bg = colors.base, fg = colors.green },
-          BufferCurrentCHANGED = { bg = colors.base, fg = colors.peach },
-          BufferCurrentDELETED = { bg = colors.base, fg = colors.maroon },
+          BufferCurrentCHANGED = { bg = colors.base, fg = colors.yellow },
+          BufferCurrentDELETED = { bg = colors.base, fg = colors.red },
 
           -- barbar visible
-          BufferVisible = { bg = barbar_background, fg = colors.text },
-          BufferVisibleMod = { bg = barbar_background, fg = colors.text },
+          BufferVisible = { bg = barbar_background, fg = colors.subtext0 },
+          BufferVisibleMod = { bg = barbar_background, fg = colors.subtext0 },
           BufferVisibleModBtn = { bg = barbar_background, fg = colors.peach },
-          BufferVisibleBtn = { bg = barbar_background, fg = colors.text },
+          BufferVisibleBtn = { bg = barbar_background, fg = colors.subtext0 },
           BufferVisibleSign = { bg = barbar_background, fg = colors.surface0 },
 
           BufferVisibleError = { bg = barbar_background, fg = colors.red },
@@ -87,8 +87,8 @@ return {
           BufferVisibleHint = { bg = barbar_background, fg = colors.teal },
 
           BufferVisibleADDED = { bg = barbar_background, fg = colors.green },
-          BufferVisibleCHANGED = { bg = barbar_background, fg = colors.peach },
-          BufferVisibleDELETED = { bg = barbar_background, fg = colors.maroon },
+          BufferVisibleCHANGED = { bg = barbar_background, fg = colors.yellow },
+          BufferVisibleDELETED = { bg = barbar_background, fg = colors.red },
 
           -- barbar inactive
           BufferInactive = { bg = barbar_background, fg = colors.overlay0 },
@@ -119,11 +119,11 @@ return {
           },
           BufferInactiveCHANGED = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.peach, 0.5, barbar_background),
+            fg = colors_utils.darken(colors.yellow, 0.5, barbar_background),
           },
           BufferInactiveDELETED = {
             bg = barbar_background,
-            fg = colors_utils.darken(colors.maroon, 0.5, barbar_background),
+            fg = colors_utils.darken(colors.red, 0.5, barbar_background),
           },
 
           -- whichkey

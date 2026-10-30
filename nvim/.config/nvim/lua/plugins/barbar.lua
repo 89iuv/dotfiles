@@ -39,9 +39,6 @@ return {
       highlight_alternate = false,
 
       icons = {
-        button = "󰖭 ",
-        modified = { button = "󰐕 " },
-        pinned = { button = "󰐃", filename = true },
         gitsigns = {
           added = { enabled = true, icon = icons.git.added },
           changed = { enabled = true, icon =icons.git.modified },
@@ -59,19 +56,19 @@ return {
           separator = { left = "", right = " " },
         },
         scroll = {
-          left = "<",
-          right = ">",
+          left = "⋯",
+          right = "⋯",
         },
       },
       sidebar_filetypes = {
         ["neo-tree"] = {
-          text = "Project Explorer",
-          separator = "│",
+          text = "Explorer",
+          separator = "┃",
           align = "left"
         },
         ["trouble"] = {
           text = "Trouble",
-          separator = "│",
+          separator = "┃",
           align = "left"
         },
       },

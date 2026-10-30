@@ -30,19 +30,11 @@ return {
       enable_git_status = true,
       sources = { "filesystem" },
       default_component_configs = {
-        git_status = {
-          symbols = {
-            modified = "",
-          },
-        },
         symlink_target = {
           enabled = true,
         },
         container = {
           enable_character_fade = false,
-        },
-        modified = {
-          symbol = "󰐕 ",
         },
         indent = {
           padding = 1,

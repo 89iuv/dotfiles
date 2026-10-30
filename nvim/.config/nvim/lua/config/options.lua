@@ -31,6 +31,18 @@ vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 
+-- Border
+
+vim.opt.fillchars:append({
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+})
+
 vim.opt.fillchars:append({
   foldopen = "",
   foldclose = "",
