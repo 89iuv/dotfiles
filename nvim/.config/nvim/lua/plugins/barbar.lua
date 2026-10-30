@@ -62,6 +62,7 @@ return {
       },
       sidebar_filetypes = {
         ["neo-tree"] = {
+          event = "BufWipeout",
           text = "Explorer",
           separator = "┃",
           align = "left"
