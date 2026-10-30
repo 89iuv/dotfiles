@@ -46,7 +46,7 @@ return {
     })
 
     vim.api.nvim_create_autocmd("ModeChanged", {
-      pattern = "*:n",
+      pattern = "[ivV\x16]:n",
       callback = function(event)
         if vim.bo[event.buf].filetype == "markdown" then
           require("virt-column").setup_buffer(event.buf, {
@@ -57,7 +57,7 @@ return {
     })
 
     vim.api.nvim_create_autocmd("ModeChanged", {
-      pattern = "n:*",
+      pattern = "n:[ivV\x16]",
       callback = function(event)
         if vim.bo[event.buf].filetype == "markdown" then
           require("virt-column").setup_buffer(event.buf, {
