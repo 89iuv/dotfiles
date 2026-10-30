@@ -31,7 +31,11 @@ return {
     -- git
     { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
     { "<leader>gc", "<cmd>FzfLua git_bcommits<cr>", desc = "Buffer Commits" },
+    { "<leader>gl", "<cmd>FzfLua git_commits<cr>", desc = "Git Commits" },
     { "<leader>gh", "<cmd>FzfLua git_hunks<cr>", desc = "Buffer Hunks" },
+    { "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "Branches" },
+    { "<leader>gS", "<cmd>FzfLua git_stash<cr>", desc = "Stashes" },
+    { "<leader>gt", "<cmd>FzfLua git_tags<cr>", desc = "Tags" },
   },
   config = function()
     local builtin = require("fzf-lua.previewer.builtin")

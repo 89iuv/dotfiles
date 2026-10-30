@@ -28,13 +28,14 @@ return {
 
       custom_highlights = function(colors)
         local colors_utils = require("catppuccin.utils.colors")
-        local barbar_background = require("catppuccin.utils.colors").darken(colors.mantle, 0.5, colors.crust)
+        -- local barbar_background = require("catppuccin.utils.colors").darken(colors.mantle, 0.5, colors.crust)
+        local barbar_background = colors.mantle
 
         return {
           -- neovim
           FloatBorder = { fg = colors.overlay0, bg = colors.mantle },
 
-          WinSeparator = { fg = colors.crust, bg = colors.base },
+          WinSeparator = { fg = colors.surface0, bg = colors_utils.darken(colors.base, 0.5, colors.mantle) },
           LineNr = { fg = colors.overlay0 },
 
           FoldColumn = { fg = colors.overlay1 },
@@ -44,7 +45,7 @@ return {
           },
 
           -- neotree
-          NeoTreeWinSeparator = { fg = colors.surface0, bg = colors.mantle },
+          NeoTreeWinSeparator = { link = "WinSeparator" },
           NeoTreeIndentMarker = { fg = colors.surface1 },
 
           NeoTreeDotfile = { fg = colors.overlay0 },
