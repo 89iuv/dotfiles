@@ -79,6 +79,19 @@ return {
       })
     end, { desc = "LSP Signature Help" })
 
+    -- settings
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+    if capabilities.workspace then
+      capabilities.workspace.didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      }
+    end
+
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+    })
+    vim.lsp.inlay_hint.enable(true)
     -- lua
     vim.lsp.config("lua_ls", {
       settings = {
@@ -131,19 +144,5 @@ return {
 
     -- json
     vim.lsp.enable("jsonls")
-
-    -- settings
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-    if capabilities.workspace then
-      capabilities.workspace.didChangeWatchedFiles = {
-        dynamicRegistration = true,
-      }
-    end
-
-    vim.lsp.config("*", {
-      capabilities = capabilities,
-    })
-    vim.lsp.inlay_hint.enable(true)
   end,
 }
