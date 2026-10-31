@@ -6,9 +6,9 @@ return {
     require("which-key").setup({
       spec = {
         { "gr", desc = "Lsp", icon = "" },
-        { "<leader>e", desc = "Explorer", icon = "󰉋 " },
         { "<leader>b", desc = "Buffer" },
         { "<leader>c", desc = "Code", mode = { "n", "x" } },
+        { "<leader>e", desc = "Explorer", icon = "󰉋 " },
         { "<leader>h", desc = "Hunk", icon = "", mode = { "n", "x" } },
         { "<leader>g", desc = "Git", icon = "󰊢", mode = { "n", "x" } },
         { "<leader>f", desc = "Find" },
@@ -34,8 +34,8 @@ return {
           end,
           desc = "Window Hydra Mode",
         },
+        { "<leader>x", desc = "Trouble", icon = "󰙅" },
       },
-      { "<leader>x", desc = "Diagnostics" },
       preset = "helix",
       delay = 350,
       win = {

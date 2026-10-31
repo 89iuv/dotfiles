@@ -4,15 +4,14 @@ return {
   keys = {
     -- find
     { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
-    { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<leader>fb", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
     { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Buffers" },
 
     -- search
     { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
-    { "<leader>sb", "<cmd>FzfLua lines<cr>", desc = "Buffer Lines" },
     { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
-    { "<leader>sM", "<cmd>FzfLua man_pages<cr>", desc = "Man Pages" },
-    { "<leader>sH", "<cmd>FzfLua highlights<cr>", desc = "Highlight Groups" },
+    { "<leader>sd", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },
+    { "<leader>sD", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace Diagnostics" },
 
     -- lsp
     { "gra", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code Actions" },
@@ -22,19 +21,14 @@ return {
     { "grd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
     { "grD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
     { "grs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Buffer Symbols" },
-    { "gri", "<cmd>FzfLua lsp_incoming_calls<cr>", desc = "Incoming Calls" },
-    { "gro", "<cmd>FzfLua lsp_outgoing_calls<cr>", desc = "Outgoing Calls" },
-
-    -- diagnostics
-    { "<leader>xb", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },
 
     -- git
     { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
     { "<leader>gc", "<cmd>FzfLua git_bcommits<cr>", desc = "Buffer Commits" },
-    { "<leader>gl", "<cmd>FzfLua git_commits<cr>", desc = "Git Commits" },
+    { "<leader>gC", "<cmd>FzfLua git_commits<cr>", desc = "Git Commits" },
     { "<leader>gh", "<cmd>FzfLua git_hunks<cr>", desc = "Buffer Hunks" },
     { "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "Branches" },
-    { "<leader>gS", "<cmd>FzfLua git_stash<cr>", desc = "Stashes" },
+    { "<leader>ga", "<cmd>FzfLua git_stash<cr>", desc = "Stashes" },
     { "<leader>gt", "<cmd>FzfLua git_tags<cr>", desc = "Tags" },
   },
   config = function()

@@ -6,8 +6,16 @@ return {
       function()
         require("conform").format({ async = true, lsp_fallback = true })
       end,
-      mode = { "n", "x" },
-      desc = "Format buffer",
+      mode = { "n" },
+      desc = "Format Buffer",
+    },
+    {
+      "<leader>cf",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = { "x" },
+      desc = "Format Range",
     },
   },
   opts = {

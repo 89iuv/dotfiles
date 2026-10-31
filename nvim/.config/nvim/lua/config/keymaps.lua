@@ -7,6 +7,12 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
+-- Resize windows using Ctrl + Arrow keys
+vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Resize window left' })
+vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Resize window down' })
+vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Resize window up' })
+vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Resize window right' })
+
 -- Indent / dedent the visual selection without leaving visual mode
 vim.keymap.set("v", ">", ">gv", { desc = "Indent selection" })
 vim.keymap.set("v", "<", "<gv", { desc = "Dedent selection" })
