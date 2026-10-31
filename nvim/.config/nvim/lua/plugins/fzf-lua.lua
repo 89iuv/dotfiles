@@ -1,26 +1,41 @@
 return {
   "ibhagwan/fzf-lua",
-  depenencies = { "echasnovski/mini.icons" },
+  depenencies = {
+    "echasnovski/mini.icons",
+    "folke/trouble.nvim",
+  },
   keys = {
     -- find
     { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
-    { "<leader>fb", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-    { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Buffers" },
+    { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent Files" },
+
+    { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<leader><leader>", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Recent Buffers" },
+
+    -- grep
+    { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
 
     -- search
-    { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
     { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
-    { "<leader>sd", "<cmd>FzfLua diagnostics_document<cr>", desc = "Buffer Diagnostics" },
-    { "<leader>sD", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace Diagnostics" },
+    { "<leader>sh", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
 
     -- lsp
-    { "gra", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code Actions" },
-    { "gri", "<cmd>FzfLua lsp_implementations<cr>", desc = "Implementation" },
-    { "grr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
-    { "grt", "<cmd>FzfLua lsp_typedefs<cr>", desc = "Type Definition" },
-    { "grd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
-    { "grD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
-    { "grs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Buffer Symbols" },
+    { "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code Actions" },
+
+    { "<leader>si", "<cmd>FzfLua lsp_implementations<cr>", desc = "Implementation" },
+    { "<leader>sr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
+    { "<leader>st", "<cmd>FzfLua lsp_typedefs<cr>", desc = "Type Definition" },
+    { "<leader>sd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definition" },
+    { "<leader>sD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Declaration" },
+    { "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Document Symbols" },
+    { "<leader>sl", "<cmd>FzfLua lsp_finder<cr>", desc = "References/Definitions/..." },
+
+    { "<leader>sI", "<cmd>FzfLua lsp_incoming_calls<cr>", desc = "Incoming Calls" },
+    { "<leader>sO", "<cmd>FzfLua lsp_outgoing_calls<cr>", desc = "Outgoing Calls" },
+
+    -- diagnostics
+    { "<leader>sx", "<cmd>FzfLua diagnostics_document<cr>", desc = "Document Diagnostics" },
+    { "<leader>sX", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace Diagnostics" },
 
     -- git
     { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
@@ -41,17 +56,27 @@ return {
       return entry
     end
 
+    local config = require("fzf-lua.config")
+    local actions = require("trouble.sources.fzf").actions
+    config.defaults.actions.files["ctrl-x"] = actions.open
+
     require("fzf-lua").setup({
       file_icon_padding = "",
       fzf_colors = true,
+      -- fzf_colors = {
+      --   ---@diagnostic disable-next-line: assign-type-mismatch
+      --   ["bg"] = { "bg", "NormalFloat" },
+      --   ---@diagnostic disable-next-line: assign-type-mismatch
+      --   ["bg+"] = { "bg", { "CursorLine", "NormalFloat" } },
+      -- },
       fzf_opts = {
         ["--cycle"] = "",
         ["--tiebreak"] = "begin,length",
       },
       winopts = {
         backdrop = 60,
-        height = 0.80,
-        width = 0.80,
+        height = 0.85,
+        width = 0.85,
         row = 0.50,
         col = 0.50,
         border = "single",

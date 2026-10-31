@@ -3,20 +3,20 @@ return {
   cmd = "Trouble",
   keys = {
     -- lsp
-    {
-      "<leader>xs",
-      "<cmd>Trouble lsp_document_symbols toggle focus=true fallow=true win.position=right win.size=55<cr>",
-      desc = "Lsp Document Symbols",
-    },
-    { "<leader>xl", "<cmd>Trouble lsp win.position=right win.size=55<cr>", desc = "LSP references/definitions/..." },
-    { "<leader>xr", "<cmd>Trouble lsp_references<CR>", desc = "Lsp References" },
+    { "<leader>ci", "<cmd>Trouble lsp_implementations<cr>", desc = "Lsp Implementation" },
+    { "<leader>cr", "<cmd>Trouble lsp_references<CR>", desc = "Lsp References" },
+    { "<leader>ct", "<cmd>Trouble lsp_type_definitions<cr>", desc = "Lsp Type Definition" },
+    { "<leader>cd", "<cmd>Trouble lsp_definitions<cr>", desc = "Lsp Definition" },
+    { "<leader>cD", "<cmd>Trouble lsp_declarations<cr>", desc = "lsp Declaration" },
+    { "<leader>cs", "<cmd>Trouble lsp_document_symbols toggle focus=true fallow=true win.position=right win.size=55<cr>", desc = "Lsp Document Symbols", },
+    { "<leader>cl", "<cmd>Trouble lsp win.position=right win.size=55<cr>", desc = "LSP References/Definitions/..." },
 
-    { "<leader>xi", "<cmd>Trouble lsp_incoming_calls toggle<CR>", desc = "Lsp Incoming Calls" },
-    { "<leader>xo", "<cmd>Trouble lsp_outgoing_calls toggle<CR>", desc = "Lsp Outgoing Calls" },
+    { "<leader>cI", "<cmd>Trouble lsp_incoming_calls<CR>", desc = "Lsp Incoming Calls" },
+    { "<leader>cO", "<cmd>Trouble lsp_outgoing_calls<CR>", desc = "Lsp Outgoing Calls" },
 
     -- diagnostics
-    { "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics" },
-    { "<leader>xD", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace Diagnostic" },
+    { "<leader>cx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Document Diagnostics" },
+    { "<leader>cX", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace Diagnostic" },
 
   },
   opts = {
@@ -25,7 +25,7 @@ return {
     follow = false,
     focus = true,
     preview = {
-      scratch = false,
+      scratch = true,
       bo = {
         filetype = "trouble_preview",
       },
