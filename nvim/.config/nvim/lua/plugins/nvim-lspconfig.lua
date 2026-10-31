@@ -78,6 +78,15 @@ return {
         border = "single",
       })
     end, { desc = "LSP Signature Help" })
+    vim.keymap.set("n", "<leader>co", function()
+      vim.lsp.buf.code_action({
+        apply = true,
+        context = {
+          only = { "source.organizeImports" },
+          diagnostics = {},
+        },
+      })
+    end, { desc = "Organize Imports" })
 
     -- settings
     local capabilities = vim.lsp.protocol.make_client_capabilities()
