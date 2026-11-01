@@ -58,20 +58,14 @@ return {
           ["<leader>ff"] = {
             ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
-              run_in_directory(
-                state.tree:get_node(),
-                Snacks.picker.files
-              )
+              run_in_directory(state.tree:get_node(), Snacks.picker.files)
             end,
             desc = "Find Files (Current Node)",
           },
           ["<leader>sg"] = {
             ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
-              run_in_directory(
-                state.tree:get_node(),
-                Snacks.picker.grep
-              )
+              run_in_directory(state.tree:get_node(), Snacks.picker.grep)
             end,
             desc = "Live Grep (Current Node)",
           },
@@ -142,19 +136,17 @@ return {
             end
           end,
         },
+        -- integrate snacks lsp rename
         {
-          event = "neo_tree_popup_input_ready",
-          handler = function(args)
-            -- map <esc> to enter normal mode (by default closes prompt)
-            vim.keymap.set(
-              "i",
-              "<esc>",
-              vim.cmd.stopinsert,
-              {
-                noremap = true,
-                buffer = args.bufnr
-              }
-            )
+          event = "file_moved",
+          handler = function(data)
+            Snacks.rename.on_rename_file(data.source, data.destination)
+          end,
+        },
+        {
+          event = "file_renamed",
+          handler = function(data)
+            Snacks.rename.on_rename_file(data.source, data.destination)
           end,
         },
       },
