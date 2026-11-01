@@ -27,6 +27,7 @@ return {
     end
 
     require("neo-tree").setup({
+      use_popups_for_input = false,
       close_if_last_window = true,
       enable_git_status = true,
       sources = { "filesystem" },

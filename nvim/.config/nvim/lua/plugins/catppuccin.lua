@@ -144,18 +144,33 @@ return {
           -- trouble
           TroubleNormal = { bg = colors.mantle },
 
-          -- snacks
+          -- snacks notification
           SnacksNotifierInfo = { bg = colors.mantle },
           SnacksNotifierWarn = { bg = colors.mantle },
           SnacksNotifierDebug = { bg = colors.mantle },
           SnacksNotifierError = { bg = colors.mantle },
           SnacksNotifierTrace = { bg = colors.mantle },
 
+          SnacksNotifierTitleInfo = { bg = colors.mantle },
+          SnacksNotifierTitleWarn = { bg = colors.mantle },
+          SnacksNotifierTitleDebug = { bg = colors.mantle },
+          SnacksNotifierTitleError = { bg = colors.mantle },
+          SnacksNotifierTitleTrace = { bg = colors.mantle },
+
           SnacksNotifierBorderInfo = { link = "FloatBorder" },
           SnacksNotifierBorderWarn = { link = "FloatBorder" },
           SnacksNotifierBorderDebug = { link = "FloatBorder" },
           SnacksNotifierBorderError = { link = "FloatBorder" },
           SnacksNotifierBorderTrace = { link = "FloatBorder" },
+
+          -- snacks notification history
+          SnacksNotifierHistory = { bg = colors.mantle },
+
+          -- snacks input
+          SnacksInputNormal = { bg = colors.mantle },
+          SnacksInputBorder = { link = "FloatBorder" },
+          SnacksInputTitle = { bg = colors.mantle },
+
         }
       end,
     })

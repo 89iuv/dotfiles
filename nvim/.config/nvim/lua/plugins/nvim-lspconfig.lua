@@ -90,6 +90,9 @@ return {
         },
       })
     end, { desc = "Organize Imports" })
+    vim.keymap.set("n", "<leader>cr", function ()
+      vim.lsp.buf.rename()
+    end, { desc = "Rename"})
 
     -- settings
     local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -65,17 +65,20 @@ return {
     require("snacks").setup({
       bigfile = { enabled = true },
       dashboard = {
+        enabled = true,
         header = neovim_header,
       },
       explorer = { enabled = false },
       indent = { enabled = false },
-      input = { enabled = false },
+      input = {
+        enabled = true
+      },
       notifier = {
         enabled = true,
         timeout = 3000,
         top_down = false, -- place notifications from top to bottom
         margin = { top = 0, right = 1, bottom = 1 },
-        style = "fancy",
+        -- style = "fancy",
       },
       picker = {
         enabled = true,
@@ -101,6 +104,11 @@ return {
         modes = { "n" }
       },
       styles = {
+        input = {
+          relative = "cursor",
+          row = -3,
+          col = 0,
+        },
         notification = {
           wo = {
             wrap = true,
