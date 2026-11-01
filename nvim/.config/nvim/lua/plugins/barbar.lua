@@ -4,8 +4,9 @@ return {
   -- "romgrk/barbar.nvim",
   dependencies = {
     "lewis6991/gitsigns.nvim",
-    "echasnovski/mini.icons"
+    "echasnovski/mini.icons",
   },
+  -- stylua: ignore
   keys = {
     -- Move to previous/next
     { "<S-h>", "<Cmd>BufferPrevious<CR>", desc = "Prev Buffer" },
@@ -18,7 +19,8 @@ return {
     { "<M-}>", "<Cmd>BufferMoveNext<CR>", desc = "Move buffer next" },
 
     -- Close buffers
-    { "<leader>bq", "<Cmd>BufferClose<CR>", desc = "Close Buffer" },
+    { "<leader>bq", function () Snacks.bufdelete() end, desc = "Close Buffer" },
+    { "<leader>bQ", function () Snacks.bufdelete({force = true}) end, desc = "Force Close Buffer" },
     { "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close Other Buffers" },
     { "<leader>bl", "<Cmd>BufferCloseBuffersLeft<CR>", desc = "Close Buffers to the Left" },
     { "<leader>br", "<Cmd>BufferCloseBuffersRight<CR>", desc = "Close Buffers to the Right" },
@@ -41,12 +43,12 @@ return {
       icons = {
         gitsigns = {
           added = { enabled = true, icon = icons.git.added },
-          changed = { enabled = true, icon =icons.git.modified },
+          changed = { enabled = true, icon = icons.git.modified },
           deleted = { enabled = true, icon = icons.git.removed },
         },
         diagnostics = {
           [vim.diagnostic.severity.HINT] = { enabled = true, icon = icons.diagnostics.hint .. " " },
-          [vim.diagnostic.severity.INFO] = { enabled = true, icon = icons.diagnostics.info .. " "  },
+          [vim.diagnostic.severity.INFO] = { enabled = true, icon = icons.diagnostics.info .. " " },
           [vim.diagnostic.severity.WARN] = { enabled = true, icon = icons.diagnostics.warn .. " " },
           [vim.diagnostic.severity.ERROR] = { enabled = true, icon = icons.diagnostics.error .. " " },
         },
@@ -65,12 +67,12 @@ return {
           event = "BufWipeout",
           text = "Explorer",
           separator = "┃",
-          align = "left"
+          align = "left",
         },
         ["trouble"] = {
           text = "Trouble",
           separator = "┃",
-          align = "left"
+          align = "left",
         },
       },
 

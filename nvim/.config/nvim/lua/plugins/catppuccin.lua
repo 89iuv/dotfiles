@@ -162,13 +162,19 @@ return {
           SnacksNotifierBorderError = { link = "FloatBorder" },
           SnacksNotifierBorderTrace = { link = "FloatBorder" },
 
+          SnacksNotifierSeparatorInfo = { link = "SnacksNotifierTitleInfo" },
+          SnacksNotifierSeparatorWarn = { link = "SnacksNotifierTitleWarn" },
+          SnacksNotifierSeparatorDebug = { link = "SnacksNotifierTitleDebug" },
+          SnacksNotifierSeparatorError = { link = "SnacksNotifierTitleError" },
+          SnacksNotifierSeparatorTrace = { link = "SnacksNotifierTitleTrace" },
+
           -- snacks notification history
           SnacksNotifierHistory = { bg = colors.mantle },
 
           -- snacks input
           SnacksInputNormal = { bg = colors.mantle },
           SnacksInputBorder = { link = "FloatBorder" },
-          SnacksInputTitle = { bg = colors.mantle },
+          SnacksInputTitle = { link = "FloatBorder" },
 
           -- snacks terminal
           SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },

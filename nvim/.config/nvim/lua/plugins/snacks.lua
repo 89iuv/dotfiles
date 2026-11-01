@@ -84,7 +84,13 @@ return {
         timeout = 3000,
         top_down = false,
         margin = { top = 0, right = 1, bottom = 1 },
-        -- style = "fancy",
+        style = function(buf, notif, ctx)
+          local fancy = ctx.notifier:get_render("fancy")
+          local hl = vim.deepcopy(ctx.hl)
+          -- SnacksNotifierBorderInfo -> SnacksNotifierSeparatorInfo
+          hl.border = (ctx.hl.border:gsub("Border", "Separator"))
+          fancy(buf, notif, vim.tbl_extend("force", ctx, { hl = hl }))
+        end,
       },
       picker = {
         enabled = true,
