@@ -171,6 +171,10 @@ return {
           SnacksInputBorder = { link = "FloatBorder" },
           SnacksInputTitle = { bg = colors.mantle },
 
+          -- snacks terminal
+          SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },
+          SnacksTerminal = { bg = colors.mantle },
+
         }
       end,
     })

@@ -8,6 +8,7 @@ local neovim_header = [[
 
 return {
   "folke/snacks.nvim",
+  dependencies = { "christoomey/vim-tmux-navigator" },
   priority = 1000,
   lazy = false,
   enabled = true,
@@ -60,6 +61,10 @@ return {
     { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
 
+    -- terminal
+    { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
+    { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
+
   },
   config = function()
     require("snacks").setup({
@@ -76,7 +81,7 @@ return {
       notifier = {
         enabled = true,
         timeout = 3000,
-        top_down = false, -- place notifications from top to bottom
+        top_down = false,
         margin = { top = 0, right = 1, bottom = 1 },
         -- style = "fancy",
       },
@@ -95,13 +100,36 @@ return {
       statuscolumn = {
         enabled = true,
         folds = {
-          open = false, -- show open fold icons
+          open = false,
         }
       },
       words = {
         enabled = true,
         debounce = 100,
         modes = { "n" }
+      },
+      terminal = {
+        win = {
+          height = 0.30,
+          wo = {
+            winhighlight = "Normal:SnacksTerminal,WinBar:SnacksWinBar",
+          },
+          keys = {
+            nav_h = { "<C-h>", "<cmd>TmuxNavigateLeft<cr>", desc = "Go to Left Window", expr = true, mode = "t" },
+            nav_j = { "<C-j>", "<cmd>TmuxNavigateDown<cr>", desc = "Go to Lower Window", expr = true, mode = "t" },
+            nav_k = { "<C-k>", "<cmd>TmuxNavigateUp<cr>", desc = "Go to Upper Window", expr = true, mode = "t" },
+            nav_l = { "<C-l>", "<cmd>TmuxNavigateRight<cr>", desc = "Go to Right Window", expr = true, mode = "t" },
+            term_normal = {
+              "<esc><esc>",
+              function()
+                return "<C-\\><C-n>"
+              end,
+              mode = "t",
+              expr = true,
+              desc = "Double escape to normal mode",
+            },
+          },
+        },
       },
       styles = {
         input = {
@@ -113,7 +141,7 @@ return {
           wo = {
             wrap = true,
             winblend = 0,
-          }, -- Wrap notifications
+          },
         },
       },
     })

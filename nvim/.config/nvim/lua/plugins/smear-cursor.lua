@@ -21,10 +21,19 @@ return {
     })
 
     return {
+      delay_after_key = 100,
+
+      hide_target_hack = false,
       cursor_color = "none",
+
+      never_draw_over_target = false,
+      legacy_computing_symbols_support = false,
+
       smear_insert_mode = false,
-      smear_terminal_mode = false,
-      smear_to_cmd = false,
+      smear_terminal_mode = true,
+      smear_to_cmd = true,
+
+      filetypes_disabled = { "snacks_terminal" }
     }
   end,
 }
