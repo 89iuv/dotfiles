@@ -5,7 +5,6 @@ return {
   config = function()
     require("catppuccin").setup({
       term_colors = true,
-
       integrations = {
         lualine = {
           all = function(colors)
@@ -40,7 +39,7 @@ return {
           FoldColumn = { fg = colors.overlay1 },
           LspInlayHint = {
             fg = colors.overlay0,
-            -- bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.25, colors.base),
+            bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.25, colors.base),
           },
 
           -- neotree
@@ -174,7 +173,6 @@ return {
           -- snacks terminal
           SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },
           SnacksTerminal = { bg = colors.mantle },
-
         }
       end,
     })

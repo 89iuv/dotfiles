@@ -12,9 +12,10 @@ return {
   priority = 1000,
   lazy = false,
   enabled = true,
+  -- stylua: ignore
   keys = {
     -- file
-    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files", },
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
 
@@ -55,7 +56,7 @@ return {
 
     -- notifier
     { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
-    { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications", },
+    { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
 
     -- words
     { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
@@ -76,7 +77,7 @@ return {
       explorer = { enabled = false },
       indent = { enabled = false },
       input = {
-        enabled = true
+        enabled = true,
       },
       notifier = {
         enabled = true,
@@ -90,9 +91,15 @@ return {
         ui_select = true,
         formatters = {
           file = {
-            filename_first = true
-          }
-        }
+            filename_first = true,
+          },
+        },
+        previewers = {
+          diff = {
+            style = "terminal",
+            cmd = { "delta" },
+          },
+        },
       },
       quickfile = { enabled = false },
       scope = { enabled = false },
@@ -101,12 +108,12 @@ return {
         enabled = true,
         folds = {
           open = false,
-        }
+        },
       },
       words = {
         enabled = true,
         debounce = 100,
-        modes = { "n" }
+        modes = { "n" },
       },
       terminal = {
         win = {
@@ -141,6 +148,11 @@ return {
           wo = {
             wrap = true,
             winblend = 0,
+          },
+        },
+        notification_history = {
+          wo = {
+            cursorline = true,
           },
         },
       },
