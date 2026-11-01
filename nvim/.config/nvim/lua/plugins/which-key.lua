@@ -38,9 +38,6 @@ return {
       },
       preset = "helix",
       delay = 350,
-      win = {
-        border = "single",
-      },
     })
   end,
 }

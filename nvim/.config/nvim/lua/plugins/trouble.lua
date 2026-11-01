@@ -8,7 +8,11 @@ return {
     { "<leader>ct", "<cmd>Trouble lsp_type_definitions<cr>", desc = "Lsp Type Definition" },
     { "<leader>cd", "<cmd>Trouble lsp_definitions<cr>", desc = "Lsp Definition" },
     { "<leader>cD", "<cmd>Trouble lsp_declarations<cr>", desc = "lsp Declaration" },
-    { "<leader>cs", "<cmd>Trouble lsp_document_symbols toggle focus=true fallow=true win.position=right win.size=55<cr>", desc = "Lsp Document Symbols", },
+    {
+      "<leader>cs",
+      "<cmd>Trouble symbols toggle focus=true fallow=true win.position=right win.size=55<cr>",
+      desc = "Lsp Document Symbols",
+    },
     { "<leader>cl", "<cmd>Trouble lsp win.position=right win.size=55<cr>", desc = "LSP References/Definitions/..." },
 
     { "<leader>cI", "<cmd>Trouble lsp_incoming_calls<CR>", desc = "Lsp Incoming Calls" },
@@ -17,7 +21,6 @@ return {
     -- diagnostics
     { "<leader>cx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Document Diagnostics" },
     { "<leader>cX", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace Diagnostic" },
-
   },
   opts = {
     auto_preview = false,

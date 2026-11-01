@@ -23,7 +23,6 @@ return {
           enabled = true,
           lsp = false,
         },
-        dashboard = true,
       },
 
       custom_highlights = function(colors)
@@ -41,7 +40,7 @@ return {
           FoldColumn = { fg = colors.overlay1 },
           LspInlayHint = {
             fg = colors.overlay0,
-            bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.25, colors.base),
+            -- bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.25, colors.base),
           },
 
           -- neotree
@@ -143,9 +142,20 @@ return {
           VirtColumn = { fg = colors.surface0 },
 
           -- trouble
+          TroubleNormal = { bg = colors.mantle },
 
-          TroubleNormal = { bg = colors.mantle }
+          -- snacks
+          SnacksNotifierInfo = { bg = colors.mantle },
+          SnacksNotifierWarn = { bg = colors.mantle },
+          SnacksNotifierDebug = { bg = colors.mantle },
+          SnacksNotifierError = { bg = colors.mantle },
+          SnacksNotifierTrace = { bg = colors.mantle },
 
+          SnacksNotifierBorderInfo = { link = "FloatBorder" },
+          SnacksNotifierBorderWarn = { link = "FloatBorder" },
+          SnacksNotifierBorderDebug = { link = "FloatBorder" },
+          SnacksNotifierBorderError = { link = "FloatBorder" },
+          SnacksNotifierBorderTrace = { link = "FloatBorder" },
         }
       end,
     })

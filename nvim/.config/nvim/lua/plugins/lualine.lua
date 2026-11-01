@@ -64,9 +64,6 @@ return {
         theme = "catppuccin-nvim",
         component_separators = { left = "╱", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = {
-          statusline = { "dashboard" },
-        },
       },
       extensions = { "neo-tree", "fzf" },
       sections = {

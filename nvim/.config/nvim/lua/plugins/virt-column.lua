@@ -76,7 +76,7 @@ return {
       virtcolumn = "80,120",
       highlight = "VirtColumn",
       exclude = {
-        filetypes = { "dashboard", "markdown" },
+        filetypes = { "dashboard", "markdown", "snacks_picker_preview" },
       },
     }
   end,

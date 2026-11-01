@@ -26,13 +26,19 @@ vim.opt.listchars:append({ tab = "» ", trail = "·", nbsp = "␣" })
 vim.opt.fillchars:append({ eob = " " })
 
 -- Folds
-vim.o.foldcolumn = "1"
+vim.o.foldcolumn = "0"
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 
--- Border
+vim.opt.fillchars:append({
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+})
 
+-- Border
 vim.opt.fillchars:append({
   horiz = "━",
   horizup = "┻",
@@ -41,13 +47,6 @@ vim.opt.fillchars:append({
   vertleft = "┫",
   vertright = "┣",
   verthoriz = "╋",
-})
-
-vim.opt.fillchars:append({
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
 })
 
 -- Text

@@ -78,6 +78,9 @@ return {
         border = "single",
       })
     end, { desc = "LSP Signature Help" })
+    vim.keymap.set("n", "<leader>ca", function()
+      vim.lsp.buf.code_action()
+    end, { desc = "Code Action" })
     vim.keymap.set("n", "<leader>co", function()
       vim.lsp.buf.code_action({
         apply = true,

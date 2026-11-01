@@ -4,7 +4,6 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "echasnovski/mini.icons",
-    "ibhagwan/fzf-lua",
   },
   lazy = false,
   keys = {
@@ -13,6 +12,8 @@ return {
     { "<leader>ef", "<cmd>Neotree focus<CR>", desc = "NeoTree Focus" },
   },
   config = function()
+    local window_width = 40
+
     local run_in_directory = function(state_tree_node, fzf_picker_function)
       if state_tree_node.type == "directory" then
         fzf_picker_function({
@@ -56,14 +57,20 @@ return {
           ["<leader>ff"] = {
             ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
-              run_in_directory(state.tree:get_node(), require("fzf-lua").files)
+              run_in_directory(
+                state.tree:get_node(),
+                Snacks.picker.files
+              )
             end,
             desc = "Find Files (Current Node)",
           },
           ["<leader>sg"] = {
             ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
-              run_in_directory(state.tree:get_node(), require("fzf-lua").live_grep)
+              run_in_directory(
+                state.tree:get_node(),
+                Snacks.picker.grep
+              )
             end,
             desc = "Live Grep (Current Node)",
           },
@@ -104,17 +111,49 @@ return {
         },
       },
       event_handlers = {
+        -- rember window size
         {
           event = "neo_tree_window_after_open",
-          handler = function()
-            for _, win in ipairs(vim.api.nvim_list_wins()) do
-              local buf = vim.api.nvim_win_get_buf(win)
-              if vim.bo[buf].filetype == "dashboard" then
-                vim.api.nvim_win_call(win, function()
-                  vim.cmd("enew")
-                end)
-              end
+          handler = function(args)
+            vim.api.nvim_win_set_width(args.winid, window_width)
+          end,
+        },
+        {
+          event = "neo_tree_window_before_close",
+          handler = function(args)
+            window_width = vim.api.nvim_win_get_width(args.winid)
+          end,
+        },
+        -- resize other windows
+        {
+          event = "neo_tree_window_after_open",
+          handler = function(args)
+            if args.position == "left" or args.position == "right" then
+              vim.cmd("wincmd =")
             end
+          end,
+        },
+        {
+          event = "neo_tree_window_after_close",
+          handler = function(args)
+            if args.position == "left" or args.position == "right" then
+              vim.cmd("wincmd =")
+            end
+          end,
+        },
+        {
+          event = "neo_tree_popup_input_ready",
+          handler = function(args)
+            -- map <esc> to enter normal mode (by default closes prompt)
+            vim.keymap.set(
+              "i",
+              "<esc>",
+              vim.cmd.stopinsert,
+              {
+                noremap = true,
+                buffer = args.bufnr
+              }
+            )
           end,
         },
       },
