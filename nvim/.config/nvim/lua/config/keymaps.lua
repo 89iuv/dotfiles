@@ -1,5 +1,8 @@
 -- Clear search highlighting with <Esc>
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", function()
+  vim.cmd.nohlsearch()
+  vim.cmd.echo('""')
+end, { silent = true })
 
 -- Navigate between windows with Ctrl + hjkl
 vim.keymap.set("n", "<C-h>", "<C-w>h")
