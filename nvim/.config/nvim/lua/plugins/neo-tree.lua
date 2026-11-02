@@ -88,7 +88,7 @@ return {
             local fc = require("neo-tree.sources.filesystem.components")
             local result = fc.name(config, node, state)
             if node:get_depth() == 1 and node.type ~= "message" then
-              local project_path = "[" .. string.sub(result.text, 1, -2) .. "]"
+              local project_path = "" .. string.sub(result.text, 1, -2) .. ""
               local project_name = vim.fn.fnamemodify(node.path, ":t")
               result.text = project_name .. " " .. project_path
               result = {
