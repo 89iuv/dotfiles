@@ -80,48 +80,14 @@ return {
         enabled = true,
       },
       notifier = {
-        enabled = true,
+        enabled = false, -- enabled manually
         timeout = 3500,
         top_down = false,
-        width = { min = 45, max = 45 },
-        height = { min = 1, max = 0.6 },
+        sort = { "added" },
+        padding = false,
+        width = { min = 50, max = 50 },
+        height = { min = 1, max = 4 },
         margin = { top = 0, right = 1, bottom = 1 },
-        style = function(buf, notif, ctx)
-          -- replicate the notifier's width calculation to size the separator
-          local function bound(v, parent)
-            return math.floor(v < 1 and parent * v or v)
-          end
-          local maxw = 0
-          for _, line in ipairs(vim.split(notif.msg, "\n")) do
-            maxw = math.max(maxw, vim.fn.strdisplaywidth(line))
-          end
-          local w = ctx.notifier.opts.width
-          local width = math.min(bound(w.max, vim.o.columns), math.max(bound(w.min, vim.o.columns), maxw + 2))
-          local inset = 1 -- columns of padding on the right, matches the left
-          local sep_len = width - 1 - inset -- minus the 1-col left padding
-
-          vim.api.nvim_buf_set_lines(buf, 0, 1, false, { "", "" })
-          vim.api.nvim_buf_set_lines(buf, 2, -1, false, vim.split(notif.msg, "\n"))
-
-          vim.api.nvim_buf_set_extmark(buf, ctx.ns, 0, 0, {
-            virt_text = { { notif.icon, ctx.hl.icon }, { " " }, { notif.title or "", ctx.hl.title } },
-            virt_text_win_col = 0,
-            priority = 10,
-          })
-
-          vim.api.nvim_buf_set_extmark(buf, ctx.ns, 0, 0, {
-            virt_text = { { os.date(ctx.notifier.opts.date_format, notif.added), ctx.hl.title }, { " " } },
-            virt_text_pos = "right_align",
-            priority = 10,
-          })
-
-          local sep_hl = ctx.hl.border:gsub("Border", "Separator")
-          vim.api.nvim_buf_set_extmark(buf, ctx.ns, 1, 0, {
-            virt_text = { { string.rep("━", sep_len), sep_hl } },
-            virt_text_win_col = 0,
-            priority = 10,
-          })
-        end,
       },
       picker = {
         enabled = true,
@@ -195,5 +161,28 @@ return {
       },
     })
 
+
+    -- ---@diagnostic disable-next-line: duplicate-set-field
+    -- vim.notify = function(msg, level, opts)
+    --   if opts and opts.title == "Trouble" then
+    --     opts.replace = nil
+    --   end
+    --   return Snacks.notifier.notify(msg, level, opts)
+    -- end
+
+    -- vim.api.nvim_create_autocmd("LspProgress", {
+    --   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+    --   callback = function(ev)
+    --     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+    --     vim.notify(vim.lsp.status(), "info", {
+    --       id = "lsp_progress",
+    --       title = "LSP Progress",
+    --       opts = function(notif)
+    --         notif.icon = ev.data.params.value.kind == "end" and " "
+    --           or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+    --       end,
+    --     })
+    --   end,
+    -- })
   end,
 }

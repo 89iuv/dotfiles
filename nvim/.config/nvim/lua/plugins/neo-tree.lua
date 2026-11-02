@@ -27,6 +27,7 @@ return {
     end
 
     require("neo-tree").setup({
+      popup_border_style = "single",
       use_popups_for_input = false,
       close_if_last_window = true,
       enable_git_status = true,
@@ -134,19 +135,6 @@ return {
             if args.position == "left" or args.position == "right" then
               vim.cmd("wincmd =")
             end
-          end,
-        },
-        -- integrate snacks lsp rename
-        {
-          event = "file_moved",
-          handler = function(data)
-            Snacks.rename.on_rename_file(data.source, data.destination)
-          end,
-        },
-        {
-          event = "file_renamed",
-          handler = function(data)
-            Snacks.rename.on_rename_file(data.source, data.destination)
           end,
         },
       },

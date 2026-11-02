@@ -150,11 +150,11 @@ return {
           SnacksNotifierError = { bg = colors.mantle },
           SnacksNotifierTrace = { bg = colors.mantle },
 
-          SnacksNotifierTitleInfo = { bg = colors.mantle },
-          SnacksNotifierTitleWarn = { bg = colors.mantle },
-          SnacksNotifierTitleDebug = { bg = colors.mantle },
-          SnacksNotifierTitleError = { bg = colors.mantle },
-          SnacksNotifierTitleTrace = { bg = colors.mantle },
+          SnacksNotifierTitleInfo = { bg = colors.mantle, style = {} },
+          SnacksNotifierTitleWarn = { bg = colors.mantle, style = {} },
+          SnacksNotifierTitleDebug = { bg = colors.mantle, style = {} },
+          SnacksNotifierTitleError = { bg = colors.mantle, style = {} },
+          SnacksNotifierTitleTrace = { bg = colors.mantle, style = {} },
 
           SnacksNotifierBorderInfo = { link = "FloatBorder" },
           SnacksNotifierBorderWarn = { link = "FloatBorder" },
@@ -162,14 +162,11 @@ return {
           SnacksNotifierBorderError = { link = "FloatBorder" },
           SnacksNotifierBorderTrace = { link = "FloatBorder" },
 
-          SnacksNotifierSeparatorInfo = { link = "SnacksNotifierTitleInfo" },
-          SnacksNotifierSeparatorWarn = { link = "SnacksNotifierTitleWarn" },
-          SnacksNotifierSeparatorDebug = { link = "SnacksNotifierTitleDebug" },
-          SnacksNotifierSeparatorError = { link = "SnacksNotifierTitleError" },
-          SnacksNotifierSeparatorTrace = { link = "SnacksNotifierTitleTrace" },
-
-          -- snacks notification history
-          SnacksNotifierHistory = { bg = colors.mantle },
+          SnacksNotifierFooterInfo = { link = "SnacksNotifierTitleInfo" },
+          SnacksNotifierFooterWarn = { link = "SnacksNotifierTitleWarn" },
+          SnacksNotifierFooterDebug = { link = "SnacksNotifierTitleDebug" },
+          SnacksNotifierFooterError = { link = "SnacksNotifierTitleError" },
+          SnacksNotifierFooterTrace = { link = "SnacksNotifierTitleTrace" },
 
           -- snacks input
           SnacksInputNormal = { bg = colors.mantle },
