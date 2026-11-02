@@ -73,6 +73,11 @@ return {
       dashboard = {
         enabled = true,
         header = neovim_header,
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "startup" },
+        },
       },
       explorer = { enabled = false },
       indent = { enabled = false },
