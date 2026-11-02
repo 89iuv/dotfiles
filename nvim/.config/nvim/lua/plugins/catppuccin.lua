@@ -29,9 +29,10 @@ return {
         return {
           -- neovim
           FloatBorder = { fg = colors.overlay0, bg = colors.mantle },
+          FloatTitle = { fg = colors.lavender, bg = colors.mantle },
 
           WinSeparator = { fg = colors.surface0, bg = colors_utils.darken(colors.base, 0.5, colors.mantle) },
-          LineNr = { fg = colors.overlay0 },
+          LineNr = { fg = colors.surface2 },
 
           FoldColumn = { fg = colors.overlay1 },
           LspInlayHint = {
@@ -41,7 +42,7 @@ return {
 
           -- neotree
           NeoTreeWinSeparator = { link = "WinSeparator" },
-          NeoTreeIndentMarker = { fg = colors.surface1 },
+          NeoTreeIndentMarker = { fg = colors.surface0 },
 
           NeoTreeDotfile = { fg = colors.overlay0 },
           NeoTreeProjectName = { fg = colors.blue },
@@ -168,7 +169,7 @@ return {
           -- snacks input
           SnacksInputNormal = { bg = colors.mantle },
           SnacksInputBorder = { link = "FloatBorder" },
-          SnacksInputTitle = { link = "FloatBorder" },
+          SnacksInputTitle = { link = "FloatTitle" },
 
           -- snacks terminal
           SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },

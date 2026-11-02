@@ -57,7 +57,7 @@
             "list.focusAndSelectionOutline": "accent",
             "list.focusOutline": "accent",
 
-            "tree.indentGuidesStroke": "overlay1",
+            "tree.indentGuidesStroke": "overlay0",
             "tree.inactiveIndentGuidesStroke": "surface0",
 
             "tab.border": "surface0",
@@ -71,7 +71,7 @@
             "editor.foldBackground": "surface1",
             "editor.foldPlaceholderForeground": "surface1",
 
-            "editorLineNumber.foreground": "overlay0",
+            "editorLineNumber.foreground": "surface2",
             "editorIndentGuide.activeBackground": "overlay0",
             "editorIndentGuide.background": "surface0",
             "editorRuler.foreground": "surface0",
