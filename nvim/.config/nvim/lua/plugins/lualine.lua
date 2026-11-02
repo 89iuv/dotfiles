@@ -70,8 +70,7 @@ return {
         lualine_a = {
           { "mode", icon = "" },
         },
-        lualine_b = {
-        },
+        lualine_b = {},
         lualine_c = {
           {
             branch,
@@ -140,10 +139,8 @@ return {
             padding = { left = 1, right = 1 },
           },
         },
-        lualine_y = {
-        },
-        lualine_z = {
-        },
+        lualine_y = {},
+        lualine_z = {},
       },
     })
   end,
