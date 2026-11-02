@@ -5,7 +5,6 @@ return {
   config = function()
     require("which-key").setup({
       spec = {
-        { "gr", desc = "Lsp", icon = "" },
         { "<leader>b", desc = "Buffer" },
         { "<leader>c", desc = "Code", mode = { "n", "x" } },
         { "<leader>e", desc = "Explorer", icon = "󰉋 " },
@@ -34,7 +33,6 @@ return {
           end,
           desc = "Window Hydra Mode",
         },
-        { "<leader>x", desc = "Trouble", icon = "󰙅" },
       },
       preset = "helix",
       delay = 350,

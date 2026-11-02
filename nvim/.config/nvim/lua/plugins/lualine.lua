@@ -26,6 +26,7 @@ return {
           {
             "diagnostics",
             sources = { "nvim_workspace_diagnostic" },
+            sections = { 'error', 'warn', 'info', 'hint' },
             colored = false,
             symbols = {
               error = require("config.global").icons.diagnostics_outline.error .. " ",
@@ -33,7 +34,7 @@ return {
               info = require("config.global").icons.diagnostics_outline.info .. " ",
               hint = require("config.global").icons.diagnostics_outline.hint .. " ",
             },
-            always_visible = false,
+            always_visible = true,
             separator = "",
             padding = { left = 1, right = 1 },
           },
@@ -78,8 +79,12 @@ return {
             padding = { left = 1, right = 1 },
           },
           {
-            "filetype",
-            colored = false,
+            -- "filetype",
+            -- colored = false,
+            function ()
+              return vim.bo.filetype
+            end,
+            icon = "󰅪",
             separator = "",
             padding = { left = 1, right = 1 },
           },

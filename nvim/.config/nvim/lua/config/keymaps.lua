@@ -33,6 +33,15 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move block up" })
 vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
 
+-- Maximize window
+vim.keymap.set("n", "<leader>wz", function()
+    if vim.fn.tabpagenr("$") > 1 then
+        vim.cmd("tabclose")
+    else
+        vim.cmd("tab split")
+    end
+end, { desc = "Toggle window zoom" })
+
 -- Lazy
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy" })
 

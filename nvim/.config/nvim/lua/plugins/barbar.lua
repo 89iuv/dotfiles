@@ -74,6 +74,11 @@ return {
           separator = "┃",
           align = "left",
         },
+        ["snacks_terminal"] = {
+          text = "Terminal",
+          separator = "┃",
+          align = "left",
+        },
       },
 
       insert_at_end = true,
