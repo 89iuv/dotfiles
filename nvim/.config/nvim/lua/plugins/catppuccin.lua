@@ -75,7 +75,7 @@ return {
           NeoTreeProjectPath = { link = "NeoTreeDotfile" },
 
           -- barbar
-          BufferOffset = { bg = colors.mantle },
+          BufferOffset = { fg = colors.lavender, bg = colors.mantle },
           BufferOffsetSeparator = { link = "NeoTreeWinSeparator" },
           BufferScrollArrow = { fg = colors.text, bg = barbar_background },
           BufferTabpageFill = { bg = barbar_background },
