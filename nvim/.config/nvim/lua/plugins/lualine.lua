@@ -62,23 +62,23 @@ return {
     require("lualine").setup({
       options = {
         theme = "catppuccin-nvim",
-        component_separators = { left = "╱", right = "" },
-        section_separators = { left = "", right = "" },
+        component_separators = { left = "│", right = "│" },
+        section_separators = { left = "▌", right = "▐" },
       },
-      extensions = { "neo-tree", "fzf" },
+      extensions = { "neo-tree" },
       sections = {
         lualine_a = {
           { "mode", icon = "" },
         },
         lualine_b = {
+        },
+        lualine_c = {
           {
             branch,
             icon = "󰘬",
             separator = "",
             padding = { left = 1, right = 1 },
           },
-        },
-        lualine_c = {
           {
             "diagnostics",
             sources = { "nvim_workspace_diagnostic" },
@@ -108,8 +108,6 @@ return {
             separator = "",
             padding = { left = 1, right = 1 },
           },
-        },
-        lualine_y = {
           {
             function()
               return "Spaces:" .. vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
@@ -135,14 +133,16 @@ return {
             separator = "",
             padding = { left = 1, right = 1 },
           },
-        },
-        lualine_z = {
           {
             "filetype",
             colored = false,
             separator = "",
             padding = { left = 1, right = 1 },
           },
+        },
+        lualine_y = {
+        },
+        lualine_z = {
         },
       },
     })
