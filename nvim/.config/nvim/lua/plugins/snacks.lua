@@ -92,6 +92,11 @@ return {
       picker = {
         enabled = true,
         ui_select = true,
+        sources = {
+          files = {
+            hidden = true,
+          },
+        },
         formatters = {
           file = {
             filename_first = true,
@@ -160,7 +165,6 @@ return {
         },
       },
     })
-
 
     -- ---@diagnostic disable-next-line: duplicate-set-field
     -- vim.notify = function(msg, level, opts)

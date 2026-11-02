@@ -76,3 +76,6 @@ vim.opt.splitbelow = true
 
 -- Mouse: enable mouse support in all modes
 vim.opt.mouse = "a"
+
+-- Experimental ui2
+require("vim._core.ui2").enable({})

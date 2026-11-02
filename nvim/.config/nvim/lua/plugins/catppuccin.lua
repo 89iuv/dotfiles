@@ -5,6 +5,7 @@ return {
   config = function()
     require("catppuccin").setup({
       term_colors = true,
+      auto_integrations = true,
       integrations = {
         lualine = {
           all = function(colors)
@@ -17,10 +18,6 @@ return {
               },
             }
           end,
-        },
-        illuminate = {
-          enabled = true,
-          lsp = false,
         },
       },
 
