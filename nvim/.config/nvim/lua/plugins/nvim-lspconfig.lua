@@ -130,7 +130,8 @@ return {
           disableOrganizeImports = true, -- Ruff does this
           analysis = {
             typeCheckingMode = "standard",
-            diagnosticMode = "workspace",
+            -- diagnosticMode = "workspace",
+            diagnosticMode = "openFilesOnly",
             -- Ignore all files for analysis to exclusively use Ruff for linting
             ignore = { "*" },
           },
