@@ -81,15 +81,46 @@ return {
       },
       notifier = {
         enabled = true,
-        timeout = 3000,
+        timeout = 3500,
         top_down = false,
+        width = { min = 45, max = 45 },
+        height = { min = 1, max = 0.6 },
         margin = { top = 0, right = 1, bottom = 1 },
         style = function(buf, notif, ctx)
-          local fancy = ctx.notifier:get_render("fancy")
-          local hl = vim.deepcopy(ctx.hl)
-          -- SnacksNotifierBorderInfo -> SnacksNotifierSeparatorInfo
-          hl.border = (ctx.hl.border:gsub("Border", "Separator"))
-          fancy(buf, notif, vim.tbl_extend("force", ctx, { hl = hl }))
+          -- replicate the notifier's width calculation to size the separator
+          local function bound(v, parent)
+            return math.floor(v < 1 and parent * v or v)
+          end
+          local maxw = 0
+          for _, line in ipairs(vim.split(notif.msg, "\n")) do
+            maxw = math.max(maxw, vim.fn.strdisplaywidth(line))
+          end
+          local w = ctx.notifier.opts.width
+          local width = math.min(bound(w.max, vim.o.columns), math.max(bound(w.min, vim.o.columns), maxw + 2))
+          local inset = 1 -- columns of padding on the right, matches the left
+          local sep_len = width - 1 - inset -- minus the 1-col left padding
+
+          vim.api.nvim_buf_set_lines(buf, 0, 1, false, { "", "" })
+          vim.api.nvim_buf_set_lines(buf, 2, -1, false, vim.split(notif.msg, "\n"))
+
+          vim.api.nvim_buf_set_extmark(buf, ctx.ns, 0, 0, {
+            virt_text = { { notif.icon, ctx.hl.icon }, { " " }, { notif.title or "", ctx.hl.title } },
+            virt_text_win_col = 0,
+            priority = 10,
+          })
+
+          vim.api.nvim_buf_set_extmark(buf, ctx.ns, 0, 0, {
+            virt_text = { { os.date(ctx.notifier.opts.date_format, notif.added), ctx.hl.title }, { " " } },
+            virt_text_pos = "right_align",
+            priority = 10,
+          })
+
+          local sep_hl = ctx.hl.border:gsub("Border", "Separator")
+          vim.api.nvim_buf_set_extmark(buf, ctx.ns, 1, 0, {
+            virt_text = { { string.rep("━", sep_len), sep_hl } },
+            virt_text_win_col = 0,
+            priority = 10,
+          })
         end,
       },
       picker = {
@@ -103,7 +134,7 @@ return {
         previewers = {
           diff = {
             style = "terminal",
-            cmd = { "delta" },
+            cmd = { "delta", "--file-style=omit" },
           },
         },
       },
@@ -164,48 +195,5 @@ return {
       },
     })
 
-    ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
-    local progress = vim.defaulttable()
-    vim.api.nvim_create_autocmd("LspProgress", {
-      ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
-      callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
-        if not client or type(value) ~= "table" then
-          return
-        end
-        local p = progress[client.id]
-
-        for i = 1, #p + 1 do
-          if i == #p + 1 or p[i].token == ev.data.params.token then
-            p[i] = {
-              token = ev.data.params.token,
-              msg = ("[%3d%%] %s%s"):format(
-                value.kind == "end" and 100 or value.percentage or 100,
-                value.title or "",
-                value.message and (" **%s**"):format(value.message) or ""
-              ),
-              done = value.kind == "end",
-            }
-            break
-          end
-        end
-
-        local msg = {} ---@type string[]
-        progress[client.id] = vim.tbl_filter(function(v)
-          return table.insert(msg, v.msg) or not v.done
-        end, p)
-
-        local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-        vim.notify(table.concat(msg, "\n"), "info", {
-          id = "lsp_progress",
-          title = client.name,
-          opts = function(notif)
-            notif.icon = #progress[client.id] == 0 and " "
-              or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-          end,
-        })
-      end,
-    })
   end,
 }
