@@ -3,8 +3,34 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
+    -- ANSI palette copied from the Windows Terminal scheme
+    local wt = {
+      "#494d64", -- 0  black
+      "#ed8796", -- 1  red
+      "#a6da95", -- 2  green
+      "#eed49f", -- 3  yellow
+      "#8aadf4", -- 4  blue
+      "#f5bde6", -- 5  purple
+      "#8bd5ca", -- 6  cyan
+      "#b8c0e0", -- 7  white
+      "#5b6078", -- 8  bright black
+      "#ed8796", -- 9  bright red
+      "#a6da95", -- 10 bright green
+      "#eed49f", -- 11 bright yellow
+      "#8aadf4", -- 12 bright blue
+      "#f5bde6", -- 13 bright purple
+      "#8bd5ca", -- 14 bright cyan
+      "#a5adcb", -- 15 bright white
+    }
+
+    -- overwrite terminal colors
+    for i, color in ipairs(wt) do
+      vim.g["terminal_color_" .. (i - 1)] = color
+    end
+
     require("catppuccin").setup({
-      term_colors = true,
+      flavour = "macchiato",
+      term_colors = false,
       auto_integrations = true,
       integrations = {
         lualine = {
