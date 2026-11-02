@@ -1,7 +1,7 @@
 return {
-  'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
-  version = '1.*',
+  "saghen/blink.cmp",
+  dependencies = { "rafamadriz/friendly-snippets" },
+  version = "1.*",
   opts = {
     cmdline = {
       enabled = false,
@@ -34,7 +34,7 @@ return {
     },
 
     appearance = {
-      nerd_font_variant = 'mono'
+      nerd_font_variant = "mono",
     },
 
     completion = {
@@ -74,7 +74,7 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
 
     fuzzy = {
@@ -89,7 +89,6 @@ return {
         show_documentation = false,
       },
     },
-
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { "sources.default" },
 }

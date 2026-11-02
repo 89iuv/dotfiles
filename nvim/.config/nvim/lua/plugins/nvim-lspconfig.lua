@@ -2,6 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "mason-org/mason.nvim",
+    "saghen/blink.cmp",
   },
   config = function()
     vim.api.nvim_create_autocmd("ModeChanged", {
@@ -90,23 +91,22 @@ return {
         },
       })
     end, { desc = "Organize Imports" })
-    vim.keymap.set("n", "<leader>cn", function ()
+    vim.keymap.set("n", "<leader>cn", function()
       vim.lsp.buf.rename()
-    end, { desc = "Rename"})
+    end, { desc = "Rename" })
 
     -- settings
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-    if capabilities.workspace then
-      capabilities.workspace.didChangeWatchedFiles = {
-        dynamicRegistration = true,
-      }
-    end
+    local capabilities = require("blink.cmp").get_lsp_capabilities({
+      workspace = { didChangeWatchedFiles = { dynamicRegistration = true } },
+    })
+    capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
     vim.lsp.config("*", {
       capabilities = capabilities,
     })
+
     vim.lsp.inlay_hint.enable(true)
+
     -- lua
     vim.lsp.config("lua_ls", {
       settings = {
@@ -127,6 +127,7 @@ return {
           disableOrganizeImports = true, -- Ruff does this
           analysis = {
             typeCheckingMode = "standard",
+            diagnosticMode = "workspace",
             -- Ignore all files for analysis to exclusively use Ruff for linting
             ignore = { "*" },
           },
