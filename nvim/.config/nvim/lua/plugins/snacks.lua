@@ -40,7 +40,6 @@ return {
     { "gai", function() Snacks.picker.lsp_incoming_calls() end, desc = "C[a]lls Incoming" },
     { "gao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
-    { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
 
     -- diagnostics
     { "<leader>sx", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
@@ -55,8 +54,8 @@ return {
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
 
     -- notifier
-    { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
-    { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+    -- { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
+    -- { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
 
     -- words
     { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },

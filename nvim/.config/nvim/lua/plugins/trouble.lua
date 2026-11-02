@@ -3,20 +3,19 @@ return {
   cmd = "Trouble",
   keys = {
     -- lsp
-    { "<leader>ci", "<cmd>Trouble lsp_implementations<cr>", desc = "Lsp Implementation" },
-    { "<leader>cr", "<cmd>Trouble lsp_references<CR>", desc = "Lsp References" },
-    { "<leader>ct", "<cmd>Trouble lsp_type_definitions<cr>", desc = "Lsp Type Definition" },
     { "<leader>cd", "<cmd>Trouble lsp_definitions<cr>", desc = "Lsp Definition" },
     { "<leader>cD", "<cmd>Trouble lsp_declarations<cr>", desc = "lsp Declaration" },
+    { "<leader>cr", "<cmd>Trouble lsp_references<CR>", desc = "Lsp References" },
+    { "<leader>cI", "<cmd>Trouble lsp_implementations<cr>", desc = "Lsp Implementation" },
+    { "<leader>cy", "<cmd>Trouble lsp_type_definitions<cr>", desc = "Lsp Type Definition" },
+    { "<leader>cai", "<cmd>Trouble lsp_incoming_calls<CR>", desc = "Lsp Incoming Calls" },
+    { "<leader>cao", "<cmd>Trouble lsp_outgoing_calls<CR>", desc = "Lsp Outgoing Calls" },
     {
       "<leader>cs",
       "<cmd>Trouble symbols toggle focus=true fallow=true win.position=right win.size=55<cr>",
       desc = "Lsp Document Symbols",
     },
     { "<leader>cl", "<cmd>Trouble lsp win.position=right win.size=55<cr>", desc = "LSP References/Definitions/..." },
-
-    { "<leader>cI", "<cmd>Trouble lsp_incoming_calls<CR>", desc = "Lsp Incoming Calls" },
-    { "<leader>cO", "<cmd>Trouble lsp_outgoing_calls<CR>", desc = "Lsp Outgoing Calls" },
 
     -- diagnostics
     { "<leader>cx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Document Diagnostics" },
