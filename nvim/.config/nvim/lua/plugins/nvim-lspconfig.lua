@@ -3,7 +3,6 @@ return {
   dependencies = {
     "mason-org/mason.nvim",
     "saghen/blink.cmp",
-    "antosha417/nvim-lsp-file-operations",
   },
   config = function()
     vim.api.nvim_create_autocmd("ModeChanged", {
