@@ -33,7 +33,7 @@ return {
               info = require("config.global").icons.diagnostics_outline.info .. " ",
               hint = require("config.global").icons.diagnostics_outline.hint .. " ",
             },
-            always_visible = true,
+            always_visible = false,
             separator = "",
             padding = { left = 1, right = 1 },
           },
