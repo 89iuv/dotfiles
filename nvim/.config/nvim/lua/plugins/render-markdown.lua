@@ -26,9 +26,7 @@ return {
 
     require("render-markdown").setup({
       completions = {
-        lsp = {
-          enabled = true,
-        },
+        lsp = { enabled = true },
       },
       anti_conceal = {
         enabled = true,
@@ -71,12 +69,6 @@ return {
         comment = {
           -- Turn on / off HTML comment concealing
           conceal = false,
-        },
-      },
-      win_options = {
-        conceallevel = {
-          default = 0,
-          rendered = 2,
         },
       },
     })

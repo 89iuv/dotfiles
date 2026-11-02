@@ -7,13 +7,13 @@ return {
     },
     static = {
       enabled = true,
-      char = '▏',
+      char = '│',
       highlights = { 'BlinkIndent' },
     },
     scope = {
       enabled = true,          -- highlight highest level of indentation on the current line
-      indent_at_cursor = false, -- clamp to indent level of cursor
-      char = '▏',
+      indent_at_cursor = true, -- clamp to indent level of cursor
+      char = '│',
       highlights = { 'BlinkIndentScope' }
     },
   },

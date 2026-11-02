@@ -40,6 +40,7 @@ return {
     completion = {
       menu = {
         border = "single",
+        scrollbar = false,
         winblend = 0,
         draw = {
           columns = {
@@ -60,8 +61,17 @@ return {
         auto_show = false,
         window = {
           border = "single",
+          scrollbar = true,
           winblend = 0,
         },
+        draw = function(opts)
+          local win = opts.window:get_win()
+          if win then
+            vim.wo[win].conceallevel = 2
+          end
+          opts.default_implementation()
+        end,
+        treesitter_highlighting = true,
       },
       list = {
         selection = {
