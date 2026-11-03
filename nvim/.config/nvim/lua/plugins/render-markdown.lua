@@ -44,14 +44,14 @@ return {
         enabled = true,
       },
       code = {
-        sign = false,
+        sign = true,
         language_icon = true,
         width = "full",
         border = "thin",
         disable_background = {},
       },
       heading = {
-        sign = false,
+        sign = true,
         icons = {
           "█ ",
           "██ ",

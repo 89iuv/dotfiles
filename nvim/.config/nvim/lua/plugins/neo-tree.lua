@@ -41,7 +41,8 @@ return {
           enable_character_fade = false,
         },
         indent = {
-          padding = 1,
+          indent_size = 2,
+          padding = 2,
           with_expanders = true,
           with_markers = true,
         },
@@ -89,6 +90,20 @@ return {
           show_hidden_count = false,
         },
         components = {
+          indent = function(config, node, state)
+            local common = require("neo-tree.sources.common.components")
+
+            if node.level == 0 and config.with_expanders then
+              local expander = node:is_expanded() and (config.expander_expanded or "")
+                or (config.expander_collapsed or "")
+              return {
+                text = expander .. " ",
+                highlight = config.expander_highlight or config.highlight or "NeoTreeExpander",
+              }
+            end
+
+            return common.indent(config, node, state)
+          end,
           -- indent = function(config, node, state)
           --   local result = require("neo-tree.sources.common.components")
           --     .indent(config, node, state) -- must run for every node

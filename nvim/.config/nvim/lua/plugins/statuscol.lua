@@ -58,34 +58,16 @@ return {
         },
         {
           sign = {
-            namespace = { "diagnostic" },
-            name = { "todo%-sign" },
+            namespace = { "diagnostic", ".*" },
+            name = { "todo%-sign", ".*" },
             maxwidth = 1,
             colwidth = 1,
             auto = false,
           },
           click = "v:lua.ScSa",
         },
-        -- {
-        --   sign = {
-        --     name = { ".*" },
-        --     maxwidth = 1,
-        --     colwidth = 2,
-        --     auto = true,
-        --   },
-        --   click = "v:lua.ScSa",
-        -- },
-        -- {
-        --   sign = {
-        --     namespace = { ".*" },
-        --     maxwidth = 1,
-        --     colwidth = 2,
-        --     auto = true,
-        --   },
-        --   click = "v:lua.ScSa",
-        -- },
         {
-          text = { line_number, "" },
+          text = { line_number, " " },
           click = "v:lua.ScLa",
         },
         {
