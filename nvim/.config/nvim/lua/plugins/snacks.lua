@@ -30,6 +30,7 @@ return {
     { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
     { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
+    { "<leader>sz", function () Snacks.picker.spelling({layout = {preset = "select"}}) end, desc = "Spelling" },
 
     -- lsp
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
@@ -102,7 +103,7 @@ return {
           },
           grep = {
             hidden = true,
-          }
+          },
         },
         formatters = {
           file = {
