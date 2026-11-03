@@ -33,6 +33,7 @@ return {
       term_colors = false,
       auto_integrations = true,
       integrations = {
+        dashboard = true,
         lualine = {
           all = function(colors)
             return {
@@ -63,7 +64,7 @@ return {
           FoldColumn = { fg = colors.overlay1 },
           LspInlayHint = {
             fg = colors.overlay0,
-            bg = require("catppuccin.utils.colors").darken(colors.surface0, 0.25, colors.base),
+            bg = colors_utils.darken(colors.surface0, 0.25, colors.base),
           },
 
           -- neotree
@@ -71,8 +72,8 @@ return {
           NeoTreeIndentMarker = { fg = colors.surface0 },
 
           NeoTreeDotfile = { fg = colors.overlay0 },
-          NeoTreeProjectName = { fg = colors.blue },
-          NeoTreeProjectPath = { link = "NeoTreeDotfile" },
+          NeoTreeProjectName = { fg = colors.blue, style = { "bold" } },
+          NeoTreeProjectPath = { link = "NeoTreeProjectName" },
 
           -- barbar
           BufferOffset = { fg = colors.lavender, bg = colors.mantle },
@@ -196,6 +197,7 @@ return {
           SnacksInputNormal = { bg = colors.mantle },
           SnacksInputBorder = { link = "FloatBorder" },
           SnacksInputTitle = { link = "FloatTitle" },
+          SnacksInputIcon = { fg = colors.teal, style = {} },
 
           -- snacks terminal
           SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },

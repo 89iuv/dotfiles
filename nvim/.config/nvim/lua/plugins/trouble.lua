@@ -12,7 +12,7 @@ return {
     { "<leader>co", "<cmd>Trouble lsp_outgoing_calls<CR>", desc = "Lsp Outgoing Calls" },
     {
       "<leader>cs",
-      "<cmd>Trouble symbols toggle focus=true fallow=true win.position=right win.size=55<cr>",
+      "<cmd>Trouble symbols toggle auto_refresh=true focus=true win.position=right win.size=55<cr>",
       desc = "Lsp Document Symbols",
     },
     { "<leader>cl", "<cmd>Trouble lsp win.position=right win.size=55<cr>", desc = "LSP References/Definitions/..." },
@@ -30,6 +30,16 @@ return {
       scratch = true,
       bo = {
         filetype = "trouble_preview",
+      },
+    },
+    icons = {
+      indent = {
+        top = "│ ",
+        middle = "│ ",
+        last = "└╴",
+        fold_open = " ",
+        fold_closed = " ",
+        ws = "  ",
       },
     },
   },

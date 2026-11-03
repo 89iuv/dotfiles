@@ -1,11 +1,3 @@
-local neovim_header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]]
-
 return {
   "folke/snacks.nvim",
   dependencies = { "christoomey/vim-tmux-navigator" },
@@ -71,13 +63,7 @@ return {
     require("snacks").setup({
       bigfile = { enabled = true },
       dashboard = {
-        enabled = true,
-        header = neovim_header,
-        sections = {
-          { section = "header" },
-          { section = "keys", gap = 1, padding = 1 },
-          { section = "startup" },
-        },
+        enabled = false,
       },
       explorer = { enabled = false },
       indent = { enabled = false },
@@ -121,7 +107,7 @@ return {
       scope = { enabled = false },
       scroll = { enabled = false },
       statuscolumn = {
-        enabled = true,
+        enabled = false,
         folds = {
           open = false,
         },

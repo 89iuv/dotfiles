@@ -27,6 +27,7 @@ return {
     end
 
     require("neo-tree").setup({
+      hide_root_node = false,
       popup_border_style = "single",
       use_popups_for_input = false,
       close_if_last_window = true,
@@ -41,7 +42,7 @@ return {
         },
         indent = {
           padding = 1,
-          with_expanders = false,
+          with_expanders = true,
           with_markers = true,
         },
         name = {
@@ -82,12 +83,37 @@ return {
         },
         filtered_items = {
           visible = true,
+          hide_dotfiles = true,
+          hide_gitignored = true,
+          hide_ignored = true,
           show_hidden_count = false,
         },
         components = {
+          -- indent = function(config, node, state)
+          --   local result = require("neo-tree.sources.common.components")
+          --     .indent(config, node, state) -- must run for every node
+          --   local level = node.level or (node:get_depth() - 1)
+          --
+          --   if level < 2 then
+          --     -- direct children of the root: no indent at all
+          --     return { text = "" }
+          --   end
+          --
+          --   -- level >= 2: result is a list of segments, remove the first column
+          --   if type(result) == "table" and result[1] ~= nil then
+          --     table.remove(result, 1)
+          --   end
+          --   return result
+          -- end,
+          -- icon = function(config, node, state)
+          --   if node:get_depth() == 1 then
+          --     return { text = "" }
+          --   end
+          --   return require("neo-tree.sources.common.components")
+          --     .icon(config, node, state)
+          -- end,
           name = function(config, node, state)
-            local fc = require("neo-tree.sources.filesystem.components")
-            local result = fc.name(config, node, state)
+            local result = require("neo-tree.sources.filesystem.components").name(config, node, state)
             if node:get_depth() == 1 and node.type ~= "message" then
               local project_path = "[" .. string.sub(result.text, 1, -2) .. "]"
               local project_name = vim.fn.fnamemodify(node.path, ":t")
