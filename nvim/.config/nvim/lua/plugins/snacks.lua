@@ -69,6 +69,7 @@ return {
       indent = { enabled = false },
       input = {
         enabled = true,
+        icon = "",
       },
       notifier = {
         enabled = false, -- enabled manually

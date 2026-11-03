@@ -45,7 +45,7 @@ return {
 
     require("statuscol").setup({
       relculright = true,
-      ft_ignore = { "neo-tree", "snacks_dashboard", },
+      ft_ignore = { "neo-tree", "snacks_picker_preview", },
       segments = {
         {
           sign = {

@@ -20,6 +20,6 @@
   },
   "animations": true,
   "tabs": {
-    "mode": "off"
+    "mode": "on"
   }
 }
