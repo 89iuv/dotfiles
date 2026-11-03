@@ -79,8 +79,6 @@ return {
             padding = { left = 1, right = 1 },
           },
           {
-            -- "filetype",
-            -- colored = false,
             function ()
               return vim.bo.filetype
             end,
