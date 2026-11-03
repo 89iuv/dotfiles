@@ -12,7 +12,7 @@
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.experimental.modernUI": true,
     "workbench.tree.renderIndentGuides": "always",
-    "workbench.tree.indent": 16,
+    // "workbench.tree.indent": 16,
     "workbench.editor.decorations.colors": false,
     "workbench.editor.empty.hint": "hidden",
     "workbench.editor.openPositioning": "last",
@@ -43,7 +43,6 @@
     "git.confirmSync": false,
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.experimental.showMoves": true,
-
     "chat.titleBar.openInAgentsWindow.enabled": false,
     "chat.viewSessions.orientation": "stacked",
     "remote.autoForwardPorts": false,
@@ -97,6 +96,10 @@
     },
 
     "catppuccin-icons.hidesExplorerArrows": false,
+
+    "extensions.supportAgentsWindow": {
+        "Catppuccin.catppuccin-vsc": true
+    },
 
     // spell check
     "cSpell.enabled": true,
