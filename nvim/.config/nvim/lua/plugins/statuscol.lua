@@ -5,7 +5,7 @@ return {
     local builtin = require("statuscol.builtin")
 
     vim.o.foldenable = true
-    vim.o.foldcolumn = "1" -- statuscol needs this nonzero to show fold info
+    vim.o.foldcolumn = "0"
     vim.o.foldlevel = 99
     vim.o.foldlevelstart = 99
 
