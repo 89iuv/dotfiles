@@ -25,6 +25,9 @@ return {
     })
 
     require("render-markdown").setup({
+      sign = {
+        priority = 5,
+      },
       completions = {
         lsp = { enabled = true },
       },
