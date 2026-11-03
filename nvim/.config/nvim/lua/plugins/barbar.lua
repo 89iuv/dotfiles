@@ -9,6 +9,9 @@ return {
   -- stylua: ignore
   keys = {
     -- Move to previous/next
+    { "<S-h>", "<Cmd>BufferPrevious<CR>", desc = "Prev Buffer" },
+    { "<S-l>", "<Cmd>BufferNext<CR>", desc = "Next Buffer" },
+
     { "<M-[>", "<Cmd>BufferPrevious<CR>", desc = "Prev Buffer" },
     { "<M-]>", "<Cmd>BufferNext<CR>", desc = "Next Buffer" },
 

@@ -58,7 +58,7 @@ return {
           FloatBorder = { fg = colors.overlay0, bg = colors.mantle },
           FloatTitle = { fg = colors.lavender, bg = colors.mantle },
 
-          WinSeparator = { fg = colors.surface0, bg = colors_utils.darken(colors.base, 0.5, colors.mantle) },
+          WinSeparator = { fg = colors.surface2, bg = colors_utils.darken(colors.base, 0.5, colors.mantle) },
           LineNr = { fg = colors.surface2 },
 
           FoldColumn = { fg = colors.overlay1 },
