@@ -8,8 +8,8 @@ return {
     { "<leader>cr", "<cmd>Trouble lsp_references<CR>", desc = "Lsp References" },
     { "<leader>cI", "<cmd>Trouble lsp_implementations<cr>", desc = "Lsp Implementation" },
     { "<leader>cy", "<cmd>Trouble lsp_type_definitions<cr>", desc = "Lsp Type Definition" },
-    { "<leader>cai", "<cmd>Trouble lsp_incoming_calls<CR>", desc = "Lsp Incoming Calls" },
-    { "<leader>cao", "<cmd>Trouble lsp_outgoing_calls<CR>", desc = "Lsp Outgoing Calls" },
+    { "<leader>ci", "<cmd>Trouble lsp_incoming_calls<CR>", desc = "Lsp Incoming Calls" },
+    { "<leader>co", "<cmd>Trouble lsp_outgoing_calls<CR>", desc = "Lsp Outgoing Calls" },
     {
       "<leader>cs",
       "<cmd>Trouble symbols toggle focus=true fallow=true win.position=right win.size=55<cr>",

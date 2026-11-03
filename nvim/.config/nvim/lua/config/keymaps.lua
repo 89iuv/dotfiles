@@ -1,3 +1,11 @@
+-- Delete conflicting native global maps to free up the 'gr' prefix
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grt")
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "grx")
+
 -- Clear search highlighting with <Esc>
 vim.keymap.set("n", "<Esc>", function()
   vim.cmd.nohlsearch()
@@ -11,10 +19,10 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Resize windows using Ctrl + Arrow keys
-vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Resize window left' })
-vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Resize window down' })
-vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Resize window up' })
-vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Resize window right' })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Resize window left" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Resize window down" })
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Resize window up" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Resize window right" })
 
 -- Indent / dedent the visual selection without leaving visual mode
 vim.keymap.set("v", ">", ">gv", { desc = "Indent selection" })
@@ -34,12 +42,12 @@ vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
 
 -- Maximize window
-vim.keymap.set("n", "<leader>wz", function()
-    if vim.fn.tabpagenr("$") > 1 then
-        vim.cmd("tabclose")
-    else
-        vim.cmd("tab split")
-    end
+vim.keymap.set("n", "<c-w>z", function()
+  if vim.fn.tabpagenr("$") > 1 then
+    vim.cmd("tabclose")
+  else
+    vim.cmd("tab split")
+  end
 end, { desc = "Toggle window zoom" })
 
 -- Lazy

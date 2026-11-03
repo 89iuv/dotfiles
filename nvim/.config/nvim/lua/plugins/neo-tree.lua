@@ -53,6 +53,7 @@ return {
         position = "left",
         auto_expand_width = false,
         mappings = {
+          ["?"] = "show_help", -- instead of "o"
           ["h"] = "close_node",
           ["l"] = "open",
           ["<space>"] = "none",
