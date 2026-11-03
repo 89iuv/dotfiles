@@ -96,7 +96,7 @@
         }
     },
 
-    "catppuccin-icons.hidesExplorerArrows": true,
+    "catppuccin-icons.hidesExplorerArrows": false,
 
     // spell check
     "cSpell.enabled": true,
