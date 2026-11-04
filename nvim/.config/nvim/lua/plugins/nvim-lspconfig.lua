@@ -1,9 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "mason-org/mason.nvim",
     "saghen/blink.cmp",
   },
+  event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "*:n",

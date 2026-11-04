@@ -6,6 +6,10 @@ return {
     "lewis6991/gitsigns.nvim",
     "echasnovski/mini.icons",
   },
+  lazy = false, -- breaks dashboard and neo-tree if lazy loaded
+  init = function()
+    vim.g.barbar_auto_setup = false
+  end,
   -- stylua: ignore
   keys = {
     -- Move to previous/next
@@ -26,11 +30,6 @@ return {
     { "<leader>bl", "<Cmd>BufferCloseBuffersLeft<CR>", desc = "Close Buffers to the Left" },
     { "<leader>br", "<Cmd>BufferCloseBuffersRight<CR>", desc = "Close Buffers to the Right" },
   },
-  init = function()
-    vim.g.barbar_auto_setup = false
-  end,
-  lazy = false,
-  enabled = true,
   opts = function()
     local icons = require("config.global").icons
 

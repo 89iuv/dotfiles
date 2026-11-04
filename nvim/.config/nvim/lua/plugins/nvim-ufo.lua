@@ -3,7 +3,13 @@ return {
   dependencies = {
     "kevinhwang91/promise-async",
   },
-  enabled = true,
+  event = { "BufReadPost", "BufNewFile" },
+  init = function()
+    -- These MUST be set before the plugin loads so Neovim respects them on startup
+    vim.o.foldcolumn = "1" -- '0' if you don't want the fold column
+    vim.o.foldlevel = 99
+    vim.o.foldlevelstart = 99
+  end,
   opts = {
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
@@ -45,6 +51,6 @@ return {
       end
       return { "treesitter", "indent" }
     end,
-   open_fold_hl_timeout = 350
-  }
+    open_fold_hl_timeout = 350,
+  },
 }

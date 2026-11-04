@@ -1,6 +1,6 @@
 return {
   "sphamba/smear-cursor.nvim",
-  enabled = true,
+  event = "VeryLazy",
   opts = function()
     local smear_cursor = require("smear_cursor")
 

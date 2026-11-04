@@ -1,14 +1,20 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "lewis6991/gitsigns.nvim",
+    "echasnovski/mini.icons",
   },
+  event = "VeryLazy",
   config = function()
     require("lualine").setup({
       options = {
         theme = "catppuccin-nvim",
         component_separators = { left = "│", right = "│" },
         section_separators = { left = "", right = "" },
+        disabled_filetypes = {
+          statusline = { "snacks_dashboard" },
+          winbar = {"snacks_dashboard" },
+        },
+        globalstatus = true,
       },
       extensions = { "neo-tree" },
       sections = {
@@ -26,7 +32,7 @@ return {
           {
             "diagnostics",
             sources = { "nvim_workspace_diagnostic" },
-            sections = { 'error', 'warn', 'info', 'hint' },
+            sections = { "error", "warn", "info", "hint" },
             colored = false,
             symbols = {
               error = require("config.global").icons.diagnostics_outline.error .. " ",
@@ -79,7 +85,7 @@ return {
             padding = { left = 1, right = 1 },
           },
           {
-            function ()
+            function()
               return vim.bo.filetype
             end,
             icon = "󰅪",

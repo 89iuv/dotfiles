@@ -1,9 +1,7 @@
 return {
   "folke/snacks.nvim",
-  dependencies = { "christoomey/vim-tmux-navigator" },
   priority = 1000,
   lazy = false,
-  enabled = true,
   -- stylua: ignore
   keys = {
     -- file
@@ -65,16 +63,26 @@ return {
       dashboard = {
         enabled = true,
         preset = {
-           keys = {
+          keys = {
             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
             { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.picker.recent({ filter = { cwd = true } })" },
-            { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+            {
+              icon = " ",
+              key = "r",
+              desc = "Recent Files",
+              action = ":lua Snacks.picker.recent({ filter = { cwd = true } })",
+            },
+            {
+              icon = " ",
+              key = "c",
+              desc = "Config",
+              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+            },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-          }
-        }
+          },
+        },
       },
       explorer = { enabled = false },
       indent = { enabled = false },
@@ -173,6 +181,15 @@ return {
       },
     })
 
+    -- dashboard
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "SnacksDashboardOpened",
+      callback = function()
+        vim.opt_local.foldcolumn = "0"
+      end,
+    })
+
+    -- notifier
     -- ---@diagnostic disable-next-line: duplicate-set-field
     -- vim.notify = function(msg, level, opts)
     --   if opts and opts.title == "Trouble" then

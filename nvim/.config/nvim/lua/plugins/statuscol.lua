@@ -1,20 +1,8 @@
 return {
   "luukvbaal/statuscol.nvim",
-  enabled = true,
+  lazy = false, -- reads and modifies ui, needs to load first
   config = function()
     local builtin = require("statuscol.builtin")
-
-    vim.o.foldenable = true
-    vim.o.foldcolumn = "0"
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
-
-    vim.opt.fillchars:append({
-      foldopen = "",
-      foldclose = "",
-      fold = " ",
-      foldsep = " ",
-    })
 
     local function line_number(args)
       local nu = vim.wo[args.win].number
@@ -45,7 +33,7 @@ return {
 
     require("statuscol").setup({
       relculright = true,
-      ft_ignore = { "neo-tree", "snacks_picker_preview", },
+      ft_ignore = { "neo-tree", "snacks_dashboard", "snacks_picker_preview" },
       segments = {
         {
           sign = {

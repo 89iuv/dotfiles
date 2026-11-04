@@ -4,7 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-mini/mini.icons",
   },
-  lazy = false,
+  ft = "markdown",
   config = function()
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "[ivV\x16]:n",

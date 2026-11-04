@@ -1,11 +1,12 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "echasnovski/mini.icons",
   },
-  lazy = false,
+  lazy = false, -- neo-tree will lazily load itself
   keys = {
     { "<leader>et", "<cmd>Neotree toggle<CR>", desc = "NeoTree Toggle" },
     { "<leader>er", "<cmd>Neotree reveal<CR>", desc = "NeoTree Reveal" },
@@ -142,6 +143,17 @@ return {
           handler = function(args)
             if args.position == "left" or args.position == "right" then
               vim.cmd("wincmd =")
+            end
+          end,
+        },
+        -- close dashboard
+        {
+          event = "neo_tree_window_before_open",
+          handler = function()
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+              if vim.bo[buf].filetype == "snacks_dashboard" then
+                vim.api.nvim_buf_delete(buf, { force = true })
+              end
             end
           end,
         },

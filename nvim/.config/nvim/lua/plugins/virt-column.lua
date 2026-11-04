@@ -3,9 +3,7 @@ return {
   -- "lukas-reineke/virt-column.nvim"
   "IronGeek/virt-column.nvim",
   branch = "fix/off-by-one",
-  enabled = true,
-  lazy = true,
-  event = "BufEnter",
+  event = { "BufReadPre", "BufNewFile" },
   opts = function()
     -- WARN: ugly hack in order to let the buffer overwrite the config
     local M = require("virt-column.config")
