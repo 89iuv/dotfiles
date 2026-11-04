@@ -153,6 +153,9 @@ sudo dnf install -y node
 
 # lua
 sudo dnf install -y lua luarocks compat-lua
+
+# go
+sudo dnf install -y golang
 ```
 
 ## Containers
