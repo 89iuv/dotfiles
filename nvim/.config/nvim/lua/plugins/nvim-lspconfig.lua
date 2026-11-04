@@ -72,6 +72,7 @@ return {
         border = "single",
       })
     end, { desc = "LSP Hover Documentation" })
+
     vim.keymap.set("i", "<C-S>", function()
       vim.lsp.buf.signature_help({
         max_height = 20,
@@ -79,9 +80,11 @@ return {
         border = "single",
       })
     end, { desc = "LSP Signature Help" })
+
     vim.keymap.set("n", "<leader>ca", function()
       vim.lsp.buf.code_action()
     end, { desc = "Code Action" })
+
     vim.keymap.set("n", "<leader>co", function()
       vim.lsp.buf.code_action({
         apply = true,
@@ -91,6 +94,7 @@ return {
         },
       })
     end, { desc = "Organize Imports" })
+
     vim.keymap.set("n", "<leader>cn", function()
       vim.lsp.buf.rename()
     end, { desc = "Rename" })
@@ -110,70 +114,16 @@ return {
 
     vim.lsp.inlay_hint.enable(true)
 
-    -- bash
-    vim.lsp.enable("bashls")
+    -- servers
+    local languages = require("config.global").languages
 
-    -- docker
-    vim.lsp.enable("dockerls")
+    for _, plugins in pairs(languages) do
+      local nvim_lspconfig = plugins.nvim_lspconfig ~= nil and plugins.nvim_lspconfig or {}
+      for name, config in pairs(nvim_lspconfig) do
+        vim.lsp.config(name, config)
+        vim.lsp.enable(name)
+      end
+    end
 
-    -- lua
-    vim.lsp.config("lua_ls", {
-      settings = {
-        Lua = {
-          hint = {
-            enable = true, -- Core setting to turn hints on
-            arrayIndex = "Disable", -- Optional: Show index hints for arrays
-          },
-        },
-      },
-    })
-    vim.lsp.enable("lua_ls")
-
-    -- python
-    vim.lsp.config("basedpyright", {
-      settings = {
-        basedpyright = {
-          disableOrganizeImports = true, -- Ruff does this
-          analysis = {
-            typeCheckingMode = "recommended",
-            diagnosticMode = "openFilesOnly",
-            -- Ignore all files for analysis to exclusively use Ruff for linting
-            ignore = { "*" },
-          },
-        },
-      },
-    })
-    vim.lsp.enable("basedpyright")
-
-    vim.lsp.config("ruff", {
-      init_options = {
-        settings = {
-          configuration = vim.fn.expand("~/.dotfiles/templates/ruff.toml"),
-          configurationPreference = "filesystemFirst",
-        },
-      },
-    })
-    vim.lsp.enable("ruff")
-    vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client.name == "ruff" then
-          client.server_capabilities.hoverProvider = false
-        end
-      end,
-    })
-
-    -- markdown
-    vim.lsp.enable("markdownlint-cli2")
-    vim.lsp.enable("marksman")
-
-    -- json
-    vim.lsp.enable("jsonls")
-
-    -- toml
-    vim.lsp.enable("taplo")
-
-    -- yaml
-    vim.lsp.enable("yamlls")
   end,
 }

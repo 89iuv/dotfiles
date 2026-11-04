@@ -1,12 +1,16 @@
 return {
   "mfussenegger/nvim-lint",
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
-    require("lint").linters_by_ft = {
-      dockerfile = { "hadolint" },
-      markdown = { "markdownlint-cli2" },
-      yaml = { "yamllint" },
-    }
+    local languages = require("config.global").languages
+
+    local linters_by_ft = {}
+    for _, plugins in pairs(languages) do
+      local nvim_lint = plugins.nvim_lint ~= nil and plugins.nvim_lint or {}
+      linters_by_ft = vim.tbl_deep_extend("force", linters_by_ft, nvim_lint)
+    end
+
+    require("lint").linters_by_ft = linters_by_ft
 
     vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "TextChanged", "BufWritePost" }, {
       callback = function()

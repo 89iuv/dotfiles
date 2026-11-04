@@ -21,7 +21,6 @@ RUN dnf upgrade -y \
     && dnf clean all
 
 # install latest version of opencode globally using npm
-# hadolint ignore=DL3016
 RUN npm install -g @opencode/cli@latest \
     && npm cache clean --force
 

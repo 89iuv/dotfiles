@@ -39,6 +39,9 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "text", "markdown" },
   callback = function()
+    if vim.bo.buftype == "nofile" then
+      return
+    end
     vim.opt_local.spell = true
   end,
 })

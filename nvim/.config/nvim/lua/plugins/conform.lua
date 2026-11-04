@@ -19,15 +19,17 @@ return {
       desc = "Format Range",
     },
   },
-  opts = {
-    formatters_by_ft = {
-      dockerfile = { "dockerfmt" },
-      lua = { "stylua" },
-      python = { "ruff_format" },
-      markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
-      json = { "prettier" },
-      jsonc = { "prettier" },
-      yaml = { "prettier" },
-    },
-  },
+  config = function()
+    local languages = require("config.global").languages
+
+    local formatters_by_ft = {}
+    for _, plugins in pairs(languages) do
+      local conform = plugins.conform ~= nil and plugins.conform or {}
+      formatters_by_ft = vim.tbl_deep_extend("force", formatters_by_ft, conform)
+    end
+
+    require("conform").setup({
+      formatters_by_ft = formatters_by_ft,
+    })
+  end,
 }

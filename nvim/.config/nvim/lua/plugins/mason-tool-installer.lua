@@ -9,44 +9,18 @@ return {
   },
   lazy = false, -- this needs to run at startup in order to auto install packages
   config = function()
+    local languages = require("config.global").languages
+
+    local ensure_installed = {}
+    for _, plugins in pairs(languages) do
+      local mason_tool_installer = plugins.mason_tool_installer ~= nil and plugins.mason_tool_installer or {}
+      for _, tool in ipairs(mason_tool_installer) do
+        table.insert(ensure_installed, tool)
+      end
+    end
+
     require("mason-tool-installer").setup({
-      ensure_installed = {
-        -- formatters
-        "prettier",
-
-        -- bash
-        "bash-language-server",
-        "shellcheck",
-        "shfmt",
-
-        -- docker
-        "dockerfile-language-server",
-        "hadolint",
-        "dockerfmt",
-
-        -- lua
-        "lua-language-server",
-        "stylua",
-
-        -- python
-        "basedpyright",
-        "ruff",
-
-        -- markdown
-        "marksman",
-        "markdownlint-cli2",
-        "markdown-toc",
-
-        -- json
-        "json-lsp",
-
-        -- toml
-        "taplo",
-
-        -- yaml
-        "yaml-language-server",
-        "yamllint",
-      },
+      ensure_installed = ensure_installed
     })
   end,
 }
