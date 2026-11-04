@@ -26,9 +26,9 @@ RUN npm install -g @opencode/cli@latest \
     && npm cache clean --force
 
 # allow wheel group to use sudo without password and create dev user
-RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel-nopasswd && \
-  useradd -ml ${USER} && \
-  usermod -aG wheel ${USER}
+RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers.d/wheel-nopasswd \
+    && useradd -ml ${USER} \
+    && usermod -aG wheel ${USER}
 
 USER ${USER}
 
@@ -38,8 +38,9 @@ RUN mkdir -p ~/.local
 WORKDIR /workspace
 
 # pass JSON configuration to the OpenCode CLI via environment variable
+# dockerfmt-ignore
 ENTRYPOINT [ "bash", "-c", "\
-  # change the user and group IDs of the dev user to match the provided environment variables
-  sudo usermod -u ${USER_UID} ${USER} >/dev/null 2>&1; \
-  sudo usermod -g ${USER_GID} ${USER} >/dev/null 2>&1; \
-  opencode"]
+      # change the user and group IDs of the dev user to match the provided environment variables
+      sudo usermod -u ${USER_UID} ${USER} >/dev/null 2>&1; \
+      sudo usermod -g ${USER_GID} ${USER} >/dev/null 2>&1; \
+      opencode"]

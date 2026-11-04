@@ -1,11 +1,14 @@
 {
   "$schema": "https://www.schemastore.org/prettierrc.json",
-
   "tabWidth": 2,
-
-  "proseWrap": "always",
-  "printWidth": 80,
-
-  "trailingComma": "none"
-
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 80,
+        "proseWrap": "always"
+      }
+    }
+  ]
 }

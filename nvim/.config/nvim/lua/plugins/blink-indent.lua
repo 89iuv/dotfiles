@@ -6,6 +6,7 @@ return {
       buftypes = { include_defaults = true },
       filetypes = { include_defaults = true,  "markdown", "snacks_dashboard", "snacks_picker_preview", "markdown.snacks_picker_preview" },
     },
+    dedent_scoped_filetypes = { include_defaults = true, "dockerfile" },
     static = {
       enabled = true,
       char = '│',

@@ -1,3 +1,4 @@
+// vim: set filetype=jsonc :
 {
     // performance
     "workbench.list.smoothScrolling": true,

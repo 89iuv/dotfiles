@@ -3,8 +3,8 @@
 # Check if the WINDOWS_USER_NAME environment variable is set
 echo "Testing if the WINDOWS_USER_NAME environment variable is set..."
 if [ -z "$WINDOWS_USER_NAME" ]; then
-	echo "WINDOWS_USER_NAME is not set, use export WINDOWS_USER_NAME=<your_windows_user_name>"
-	exit 1
+  echo "WINDOWS_USER_NAME is not set, use export WINDOWS_USER_NAME=<your_windows_user_name>"
+  exit 1
 fi
 
 CONFIG_DIR=~/.dotfiles/vscode/config
@@ -23,8 +23,8 @@ cp -f "$CONFIG_DIR/keybindings.json" "$USER_DIR/"
 # Restore VSCode extensions from the text file
 echo "Restoring VSCode extensions..."
 while IFS= read -r extension; do
-	[ -z "$extension" ] && continue
-	code --install-extension "$extension" --force
-done < "$CONFIG_DIR/extensions.txt"
+  [ -z "$extension" ] && continue
+  code --install-extension "$extension" --force
+done <"$CONFIG_DIR/extensions.txt"
 
 echo "Restore completed successfully."

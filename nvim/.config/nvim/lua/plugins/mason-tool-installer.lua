@@ -7,10 +7,23 @@ return {
     "MasonToolsUpdateSync",
     "MasonToolsClean",
   },
-  event = "VeryLazy",
+  lazy = false, -- this needs to run at startup in order to auto install packages
   config = function()
     require("mason-tool-installer").setup({
       ensure_installed = {
+        -- formatters
+        "prettier",
+
+        -- bash
+        "bash-language-server",
+        "shellcheck",
+        "shfmt",
+
+        -- docker
+        "dockerfile-language-server",
+        "hadolint",
+        "dockerfmt",
+
         -- lua
         "lua-language-server",
         "stylua",
@@ -23,10 +36,16 @@ return {
         "marksman",
         "markdownlint-cli2",
         "markdown-toc",
-        "prettier",
 
         -- json
         "json-lsp",
+
+        -- toml
+        "taplo",
+
+        -- yaml
+        "yaml-language-server",
+        "yamllint",
       },
     })
   end,

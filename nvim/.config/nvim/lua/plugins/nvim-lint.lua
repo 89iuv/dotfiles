@@ -3,7 +3,9 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     require("lint").linters_by_ft = {
+      dockerfile = { "hadolint" },
       markdown = { "markdownlint-cli2" },
+      yaml = { "yamllint" },
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "TextChanged", "BufWritePost" }, {

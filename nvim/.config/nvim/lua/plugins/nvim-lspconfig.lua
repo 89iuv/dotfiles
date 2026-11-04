@@ -3,7 +3,7 @@ return {
   dependencies = {
     "saghen/blink.cmp",
   },
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     vim.api.nvim_create_autocmd("ModeChanged", {
       pattern = "*:n",
@@ -110,6 +110,12 @@ return {
 
     vim.lsp.inlay_hint.enable(true)
 
+    -- bash
+    vim.lsp.enable("bashls")
+
+    -- docker
+    vim.lsp.enable("dockerls")
+
     -- lua
     vim.lsp.config("lua_ls", {
       settings = {
@@ -163,5 +169,11 @@ return {
 
     -- json
     vim.lsp.enable("jsonls")
+
+    -- toml
+    vim.lsp.enable("taplo")
+
+    -- yaml
+    vim.lsp.enable("yamlls")
   end,
 }
