@@ -48,7 +48,7 @@ return {
         curWidth = curWidth + chunkWidth
       end
 
-      table.insert(newVirtText, { suffix, "Folded" })
+      table.insert(newVirtText, { suffix, "MoreMsg" })
 
       return newVirtText
     end,

@@ -62,6 +62,7 @@ return {
           LineNr = { fg = colors.surface2 },
 
           FoldColumn = { fg = colors.overlay1 },
+
           LspInlayHint = {
             fg = colors.overlay0,
             bg = colors_utils.darken(colors.surface0, 0.25, colors.base),
@@ -202,6 +203,9 @@ return {
           -- snacks terminal
           SnacksWinBar = { fg = colors.lavender, bg = colors.mantle },
           SnacksTerminal = { bg = colors.mantle },
+
+          -- ufo
+          MoreMsg = { fg = colors.blue, bg = colors.surface1 },
         }
       end,
     })
