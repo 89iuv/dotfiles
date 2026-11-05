@@ -63,22 +63,13 @@ return {
       dashboard = {
         enabled = true,
         preset = {
+          -- stylua: ignore
           keys = {
             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
             { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-            {
-              icon = " ",
-              key = "r",
-              desc = "Recent Files",
-              action = ":lua Snacks.picker.recent({ filter = { cwd = true } })",
-            },
-            {
-              icon = " ",
-              key = "c",
-              desc = "Config",
-              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-            },
+            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.picker.recent({ filter = { cwd = true } })", },
+            { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})", },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
@@ -154,7 +145,7 @@ return {
       },
       terminal = {
         win = {
-          height = 0.30,
+          height = 15,
           wo = {
             winbar = "",
             winhighlight = "Normal:SnacksTerminal,WinBar:SnacksWinBar",

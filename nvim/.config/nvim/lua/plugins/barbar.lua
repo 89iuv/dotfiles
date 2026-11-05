@@ -73,22 +73,22 @@ return {
         ["neo-tree"] = {
           event = "BufWipeout",
           text = "Explorer",
-          separator = "┃",
+          separator = "│",
           align = "left",
         },
         ["trouble"] = {
           text = "Trouble",
-          separator = "┃",
+          separator = "│",
           align = "left",
         },
         ["snacks_terminal"] = {
           text = "Terminal",
-          separator = "┃",
+          separator = "│",
           align = "left",
         },
         ["grug-far"] = {
           text = "Search'n Replace",
-          separator = "┃",
+          separator = "│",
           align = "left",
         },
       },

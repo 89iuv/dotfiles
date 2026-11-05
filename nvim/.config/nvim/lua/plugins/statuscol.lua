@@ -2,6 +2,8 @@ return {
   "luukvbaal/statuscol.nvim",
   lazy = false, -- reads and modifies ui, needs to load first
   config = function()
+    local ft_ignore = { "neo-tree", "snacks_dashboard", "snacks_picker_preview" }
+
     local builtin = require("statuscol.builtin")
 
     local function line_number(args)
@@ -33,7 +35,7 @@ return {
 
     require("statuscol").setup({
       relculright = true,
-      ft_ignore = { "neo-tree", "snacks_dashboard", "snacks_picker_preview" },
+      ft_ignore = ft_ignore,
       segments = {
         {
           sign = {
@@ -64,5 +66,14 @@ return {
         },
       },
     })
+
+    vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
+      callback = function(args)
+        if vim.tbl_contains(ft_ignore, vim.bo[args.buf].filetype) then
+          vim.wo.foldcolumn = "0"
+        end
+      end,
+    })
+
   end,
 }

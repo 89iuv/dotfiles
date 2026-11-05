@@ -22,32 +22,7 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:2"
 vim.opt.list = true
 vim.opt.listchars:append({ tab = "» ", trail = "·", nbsp = "␣" })
-
 vim.opt.fillchars:append({ eob = " " })
-
--- Folds
-vim.o.foldenable = true
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-
-vim.opt.fillchars:append({
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-})
-
--- Border
-vim.opt.fillchars:append({
-  horiz = "━",
-  horizup = "┻",
-  horizdown = "┳",
-  vert = "┃",
-  vertleft = "┫",
-  vertright = "┣",
-  verthoriz = "╋",
-})
 
 -- Text
 vim.opt.wrap = false

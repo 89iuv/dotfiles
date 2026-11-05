@@ -5,10 +5,17 @@ return {
   },
   event = { "BufReadPost", "BufNewFile" },
   init = function()
-    -- These MUST be set before the plugin loads so Neovim respects them on startup
-    vim.o.foldcolumn = "1" -- '0' if you don't want the fold column
+    vim.o.foldcolumn = "1"
+    vim.o.foldenable = true
     vim.o.foldlevel = 99
     vim.o.foldlevelstart = 99
+    vim.opt.fillchars:append({
+      fold = " ",
+      foldopen = "",
+      foldsep = " ",
+      foldinner = " ",
+      foldclose = "",
+    })
   end,
   opts = {
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
@@ -44,12 +51,6 @@ return {
       table.insert(newVirtText, { suffix, "Folded" })
 
       return newVirtText
-    end,
-    provider_selector = function(_, filetype, _)
-      if filetype == "neo-tree" then
-        return ""
-      end
-      return { "treesitter", "indent" }
     end,
     open_fold_hl_timeout = 350,
   },
