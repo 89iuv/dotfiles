@@ -13,6 +13,8 @@ return {
         { "<leader>f", desc = "Find" },
         { "<leader>s", desc = "Search", mode = { "n", "v" } },
         { "<leader>t", desc = "Toggle" },
+        { "<leader>x", desc = "Trouble", icon = "󰙅" },
+        { "<leader>xa", desc = "Hierarchy", icon = "󰙅" },
         {
           "<leader>w",
           function()

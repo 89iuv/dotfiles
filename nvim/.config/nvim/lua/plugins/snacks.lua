@@ -122,6 +122,21 @@ return {
             cmd = { "delta", "--file-style=omit" },
           },
         },
+        actions = {
+          trouble_open = function(...)
+            return require("trouble.sources.snacks").actions.trouble_open.action(...)
+          end,
+        },
+        win = {
+          input = {
+            keys = {
+              ["<C-x>"] = {
+                "trouble_open",
+                mode = { "n", "i" },
+              },
+            },
+          },
+        },
       },
       quickfile = { enabled = false },
       scope = { enabled = false },
