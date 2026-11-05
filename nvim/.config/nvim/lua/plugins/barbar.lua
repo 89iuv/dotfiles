@@ -24,8 +24,15 @@ return {
     { "<M-}>", "<Cmd>BufferMoveNext<CR>", desc = "Move buffer next" },
 
     -- Close buffers
-    { "<leader>bq", function () Snacks.bufdelete() end, desc = "Close Buffer" },
-    { "<leader>bQ", function () Snacks.bufdelete({force = true}) end, desc = "Force Close Buffer" },
+    { "<leader>bq", function() Snacks.bufdelete() end, desc = "Close Buffer" },
+    { "<leader>bQ", function() Snacks.bufdelete({force = true}) end, desc = "Force Close Buffer" },
+    { "<leader>bX",
+      function()
+        Snacks.bufdelete.delete({ force = true })
+        vim.cmd('close')
+      end,
+      desc = "Force Close Buffer and Window"
+    },
     { "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close Other Buffers" },
     { "<leader>bl", "<Cmd>BufferCloseBuffersLeft<CR>", desc = "Close Buffers to the Left" },
     { "<leader>br", "<Cmd>BufferCloseBuffersRight<CR>", desc = "Close Buffers to the Right" },
@@ -76,6 +83,11 @@ return {
         },
         ["snacks_terminal"] = {
           text = "Terminal",
+          separator = "┃",
+          align = "left",
+        },
+        ["grug-far"] = {
+          text = "Search'n Replace",
           separator = "┃",
           align = "left",
         },

@@ -95,7 +95,7 @@ return {
       })
     end, { desc = "Organize Imports" })
 
-    vim.keymap.set("n", "<leader>cn", function()
+    vim.keymap.set("n", "<leader>rn", function()
       vim.lsp.buf.rename()
     end, { desc = "Rename" })
 
