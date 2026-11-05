@@ -64,7 +64,7 @@ return {
             type = "split",
             relative = "win",
             position = "right",
-            size = 0.65,
+            size = 0.40,
             wo = {
               number = true,
             },
