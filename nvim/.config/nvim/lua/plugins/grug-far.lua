@@ -22,7 +22,6 @@ return {
   },
   config = function()
     require("grug-far").setup({
-     headerMaxWidth = 80,
       helpLine = {
         -- whether to show the help line at the top of the buffer
         enabled = false,
@@ -60,12 +59,12 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "grug-far" },
       callback = function()
-        vim.api.nvim_win_set_width(0, 80)
+        vim.api.nvim_win_set_width(0, 60)
         vim.wo.winhighlight = "Normal:NormalFloat"
       end,
     })
 
-    -- Overwrite highlight mode
+    -- overwrite highlight mode
     local old_nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.api.nvim_buf_set_extmark = function(buffer, ns_id, line, col, opts)
