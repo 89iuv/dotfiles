@@ -27,12 +27,7 @@
     "break",
     // hardware info
     "cpu",
-    {
-      "type": "gpu",
-      "format": "{name}",
-      "driverSpecific": true,
-      "detectionMethod": "vulkan"
-    },
+    "gpu",
     "memory",
     "swap",
     {
