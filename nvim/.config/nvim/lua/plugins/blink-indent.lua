@@ -1,22 +1,31 @@
 return {
-  'saghen/blink.indent',
+  "saghen/blink.indent",
   event = { "BufReadPre", "BufNewFile" },
-  opts = {
-    blocked = {
+  config = function()
+    local blocked = {
       buftypes = { include_defaults = true },
-      filetypes = { include_defaults = true,  "markdown", "snacks_dashboard", "snacks_picker_preview", "markdown.snacks_picker_preview" },
-    },
-    dedent_scoped_filetypes = { include_defaults = true, "dockerfile" },
-    static = {
-      enabled = true,
-      char = '│',
-      highlights = { 'BlinkIndent' },
-    },
-    scope = {
-      enabled = true,          -- highlight highest level of indentation on the current line
-      indent_at_cursor = false, -- clamp to indent level of cursor
-      char = '│',
-      highlights = { 'BlinkIndentScope' }
-    },
-  },
+      filetypes = { include_defaults = true },
+    }
+
+    local ignore = require("config.global").exclude
+    for _, filetype in ipairs(ignore.filetypes) do
+      table.insert(blocked.filetypes, filetype)
+    end
+
+    require("blink-indent").setup({
+      blocked = blocked,
+      dedent_scoped_filetypes = { include_defaults = true, "dockerfile" },
+      static = {
+        enabled = true,
+        char = "│",
+        highlights = { "BlinkIndent" },
+      },
+      scope = {
+        enabled = true, -- highlight highest level of indentation on the current line
+        indent_at_cursor = false, -- clamp to indent level of cursor
+        char = "│",
+        highlights = { "BlinkIndentScope" },
+      },
+    })
+  end,
 }

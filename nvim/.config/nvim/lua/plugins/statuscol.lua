@@ -2,7 +2,8 @@ return {
   "luukvbaal/statuscol.nvim",
   lazy = false, -- reads and modifies ui, needs to load first
   config = function()
-    local ft_ignore = { "neo-tree", "snacks_dashboard", "snacks_picker_preview" }
+    local igonre = require("config.global").exclude
+    local ft_ignore = igonre.filetypes
 
     local builtin = require("statuscol.builtin")
 

@@ -1,5 +1,15 @@
 M = {}
 
+M.exclude = {
+  filetypes = {
+    "neo-tree",
+    "markdown",
+    "snacks_dashboard",
+    "snacks_picker_preview",
+    "markdown.snacks_picker_preview",
+  },
+}
+
 M.icons = {
   diagnostics = {
     hint = "",

@@ -68,13 +68,15 @@ return {
       end,
     })
 
+    local ignore = require("config.global").exclude
+
     return {
       enabled = true,
       char = { "│", "│" },
       virtcolumn = "80,120",
       highlight = "VirtColumn",
       exclude = {
-        filetypes = { "dashboard", "markdown", "snacks_picker_preview" },
+        filetypes = ignore.filetypes,
       },
     }
   end,
