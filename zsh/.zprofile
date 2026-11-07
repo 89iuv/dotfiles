@@ -4,6 +4,9 @@ export PATH=$HOME/.local/bin:$PATH
 # add personal scripts to path
 export PATH=$HOME/.scripts:$PATH
 
+# go
+export PATH=$HOME/go/bin:$PATH
+
 # source .zprofile_local
 if [ -f "$HOME/.zprofile_local" ]; then
   source "$HOME"/.zprofile_local
