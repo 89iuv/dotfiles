@@ -4,7 +4,7 @@ return {
   config = function()
     local blocked = {
       buftypes = { include_defaults = true },
-      filetypes = { include_defaults = true },
+      filetypes = { include_defaults = true, "markdown" },
     }
 
     local ignore = require("config.global").exclude
