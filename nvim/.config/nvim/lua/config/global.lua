@@ -62,14 +62,7 @@ M.languages = {
           },
         },
       },
-      ruff = {
-        init_options = {
-          settings = {
-            configuration = vim.fn.expand("~/.dotfiles/templates/ruff.toml"),
-            configurationPreference = "filesystemFirst",
-          },
-        },
-      },
+      ruff = {},
     },
     conform = { python = { "ruff_format" } },
   },
