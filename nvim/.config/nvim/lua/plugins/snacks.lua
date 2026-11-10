@@ -97,16 +97,23 @@ return {
         ui_select = true,
         layout = {
           preset = function()
-            return vim.o.columns >= 140 and "default" or "vertical"
+            return vim.o.columns >= 120 and "default" or "vertical"
           end,
         },
         layouts = {
+          default = {
+            layout = {
+              width = 0.8,
+              height = 0.8,
+              min_width = 100,
+            },
+          },
           vertical = {
             layout = {
               backdrop = 60,
               width = 0.8,
-              min_width = 80,
               height = 0.8,
+              min_width = 80,
               min_height = 10,
             },
           },
