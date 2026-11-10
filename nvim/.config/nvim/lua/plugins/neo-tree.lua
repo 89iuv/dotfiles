@@ -13,6 +13,8 @@ return {
     { "<leader>ef", "<cmd>Neotree focus<CR>", desc = "NeoTree Focus" },
   },
   config = function()
+    local border = require("config.global").border
+
     local window_width = 40
 
     local run_in_directory = function(state_tree_node, fzf_picker_function)
@@ -29,7 +31,7 @@ return {
 
     require("neo-tree").setup({
       hide_root_node = false,
-      popup_border_style = "single",
+      popup_border_style = border,
       use_popups_for_input = false,
       close_if_last_window = true,
       enable_git_status = true,

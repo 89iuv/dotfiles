@@ -19,8 +19,9 @@ return {
       end,
     })
 
-    -- load icons from global config
+    -- load settings from global
     local icons = require("config.global").icons
+    local border = require("config.global").border
 
     -- lsp diagnostics configuration
     vim.diagnostic.config({
@@ -33,7 +34,7 @@ return {
       },
       float = {
         source = true,
-        border = "single",
+        border = border,
       },
       virtual_text = {
         source = false, -- it is handeled in the format function
@@ -69,7 +70,7 @@ return {
       vim.lsp.buf.hover({
         max_width = 80,
         max_height = 20,
-        border = "single",
+        border = border,
       })
     end, { desc = "LSP Hover Documentation" })
 
@@ -77,7 +78,7 @@ return {
       vim.lsp.buf.signature_help({
         max_height = 20,
         max_width = 80,
-        border = "single",
+        border = border,
       })
     end, { desc = "LSP Signature Help" })
 

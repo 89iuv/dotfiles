@@ -2,6 +2,8 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre" },
   config = function()
+    local border = require("config.global").border
+
     require("gitsigns").setup({
       signs = {
         add = { text = "┃" },
@@ -47,7 +49,7 @@ return {
       preview_config = {
         -- Options passed to nvim_open_win
         style = "minimal",
-        border = "single",
+        border = border,
         relative = "cursor",
         row = 0,
         col = 1,
@@ -62,9 +64,9 @@ return {
         end
 
         -- Navigation
-        map("n", "]c", function()
+        map("n", "]h", function()
           if vim.wo.diff then
-            vim.cmd.normal({ "]c", bang = true })
+            vim.cmd.normal({ "]h", bang = true })
           else
             gitsigns.nav_hunk("next")
           end

@@ -3,12 +3,16 @@ return {
   keys = {
     { "<leader>m", "<cmd>Mason<CR>", desc = "Mason" },
   },
-  opts = {
-    ui = {
-      border = "single",
-      backdrop = 60,
-      width = 0.8,
-      height = 0.8,
-    },
-  },
+  config = function ()
+    local border = require("config.global").border
+
+    require("mason").setup({
+      ui = {
+        border = border,
+        backdrop = 60,
+        width = 0.8,
+        height = 0.8,
+      }
+    })
+  end
 }

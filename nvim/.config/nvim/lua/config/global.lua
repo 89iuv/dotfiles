@@ -9,6 +9,8 @@ M.exclude = {
   },
 }
 
+M.border = "single"
+
 M.icons = {
   diagnostics = {
     hint = "",

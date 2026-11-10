@@ -95,6 +95,22 @@ return {
       picker = {
         enabled = true,
         ui_select = true,
+        layout = {
+          preset = function()
+            return vim.o.columns >= 140 and "default" or "vertical"
+          end,
+        },
+        layouts = {
+          vertical = {
+            layout = {
+              backdrop = 60,
+              width = 0.8,
+              min_width = 80,
+              height = 0.8,
+              min_height = 10,
+            },
+          },
+        },
         sources = {
           files = {
             hidden = true,

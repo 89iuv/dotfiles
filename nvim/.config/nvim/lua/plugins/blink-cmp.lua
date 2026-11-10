@@ -3,103 +3,107 @@ return {
   dependencies = { "rafamadriz/friendly-snippets" },
   event = "InsertEnter",
   version = "1.*",
-  opts = {
-    cmdline = {
-      enabled = false,
-    },
+  opts_extend = { "sources.default" },
+  config = function()
+    local border = require("config.global").border
 
-    keymap = {
-      preset = "default",
-      ["<Tab>"] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_and_accept()
-          end
-        end,
-        "snippet_forward",
-        "fallback",
-      },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
-      ["<CR>"] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_and_accept()
-          end
-        end,
-        "fallback",
-      },
-    },
+    require("blink.cmp").setup({
+        cmdline = {
+          enabled = false,
+        },
 
-    appearance = {
-      nerd_font_variant = "mono",
-    },
-
-    completion = {
-      menu = {
-        border = "single",
-        scrollbar = false,
-        winblend = 0,
-        draw = {
-          columns = {
-            { "label", "label_description", "source_name", gap = 1 },
-            { "kind_icon" },
-            { "kind" },
+        keymap = {
+          preset = "default",
+          ["<Tab>"] = {
+            function(cmp)
+              if cmp.snippet_active() then
+                return cmp.accept()
+              else
+                return cmp.select_and_accept()
+              end
+            end,
+            "snippet_forward",
+            "fallback",
           },
-          components = {
-            source_name = {
-              text = function(ctx)
-                return "[" .. ctx.source_name .. "]"
-              end,
+          ["<S-Tab>"] = { "snippet_backward", "fallback" },
+          ["<CR>"] = {
+            function(cmp)
+              if cmp.snippet_active() then
+                return cmp.accept()
+              else
+                return cmp.select_and_accept()
+              end
+            end,
+            "fallback",
+          },
+        },
+
+        appearance = {
+          nerd_font_variant = "mono",
+        },
+
+        completion = {
+          menu = {
+            border = border,
+            scrollbar = false,
+            winblend = 0,
+            draw = {
+              columns = {
+                { "label", "label_description", "source_name", gap = 1 },
+                { "kind_icon" },
+                { "kind" },
+              },
+              components = {
+                source_name = {
+                  text = function(ctx)
+                    return "[" .. ctx.source_name .. "]"
+                  end,
+                },
+              },
             },
           },
+          documentation = {
+            auto_show = false,
+            window = {
+              border = border,
+              scrollbar = true,
+              winblend = 0,
+            },
+            draw = function(opts)
+              local win = opts.window:get_win()
+              if win then
+                vim.wo[win].conceallevel = 2
+              end
+              opts.default_implementation()
+            end,
+            treesitter_highlighting = true,
+          },
+          list = {
+            selection = {
+              auto_insert = false,
+            },
+          },
+          ghost_text = {
+            enabled = false,
+          },
         },
-      },
-      documentation = {
-        auto_show = false,
-        window = {
-          border = "single",
-          scrollbar = true,
-          winblend = 0,
+
+        sources = {
+          default = { "lsp", "path", "snippets", "buffer" },
         },
-        draw = function(opts)
-          local win = opts.window:get_win()
-          if win then
-            vim.wo[win].conceallevel = 2
-          end
-          opts.default_implementation()
-        end,
-        treesitter_highlighting = true,
-      },
-      list = {
-        selection = {
-          auto_insert = false,
+
+        fuzzy = {
+          implementation = "prefer_rust_with_warning",
         },
-      },
-      ghost_text = {
-        enabled = false,
-      },
-    },
 
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
-
-    fuzzy = {
-      implementation = "prefer_rust_with_warning",
-    },
-
-    signature = {
-      enabled = true,
-      window = {
-        border = "single",
-        winblend = 0,
-        show_documentation = false,
-      },
-    },
-  },
-  opts_extend = { "sources.default" },
+        signature = {
+          enabled = true,
+          window = {
+            border = border,
+            winblend = 0,
+            show_documentation = false,
+          },
+        },
+    })
+  end,
 }
