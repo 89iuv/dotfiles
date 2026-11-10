@@ -62,9 +62,9 @@ return {
         position = "left",
         auto_expand_width = false,
         mappings = {
+          ["<space>"] = "none",
           ["h"] = "close_node",
           ["l"] = "open",
-          ["<space>"] = "none",
           ["<leader>ff"] = {
             ---@diagnostic disable-next-line: assign-type-mismatch
             function(state)
@@ -79,6 +79,22 @@ return {
             end,
             desc = "Live Grep (Current Node)",
           },
+          ["Y"] = "none",
+          ["Ya"] = function(state)
+            ---@diagnostic disable-next-line: undefined-field
+            local node = state.tree:get_node()
+            local absolute_path = node:get_id()
+            vim.fn.setreg("+", absolute_path)
+            vim.notify("Copied absolute path: " .. absolute_path)
+          end,
+          ["Yr"] = function(state)
+            ---@diagnostic disable-next-line: undefined-field
+            local node = state.tree:get_node()
+            local absolute_path = node:get_id()
+            local relative_path = vim.fn.fnamemodify(absolute_path, ":.")
+            vim.fn.setreg("+", relative_path)
+            vim.notify("Copied relative path: " .. relative_path)
+          end,
         },
       },
       filesystem = {
