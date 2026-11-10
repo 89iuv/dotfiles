@@ -45,10 +45,6 @@ return {
     { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
 
-    -- notifier
-    -- { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
-    -- { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-
     -- words
     { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
@@ -111,16 +107,16 @@ return {
         layouts = {
           default = {
             layout = {
-              width = 0.9,
-              height = 0.9,
+              width = 0.8,
+              height = 0.8,
               min_width = 100,
             },
           },
           vertical = {
             layout = {
               backdrop = 60,
-              width = 0.9,
-              height = 0.9,
+              width = 0.8,
+              height = 0.8,
               min_width = 60,
               min_height = 10,
               box = "vertical",
@@ -149,11 +145,11 @@ return {
         previewers = {
           diff = {
             style = "terminal",
-            cmd = { "delta", "--file-style=omit" },
-          },
-          -- needed for git status
-          git = {
-            args = { "-c", "delta.file-style=omit" },
+            cmd = {
+              "delta",
+              "--file-style=omit",
+              "--hunk-header-style=omit",
+            },
           },
         },
         actions = {
@@ -237,29 +233,5 @@ return {
         vim.opt_local.foldcolumn = "0"
       end,
     })
-
-    -- notifier
-    -- ---@diagnostic disable-next-line: duplicate-set-field
-    -- vim.notify = function(msg, level, opts)
-    --   if opts and opts.title == "Trouble" then
-    --     opts.replace = nil
-    --   end
-    --   return Snacks.notifier.notify(msg, level, opts)
-    -- end
-
-    -- vim.api.nvim_create_autocmd("LspProgress", {
-    --   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
-    --   callback = function(ev)
-    --     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    --     vim.notify(vim.lsp.status(), "info", {
-    --       id = "lsp_progress",
-    --       title = "LSP Progress",
-    --       opts = function(notif)
-    --         notif.icon = ev.data.params.value.kind == "end" and " "
-    --           or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-    --       end,
-    --     })
-    --   end,
-    -- })
   end,
 }
