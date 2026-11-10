@@ -104,22 +104,22 @@ git config set --global include.path "$HOME/.dotfiles/catppuccin/delta/catppucci
 
 git config set --global delta.features catppuccin-macchiato
 git config set --global delta.true-colors "always"
+git config set --global delta.commit-decoration-style "bold"
+git config set --global delta.navigate true
 git config set --global delta.line-numbers true
 
-git config set --global delta.commit-decoration-style "bold"
+git config set --global delta.file-style "#a5adcb"
+git config set --global delta.file-decoration-style "ol ul #939ab7"
 
-git config set --global delta.file-style "#b7bdf8"
-git config set --global delta.file-decoration-style "ul #b7bdf8"
-
-git config set --global delta.hunk-header-style omit
-git config set --global delta.hunk-header-decoration-style "ul #6e738d"
+git config set --global delta.hunk-header-style "syntax"
+git config set --global delta.hunk-header-decoration-style "ol ul #8aadf4"
 
 git config set --global diff.colorMoved default
 git config set --global merge.conflictstyle zdiff3
 git config set --global interactive.diffFilter "delta --color-only"
 
-git config set --global alias.diff-unified "-c delta.hunk-header-style=auto -c delta.line-numbers=false diff"
-git config set --global alias.diff-compare "-c delta.hunk-header-style=omit -c delta.side-by-side=true diff"
+git config set --global alias.diff-side-by-side "-c delta.side-by-side=true diff"
+git config set --global alias.diff-line-by-line "-c delta.side-by-side=false diff"
 
 # tmux
 sudo dnf -y install tmux
