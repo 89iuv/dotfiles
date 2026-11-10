@@ -26,13 +26,6 @@ return {
     -- Close buffers
     { "<leader>bq", function() Snacks.bufdelete() end, desc = "Close Buffer" },
     { "<leader>bQ", function() Snacks.bufdelete({force = true}) end, desc = "Force Close Buffer" },
-    { "<leader>bX",
-      function()
-        Snacks.bufdelete.delete({ force = true })
-        vim.cmd('close')
-      end,
-      desc = "Force Close Buffer and Window"
-    },
     { "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close Other Buffers" },
     { "<leader>bl", "<Cmd>BufferCloseBuffersLeft<CR>", desc = "Close Buffers to the Left" },
     { "<leader>br", "<Cmd>BufferCloseBuffersRight<CR>", desc = "Close Buffers to the Right" },

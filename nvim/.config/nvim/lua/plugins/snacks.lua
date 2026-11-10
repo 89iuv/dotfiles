@@ -57,6 +57,14 @@ return {
     { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
     { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
 
+    -- window
+    { "<leader>wQ",
+      function()
+        Snacks.bufdelete.delete({ force = true })
+        vim.cmd('close')
+      end,
+      desc = "Force Close Window and Buffer"
+    },
   },
   config = function()
     require("snacks").setup({
@@ -97,24 +105,31 @@ return {
         ui_select = true,
         layout = {
           preset = function()
-            return vim.o.columns >= 120 and "default" or "vertical"
+            return vim.o.columns >= 140 and "default" or "vertical"
           end,
         },
         layouts = {
           default = {
             layout = {
-              width = 0.8,
-              height = 0.8,
+              width = 0.9,
+              height = 0.9,
               min_width = 100,
             },
           },
           vertical = {
             layout = {
               backdrop = 60,
-              width = 0.8,
-              height = 0.8,
-              min_width = 80,
+              width = 0.9,
+              height = 0.9,
+              min_width = 60,
               min_height = 10,
+              box = "vertical",
+              border = true,
+              title = "{title} {live} {flags}",
+              title_pos = "center",
+              { win = "input", height = 1, border = "bottom" },
+              { win = "list", border = "none" },
+              { win = "preview", title = "{preview}", height = 0.6, border = "top" },
             },
           },
         },
@@ -135,6 +150,10 @@ return {
           diff = {
             style = "terminal",
             cmd = { "delta", "--file-style=omit" },
+          },
+          -- needed for git status
+          git = {
+            args = { "-c", "delta.file-style=omit" },
           },
         },
         actions = {
