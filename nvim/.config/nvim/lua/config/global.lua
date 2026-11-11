@@ -47,6 +47,7 @@ M.languages = {
       },
     },
     conform = { lua = { "stylua" } },
+    nvim_treesitter = { "lua" }
   },
   python = {
     mason_tool_installer = { "basedpyright", "ruff" },
@@ -67,26 +68,31 @@ M.languages = {
       ruff = {},
     },
     conform = { python = { "ruff_format" } },
+    nvim_treesitter = { "python" }
   },
   bash = {
     mason_tool_installer = { "bash-language-server", "shellcheck", "shfmt" },
     nvim_lspconfig = { bashls = {} },
+    nvim_treesitter = { "bash", "diff" }
   },
   markdown = {
     mason_tool_installer = { "marksman", "markdownlint-cli2", "markdown-toc", "prettier" },
     nvim_lspconfig = { marksman = {} },
     nvim_lint = { markdown = { "markdownlint-cli2" } },
     conform = { markdown = { "prettier", "markdownlint-cli2", "markdown-toc" } },
+    nvim_treesitter = { "markdown", "markdown_inline" }
   },
   docker = {
     mason_tool_installer = { "dockerfile-language-server", "hadolint", "dockerfmt" },
     nvim_lspconfig = { dockerls = {} },
     nvim_lint = { dockerfile = { "hadolint" } },
     conform = { dockerfile = { "dockerfmt" } },
+    nvim_treesitter = { "dockerfile" }
   },
   toml = {
     mason_tool_installer = { "taplo" },
     nvim_lspconfig = { taplo = {} },
+    nvim_treesitter = { "toml" }
   },
   json = {
     mason_tool_installer = { "json-lsp" },
@@ -95,12 +101,14 @@ M.languages = {
       json = { "prettier" },
       jsonc = { "prettier" },
     },
+    nvim_treesitter = { "json" }
   },
   yaml = {
     mason_tool_installer = { "yaml-language-server", "yamllint" },
     nvim_lspconfig = { yamlls = {} },
     nvim_lint = { yaml = { "yamllint" } },
     conform = { yaml = { "prettier" } },
+    nvim_treesitter = { "yaml" }
   },
 }
 

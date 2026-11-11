@@ -3,22 +3,17 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").install({
-      "bash",
-      "diff",
+    local languages = require("config.global").languages
 
-      "xml",
-      "json",
-      "yaml",
-      "toml",
+    local install = {}
+    for _, plugins in pairs(languages) do
+      local nvim_treesitter = plugins.nvim_treesitter ~= nil and plugins.nvim_treesitter or {}
+      for _, parser in ipairs(nvim_treesitter) do
+        table.insert(install, parser)
+      end
+    end
 
-      "markdown",
-      "markdown_inline",
-
-      "html",
-      "javascript",
-      "typescript",
-    })
+    require("nvim-treesitter").install(install)
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(args)
