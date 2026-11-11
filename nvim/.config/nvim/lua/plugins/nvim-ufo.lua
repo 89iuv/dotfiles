@@ -18,6 +18,10 @@ return {
     })
   end,
   opts = {
+    open_fold_hl_timeout = 350,
+    provider_selector = function(_, _, _)
+      return { "treesitter", "indent" }
+    end,
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
       local suffix = (" ...  %d lines "):format(endLnum - lnum)
@@ -52,6 +56,5 @@ return {
 
       return newVirtText
     end,
-    open_fold_hl_timeout = 350,
   },
 }
