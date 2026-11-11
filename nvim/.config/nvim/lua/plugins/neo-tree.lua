@@ -80,6 +80,13 @@ return {
             desc = "Live Grep (Current Node)",
           },
           ["Y"] = "none",
+          ["Yf"] = function(state)
+            ---@diagnostic disable-next-line: undefined-field
+            local node = state.tree:get_node()
+            local filename = node.name
+            vim.fn.setreg("+", filename)
+            vim.notify("Copied file name: " .. filename)
+          end,
           ["Ya"] = function(state)
             ---@diagnostic disable-next-line: undefined-field
             local node = state.tree:get_node()
