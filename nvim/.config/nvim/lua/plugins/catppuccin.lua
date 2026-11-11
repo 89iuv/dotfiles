@@ -33,7 +33,6 @@ return {
       term_colors = false,
       auto_integrations = true,
       integrations = {
-        dashboard = true,
         lualine = {
           all = function(colors)
             return {
