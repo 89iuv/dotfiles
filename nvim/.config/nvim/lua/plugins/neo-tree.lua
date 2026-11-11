@@ -152,6 +152,27 @@ return {
         },
       },
       event_handlers = {
+        -- replace no name buffer
+        {
+          event = "file_opened",
+          handler = function()
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+              if
+                vim.bo[buf].buflisted
+                and vim.api.nvim_buf_get_name(buf) == ""
+                and vim.bo[buf].buftype == ""
+                and not vim.bo[buf].modified
+                and vim.fn.bufwinid(buf) == -1 -- not shown in any window
+                and (
+                  not vim.api.nvim_buf_is_loaded(buf)
+                  or vim.api.nvim_buf_line_count(buf) == 1 and vim.api.nvim_buf_get_lines(buf, 0, -1, false)[1] == ""
+                )
+              then
+                vim.api.nvim_buf_delete(buf, {})
+              end
+            end
+          end,
+        },
         -- rember window size
         {
           event = "neo_tree_window_after_open",
