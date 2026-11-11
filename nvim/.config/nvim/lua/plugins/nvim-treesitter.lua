@@ -3,7 +3,7 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").install {
+    require("nvim-treesitter").install({
       "bash",
       "diff",
 
@@ -17,7 +17,13 @@ return {
 
       "html",
       "javascript",
-      "typescript"
-    }
-  end
+      "typescript",
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
+    })
+  end,
 }
