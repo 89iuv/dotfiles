@@ -79,22 +79,23 @@ return {
             end,
             desc = "Live Grep (Current Node)",
           },
-          ["Y"] = "none",
-          ["Yf"] = function(state)
+          ["y"] = "none",
+          ["yy"] = "copy_to_clipboard",
+          ["yf"] = function(state)
             ---@diagnostic disable-next-line: undefined-field
             local node = state.tree:get_node()
             local filename = node.name
             vim.fn.setreg("+", filename)
             vim.notify("Copied file name: " .. filename)
           end,
-          ["Ya"] = function(state)
+          ["ya"] = function(state)
             ---@diagnostic disable-next-line: undefined-field
             local node = state.tree:get_node()
             local absolute_path = node:get_id()
             vim.fn.setreg("+", absolute_path)
             vim.notify("Copied absolute path: " .. absolute_path)
           end,
-          ["Yr"] = function(state)
+          ["yr"] = function(state)
             ---@diagnostic disable-next-line: undefined-field
             local node = state.tree:get_node()
             local absolute_path = node:get_id()
