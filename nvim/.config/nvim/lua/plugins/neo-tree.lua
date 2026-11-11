@@ -79,30 +79,40 @@ return {
             end,
             desc = "Live Grep (Current Node)",
           },
-          ["y"] = "none",
-          ["yy"] = "copy_to_clipboard",
-          ["yf"] = function(state)
-            ---@diagnostic disable-next-line: undefined-field
-            local node = state.tree:get_node()
-            local filename = node.name
-            vim.fn.setreg("+", filename)
-            vim.notify("Copied file name: " .. filename)
-          end,
-          ["ya"] = function(state)
-            ---@diagnostic disable-next-line: undefined-field
-            local node = state.tree:get_node()
-            local absolute_path = node:get_id()
-            vim.fn.setreg("+", absolute_path)
-            vim.notify("Copied absolute path: " .. absolute_path)
-          end,
-          ["yr"] = function(state)
-            ---@diagnostic disable-next-line: undefined-field
-            local node = state.tree:get_node()
-            local absolute_path = node:get_id()
-            local relative_path = vim.fn.fnamemodify(absolute_path, ":.")
-            vim.fn.setreg("+", relative_path)
-            vim.notify("Copied relative path: " .. relative_path)
-          end,
+          ["<leader>yf"] = {
+            ---@diagnostic disable-next-line: assign-type-mismatch
+            function(state)
+              ---@diagnostic disable-next-line: undefined-field
+              local node = state.tree:get_node()
+              local filename = node.name
+              vim.fn.setreg("+", filename)
+              vim.notify("Copied file name: " .. filename)
+            end,
+            desc = "Copy file name",
+          },
+          ["<leader>ya"] = {
+            ---@diagnostic disable-next-line: assign-type-mismatch
+            function(state)
+              ---@diagnostic disable-next-line: undefined-field
+              local node = state.tree:get_node()
+              local absolute_path = node:get_id()
+              vim.fn.setreg("+", absolute_path)
+              vim.notify("Copied absolute path: " .. absolute_path)
+            end,
+            desc = "Copy absolute path",
+          },
+          ["<leader>yr"] = {
+            ---@diagnostic disable-next-line: assign-type-mismatch
+            function(state)
+              ---@diagnostic disable-next-line: undefined-field
+              local node = state.tree:get_node()
+              local absolute_path = node:get_id()
+              local relative_path = vim.fn.fnamemodify(absolute_path, ":.")
+              vim.fn.setreg("+", relative_path)
+              vim.notify("Copied relative path: " .. relative_path)
+            end,
+            desc = "Copy relative path",
+          },
         },
       },
       filesystem = {
