@@ -88,7 +88,7 @@ return {
             function()
               return vim.bo.filetype
             end,
-            icon = "󰅪",
+            icon = "󰦨",
             separator = "",
             padding = { left = 1, right = 1 },
           },
