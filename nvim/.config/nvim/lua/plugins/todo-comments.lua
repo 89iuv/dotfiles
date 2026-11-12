@@ -12,6 +12,10 @@ return {
   config = function()
     require("todo-comments").setup({
       signs = true,
+      highlight = {
+        keyword = "wide",
+        -- keyword = "wide_fg",
+      },
       keywords = {
         -- NOTE: test note
         NOTE = { icon = "󰌵 " },

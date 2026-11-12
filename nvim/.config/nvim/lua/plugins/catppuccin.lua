@@ -32,6 +32,15 @@ return {
       flavour = "macchiato",
       term_colors = false,
       auto_integrations = true,
+      lsp_styles = {
+         underlines = {
+            errors = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+            hints = { "underdashed" },
+            ok = { "underline" },
+        },
+      },
       integrations = {
         lualine = {
           all = function(colors)
