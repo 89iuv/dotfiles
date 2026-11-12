@@ -24,6 +24,18 @@ vim.opt.list = true
 vim.opt.listchars:append({ tab = "» ", trail = "·", nbsp = "␣" })
 vim.opt.fillchars:append({ eob = " " })
 
+-- Diff
+vim.opt.diffopt = {
+  "internal",
+  "filler",
+  "closeoff",
+  "context:3",
+  "algorithm:histogram",
+  "linematch:40",
+  "inline:word",
+}
+vim.opt.fillchars:append({ diff = " " })
+
 -- Text
 vim.opt.wrap = false
 

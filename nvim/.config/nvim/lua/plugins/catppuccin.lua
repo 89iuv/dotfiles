@@ -67,6 +67,9 @@ return {
             bg = colors_utils.darken(colors.surface0, 0.25, colors.base),
           },
 
+          DiffChange = { bg = colors_utils.darken(colors.blue, 0.18, colors.base) },
+          DiffText = { bg = colors_utils.darken(colors.blue, 0.35, colors.base) },
+
           -- neotree
           NeoTreeWinSeparator = { link = "WinSeparator" },
           NeoTreeIndentMarker = { fg = colors.surface0 },
