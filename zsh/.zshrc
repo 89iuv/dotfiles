@@ -5,6 +5,13 @@ if [[ -n "$ZSH_DEBUG" ]]; then
   zmodload zsh/zprof
 fi
 
+# run fastfetch in tmux once per session
+if [[ -n $TMUX && -z $(tmux show -qv @fetched) ]]; then
+  tmux set -q @fetched 1
+  clear
+  command -v fastfetch >/dev/null && fastfetch
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
