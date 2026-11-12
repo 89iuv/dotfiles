@@ -4,6 +4,7 @@ M.exclude = {
   filetypes = {
     "neo-tree",
     "snacks_dashboard",
+    "snacks_input",
     "snacks_picker_preview",
     "markdown.snacks_picker_preview",
   },

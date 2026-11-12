@@ -2,13 +2,14 @@ return {
   "RRethy/vim-illuminate",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
+    local exclude_ft = require("config.global").exclude.filetypes
     require("illuminate").configure({
       delay = 100,
       large_file_cutoff = 2000,
       large_file_overrides = {
         providers = { "lsp", "treesitter", "regex" },
       },
-      filetypes_denylist = vim.g.special_filetypes,
+      filetypes_denylist = exclude_ft,
       modes_allowlist = { "n" },
     })
 

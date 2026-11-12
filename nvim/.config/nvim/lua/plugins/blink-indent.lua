@@ -14,7 +14,11 @@ return {
 
     require("blink-indent").setup({
       blocked = blocked,
-      dedent_scoped_filetypes = { include_defaults = true, "dockerfile" },
+      dedent_scoped_filetypes = {
+        include_defaults = true,
+        "dockerfile",
+        "gitconfig",
+      },
       static = {
         enabled = true,
         char = "│",

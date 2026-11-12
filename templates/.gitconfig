@@ -1,0 +1,58 @@
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+
+[push]
+	autoSetupRemote = true
+
+[core]
+	pager = delta
+
+[include]
+	path = /home/valiuv/.dotfiles/catppuccin/delta/catppuccin.gitconfig
+
+[delta]
+	features = catppuccin-macchiato
+	true-colors = always
+	commit-decoration-style = bold
+
+    navigate = true
+	line-numbers = true
+
+	file-style = "#a5adcb #363a4f"
+	file-decoration-style = "omit"
+
+    hunk-header-style = "syntax #333A55"
+	hunk-header-decoration-style = "omit"
+
+[diff]
+	colorMoved = default
+
+[merge]
+	conflictstyle = zdiff3
+	autoStash = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[alias]
+    diff-side-by-side = "!git \
+      -c delta.side-by-side=true \
+      -c delta.file-style='#a5adcb' \
+      -c delta.file-decoration-style='ol ul #939ab7' \
+      -c delta.hunk-header-style='syntax'\
+      -c delta.hunk-header-decoration-style='ol ul #8aadf4' \
+      diff"
+	diff-line-by-line = "!git \
+      -c delta.side-by-side=false \
+      -c delta.file-style='#a5adcb' \
+      -c delta.file-decoration-style='ol ul #939ab7' \
+      -c delta.hunk-header-style='syntax'\
+      -c delta.hunk-header-decoration-style='ol ul #8aadf4' \
+      diff"
+
