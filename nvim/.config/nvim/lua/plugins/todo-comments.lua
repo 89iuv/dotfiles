@@ -13,8 +13,8 @@ return {
     require("todo-comments").setup({
       signs = true,
       highlight = {
-        keyword = "wide",
-        -- keyword = "wide_fg",
+        -- keyword = "wide",
+        keyword = "wide_fg",
       },
       keywords = {
         -- NOTE: test note

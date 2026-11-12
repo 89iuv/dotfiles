@@ -58,8 +58,7 @@ return {
 
       custom_highlights = function(colors)
         local colors_utils = require("catppuccin.utils.colors")
-        -- local barbar_background = require("catppuccin.utils.colors").darken(colors.mantle, 0.5, colors.crust)
-        local barbar_background = colors.mantle
+        local barbar_background = require("catppuccin.utils.colors").darken(colors.mantle, 0.5, colors.crust)
 
         return {
           -- neovim
