@@ -28,19 +28,6 @@ return {
       vim.g["terminal_color_" .. (i - 1)] = color
     end
 
-    -- overwrite diagnostics highlights
-    vim.api.nvim_create_autocmd("ColorScheme", {
-      callback = function()
-        for _, name in ipairs({ "Error", "Warn", "Info", "Hint" }) do
-          local group = "Diagnostic" .. name
-          local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
-          hl.italic = nil
-          ---@diagnostic disable-next-line: param-type-mismatch
-          vim.api.nvim_set_hl(0, group, hl)
-        end
-      end,
-    })
-
     require("catppuccin").setup({
       flavour = "macchiato",
       term_colors = false,
@@ -90,6 +77,12 @@ return {
 
           DiffChange = { bg = colors_utils.darken(colors.blue, 0.18, colors.base) },
           DiffText = { bg = colors_utils.darken(colors.blue, 0.35, colors.base) },
+
+          DiagnosticError = { style = {} },
+          DiagnosticWarn = { style = {} },
+          DiagnosticInfo = { style = {} },
+          DiagnosticHint = { style = {} },
+          DiagnosticOk = { style = {} },
 
           -- neotree
           NeoTreeWinSeparator = { link = "WinSeparator" },
