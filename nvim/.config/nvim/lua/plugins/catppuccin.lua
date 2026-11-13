@@ -28,17 +28,30 @@ return {
       vim.g["terminal_color_" .. (i - 1)] = color
     end
 
+    -- overwrite diagnostics highlights
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = function()
+        for _, name in ipairs({ "Error", "Warn", "Info", "Hint" }) do
+          local group = "Diagnostic" .. name
+          local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+          hl.italic = nil
+          ---@diagnostic disable-next-line: param-type-mismatch
+          vim.api.nvim_set_hl(0, group, hl)
+        end
+      end,
+    })
+
     require("catppuccin").setup({
       flavour = "macchiato",
       term_colors = false,
       auto_integrations = true,
       lsp_styles = {
-         underlines = {
-            errors = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-            hints = { "underdashed" },
-            ok = { "underline" },
+        underlines = {
+          errors = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+          hints = { "underdashed" },
+          ok = { "underline" },
         },
       },
       integrations = {
