@@ -15,7 +15,7 @@ return {
   config = function()
     local border = require("config.global").border
 
-    local window_width = 40
+    local window_width = 45
 
     local run_in_directory = function(state_tree_node, fzf_picker_function)
       if state_tree_node.type == "directory" then

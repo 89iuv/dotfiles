@@ -103,17 +103,18 @@ return {
         layouts = {
           default = {
             layout = {
-              width = 0.8,
-              height = 0.8,
-              min_width = 100,
+              width = 0.85,
+              min_width = 80,
+              height = 0.80,
+              min_height = 10,
             },
           },
           vertical = {
             layout = {
               backdrop = 60,
-              width = 0.8,
-              height = 0.8,
-              min_width = 60,
+              width = 0.85,
+              min_width = 40,
+              height = 0.80,
               min_height = 10,
               box = "vertical",
               border = true,
